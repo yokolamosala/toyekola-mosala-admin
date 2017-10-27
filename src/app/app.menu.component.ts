@@ -160,11 +160,9 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-        /*this.layoutMenuScroller = <HTMLDivElement> this.layoutMenuScrollerViewChild.nativeElement;
-
         setTimeout(() => {
-            jQuery(this.layoutMenuScroller).nanoScroller({flash: true});
-        }, 10);*/
+            jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller({flash: true});
+        }, 10);
     }
 
     changeTheme(theme) {
@@ -178,12 +176,22 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
     updateNanoScroll() {
         setTimeout(() => {
-            jQuery(this.layoutMenuScroller).nanoScroller();
+            jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller();
         }, 500);
+    }
+    
+    onMenuClick() {
+        if(!this.app.isHorizontal()) {
+            setTimeout(() => {
+                jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller();
+            }, 500);
+        }
+        
+        this.app.onMenuClick();
     }
 
     ngOnDestroy() {
-        // jQuery(this.layoutMenuScroller).nanoScroller({flash: true});
+        jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller({flash: true});
     }
 }
 
