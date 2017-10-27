@@ -61,6 +61,9 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                         items: [
                             {label: 'Cosmic', icon: 'fa fa-fw fa-paint-brush',
                               command: (event) => {this.changeLayout('cosmic'); }},
+                            {label: 'Lawrencium', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('lawrencium'); }},
+                            {label: 'Couple', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('couple'); }},
+                            {label: 'Stellar', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('stellar'); }},
                             {label: 'Beach', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('beach'); }},
                             {label: 'Flow', icon: 'fa fa-fw fa-paint-brush',
                               command: (event) => {this.changeLayout('flow'); }},
@@ -211,7 +214,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                 </a>
 
                 <a (click)="itemClick($event,child,i)" *ngIf="child.routerLink"
-                    [routerLink]="child.routerLink" routerLinkActive="active-menuitem-routerlink" 
+                    [routerLink]="child.routerLink" routerLinkActive="active-menuitem-routerlink"
                     [routerLinkActiveOptions]="{exact: true}" [attr.tabindex]="!visible ? '-1' : null" [attr.target]="child.target"
                     (mouseenter)="onMouseEnter(i)">
                     <i [ngClass]="child.icon"></i>

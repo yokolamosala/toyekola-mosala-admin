@@ -8,7 +8,7 @@ export class AppComponent {
     
     public menuMode: string = 'static';
     
-    public menuActive: boolean = false;
+    public menuActive: boolean = true;
     
     public topbarMenuActive: boolean = false;
   
@@ -44,7 +44,7 @@ export class AppComponent {
         if(this.activeTopbarItem === item)
             this.activeTopbarItem = null;
         else
-            this.activeTopbarItem = item; 
+            this.activeTopbarItem = item;
       
         event.preventDefault();
     }
