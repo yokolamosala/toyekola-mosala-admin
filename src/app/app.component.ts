@@ -23,6 +23,8 @@ export class AppComponent {
     topbarMenuButtonClick: boolean;
     
     resetMenu: boolean;
+    
+    menuHoverActive: boolean;
 
     onMenuButtonClick(event: Event) {
         this.menuButtonClick = true;
@@ -60,6 +62,8 @@ export class AppComponent {
             if(this.isMobile() || this.menuMode === 'overlay' || this.menuMode === 'popup') {
                 this.menuActive = false;
             }
+            
+            this.menuHoverActive = false;
         }
         
         if(!this.topbarMenuButtonClick && !this.topbarMenuClick) {
@@ -79,5 +83,9 @@ export class AppComponent {
     
     isMobile() {
         return window.innerWidth < 1025;
+    }
+    
+    isHorizontal() {
+        return this.menuMode === 'horizontal';
     }
 }
