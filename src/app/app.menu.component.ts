@@ -37,22 +37,54 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                             {label: 'Overlay', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'overlay' },
                             {label: 'Popup', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'popup' }
                         ]
+                    },
+                    {
+                        label: 'Layout Colors', icon: 'fa fa-fw fa-magic',
+                        items: [
+                            {
+                                label: 'Flat',
+                                icon: 'fa fa-fw fa-circle',
+                                items: [
+                                    {label: 'Dark', icon: 'fa fa-fw fa-paint-brush',
+                                      command: (event) => {this.changeLayout('dark'); }},
+                                    {label: 'Turquoise', icon: 'fa fa-fw fa-paint-brush',
+                                      command: (event) => {this.changeLayout('turquoise'); }},
+                                    {label: 'Green', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('green'); }},
+                                    {label: 'Blue', icon: 'fa fa-fw fa-paint-brush',
+                                      command: (event) => {this.changeLayout('blue'); }},
+                                    {label: 'Rose', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('rose'); }},
+                                    {label: 'Teal', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('teal'); }},
+                                    {label: 'Blue Grey', icon: 'fa fa-fw fa-paint-brush',
+                                      command: (event) => {this.changeLayout('bluegrey'); }}
+                                ]
+                            },
+                            {
+                                label: 'Special',
+                                icon: 'fa fa-fw fa-fire',
+                                items: [
+                                    {label: 'Cosmic', icon: 'fa fa-fw fa-paint-brush',
+                                      command: (event) => {this.changeLayout('cosmic'); }},
+                                    {label: 'Beach', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('beach'); }},
+                                    {label: 'Flow', icon: 'fa fa-fw fa-paint-brush',
+                                      command: (event) => {this.changeLayout('flow'); }},
+                                    {label: 'Fly', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('fly'); }},
+                                    {label: 'Nepal', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('nepal'); }}
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        label: 'Themes', icon: 'fa fa-fw fa-paint-brush',
+                        items: [
+                            {label: 'Green Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('green'); }},
+                            {label: 'Teal Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('teal'); }},
+                            {label: 'Blue Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('blue'); }},
+                            {label: 'Amber Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('amber'); }},
+                            {label: 'Purple Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('purple'); }},
+                            {label: 'Turquoise Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('turquoise'); }},
+                            {label: 'Blue Grey Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('bluegrey'); }},
+                        ]
                     }
-                ]
-            },
-            {
-                label: 'THEMES', icon: 'fa fa-fw fa-paint-brush',
-                items: [
-                    {label: 'Blue - Pink', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('blue'); }},
-                    {label: 'Teal - Red', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('teal'); }},
-                    {label: 'Blue - Orange', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('nightblue'); }},
-                    {label: 'Grey - Green', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('grey'); }},
-                    {label: 'Blue Grey - Green', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('bluegrey'); }},
-                    {label: 'Amber - Purple', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('amber'); }},
-                    {label: 'Dark Blue - Turquoise', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('darkblue'); }},
-                    {label: 'Turquoise - Red', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('turquoise'); }},
-                    {label: 'Purple - Pink', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('purple'); }},
-                    {label: 'Pink - Purple', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('pink'); }}
                 ]
             },
             {
@@ -143,8 +175,10 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
     changeTheme(theme) {
         const themeLink: HTMLLinkElement = <HTMLLinkElement> document.getElementById('theme-css');
         themeLink.href = 'assets/theme/theme-' + theme + '.css';
+    }
+    changeLayout(layout) {
         const layoutLink: HTMLLinkElement = <HTMLLinkElement> document.getElementById('layout-css');
-        layoutLink.href = 'assets/layout/css/layout-' + theme + '.css';
+        layoutLink.href = 'assets/layout/css/layout-' + layout + '.css';
     }
 
     updateNanoScroll() {
@@ -154,7 +188,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        //jQuery(this.layoutMenuScroller).nanoScroller({flash: true});
+        // jQuery(this.layoutMenuScroller).nanoScroller({flash: true});
     }
 }
 

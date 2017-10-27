@@ -9,7 +9,7 @@ body {
         background-color: $contentBgColor;
         border: 1px solid $contentBorderColor;
     }
-    
+
     .ui-widget-header {
         background-color: $headerBgColor;
         color: $headerTextColor;
@@ -17,26 +17,27 @@ body {
         font-weight: bold;
     }
 
-    .ui-state-active, .ui-state-highlight {
-        background-color: $highlightBgColor;
-        color: $primaryTextColor;
+    .ui-state-active, :not(.ui-multiselect-item).ui-state-highlight {
+        background-color: $primaryColor;
+        color: $highlightTextColor;
     }
-    
+
     .ui-state-error, .ui-state-default.ui-state-error {
-        border: solid 1px red;
+        background-color: $errorMessageBgColor;
+        border: solid 1px $errorMessageBorderColor;
     }
-    
+
     .ui-icon {
         width: $iconWidth;
     }
 
     .ui-state-disabled,
     .ui-widget:disabled {
-        opacity: .35; 
-        filter: Alpha(Opacity= 35); 
-        background-image: none; 
+        opacity: .35;
+        filter: Alpha(Opacity= 35);
+        background-image: none;
         cursor: default !important;
-        
+
         * {
             cursor: default !important;
         }
@@ -66,11 +67,11 @@ body {
         background-color: #424242;
         @include opacity(.7);
     }
-    
+
     a {
         color: darken($primaryColor,10%);
         text-decoration: none;
-        
+
         &:hover {
             color: darken($primaryColor,10%);
         }

@@ -79,9 +79,9 @@ export class FormsDemoComponent implements OnInit {
         this.citiesListbox = this.cities.slice(1);
 
         this.types = [];
-        this.types.push({label: 'Apartment', value: 'Apartment'});
-        this.types.push({label: 'House', value: 'House'});
-        this.types.push({label: 'Studio', value: 'Studio'});
+        this.types.push({label: 'Xbox One', value: 'Xbox One'});
+        this.types.push({label: 'PS4', value: 'PS4'});
+        this.types.push({label: 'Wii U', value: 'Wii U'});
 
         this.splitButtonItems = [
             {label: 'Update', icon: 'fa-refresh'},

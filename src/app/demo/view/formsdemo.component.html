@@ -11,16 +11,16 @@
                     <input type="text" pInputText placeholder="Email">
                 </div>
                 <div class="ui-g-12 ui-md-4">
-                    <input type="text" pInputText placeholder="Phone">
+                    <input type="text" pInputText class="ui-ef" placeholder="Enhanced Focus">
                 </div>
                 <div class="ui-g-12 ui-md-4">
                     <input type="text" pInputText placeholder="Disabled" disabled="disabled">
                 </div>
                 <div class="ui-g-12 ui-md-4">
-                    <input type="text" pInputText class="ng-dirty ng-invalid" placeholder="Invalid">
+                  <input type="text" pInputText readonly="readonly" placeholder="Readonly">
                 </div>
                 <div class="ui-g-12 ui-md-4">
-                    <input type="text" pInputText>
+                    <input type="text" pInputText class="ui-state-error" placeholder="Invalid">
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="ui-g-12" style="margin-bottom:10px">
                     <p-autoComplete id="acSimple" [(ngModel)]="country" [suggestions]="filteredCountries" (completeMethod)="filterCountry($event)" field="name" [size]="30"
-                        placeholder="Countries" [minLength]="1"></p-autoComplete>
+                                    [minLength]="1"></p-autoComplete>
                 </div>
 
                 <div class="ui-g-12">
@@ -46,7 +46,7 @@
                 </div>
                 <div class="ui-g-12">
                     <p-autoComplete id="acAdvanced" [(ngModel)]="selectedBrands" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="30"
-                        [minLength]="1" placeholder="Hint: type 'v' or 'f'" [dropdown]="true" (onDropdownClick)="handleACDropdownClick()" multiple="true">
+                        [minLength]="1" [dropdown]="true" (onDropdownClick)="handleACDropdownClick()" multiple="true">
                         <ng-template let-brand pTemplate="item">
                             <div class="ui-helper-clearfix">
                                 <img src="assets/demo/images/car/{{brand}}.gif" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
@@ -69,16 +69,28 @@
 
             <div class="ui-g form-group" style="margin-top:20px">
                 <div class="ui-g-12">
-                    <p-calendar id="popup" placeholder="Popup"></p-calendar>
+                    <label for="popup" >Popup:</label>
                 </div>
                 <div class="ui-g-12">
-                    <p-calendar id="datetime" dateFormat="mm/dd/yy" showTime="true" placeholder="DateTime"></p-calendar>
+                    <p-calendar id="popup" ></p-calendar>
                 </div>
                 <div class="ui-g-12">
-                    <p-calendar id="time" showTime="true" [timeOnly]="true" placeholder="Time"></p-calendar>
+                  <label for="datetime" >DateTime:</label>
                 </div>
                 <div class="ui-g-12">
-                    <p-calendar id="showIcon" [showIcon]="true" placeholder="Button"></p-calendar>
+                    <p-calendar id="datetime" dateFormat="mm/dd/yy" showTime="true"></p-calendar>
+                </div>
+                <div class="ui-g-12">
+                  <label for="time" >Time:</label>
+                </div>
+                <div class="ui-g-12">
+                    <p-calendar id="time" showTime="true" [timeOnly]="true"></p-calendar>
+                </div>
+                <div class="ui-g-12">
+                  <label for="showIcon" >Button:</label>
+                </div>
+                <div class="ui-g-12">
+                    <p-calendar id="showIcon" [showIcon]="true"></p-calendar>
                 </div>
             </div>
         </div>
@@ -94,18 +106,18 @@
         <div class="card card-w-title">
             <h1>Checkboxes</h1>
             <div class="ui-g">
-                <div class="ui-g-12 ui-md-4"><p-checkbox name="cg" value="Ultima" label="Ultima" [(ngModel)]="checkboxValues"></p-checkbox></div>
-                <div class="ui-g-12 ui-md-4"><p-checkbox name="cg" value="Icarus" label="Icarus" [(ngModel)]="checkboxValues"></p-checkbox></div>
-                <div class="ui-g-12 ui-md-4"><p-checkbox name="cg" value="Omega" label="Omega" [(ngModel)]="checkboxValues"></p-checkbox></div>
+                <div class="ui-g-12 ui-md-4"><p-checkbox name="cg" value="Xbox One" label="Xbox One" [(ngModel)]="checkboxValues"></p-checkbox></div>
+                <div class="ui-g-12 ui-md-4"><p-checkbox name="cg" value="PS4" label="PS4" [(ngModel)]="checkboxValues"></p-checkbox></div>
+                <div class="ui-g-12 ui-md-4"><p-checkbox name="cg" value="Wii U" label="Wii U" [(ngModel)]="checkboxValues"></p-checkbox></div>
             </div>
         </div>
 
         <div class="card card-w-title">
             <h1>RadioButtons</h1>
             <div class="ui-g">
-                <div class="ui-g-12 ui-md-4"><p-radioButton name="rg" value="Ultima" label="Ultima" [(ngModel)]="radioValue"></p-radioButton></div>
-                <div class="ui-g-12 ui-md-4"><p-radioButton name="rg" value="Icarus" label="Icarus" [(ngModel)]="radioValue"></p-radioButton></div>
-                <div class="ui-g-12 ui-md-4"><p-radioButton name="rg" value="Omega" label="Omega" [(ngModel)]="radioValue"></p-radioButton></div>
+                <div class="ui-g-12 ui-md-4"><p-radioButton name="rg" value="Xbox One" label="Xbox One" [(ngModel)]="radioValue"></p-radioButton></div>
+                <div class="ui-g-12 ui-md-4"><p-radioButton name="rg" value="PS4" label="PS4" [(ngModel)]="radioValue"></p-radioButton></div>
+                <div class="ui-g-12 ui-md-4"><p-radioButton name="rg" value="Wii U" label="Wii U" [(ngModel)]="radioValue"></p-radioButton></div>
             </div>
         </div>
 
@@ -158,7 +170,7 @@
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-inputgroup">
                         <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" pInputText placeholder="Username">
+                        <input type="text" pInputText placeholder="Username" style="border-left:0">
                     </div>
                 </div>
 
@@ -166,7 +178,7 @@
                     <div class="ui-inputgroup">
                         <span class="ui-inputgroup-addon"><i class="fa fa-credit-card"></i></span>
                         <span class="ui-inputgroup-addon"><i class="fa fa-cc-visa"></i></span>
-                        <input type="text" pInputText placeholder="Price">
+                        <input type="text" pInputText placeholder="Price" style="border-left:0;border-right:0">
                         <span class="ui-inputgroup-addon">$</span>
                         <span class="ui-inputgroup-addon">.00</span>
                     </div>
@@ -175,14 +187,14 @@
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-inputgroup">
                         <button pButton type="button" label="Search"></button>
-                        <input type="text" pInputText placeholder="Keyword">
+                        <input type="text" pInputText placeholder="Keyword" style="border-left:0">
                     </div>
                 </div>
 
                 <div class="ui-g-12 ui-md-6">
                     <div class="ui-inputgroup">
                         <span class="ui-inputgroup-addon ui-inputgroup-addon-checkbox"><p-checkbox></p-checkbox></span>
-                        <input type="text" pInputText placeholder="Username">
+                        <input type="text" pInputText placeholder="Username" style="border-left:0">
                     </div>
                 </div>
             </div>
@@ -219,17 +231,17 @@
 
                     <div class="ui-g-12">Left Icon</div>
                     <div class="ui-g-12">
-                        <button type="button" label="Clear" pButton icon="fa-check"></button>
+                        <button type="button" label="Clear" pButton icon="fa-star"></button>
                     </div>
 
                     <div class="ui-g-12">Right Icon</div>
                     <div class="ui-g-12">
-                        <button type="button" label="Clear" pButton icon="fa-close" iconPos="right"></button>
+                        <button type="button" label="Clear" pButton icon="fa-star" iconPos="right"></button>
                     </div>
 
                     <div class="ui-g-12">Icon Only</div>
                     <div class="ui-g-12">
-                        <button type="button" icon="fa-plus" pButton></button>
+                        <button type="button" icon="fa-star" pButton></button>
                     </div>
 
                     <div class="ui-g-12">Link</div>
@@ -237,7 +249,7 @@
 
                     <div class="ui-g-12">SplitButton</div>
                     <div class="ui-g-12">
-                        <p-splitButton label="Save" icon="fa-edit" [model]="splitButtonItems"></p-splitButton>
+                        <p-splitButton label="Save" icon="fa-check" [model]="splitButtonItems"></p-splitButton>
                     </div>
                 </div>
             </div>
@@ -247,7 +259,7 @@
                 <h1>Colored Buttons</h1>
                 <p>Raised and Flat buttons with various color alternatives.</p>
                 <div class="ui-g">
-                    <div class="ui-g-12 ui-md-6" style="text-align:center">
+                    <div class="ui-g-12 ui-md-4" style="text-align:center">
                         <button pButton type="button" label="Primary Button" style="margin-bottom:10px"></button>
 
                         <button pButton type="button" label="Inline Button" style="margin-bottom:10px;width:auto"></button>
@@ -262,9 +274,9 @@
 
                         <button pButton type="button" label="Green Button" style="margin-bottom:10px" class="green-btn"></button>
 
-                        <button pButton type="button" label="Red Button" style="margin-bottom:10px" class="red-btn"></button>
+                        <button pButton type="button" label="Black Button" style="margin-bottom:10px" class="black-btn"></button>
                     </div>
-                    <div class="ui-g-12 ui-md-6" style="text-align:center">
+                    <div class="ui-g-12 ui-md-4" style="text-align:center">
                         <button pButton type="button" label="Primary Button" style="margin-bottom:10px" class="raised-btn"></button>
 
                         <button pButton type="button" label="Inline Button" style="margin-bottom:10px;width:auto" class="raised-btn"></button>
@@ -279,7 +291,24 @@
 
                         <button pButton type="button" label="Green Button" style="margin-bottom:10px" class="green-btn raised-btn"></button>
 
-                        <button pButton type="button" label="Red Button" style="margin-bottom:10px" class="red-btn raised-btn"></button>
+                        <button pButton type="button" label="Black Button" style="margin-bottom:10px" class="black-btn raised-btn"></button>
+                    </div>
+                    <div class="ui-g-12 ui-md-4" style="text-align:center">
+                        <button pButton type="button" label="Primary Button" style="margin-bottom:10px" class="raised-btn rounded-btn"></button>
+
+                        <button pButton type="button" label="Inline Button" style="margin-bottom:10px;width:auto" class="raised-btn rounded-btn"></button>
+
+                        <button pButton type="button" label="Blue Button" style="margin-bottom:10px" class="blue-btn raised-btn rounded-btn"></button>
+
+                        <button pButton type="button" label="Purple Button" style="margin-bottom:10px" class="purple-btn raised-btn rounded-btn"></button>
+
+                        <button pButton type="button" label="Orange Button" style="margin-bottom:10px" class="orange-btn raised-btn rounded-btn"></button>
+
+                        <button pButton type="button" label="Pink Button" style="margin-bottom:10px" class="pink-btn raised-btn rounded-btn"></button>
+
+                        <button pButton type="button" label="Green Button" style="margin-bottom:10px" class="green-btn raised-btn rounded-btn"></button>
+
+                        <button pButton type="button" label="Black Button" style="margin-bottom:10px" class="black-btn raised-btn rounded-btn"></button>
                     </div>
                 </div>
             </div>

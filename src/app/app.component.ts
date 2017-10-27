@@ -11,6 +11,8 @@ export class AppComponent {
     public menuActive: boolean = false;
     
     public topbarMenuActive: boolean = false;
+  
+    activeTopbarItem: Element;
     
     onMenuButtonClick(event: Event) {
         this.menuActive = !this.menuActive;
@@ -20,5 +22,13 @@ export class AppComponent {
     onTopbarMenuButtonClick(event: Event) {
         this.topbarMenuActive = !this.topbarMenuActive;
         event.preventDefault();
+    }
+  
+    onTopbarItemClick(event: Event, item: Element) {
+      if (this.activeTopbarItem === item) {
+        this.activeTopbarItem = null; } else {
+        this.activeTopbarItem = item; }
+      
+      event.preventDefault();
     }
 }

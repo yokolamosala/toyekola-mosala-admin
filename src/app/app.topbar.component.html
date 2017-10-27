@@ -7,13 +7,13 @@
                 <img alt="main logo" src="assets/layout/images/logo-main.png" class="logo">
             </a>
             <div class="app-name">VERONA</div>
-            
+
             <a href="#" id="user-display" (click)="app.onTopbarMenuButtonClick($event)">
                 <span class="username">Samanta Owens</span>
                 <span class="userrole">Admin</span>
                 <img alt="main logo" src="assets/layout/images/avatar.png">
             </a>
-            
+
             <ul id="topbar-menu" class="fadeInDown animated" [ngClass]="{'topbar-menu-visible': app.topbarMenuActive}">
                 <li class="search-item">
                     <div>
@@ -21,7 +21,7 @@
                         <span class="fa fa-search"></span>
                     </div>
                 </li>
-                <li>
+                <li #profile [ngClass]="{'menuitem-active':app.activeTopbarItem === profile}" (click)="app.onTopbarItemClick($event, profile)">
                     <a href="#">
                         <i class="topbar-icon fa fa-fw fa-user"></i>
                         <span class="topbar-item-name">PROFILE</span>
@@ -53,7 +53,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li #settings [ngClass]="{'menuitem-active':app.activeTopbarItem === settings}" (click)="app.onTopbarItemClick($event, settings)">
                     <a href="#">
                         <i class="topbar-icon fa fa-fw fa-cog"></i>
                         <span class="topbar-item-name">SETTINGS</span>
@@ -87,7 +87,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li #messages [ngClass]="{'menuitem-active':app.activeTopbarItem === messages}" (click)="app.onTopbarItemClick($event, messages)">
                     <a href="#">
                         <i class="topbar-icon material-icons animated swing fa fa-fw fa-envelope-o"></i>
                         <span class="topbar-item-name">MESSAGES</span>
@@ -126,7 +126,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li #notifications [ngClass]="{'menuitem-active':app.activeTopbarItem === notifications}" (click)="app.onTopbarItemClick($event, notifications)">
                     <a href="#">
                         <i class="topbar-icon fa fa-fw fa-bell-o"></i>
                         <span class="topbar-item-name">NOTIFICATIONS</span>
@@ -161,7 +161,7 @@
                 </li>
             </ul>
         </div>
-        
+
         <app-menu></app-menu>
 
     </div>
