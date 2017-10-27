@@ -327,6 +327,11 @@ body {
                             background-color: $menuItemHoverBgColor;
                             color: $menuItemHoverTextColor;
                         }
+                        
+                        &.active-menuitem-routerlink {
+                            color: $menuItemActiveTextColor;
+                            font-weight: 700;
+                        }
                     }
 
                     &.active-menuitem {
