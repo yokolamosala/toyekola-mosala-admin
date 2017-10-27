@@ -2,7 +2,8 @@
                                         'layout-menu-popup': menuMode === 'popup',
                                         'layout-menu-overlay': menuMode === 'overlay',
                                         'layout-menu-static': menuMode === 'static',
-                                        'layout-menu-static-inactive': (menuMode == 'static' && menuActive === false)}">
+                                        'layout-menu-static-inactive': (menuMode == 'static' && menuActive === false)}"
+                                        (click)="onLayoutClick()">
     <app-topbar></app-topbar>
         
     <div class="layout-content">

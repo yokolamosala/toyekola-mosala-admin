@@ -236,21 +236,6 @@ body {
             -moz-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
             min-width: 250px;
-            -webkit-animation-duration: .5s;
-            -moz-animation-duration: .5s;
-            animation-duration: .5s;
-
-            &.layout-menu-wrapper-active {
-                display: block;
-                z-index: 1000;
-                -webkit-animation-name: fadeInDown;
-                animation-name: fadeInDown;
-            }
-
-            &.fadeOutUp {
-                -webkit-animation-name: fadeOutUp;
-                animation-name: fadeOutUp;
-            }
 
             .layout-menu {
                 > li {
@@ -440,13 +425,6 @@ body {
 
     &.layout-menu-static {
         &:not(.layout-menu-static-inactive) {
-            .layout-menu-wrapper {
-                display: block;
-                z-index: 1000;
-                -webkit-animation-name: fadeInDown;
-                animation-name: fadeInDown;
-            }
-
             .topbar {
                 #menu-button {
                     background-color: $menuButtonActiveBgColor;
@@ -519,8 +497,6 @@ body {
 
                 &.layout-menu-wrapper-active {
                     left: 0;
-                    -webkit-animation-name: none;
-                    animation-name: none;
                 }
 
                 .nano {
@@ -532,7 +508,22 @@ body {
                 }
             }
         }
-
+        
+        &.layout-menu-popup {
+            .layout-menu-wrapper {
+                -webkit-animation-duration: .5s;
+                -moz-animation-duration: .5s;
+                animation-duration: .5s;
+                
+                &.layout-menu-wrapper-active {
+                    display: block;
+                    z-index: 1000;
+                    -webkit-animation-name: fadeInDown;
+                    animation-name: fadeInDown;
+                }
+            }   
+        }
+        
         &.layout-menu-horizontal {
             .topbar {
                 height: auto;
@@ -565,12 +556,7 @@ body {
                     display: block;
                     position: static;
                     min-width: auto;
-                    -webkit-animation-duration: 0s;
-                    -moz-animation-duration: 0s;
-                    animation-duration: 0s;
                     margin: 0;
-                    -webkit-animation-name: none;
-                    animation-name: none;
 
                     .nano {
                         overflow: visible;
@@ -764,6 +750,25 @@ body {
 
             .layout-content {
                 padding-top: 117px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .layout-wrapper {
+        .topbar {
+            .layout-menu-wrapper {
+                padding-top: 15px;
+                position: fixed;
+                height: 100%;
+                left: -250px;
+                display: block;
+                transition: left 0.3s;
+
+                &.layout-menu-wrapper-active {
+                    left: 0;
+                }
             }
         }
     }

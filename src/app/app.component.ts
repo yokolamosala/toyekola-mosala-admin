@@ -14,21 +14,63 @@ export class AppComponent {
   
     activeTopbarItem: Element;
     
+    menuClick: boolean;
+    
+    menuButtonClick: boolean;
+    
+    topbarMenuClick: boolean;
+    
+    topbarMenuButtonClick: boolean;
+
     onMenuButtonClick(event: Event) {
+        this.menuButtonClick = true;
         this.menuActive = !this.menuActive;
         event.preventDefault();
     }
     
     onTopbarMenuButtonClick(event: Event) {
+        this.topbarMenuButtonClick = true;
         this.topbarMenuActive = !this.topbarMenuActive;
         event.preventDefault();
     }
   
     onTopbarItemClick(event: Event, item: Element) {
-      if (this.activeTopbarItem === item) {
-        this.activeTopbarItem = null; } else {
-        this.activeTopbarItem = item; }
+        this.topbarMenuButtonClick = true;
+        
+        if(this.activeTopbarItem === item)
+            this.activeTopbarItem = null;
+        else
+            this.activeTopbarItem = item; 
       
-      event.preventDefault();
+        event.preventDefault();
+    }
+    
+    onTopbarMenuClick() {
+        this.topbarMenuClick = true;
+    }
+    
+    onLayoutClick() {
+        if(this.isMobile() || this.menuMode === 'overlay' || this.menuMode === 'popup') {
+            if(!this.menuButtonClick && !this.menuClick) {
+                this.menuActive = false;
+            }
+        }
+        
+        if(!this.topbarMenuButtonClick && !this.topbarMenuClick) {
+            this.topbarMenuActive = false;
+        }
+        
+        this.menuButtonClick = false;
+        this.menuClick = false;
+        this.topbarMenuButtonClick = false;
+        this.topbarMenuClick = false;
+    }
+    
+    onMenuClick() {
+        this.menuClick = true;
+    }
+    
+    isMobile() {
+        return window.innerWidth < 1025;
     }
 }

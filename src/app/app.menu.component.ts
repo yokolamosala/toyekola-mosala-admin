@@ -272,6 +272,13 @@ export class AppSubMenuComponent {
         if (item.items || (!item.url && !item.routerLink)) {
             event.preventDefault();
         }
+        
+        // hide menu
+        if (!item.items) {
+            if (this.app.isMobile() || this.app.menuMode === 'overlay' || this.app.menuMode === 'popup') {
+                this.app.menuActive = false;
+            }
+        }
 
     }
 
