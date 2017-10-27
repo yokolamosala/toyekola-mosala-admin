@@ -25,9 +25,9 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
     ngOnInit() {
         this.model = [
-            {label: 'DASHBOARD', icon: 'fa fa-fw fa-home', routerLink: ['/']},
+            {label: 'Dashboard', icon: 'fa fa-fw fa-home', routerLink: ['/']},
             {
-                label: 'CUSTOMIZATION', icon: 'fa fa-fw fa-gear',
+                label: 'Customization', icon: 'fa fa-fw fa-gear',
                 items: [
                     {
                         label: 'Menu', icon: 'fa fa-fw fa-bars',
@@ -88,7 +88,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                 ]
             },
             {
-                label: 'COMPONENTS', icon: 'fa fa-fw fa-sitemap',
+                label: 'Components', icon: 'fa fa-fw fa-sitemap',
                 items: [
                     {label: 'Sample Page', icon: 'fa fa-fw fa-columns', routerLink: ['/sample']},
                     {label: 'Forms', icon: 'fa fa-fw fa-code', routerLink: ['/forms']},
@@ -103,7 +103,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                 ]
             },
             {
-                label: 'TEMPLATE PAGES', icon: 'fa fa-fw fa-life-saver',
+                label: 'Template Pages', icon: 'fa fa-fw fa-life-saver',
                 items: [
                     {label: 'Empty Page', icon: 'fa fa-fw fa-square-o', routerLink: ['/empty']},
                     {label: 'Landing Page', icon: 'fa fa-fw fa-globe', url: 'assets/pages/landing.html', target: '_blank'},
@@ -115,7 +115,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                 ]
             },
             {
-                label: 'MENU HIERARCHY', icon: 'fa fa-fw fa-gg',
+                label: 'Menu Hierarchy', icon: 'fa fa-fw fa-gg',
                 items: [
                     {
                         label: 'Submenu 1', icon: 'fa fa-fw fa-sign-in',
@@ -159,8 +159,9 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                     }
                 ]
             },
-            {label: 'UTILS', icon: 'fa fa-fw fa-wrench', routerLink: ['/utils']},
-            {label: 'DOCUMENTATION', icon: 'fa fa-fw fa-book', routerLink: ['/documentation']}
+            {label: 'Utils', icon: 'fa fa-fw fa-wrench', routerLink: ['/utils']},
+            {label: 'Documentation', icon: 'fa fa-fw fa-book', routerLink: ['/documentation']},
+            {label: 'Buy Now', icon: 'fa fa-fw fa-credit-card', urk: 'https://www.primefaces.org/store'}
         ];
     }
 
@@ -275,6 +276,11 @@ export class AppSubMenuComponent {
         
         // hide menu
         if (!item.items) {
+            if (this.app.menuMode === 'horizontal')
+                this.app.resetMenu = true;
+            else
+                this.app.resetMenu = false;
+                
             if (this.app.isMobile() || this.app.menuMode === 'overlay' || this.app.menuMode === 'popup') {
                 this.app.menuActive = false;
             }
@@ -292,5 +298,9 @@ export class AppSubMenuComponent {
 
     set reset(val: boolean) {
         this._reset = val;
+        
+        if (this._reset && (this.app.menuMode === 'horizontal')) {
+            this.activeIndex = null;
+        }
     }
 }

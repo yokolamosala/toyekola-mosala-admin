@@ -588,6 +588,10 @@ body {
                                             border-color: transparent;
                                         }
                                     }
+                                    
+                                    > ul {
+                                        display: block;
+                                    }
                                 }
 
                                 > a {
@@ -737,7 +741,6 @@ body {
                                         }
 
                                         ul {
-                                            display: none;
                                             padding-left: 0;
                                         }
                                     }
