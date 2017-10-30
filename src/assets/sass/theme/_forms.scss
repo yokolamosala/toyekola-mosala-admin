@@ -326,11 +326,10 @@ body {
             background-color: $inputBgColor;
             border: 1px solid transparent;
             box-sizing: border-box;
+            @include transition(background-color $transitionDuration);
 
             &.ui-state-focus {
-              @include border-shadow();
-              border: 1px solid $primaryColor;
-              //border-right-width: 3px ;
+              background-color: $inputFocusBgColor;
             }
         }
     }

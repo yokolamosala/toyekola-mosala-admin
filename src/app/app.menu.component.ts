@@ -156,9 +156,14 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                         ]
                     }
                 ]
-            },
-            {label: 'Utils', icon: 'fa fa-fw fa-wrench', routerLink: ['/utils']},
-            {label: 'Documentation', icon: 'fa fa-fw fa-book', routerLink: ['/documentation']}
+            },            
+            {
+                label: 'Documentation', icon: 'fa fa-fw fa-book',
+                items: [
+                    {label: 'Setup', icon: 'fa fa-fw fa-gear', routerLink: ['/documentation']},
+                    {label: 'Utils', icon: 'fa fa-fw fa-wrench', routerLink: ['/utils']}
+                ]
+            }
         ];
     }
 
