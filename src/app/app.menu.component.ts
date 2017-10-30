@@ -156,7 +156,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                         ]
                     }
                 ]
-            },            
+            },
             {
                 label: 'Documentation', icon: 'fa fa-fw fa-book',
                 items: [
@@ -187,14 +187,14 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
             jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller();
         }, 500);
     }
-    
+
     onMenuClick() {
-        if(!this.app.isHorizontal()) {
+        if (!this.app.isHorizontal()) {
             setTimeout(() => {
                 jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller();
             }, 500);
         }
-        
+
         this.app.onMenuClick();
     }
 
@@ -265,7 +265,7 @@ export class AppSubMenuComponent {
         if (this.root) {
             this.app.menuHoverActive = !this.app.menuHoverActive;
         }
-        
+
         // avoid processing disabled items
         if (item.disabled) {
             event.preventDefault();
@@ -286,22 +286,22 @@ export class AppSubMenuComponent {
         if (item.items || (!item.url && !item.routerLink)) {
             event.preventDefault();
         }
-        
+
         // hide menu
         if (!item.items) {
-            if (this.app.menuMode === 'horizontal')
-                this.app.resetMenu = true;
-            else
-                this.app.resetMenu = false;
-                
+            if (this.app.menuMode === 'horizontal') {
+              this.app.resetMenu = true;
+            } else {
+              this.app.resetMenu = false;
+            }
             if (this.app.isMobile() || this.app.menuMode === 'overlay' || this.app.menuMode === 'popup') {
                 this.app.menuActive = false;
             }
-            
+
             this.app.menuHoverActive = false;
         }
     }
-    
+
     onMouseEnter(index: number) {
         if (this.root && this.app.menuHoverActive && this.app.isHorizontal()) {
             this.activeIndex = index;
@@ -318,7 +318,7 @@ export class AppSubMenuComponent {
 
     set reset(val: boolean) {
         this._reset = val;
-        
+
         if (this._reset && (this.app.menuMode === 'horizontal')) {
             this.activeIndex = null;
         }
