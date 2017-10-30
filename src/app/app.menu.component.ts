@@ -21,7 +21,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
 
     @ViewChild('layoutMenuScroller') layoutMenuScrollerViewChild: ElementRef;
 
-    constructor(private app: AppComponent) {}
+    constructor(public app: AppComponent) {}
 
     ngOnInit() {
         this.model = [

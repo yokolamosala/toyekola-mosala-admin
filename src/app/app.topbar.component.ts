@@ -7,5 +7,5 @@ import { AppComponent} from './app.component';
 })
 export class AppTopBarComponent {
 
-    constructor(private app: AppComponent) {}
+    constructor(public app: AppComponent) {}
 }
