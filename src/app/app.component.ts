@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     
-    public menuMode: string = 'horizontal';
+    public menuMode: string = 'static';
     
     public menuActive: boolean = true;
     
