@@ -5,13 +5,13 @@ import { Component } from '@angular/core';
     templateUrl: './app.component.html'
 })
 export class AppComponent {
-
-    public menuMode = 'static';
-
-    public menuActive = true;
-
-    public topbarMenuActive = false;
-
+    
+    public menuMode: string = 'horizontal';
+    
+    public menuActive: boolean = true;
+    
+    public topbarMenuActive: boolean = false;
+  
     activeTopbarItem: Element;
 
     menuClick: boolean;

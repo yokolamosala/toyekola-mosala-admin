@@ -318,8 +318,9 @@ body {
                             vertical-align: middle;
                             font-size: 16px;
 
-                            &:last-child {
+                            &.layout-submenu-toggler {
                                 float: right;
+                                margin-top: 1px;
                                 @include transition(transform .3s);
                             }
                         }
@@ -333,13 +334,39 @@ body {
                             color: $menuItemActiveTextColor;
                             font-weight: 700;
                         }
+                        
+                        .menuitem-badge {
+                            width: 16px;
+                            height: 16px;
+                            line-height: 1.5em;
+                            text-align: center;
+                            font-size: $fontSize - 2;
+                            float: right;
+                            margin-top: 2px;
+                            @include border-radius(50%);
+                            
+                            &.green-badge {
+                                background-color: $green;
+                                color: $black;
+                            }
+                            
+                            &.blue-badge {
+                                background-color: $blue;
+                                color: $black;
+                            }
+                            
+                            &.amber-badge {
+                                background-color: $amber;
+                                color: $black;
+                            }
+                        }
                     }
 
                     &.active-menuitem {
                         > a {
                             color: $menuItemActiveTextColor;
 
-                            i:last-child {
+                            .layout-submenu-toggler {
                                 @include rotate(-180deg);
                             }
                         }
@@ -695,16 +722,7 @@ body {
                                         margin-left: .3em;
                                     }
 
-                                    .menu-badge {
-                                        position: absolute;
-                                        right: 15px;
-                                        top: 14px;
-                                        color: #ffffff;
-                                        padding: 2px 6px;
-                                        @include border-radius(50%);
-                                    }
-
-                                    .fa:last-child {
+                                    .layout-submenu-toggler {
                                         float: none;
                                         font-size: 16px;
                                         @include transition(transform .3s);
@@ -713,13 +731,20 @@ body {
                                     &:hover {
                                         background-color: $menuItemHoverBgColor;
                                     }
+                                    
+                                    .menuitem-badge {
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        float: none;
+                                        margin-top: 0;
+                                    }
                                 }
 
                                 &.active-menuitem {
                                     > a {
                                         color: #ffffff;
 
-                                        i:last-child {
+                                        .layout-submenu-toggler {
                                             @include rotate(-180deg);
                                         }
                                     }
@@ -736,7 +761,7 @@ body {
                                         a {
                                             border-top: 0 none;
 
-                                            .fa:last-child {
+                                            .layout-submenu-toggler {
                                                 float: right;
                                             }
                                         }

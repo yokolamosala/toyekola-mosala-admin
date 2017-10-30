@@ -27,7 +27,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
         this.model = [
             {label: 'Dashboard', icon: 'fa fa-fw fa-home', routerLink: ['/']},
             {
-                label: 'Menu', icon: 'fa fa-fw fa-bars',
+                label: 'Menu', icon: 'fa fa-fw fa-bars', badge: 4, badgeStyleClass: 'green-badge',
                 items: [
                     {label: 'Horizontal', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'horizontal' },
                     {label: 'Static', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'static' },
@@ -41,6 +41,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                     {
                         label: 'Flat',
                         icon: 'fa fa-fw fa-circle',
+                        badge: 7, badgeStyleClass: 'blue-badge',
                         items: [
                             {label: 'Dark', icon: 'fa fa-fw fa-paint-brush',
                               command: (event) => {this.changeLayout('dark'); }},
@@ -58,6 +59,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                     {
                         label: 'Special',
                         icon: 'fa fa-fw fa-fire',
+                        badge: 8, badgeStyleClass: 'blue-badge',
                         items: [
                             {label: 'Cosmic', icon: 'fa fa-fw fa-paint-brush',
                               command: (event) => {this.changeLayout('cosmic'); }},
@@ -74,7 +76,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                 ]
             },
             {
-                label: 'Themes', icon: 'fa fa-fw fa-paint-brush',
+                label: 'Themes', icon: 'fa fa-fw fa-paint-brush', badge: 7, badgeStyleClass: 'amber-badge',
                 items: [
                     {label: 'Green Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('green'); }},
                     {label: 'Teal Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('teal'); }},
@@ -209,13 +211,13 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
     /* tslint:enable:component-selector */
     template: `
         <ng-template ngFor let-child let-i="index" [ngForOf]="(root ? item : item.items)">
-            <li [ngClass]="{'active-menuitem': isActive(i)}" [class]="child.badgeStyleClass">
+            <li [ngClass]="{'active-menuitem': isActive(i)}">
                 <a [href]="child.url||'#'" (click)="itemClick($event,child,i)" *ngIf="!child.routerLink"
                    [attr.tabindex]="!visible ? '-1' : null" [attr.target]="child.target" (mouseenter)="onMouseEnter(i)">
                     <i [ngClass]="child.icon"></i>
                     <span>{{child.label}}</span>
                     <i class="fa fa-fw fa-angle-down layout-submenu-toggler" *ngIf="child.items"></i>
-                    <span class="menuitem-badge" *ngIf="child.badge">{{child.badge}}</span>
+                    <span class="menuitem-badge" *ngIf="child.badge" [ngClass]="child.badgeStyleClass">{{child.badge}}</span>
                 </a>
 
                 <a (click)="itemClick($event,child,i)" *ngIf="child.routerLink"
@@ -225,7 +227,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
                     <i [ngClass]="child.icon"></i>
                     <span>{{child.label}}</span>
                     <i class="fa fa-fw fa-angle-down" *ngIf="child.items"></i>
-                    <span class="menuitem-badge" *ngIf="child.badge">{{child.badge}}</span>
+                    <span class="menuitem-badge" *ngIf="child.badge" [ngClass]="child.badgeStyleClass">{{child.badge}}</span>
                 </a>
                 <ul app-submenu [item]="child" *ngIf="child.items" [visible]="isActive(i)" [reset]="reset"
                     [@children]="isActive(i) ? 'visible' : 'hidden'"></ul>
