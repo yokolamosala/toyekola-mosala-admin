@@ -127,22 +127,10 @@ body {
                     padding: $headerPadding;
                     font-weight: 700;
                     color: $textColor;
-
-                    .ui-icon-triangle-1-s {
-                        margin-top: -0.75em;
-                    }
-                }
-
-                .ui-icon {
-                    color: $headerIconColor;
                 }
 
                 &.ui-state-hover {
                     background-color: darken($dividerColor, 10%);
-
-                    .ui-icon {
-                        color: $headerIconHoverColor;
-                    }
                 }
 
                 &:first-child {
@@ -278,12 +266,6 @@ body {
                 &:hover {
                     background-color: $menuHeaderHoverBgColor;
                 }
-
-                .ui-icon-triangle-1-w {
-                    @include icon_override("\f104");
-                    position: relative;
-                    top: 2px;
-                }
             }
 
             .ui-menu-child {
@@ -350,18 +332,7 @@ body {
         }
     }
 
-    .ui-menubutton {
-        .ui-button.ui-button-text-icon-left {
-             .ui-icon {
-                 margin-top: -0.75em;
-             }
-         }
-    }
-
     .ui-panelmenu {
-        .ui-icon {
-            position: static;
-        }
 
         .ui-panelmenu-header {
             background-color: $headerBgColor;
@@ -378,20 +349,12 @@ body {
 
             &:not(.ui-state-active):hover {
                 background-color: $panelHoverBgColor;
-
-                .ui-icon {
-                    color: $headerIconHoverColor;
-                }
             }
 
             &.ui-state-active {
                 background-color: $primaryColor;
 
                 a {
-                    color: $highlightTextColor;
-                }
-
-                .ui-icon {
                     color: $highlightTextColor;
                 }
             }
@@ -413,17 +376,6 @@ body {
 
                 &:hover {
                     @include list-item-hover();
-                }
-
-                > span.ui-icon {
-                    display: inline-block;
-                    vertical-align: middle;
-                    left: auto;
-                    margin-right: 0.3em;
-
-                    &.ui-panelmenu-icon.ui-icon-triangle-1-s {
-                        margin-top: -0.3em;
-                    }
                 }
 
                 .ui-menuitem-text {

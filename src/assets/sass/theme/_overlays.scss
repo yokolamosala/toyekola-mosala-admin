@@ -77,11 +77,6 @@ body {
                     vertical-align: middle;
                     line-height: $fontSize;
                     margin: 0;
-
-                    &.ui-icon {
-                        margin-right: .35em;
-                        font-size: $fontSize + 2;
-                    }
                 }
             }
         }

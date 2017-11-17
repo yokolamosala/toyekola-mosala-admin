@@ -1095,12 +1095,6 @@ body {
 
             .ui-button {
                 margin-right: 8px;
-
-                &.ui-fileupload-upload {
-                    .ui-icon {
-                        @include icon_override("\f093");
-                    }
-                }
             }
         }
 

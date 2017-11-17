@@ -27,10 +27,6 @@ body {
         border: solid 1px $errorMessageBorderColor;
     }
 
-    .ui-icon {
-        width: $iconWidth;
-    }
-
     .ui-state-disabled,
     .ui-widget:disabled {
         opacity: .35;
