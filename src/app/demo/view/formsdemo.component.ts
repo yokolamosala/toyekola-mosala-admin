@@ -119,13 +119,4 @@ export class FormsDemoComponent implements OnInit {
             }
         }
     }
-
-    handleACDropdownClick() {
-        this.filteredBrands = [];
-
-        // mimic remote call
-        setTimeout(() => {
-            this.filteredBrands = this.brands;
-        }, 100);
-    }
 }

@@ -46,7 +46,7 @@
                 </div>
                 <div class="ui-g-12">
                     <p-autoComplete id="acAdvanced" [(ngModel)]="selectedBrands" [suggestions]="filteredBrands" (completeMethod)="filterBrands($event)" [size]="30"
-                        [minLength]="1" [dropdown]="true" (onDropdownClick)="handleACDropdownClick()" multiple="true">
+                        [minLength]="1" [dropdown]="true" multiple="true">
                         <ng-template let-brand pTemplate="item">
                             <div class="ui-helper-clearfix">
                                 <img src="assets/demo/images/car/{{brand}}.gif" style="width:32px;display:inline-block;margin:5px 0 2px 5px"/>
