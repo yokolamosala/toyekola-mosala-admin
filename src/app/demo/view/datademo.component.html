@@ -2,14 +2,27 @@
     <div class="ui-g-12">
         <div class="card card-w-title">
             <h1>DataTable</h1>
-            <p-dataTable [value]="cars1" selectionMode="single" [(selection)]="selectedCar"
-                [paginator]="true" [rows]="10" [responsive]="true" paginatorPosition="both">
-                <p-header>Single with Row Click</p-header>
-                <p-column field="vin" header="Vin" [sortable]="true"></p-column>
-                <p-column field="year" header="Year" [sortable]="true"></p-column>
-                <p-column field="brand" header="Brand" [sortable]="true"></p-column>
-                <p-column field="color" header="Color" [sortable]="true"></p-column>
-            </p-dataTable>
+            <p-table [columns]="cols" [value]="cars1" selectionMode="single" dataKey="vin" [(selection)]="selectedCar"
+                     [paginator]="true" [rows]="10" [responsive]="true" paginatorPosition="both">
+                <ng-template pTemplate="caption">
+                  Single with Row Click
+                </ng-template>
+                <ng-template pTemplate="header" let-columns>
+                    <tr>
+                      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                      </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+                      <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                      </td>
+                    </tr>
+                </ng-template>
+            </p-table>
         </div>
     </div>
     <div class="ui-g-12">
