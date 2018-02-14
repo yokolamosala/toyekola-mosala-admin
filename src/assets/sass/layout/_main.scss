@@ -329,12 +329,12 @@ body {
                             background-color: $menuItemHoverBgColor;
                             color: $menuItemHoverTextColor;
                         }
-                        
+
                         &.active-menuitem-routerlink {
                             color: $menuItemActiveTextColor;
                             font-weight: 700;
                         }
-                        
+
                         .menuitem-badge {
                             width: 16px;
                             height: 16px;
@@ -344,17 +344,17 @@ body {
                             float: right;
                             margin-top: 2px;
                             @include border-radius(50%);
-                            
+
                             &.green-badge {
                                 background-color: $green;
                                 color: $black;
                             }
-                            
+
                             &.blue-badge {
                                 background-color: $blue;
                                 color: $black;
                             }
-                            
+
                             &.amber-badge {
                                 background-color: $amber;
                                 color: $black;
@@ -395,16 +395,22 @@ body {
                 }
             }
 
-            .nano {
-                > .nano-content {
-                    &.sidebar-scroll-content {
-                        display: block;
-                        height: 100%;
-                        overflow-x: hidden;
-                        overflow-y: scroll;
-                        position: relative;
-                        outline: none;
-                    }
+            .ui-scrollpanel {
+                background-color: $menuBgColor;
+                border-radius: 0;
+                border: none;
+                .ui-scrollpanel-bar {
+                    background: rgba(0,0,0,.5);
+                    @include opacity(.3);
+                }
+                .ui-scrollpanel-hidden {
+                    display: block;
+                    visibility: hidden;
+                }
+
+                .layout-menu-container {
+                    padding-right: 18px;
+                    padding-bottom: 120px;
                 }
             }
         }
@@ -484,14 +490,6 @@ body {
                 transition: margin-left 0.3s;
                 -webkit-animation-name: none;
                 animation-name: none;
-
-                .nano {
-                    > .nano-content {
-                        ul.layout-menu {
-                            padding-bottom: 120px;
-                        }
-                    }
-                }
             }
 
             .layout-content {
@@ -531,32 +529,31 @@ body {
                 &.layout-menu-wrapper-active {
                     left: 0;
                 }
-
-                .nano {
-                    > .nano-content {
-                        ul.layout-menu {
-                            padding-bottom: 120px;
-                        }
-                    }
-                }
             }
         }
-        
+
         &.layout-menu-popup {
             .layout-menu-wrapper {
                 -webkit-animation-duration: .5s;
                 -moz-animation-duration: .5s;
                 animation-duration: .5s;
-                
+
                 &.layout-menu-wrapper-active {
                     display: block;
                     z-index: 1000;
                     -webkit-animation-name: fadeInDown;
                     animation-name: fadeInDown;
                 }
-            }   
+
+
+                .ui-scrollpanel {
+                    .layout-menu-container {
+                        padding-bottom: 0;
+                    }
+                }
+            }
         }
-        
+
         &.layout-menu-horizontal {
             .topbar {
                 height: auto;
@@ -591,18 +588,19 @@ body {
                     min-width: auto;
                     margin: 0;
 
-                    .nano {
+                    .ui-scrollpanel {
                         overflow: visible;
-                        max-height: none;
-                        height: auto !important;
-
-                        .nano-content {
+                        border: none;
+                        .ui-scrollpanel-wrapper {
                             overflow: visible;
-                            overflow-x: visible;
+                            .ui-scrollpanel-content {
+                                background-color: $menuBgColor;
+                                overflow: visible;
+                            }
                         }
 
-                        .nano-pane {
-                            display: none !important;
+                        .layout-menu-container {
+                            padding-bottom: 0;
                         }
                     }
 
@@ -621,7 +619,7 @@ body {
                                             border-color: transparent;
                                         }
                                     }
-                                    
+
                                     > ul {
                                         display: block;
                                     }
@@ -731,7 +729,7 @@ body {
                                     &:hover {
                                         background-color: $menuItemHoverBgColor;
                                     }
-                                    
+
                                     .menuitem-badge {
                                         display: inline-block;
                                         vertical-align: middle;

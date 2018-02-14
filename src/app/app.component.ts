@@ -88,4 +88,9 @@ export class AppComponent {
     isHorizontal() {
         return this.menuMode === 'horizontal';
     }
+
+    isTablet() {
+        const width = window.innerWidth;
+        return width <= 1024 && width > 640;
+    }
 }

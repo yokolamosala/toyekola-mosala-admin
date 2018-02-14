@@ -1,25 +1,21 @@
-import {Component, Input, OnInit, AfterViewInit, OnDestroy, ElementRef, Renderer, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {trigger, state, style, transition, animate} from '@angular/animations';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
-import {MenuItem} from 'primeng/primeng';
+import {MenuItem, ScrollPanel} from 'primeng/primeng';
 import {AppComponent} from './app.component';
-
-declare var jQuery: any;
 
 @Component({
     selector: 'app-menu',
     templateUrl: './app.menu.component.html'
 })
-export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
+export class AppMenuComponent implements OnInit, AfterViewInit {
 
     @Input() reset: boolean;
 
     model: any[];
 
-    layoutMenuScroller: HTMLDivElement;
-
-    @ViewChild('layoutMenuScroller') layoutMenuScrollerViewChild: ElementRef;
+    @ViewChild('layoutMenuScroller') layoutMenuScrollerViewChild: ScrollPanel;
 
     constructor(public app: AppComponent) {}
 
@@ -170,9 +166,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngAfterViewInit() {
-        setTimeout(() => {
-            jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller({flash: true});
-        }, 10);
+        setTimeout(() => {this.layoutMenuScrollerViewChild.moveBar(); }, 100);
     }
 
     changeTheme(theme) {
@@ -184,24 +178,14 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy {
         layoutLink.href = 'assets/layout/css/layout-' + layout + '.css';
     }
 
-    updateNanoScroll() {
-        setTimeout(() => {
-            jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller();
-        }, 500);
-    }
-
     onMenuClick() {
         if (!this.app.isHorizontal()) {
             setTimeout(() => {
-                jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller();
-            }, 500);
+                this.layoutMenuScrollerViewChild.moveBar();
+            }, 450);
         }
 
         this.app.onMenuClick();
-    }
-
-    ngOnDestroy() {
-        jQuery(this.layoutMenuScrollerViewChild.nativeElement).nanoScroller({flash: true});
     }
 }
 
@@ -261,7 +245,7 @@ export class AppSubMenuComponent {
 
     hover: boolean;
 
-    constructor(public app: AppComponent, public router: Router, public location: Location) {}
+    constructor(public app: AppComponent, public router: Router, public location: Location, public appMenu: AppMenuComponent) {}
 
     itemClick(event: Event, item: MenuItem, index: number) {
         if (this.root) {
@@ -286,6 +270,9 @@ export class AppSubMenuComponent {
 
         // prevent hash change
         if (item.items || (!item.url && !item.routerLink)) {
+            setTimeout(() => {
+                this.appMenu.layoutMenuScrollerViewChild.moveBar();
+            }, 450);
             event.preventDefault();
         }
 
@@ -305,7 +292,8 @@ export class AppSubMenuComponent {
     }
 
     onMouseEnter(index: number) {
-        if (this.root && this.app.menuHoverActive && this.app.isHorizontal()) {
+        if (this.root && this.app.menuHoverActive && this.app.isHorizontal()
+            && !this.app.isMobile() && !this.app.isTablet()) {
             this.activeIndex = index;
         }
     }
