@@ -3,7 +3,7 @@
         <div class="card docs">
 
             <h1>Current Version</h1>
-            <p>Angular 5 and PrimeNG 5</p>
+            <p>Angular 5.2 and PrimeNG 5.2</p>
 
             <h1>Getting Started</h1>
             <p>Verona is a true native application template for Angular and is distributed as a CLI project. If you don't have CLI installed already run the following commands to set it up. In case
@@ -241,37 +241,17 @@ export class AppMenuComponent implements OnInit, AfterViewInit, OnDestroy &#123;
             <p>To setup verona in an existing project, copy the <i>src/assets</i> folder to your projects folder with the same name
                 and replace the contents of app.component.ts, app.component.html with their counterparts in verona under <i>src/app</i> folder.</p>
 
-            <p>Dependencies of verona are listed below and needs to be added to package.json</p>
-<pre>
-"primeng": "^4.2.0",             //required: PrimeNG components
-"chart.js": "^2.4.0",            //optional: chart component
-"fullcalendar": "^3.1.0",        //optional: schedule component
-"moment": "^2.17.1",             //optional: chart and schedule components
-"quill": "^1.1.8",               //optional: editor component
-"jquery": "^3.1.1",              //optional: schedule component and nanoscroller
+            <p>Install PrimeNG</p>
+            <pre>
+npm install primeng@latest --save
 </pre>
 
-            <p>Add PrimeNG CSS at styles section in angular-cli.json</p>
+            <p>Add PrimeNG CSS at styles section in angular-cli.json.</p>
 
-<pre>
+            <pre>
 "styles": [
     "../node_modules/primeng/resources/primeng.min.css",        //required: PrimeNG components
-    "../node_modules/fullcalendar/dist/fullcalendar.min.css",   //optional: schedule component
-    "../node_modules/quill/dist/quill.snow.css",                //optional: editor component
-    "../node_modules/nanoscroller/bin/css/nanoscroller.css",    //optional: nanoscroller
     "styles.scss"                                               //your styles and overrides
-],
-</pre>
-
-            <p>Add the following scripts to your angular-cli.json</p>
-<pre>
-"scripts": [
-    "../node_modules/nanoscroller/bin/javascripts/jquery.nanoscroller.js",  //optional: nanoscroller
-    "../node_modules/moment/moment.js",                                     //optional: schedule and chart components
-    "../node_modules/chart.js/dist/Chart.js",                               //optional: chart component
-    "../node_modules/fullcalendar/dist/fullcalendar.js",                    //optional: schedule component
-    "../node_modules/quill/dist/quill.js"                                   //optional: editor component
-    "../node_modules/jquery/dist/jquery.js",                                //optional: schedule component and nanoscroller
 ],
 </pre>
 
@@ -516,7 +496,16 @@ label: 'Components', icon: 'list', badge: '2', badgeStyleClass: 'green-badge'
 
             <h1>Migration Guide</h1>
 
-            <p>1.0.0 to 5.0.0</p>
+            <h4>5.0.0 to 5.2.0</h4>
+            <p>Adds support for PrimeNG 5.2.0 (e.g. TurboTable), replaces nanoscroller with PrimeNG ScrollPanel</p>
+            <ul>
+                <li>Remove nanoscroller as it is replaced by ScrollPanel component of PrimeNG.</li>
+                <li>Update app.menu.component.ts and app.menu.component.html.</li>
+                <li>Update layout css files.</li>
+                <li>Update theme css files.</li>
+            </ul>
+
+            <h4>1.0.0 to 5.0.0</h4>
             <ul>
               <li>Update theme css files.</li>
               <li>Includes version updates to PrimeNG 5 and Angular 5.</li>
