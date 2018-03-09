@@ -115,7 +115,7 @@
     background-image:     -ms-linear-gradient(top, $start-colour, $end-colour);
     background-image:      -o-linear-gradient(top, $start-colour, $end-colour);
     background-image:         linear-gradient(to bottom, $start-colour, $end-colour);
-    filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}');
+    filter:            progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start-colour}', endColorstr='#{$end-colour}');
 }
 
 @mixin background-gradient-left2right($start-color, $end-color) {
@@ -126,7 +126,7 @@
     background-image:     -ms-linear-gradient(left, $start-color, $end-color);
     background-image:      -o-linear-gradient(left, $start-color, $end-color);
     background-image:         linear-gradient(to right, $start-color, $end-color);
-    filter:            progid:DXImageTransform.Microsoft.gradient(start-colorStr='#{$start-color}', end-colorStr='#{$end-color}', gradientType='1');
+    filter:            progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start-color}', endColorstr='#{$end-color}', gradientType='1');
 }
 
 @mixin border-shadow() {
