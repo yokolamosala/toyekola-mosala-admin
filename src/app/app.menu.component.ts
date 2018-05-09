@@ -213,7 +213,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                     <i class="fa fa-fw fa-angle-down" *ngIf="child.items"></i>
                     <span class="menuitem-badge" *ngIf="child.badge" [ngClass]="child.badgeStyleClass">{{child.badge}}</span>
                 </a>
-                <ul app-submenu [item]="child" *ngIf="child.items" [visible]="isActive(i)" [reset]="reset"
+                <ul app-submenu [item]="child" *ngIf="child.items" [visible]="isActive(i)" [reset]="reset" [parentActive]="isActive(i)"
                     [@children]="isActive(i) ? 'visible' : 'hidden'"></ul>
             </li>
         </ng-template>
@@ -240,6 +240,8 @@ export class AppSubMenuComponent {
     @Input() visible: boolean;
 
     _reset: boolean;
+
+    _parentActive: boolean;
 
     activeIndex: number;
 
@@ -310,6 +312,18 @@ export class AppSubMenuComponent {
         this._reset = val;
 
         if (this._reset && (this.app.menuMode === 'horizontal')) {
+            this.activeIndex = null;
+        }
+    }
+
+    @Input() get parentActive(): boolean {
+        return this._parentActive;
+    }
+
+    set parentActive(val: boolean) {
+        this._parentActive = val;
+
+        if (!this._parentActive) {
             this.activeIndex = null;
         }
     }
