@@ -47,6 +47,10 @@ export class AppComponent {
         event.preventDefault();
     }
 
+    onTopbarSubItemClick(event){
+        event.preventDefault();
+    }
+
     onLayoutClick() {
         if (!this.menuButtonClick && !this.menuClick) {
             if (this.menuMode === 'horizontal') {
