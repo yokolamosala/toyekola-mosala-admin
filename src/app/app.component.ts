@@ -18,8 +18,6 @@ export class AppComponent {
 
     menuButtonClick: boolean;
 
-    topbarMenuClick: boolean;
-
     topbarMenuButtonClick: boolean;
 
     resetMenu: boolean;
@@ -49,10 +47,6 @@ export class AppComponent {
         event.preventDefault();
     }
 
-    onTopbarMenuClick() {
-        this.topbarMenuClick = true;
-    }
-
     onLayoutClick() {
         if (!this.menuButtonClick && !this.menuClick) {
             if (this.menuMode === 'horizontal') {
@@ -66,14 +60,14 @@ export class AppComponent {
             this.menuHoverActive = false;
         }
 
-        if (!this.topbarMenuButtonClick && !this.topbarMenuClick) {
+        if (!this.topbarMenuButtonClick) {
+            this.activeTopbarItem = null;
             this.topbarMenuActive = false;
         }
 
         this.menuButtonClick = false;
         this.menuClick = false;
         this.topbarMenuButtonClick = false;
-        this.topbarMenuClick = false;
     }
 
     onMenuClick() {
