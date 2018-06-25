@@ -116,13 +116,32 @@ body {
         }
 
         .ui-sortable-column {
+            color: $textColor;
+
+            a, a:hover {
+                color: $textSecondaryColor;
+            }
+
             &:not(.ui-state-highlight):hover {
-              @include list-item-hover();
+                @include list-item-hover();
+
+                a, a:hover {
+                    @include list-item-hover();
+                }
             }
 
             &.ui-state-highlight {
-              background-color: $primaryColor;
-              color: #ffffff;
+                background-color: $primaryColor;
+                color: $highlightTextColor;
+                border-top-color: $primaryColor;
+
+                a, a:hover {
+                    color: $highlightTextColor;
+                }
+            }
+
+            .ui-sortable-column-icon {
+                vertical-align: middle;
             }
         }
 
@@ -247,7 +266,7 @@ body {
                 &.ui-rowgroup-header {
                     background-color: $primaryColor;
 
-                    .fa:hover {
+                    .pi:hover {
                         color: lighten($primaryColor, 5%);
                     }
                 }
@@ -306,11 +325,11 @@ body {
                         color: $textSecondaryColor;
                         @include transition(color .3s);
 
-                        &.fa-chevron-circle-right {
+                        &.pi-chevron-circle-right {
                             @include icon_override("\f054");
                         }
 
-                        &.fa-chevron-circle-down {
+                        &.pi-chevron-circle-down {
                             @include icon_override("\f078");
                         }
                     }
@@ -406,7 +425,7 @@ body {
         .ui-picklist-filter-container {
             margin-bottom: -1px;
 
-            .fa {
+            .pi {
                 color: $textSecondaryColor;
             }
         }
@@ -446,7 +465,7 @@ body {
         .ui-orderlist-filter-container {
             margin-bottom: -1px;
 
-            .fa {
+            .pi {
                 color: $textSecondaryColor;
             }
         }
@@ -531,8 +550,14 @@ body {
                     color: darken($headerIconColor, 10%);
                 }
 
-                &.fa-dot-circle-o {
+                &.pi-circle-off {
                     color: $headerIconColor;
+                    @include icon-override("\F10C")
+                }
+
+                &.pi-circle-on {
+                    color: $headerIconColor;
+                    @include icon-override("\F192")
                 }
             }
         }
@@ -664,7 +689,7 @@ body {
                         .ui-chkbox-icon {
                             margin: 0;
 
-                            &.fa-check {
+                            &.pi-check {
                               color: $primaryColor;
                             }
                         }

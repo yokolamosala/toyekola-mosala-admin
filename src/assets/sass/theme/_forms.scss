@@ -53,27 +53,15 @@ body {
             .ui-button-text {
                 padding: .385em .6em .385em 2em;
             }
-
-            .fa {
-                margin-top: -.5em;
-            }
         }
 
         &.ui-button-text-icon-right {
             .ui-button-text {
                 padding: .385em 2em .385em .6em;
             }
-
-            .fa {
-                margin-top: -.5em;
-            }
         }
 
         &.ui-button-icon-only {
-            .fa {
-                margin-left: -.6em;
-            }
-
             .ui-button-text {
                 padding: .385em;
             }
@@ -273,11 +261,12 @@ body {
             .ui-radiobutton-icon {
                 @include transition(background-color .3s);
                 @include border-radius(50%);
-                background-col: transparent;
+                background-color: transparent;
                 width: 10px;
                 height: 10px;
                 display: inline-block;
-                margin-left: 0px;
+                margin-left: -.4em;
+                margin-top: -.4em;
                 line-height: inherit;
 
                 &:before {
@@ -337,7 +326,7 @@ body {
     .ui-autocomplete {
         .ui-autocomplete-dropdown {
 
-            .fa {
+            .pi {
                 @include icon_override("\f078");
             }
 
@@ -490,11 +479,11 @@ body {
             text-align: center;
             padding: 0;
 
-            .fa-caret-down {
+            .pi-caret-down {
                 color: $textSecondaryColor;
                 @include icon_override("\f078");
                 line-height: inherit;
-                margin: 0;
+                margin-top: -1em;
             }
         }
 
@@ -503,7 +492,7 @@ body {
             @include border-shadow();
 
             .ui-dropdown-trigger {
-                .fa-caret-down {
+                .pi-caret-down {
                     color: $primaryColor;
                 }
             }
@@ -522,7 +511,7 @@ body {
                 padding-right: 20px;
             }
 
-            .fa {
+            .pi {
                 top: 12px;
                 right: 15px;
             }
@@ -571,8 +560,7 @@ body {
             text-align: center;
             @include box-sizing(border-box);
 
-            .fa {
-                margin: 0;
+            .pi {
                 line-height: inherit;
                 color: $textSecondaryColor;
                 @include icon_override("\f078");
@@ -588,7 +576,7 @@ body {
             @include border-shadow();
 
             .ui-multiselect-trigger {
-                .fa {
+                .pi {
                     color: $primaryColor;
                 }
             }
@@ -618,7 +606,7 @@ body {
                     text-indent: 1.5em;
                 }
 
-                .fa {
+                .pi {
                     color: $textColor;
                     top: .3em;
                     left: 0.2em;
@@ -639,7 +627,7 @@ body {
 
             .ui-multiselect-close {
                 color: #647585;
-                font-size: $fontSize + 4;
+                font-size: $fontSize + 7;
                 margin: 0;
                 margin-top: -.15em;
                 padding: 0;
@@ -708,7 +696,7 @@ body {
                     padding-left: 1.5em;
                 }
 
-                .fa {
+                .pi {
                     color: $textSecondaryColor;
                     top: .35em;
                     left: .4em;
@@ -777,19 +765,19 @@ body {
             }
         }
 
-        .fa {
-            font-size: 20px;
-            height: 20px;
-            width: 20px;
+        .pi {
+            font-size: 25px;
+            height: 25px;
+            width: 25px;
 
-            &.fa-ban {
+            &.pi-ban {
                 color: $pink;
 
                 &:hover {
                     color: lighten($pink,5%);
                 }
             }
-            &.fa-star {
+            &.pi-star {
                 color: $primaryColor;
             }
         }
@@ -930,7 +918,8 @@ body {
             border: 1px solid transparent;
         }
         .ui-menu {
-          min-width: 100%;
+            width: 100%;
+            min-width: 12.5em;
         }
     }
 

@@ -15,6 +15,9 @@ body {
             }
 
             .ui-panel-titlebar-icon {
+                width: 21px;
+                height: 21px;
+                padding-left: 2px;
                 margin: 0;
                 position: relative;
                 font-size: $fontSize + 3;
@@ -132,16 +135,16 @@ body {
                     color: $highlightTextColor;
                 }
 
-                .fa {
+                .pi {
                     color: $highlightTextColor;
                 }
             }
 
-            .fa-caret-right {
+            .pi-caret-right {
                 @include icon_override("\f054");
             }
 
-            .fa-caret-down {
+            .pi-caret-down {
                 @include icon_override("\f078");
             }
 
@@ -212,7 +215,7 @@ body {
                     &:not(.ui-state-active):not(.ui-state-disabled):hover {
                         background-color: $panelHoverBgColor;
 
-                        .fa-times {
+                        .pi-times {
                             color: $headerIconHoverColor;
                         }
                     }
