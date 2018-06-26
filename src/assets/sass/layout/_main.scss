@@ -235,7 +235,7 @@ body {
             -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
             -moz-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
-            min-width: 250px;
+            width: 250px;
 
             .layout-menu {
                 > li {
@@ -409,6 +409,7 @@ body {
                 }
 
                 .layout-menu-container {
+                    width: 268px;
                     padding-right: 18px;
                     padding-bottom: 120px;
                 }
@@ -585,8 +586,8 @@ body {
                 .layout-menu-wrapper {
                     display: block;
                     position: static;
-                    min-width: auto;
                     margin: 0;
+                    width: 100%;
 
                     .ui-scrollpanel {
                         overflow: visible;
@@ -600,11 +601,14 @@ body {
                         }
 
                         .layout-menu-container {
+                            width: 100%;
+                            padding-right: 0;
                             padding-bottom: 0;
                         }
                     }
 
                     .layout-menu-container {
+                        width: 100%;
                         padding-left: 32px;
 
                         .layout-menu {
