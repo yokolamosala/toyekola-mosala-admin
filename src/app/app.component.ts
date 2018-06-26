@@ -47,7 +47,7 @@ export class AppComponent {
         event.preventDefault();
     }
 
-    onTopbarSubItemClick(event){
+    onTopbarSubItemClick(event) {
         event.preventDefault();
     }
 
