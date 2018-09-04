@@ -16,7 +16,6 @@ body {
                 }
 
                 &.ui-breadcrumb-chevron {
-                    @include icon_override("\f054");
                     font-size: $fontSize + 4;
                     margin: 0 .45em;
                     color: $textSecondaryColor;

@@ -10,10 +10,6 @@ body {
             width: 1.5em;
             padding: 2px 8px;
 
-            span {
-                display: none;
-            }
-
             &:not(.ui-state-disabled):not(.ui-state-active):hover {
               background-color: $paginatorHoverBgColor;
             }
@@ -24,8 +20,6 @@ body {
         }
 
         .ui-paginator-first {
-            @include icon-override("\f048");
-
             &:before {
                 position: relative;
                 top: 1px;
@@ -33,17 +27,12 @@ body {
         }
 
         .ui-paginator-prev {
-            @include icon-override("\f04b");
-            @include rotate(180deg);
-
             &:before {
                 position: relative;
             }
         }
 
         .ui-paginator-next {
-            @include icon-override("\f04b");
-
             &:before {
                 position: relative;
                 top: 1px;
@@ -51,8 +40,6 @@ body {
         }
 
         .ui-paginator-last {
-            @include icon-override("\f051");
-
             &:before {
                 position: relative;
                 top: 1px;
@@ -324,14 +311,6 @@ body {
                     .ui-row-toggler {
                         color: $textSecondaryColor;
                         @include transition(color .3s);
-
-                        &.pi-chevron-circle-right {
-                            @include icon_override("\f054");
-                        }
-
-                        &.pi-chevron-circle-down {
-                            @include icon_override("\f078");
-                        }
                     }
                 }
 
@@ -532,14 +511,6 @@ body {
             @include transition(color .3s);
             color: $headerIconColor;
 
-            &.ui-carousel-next-button {
-                @include icon-override("\f054");
-            }
-
-            &.ui-carousel-prev-button {
-                @include icon-override("\f053");
-            }
-
             &:not(.ui-state-disabled):hover {
                 color: $headerIconHoverColor;
             }
@@ -558,12 +529,10 @@ body {
 
                 &.pi-circle-off {
                     color: $headerIconColor;
-                    @include icon-override("\F10C")
                 }
 
                 &.pi-circle-on {
                     color: $headerIconColor;
-                    @include icon-override("\F192")
                 }
             }
         }
@@ -843,14 +812,46 @@ body {
     .fc {
         .fc-toolbar {
             .ui-icon-circle-triangle-e {
-                @include icon_override("\f054");
+                background: none !important;
+                font-family: 'primeicons';
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                display: inline-block;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                text-indent: 0px !important;
+                text-align: center;
+
+                &:before {
+                    content: "\e901";
+                }
                 height: auto;
                 width: auto;
                 overflow: visible;
             }
 
             .ui-icon-circle-triangle-w {
-                @include icon_override("\f053");
+                background: none !important;
+                font-family: 'primeicons';
+                speak: none;
+                font-style: normal;
+                font-weight: normal;
+                font-variant: normal;
+                text-transform: none;
+                line-height: 1;
+                display: inline-block;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                text-indent: 0px !important;
+                text-align: center;
+
+                &:before {
+                    content: "\e900";
+                }
                 height: auto;
                 width: auto;
                 overflow: visible;
