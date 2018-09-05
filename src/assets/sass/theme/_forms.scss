@@ -35,8 +35,9 @@ body {
             background-color: darken($primaryColor,5%);
         }
 
-        &:enabled:not(.ui-button-secondary):focus {
+        &:enabled:focus {
             outline: 0 none;
+            background-color: lighten($primaryColor,5%);
         }
 
         &:enabled:active  {
@@ -70,15 +71,15 @@ body {
         &.blue-btn {
             background-color: $blue;
 
-            &:hover {
+            &:enabled:hover {
                 background-color: darken($blue,5%);
             }
 
-            &:focus {
-                background-color: darken($blue,5%);
+            &:enabled:focus {
+                background-color: lighten($blue,5%);
             }
 
-            &:active {
+            &:enabled:active {
                 background-color: darken($blue,10%);
             }
         }
@@ -86,15 +87,15 @@ body {
         &.purple-btn {
             background-color: $purple;
 
-            &:hover {
+            &:enabled:hover {
                 background-color: darken($purple,5%);
             }
 
-            &:focus {
-                background-color: darken($purple,5%);
+            &:enabled:focus {
+                background-color: lighten($purple,5%);
             }
 
-            &:active {
+            &:enabled:active {
                 background-color: darken($purple,10%);
             }
         }
@@ -103,15 +104,15 @@ body {
             background-color: $orange;
             color: #2d353c;
 
-            &:hover {
+            &:enabled:hover {
                 background-color: darken($orange,5%);
             }
 
-            &:focus {
-                background-color: darken($orange,5%);
+            &:enabled:focus {
+                background-color: lighten($orange,5%);
             }
 
-            &:active {
+            &:enabled:active {
                 background-color: darken($orange,10%);
             }
         }
@@ -119,15 +120,15 @@ body {
         &.pink-btn {
             background-color: $pink;
 
-            &:hover {
+            &:enabled:hover {
                 background-color: darken($pink,5%);
             }
 
-            &:focus {
-                background-color: darken($pink,5%);
+            &:enabled:focus {
+                background-color: lighten($pink,5%);
             }
 
-            &:active {
+            &:enabled:active {
                 background-color: darken($pink,10%);
             }
         }
@@ -135,15 +136,15 @@ body {
         &.green-btn {
             background-color: $green;
 
-            &:hover {
+            &:enabled:hover {
                 background-color: darken($green,5%);
             }
 
-            &:focus {
-                background-color: darken($green,5%);
+            &:enabled:focus {
+                background-color: lighten($green,5%);
             }
 
-            &:active {
+            &:enabled:active {
                 background-color: darken($green,10%);
             }
         }
@@ -151,15 +152,15 @@ body {
         &.black-btn {
             background-color: $black;
 
-            &:hover {
+            &:enabled:hover {
               background-color: darken($black,5%);
             }
 
-            &:focus {
-              background-color: darken($black,5%);
+            &:enabled:focus {
+              background-color: lighten($black,5%);
             }
 
-            &:active {
+            &:enabled:active {
               background-color: darken($black,10%);
             }
         }
@@ -192,7 +193,12 @@ body {
 
         &:enabled:focus {
             outline: 0 none;
-            background-color: darken($blue,5%);
+            background-color: lighten($blue,5%);
+            border-color: $blue;
+        }
+
+        &:enabled:active {
+            background-color: darken($blue,10%);
             border-color: $blue;
         }
     }
@@ -208,7 +214,12 @@ body {
 
         &:enabled:focus {
             outline: 0 none;
-            background-color: darken($green,5%);
+            background-color: lighten($green,5%);
+            border-color: $green;
+        }
+
+        &:enabled:active {
+            background-color: darken($green,10%);
             border-color: $green;
         }
     }
@@ -227,7 +238,12 @@ body {
         &:enabled:focus {
             outline: 0 none;
             color: #2d353c;
-            background-color: darken($orange,5%);
+            background-color: lighten($orange,5%);
+            border-color: $orange;
+        }
+
+        &:enabled:active {
+            background-color: darken($orange,10%);
             border-color: $orange;
         }
     }
@@ -243,7 +259,12 @@ body {
 
         &:enabled:focus {
             outline: 0 none;
-            background-color: darken($pink,5%);
+            background-color: lighten($pink,5%);
+            border-color: $pink;
+        }
+
+        &:enabled:active {
+            background-color: darken($pink,10%);
             border-color: $pink;
         }
     }
