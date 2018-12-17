@@ -309,7 +309,7 @@ sass src/assets/theme/theme-myown.scss src/assets/theme/theme-myown.css
             <p>Watch mode is handy to avoid compiling everytime when a change is made, instead use the following command
             so that sass generates the file whenever you make a customization. This builds all css files whenever a change is made to any scss file.</p>
 <pre>
-sass -w src/assets/ --sourcemap=none
+sass --watch src/:src/ --no-source-map
 </pre>
 
             <p>Same can also be applied to layout itself;</p>
