@@ -37,6 +37,12 @@
                     &:hover {
                         background-color: #e96d66;
                     }
+
+                    img {
+                        width: 24px;
+                        margin: 18px 0 0 0;
+                    }
+
                 }
                 
                 img {
@@ -388,22 +394,8 @@
                     ul {
                         display: none;
                         float: none;
-                    }
-                }
-                
-                .header-top {
-                    #menu-button {
-                        display: block;
-                    }
-                    
-                    .logo {
-                        width: 60px;
-                    }
-                }
-                
-                &.menu-active {
-                    .header-top {
-                        ul {
+
+                        &.menu-active {
                             display: block;
                             background-color: #dce2e7;
                             min-width: 200px;
@@ -417,23 +409,34 @@
                             -webkit-animation-duration: .5s;
                             -moz-animation-duration: .5s;
                             animation-duration: .5s;
-                            
+
                             li {
                                 float: none;
                                 padding: 6px 0;
-                                
+
                                 a {
+                                    cursor: pointer;
                                     color: #525c65;
-                                    
+
                                     &:hover {
                                         border-bottom-color: transparent;
                                         background-color: #a8b4be;
                                     }
                                 }
                             }
+
                         }
                     }
+                }
+                
+                .header-top {
+                    #menu-button {
+                        display: block;
+                    }
                     
+                    .logo {
+                        width: 60px;
+                    }
                 }
             }  
             
