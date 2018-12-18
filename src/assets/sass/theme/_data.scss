@@ -864,4 +864,12 @@ body {
             }
         }
     }
+
+    .ui-virtualscroller {
+        .ui-virtualscroller-list {
+            li {
+                border-bottom: 1px solid $dividerColor;
+            }
+        }
+    }
 }
