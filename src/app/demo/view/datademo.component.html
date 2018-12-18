@@ -205,6 +205,9 @@
         <div class="card card-w-title">
             <h1>TreeTable</h1>
             <p-treeTable [value]="files4" [columns]="cols2" selectionMode="checkbox" [(selection)]="selectedNode3">
+                <ng-template pTemplate="caption">
+                    FileSystem
+                </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
                         <th>Name</th>
