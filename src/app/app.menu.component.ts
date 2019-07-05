@@ -15,7 +15,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
 
     model: any[];
 
-    @ViewChild('layoutMenuScroller') layoutMenuScrollerViewChild: ScrollPanel;
+    @ViewChild('layoutMenuScroller', { static: true }) layoutMenuScrollerViewChild: ScrollPanel;
 
     constructor(public app: AppComponent) {}
 
@@ -170,11 +170,11 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
     }
 
     changeTheme(theme) {
-        const themeLink: HTMLLinkElement = <HTMLLinkElement> document.getElementById('theme-css');
+        const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
         themeLink.href = 'assets/theme/theme-' + theme + '.css';
     }
     changeLayout(layout) {
-        const layoutLink: HTMLLinkElement = <HTMLLinkElement> document.getElementById('layout-css');
+        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
         layoutLink.href = 'assets/layout/css/layout-' + layout + '.css';
     }
 
@@ -267,7 +267,7 @@ export class AppSubMenuComponent {
 
         // execute command
         if (item.command) {
-            item.command({originalEvent: event, item: item});
+            item.command({originalEvent: event, item});
         }
 
         // prevent hash change
