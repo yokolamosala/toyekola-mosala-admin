@@ -7,6 +7,7 @@ body {
     font-size: $fontSize;
     color: $textColor;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     padding:0;
     margin:0;
     height: 100%;
@@ -75,10 +76,11 @@ body {
             display: inline-block;
             font-size: 28px;
             vertical-align: middle;
-            color: $appNameTextColor;
             margin-left: 8px;
             font-weight: bold;
-
+            a {
+                color: $appNameTextColor;
+            }
         }
 
         #user-display {
@@ -231,11 +233,16 @@ body {
             position: absolute;
             top: 60px;
             left: 0;
+            overflow: auto;
             background-color: $menuBgColor;
             -webkit-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
             -moz-box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
             box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.15);
             width: 250px;
+
+            .layout-menu-container {
+                padding-bottom: 150px;
+            }
 
             .layout-menu {
                 > li {
@@ -306,6 +313,8 @@ body {
                         color: $menuItemTextColor;
                         text-decoration: none;
                         padding: 12px 14px;
+                        cursor: pointer;
+                        user-select: none;
                         display: block;
                         box-sizing: border-box;
 
@@ -392,26 +401,6 @@ body {
                             }
                         }
                     }
-                }
-            }
-
-            .ui-scrollpanel {
-                background-color: $menuBgColor;
-                border-radius: 0;
-                border: none;
-                .ui-scrollpanel-bar {
-                    background: rgba(0,0,0,.5);
-                    @include opacity(.3);
-                }
-                .ui-scrollpanel-hidden {
-                    display: block;
-                    visibility: hidden;
-                }
-
-                .layout-menu-container {
-                    width: 268px;
-                    padding-right: 18px;
-                    padding-bottom: 120px;
                 }
             }
         }
@@ -546,11 +535,8 @@ body {
                     animation-name: fadeInDown;
                 }
 
-
-                .ui-scrollpanel {
-                    .layout-menu-container {
-                        padding-bottom: 0;
-                    }
+                .layout-menu-container {
+                    padding-bottom: 0;
                 }
             }
         }
@@ -587,25 +573,11 @@ body {
                     display: block;
                     position: static;
                     margin: 0;
+                    overflow: visible;
                     width: 100%;
 
-                    .ui-scrollpanel {
-                        overflow: visible;
-                        border: none;
-                        .ui-scrollpanel-wrapper {
-                            overflow: visible;
-                            .ui-scrollpanel-content {
-                                background-color: $menuBgColor;
-                                overflow: visible;
-                                padding: 0;
-                            }
-                        }
-
-                        .layout-menu-container {
-                            width: 100%;
-                            padding-right: 0;
-                            padding-bottom: 0;
-                        }
+                    .layout-menu-container {
+                        padding-bottom: 0px;
                     }
 
                     .layout-menu-container {

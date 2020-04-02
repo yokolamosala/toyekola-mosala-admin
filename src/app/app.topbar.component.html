@@ -3,10 +3,14 @@
             <a href="#" id="menu-button" (click)="app.onMenuButtonClick($event)">
                 <span class="fa fa-bars"></span>
             </a>
+
             <a href="/">
                 <img alt="main logo" src="assets/layout/images/logo-main.png" class="logo">
             </a>
-            <div class="app-name">VERONA</div>
+
+            <div class="app-name">
+                <a href="/">VERONA</a>
+            </div>
 
             <a href="#" id="user-display" (click)="app.onTopbarMenuButtonClick($event)">
                 <span class="username">Samanta Owens</span>
@@ -162,6 +166,6 @@
             </ul>
         </div>
 
-        <app-menu [reset]="app.resetMenu"></app-menu>
+        <app-menu></app-menu>
 
     </div>

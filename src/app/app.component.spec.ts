@@ -3,20 +3,20 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
-import { AppMenuComponent, AppSubMenuComponent } from './app.menu.component';
-import { ScrollPanelModule} from 'primeng/primeng';
+import { AppMenuComponent } from './app.menu.component';
+import { MenuService } from './app.menu.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ RouterTestingModule, ScrollPanelModule ],
+      imports: [ RouterTestingModule ],
       declarations: [
           AppComponent,
           AppTopBarComponent,
           AppMenuComponent,
-          AppSubMenuComponent,
           AppFooterComponent
       ],
+        providers: [MenuService]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

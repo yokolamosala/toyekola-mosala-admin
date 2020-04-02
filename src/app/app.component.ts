@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuService } from './app.menu.service';
 
 @Component({
     selector: 'app-root',
@@ -20,9 +21,9 @@ export class AppComponent {
 
     topbarMenuButtonClick: boolean;
 
-    resetMenu: boolean;
-
     menuHoverActive: boolean;
+
+    constructor(private menuService: MenuService) {}
 
     onMenuButtonClick(event: Event) {
         this.menuButtonClick = true;
@@ -54,7 +55,7 @@ export class AppComponent {
     onLayoutClick() {
         if (!this.menuButtonClick && !this.menuClick) {
             if (this.menuMode === 'horizontal') {
-                this.resetMenu = true;
+                this.menuService.reset();
             }
 
             if (this.isMobile() || this.menuMode === 'overlay' || this.menuMode === 'popup') {
@@ -76,7 +77,6 @@ export class AppComponent {
 
     onMenuClick() {
         this.menuClick = true;
-        this.resetMenu = false;
     }
 
     isMobile() {

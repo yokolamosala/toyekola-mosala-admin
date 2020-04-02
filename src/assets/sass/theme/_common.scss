@@ -60,8 +60,7 @@ body {
     }
 
     .ui-widget-overlay {
-        background-color: #424242;
-        @include opacity(.7);
+        background-color: rgb(66, 66, 66, 0.7);
     }
 
     a {

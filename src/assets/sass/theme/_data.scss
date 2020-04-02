@@ -481,55 +481,51 @@ body {
     }
 
     .ui-carousel {
-        padding: 0;
+        .ui-carousel-content {
+            .ui-carousel-prev,
+            .ui-carousel-next {
+                color: $buttonTextColor;
+                background-color: $primaryColor;
+                border: 1px solid transparent;
+                @include border-radius($borderRadius);
+                margin: .2em;
+                width: auto;
+                min-width: 2.5em;
+                @include transition(background-color $transitionDuration);
 
-        .ui-carousel-header {
-            padding: $headerPadding;
-            margin: 0;
-            border: 0 none;
-            border-bottom: 1px solid $headerBorderColor;
-            @include border-radius(0);
-
-            .ui-carousel-header-title {
-                padding: 0;
+                &:not(.ui-state-disabled) {
+                    &:hover {
+                        background-color: darken($primaryColor,5%);
+                    }
+                }
             }
         }
 
-        .ui-carousel-footer {
-            padding: $headerPadding;
-            border: 0 none;
-            border-top: 1px solid $headerBorderColor;
-            margin: 0;
-            @include border-radius(0);
-        }
+        .ui-carousel-dots-container {
+            .ui-carousel-dot-item {
+                border-color: transparent;
+                background-color: transparent;
 
-        .ui-carousel-button {
-            margin-top: .4em;
-            @include transition(color .3s);
-            color: $headerIconColor;
-
-            &:not(.ui-state-disabled):hover {
-                color: $headerIconHoverColor;
-            }
-        }
-
-        .ui-carousel-page-links {
-            margin-top: .4em;
-
-            .ui-carousel-page-link {
-                color: $headerIconColor;
-                @include transition(color $transitionDuration);
-
-                &:hover {
-                    color: darken($headerIconColor, 10%);
+                > .ui-button {
+                    border-color: transparent;
+                    background-color: transparent;
                 }
 
-                &.pi-circle-off {
-                    color: $headerIconColor;
+                .ui-carousel-dot-icon {
+                    width: 20px;
+                    height: 6px;
+                    background-color: #b2c1cd;
+                    margin: 0 .2em;;
+
+                    &::before {
+                        content: ' ';
+                    }
                 }
 
-                &.pi-circle-on {
-                    color: $headerIconColor;
+                &.ui-state-highlight {
+                    .ui-carousel-dot-icon {
+                        background-color: $primaryColor;
+                    }
                 }
             }
         }

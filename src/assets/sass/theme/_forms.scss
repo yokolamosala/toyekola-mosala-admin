@@ -1182,6 +1182,11 @@ body {
                     a {
                         background-color: #bec9d2;
                         color: #ffffff;
+
+                        &.ui-state-active {
+                            color: $highlightTextColor;
+                            background-color: $primaryColor;
+                        }
                     }
                 }
             }
