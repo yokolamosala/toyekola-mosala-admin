@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AppComponent} from './app.component';
+import {AppMainComponent} from './app.main.component';
 
 @Component({
     selector: 'app-menu',
@@ -9,138 +9,96 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public app: AppComponent) {}
+    constructor(public app: AppMainComponent) {}
 
     ngOnInit() {
         this.model = [
-            {label: 'Dashboard', icon: 'fa fa-fw fa-home', routerLink: ['/']},
+            {label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/']},
             {
-                label: 'Menu', icon: 'fa fa-fw fa-bars', badge: 4, badgeStyleClass: 'green-badge',
+                label: 'UI Kit', icon: 'pi pi-fw pi-star', routerLink: ['/uikit'], badge: 7, badgeStyleClass: 'amber-badge',
                 items: [
-                    {label: 'Horizontal', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'horizontal' },
-                    {label: 'Static', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'static' },
-                    {label: 'Overlay', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'overlay' },
-                    {label: 'Popup', icon: 'fa fa-fw fa-bars', command: event => this.app.menuMode = 'popup' }
+                    {label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
+                    {label: 'Input', icon: 'pi pi-fw pi-check-square', routerLink: ['/uikit/input']},
+                    {label: 'Float Label', icon: 'pi pi-fw pi-bookmark', routerLink: ['/uikit/floatlabel']},
+                    {label: 'Button', icon: 'pi pi-fw pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon'},
+                    {label: 'Table', icon: 'pi pi-fw pi-table', routerLink: ['/uikit/table']},
+                    {label: 'List', icon: 'pi pi-fw pi-list', routerLink: ['/uikit/list']},
+                    {label: 'Tree', icon: 'pi pi-fw pi-share-alt', routerLink: ['/uikit/tree']},
+                    {label: 'Panel', icon: 'pi pi-fw pi-tablet', routerLink: ['/uikit/panel']},
+                    {label: 'Overlay', icon: 'pi pi-fw pi-clone', routerLink: ['/uikit/overlay']},
+                    {label: 'Media', icon: 'pi pi-fw pi-image', routerLink: ['/uikit/media']},
+                    {label: 'Menu', icon: 'pi pi-fw pi-bars', routerLink: ['/uikit/menu']},
+                    {label: 'Message', icon: 'pi pi-fw pi-comment', routerLink: ['/uikit/message']},
+                    {label: 'File', icon: 'pi pi-fw pi-file', routerLink: ['/uikit/file']},
+                    {label: 'Chart', icon: 'pi pi-fw pi-chart-bar', routerLink: ['/uikit/charts']},
+                    {label: 'Misc', icon: 'pi pi-fw pi-circle-off', routerLink: ['/uikit/misc']}
                 ]
             },
             {
-                label: 'Layout Colors', icon: 'fa fa-fw fa-magic',
+                label: 'Utilities', icon: 'pi pi-fw pi-compass', routerLink: ['utilities'], badge: 4, badgeStyleClass: 'green-badge',
+                items: [
+                    {label: 'Display', icon: 'pi pi-fw pi-desktop', routerLink: ['utilities/display']},
+                    {label: 'Elevation', icon: 'pi pi-fw pi-external-link', routerLink: ['utilities/elevation']},
+                    {label: 'FlexBox', icon: 'pi pi-fw pi-directions', routerLink: ['utilities/flexbox']},
+                    {label: 'Icons', icon: 'pi pi-fw pi-search', routerLink: ['utilities/icons']},
+                    {label: 'Text', icon: 'pi pi-fw pi-pencil', routerLink: ['utilities/text']},
+                    {label: 'Widgets', icon: 'pi pi-fw pi-star-o', routerLink: ['utilities/widgets']},
+                    {label: 'Grid System', icon: 'pi pi-fw pi-th-large', routerLink: ['utilities/grid']},
+                    {label: 'Spacing', icon: 'pi pi-fw pi-arrow-right', routerLink: ['utilities/spacing']},
+                    {label: 'Typography', icon: 'pi pi-fw pi-align-center', routerLink: ['utilities/typography']}
+                ]
+            },
+            {
+                label: 'Pages', icon: 'pi pi-fw pi-briefcase', routerLink: ['/pages'],
+                items: [
+                    {label: 'Crud', icon: 'pi pi-fw pi-pencil', routerLink: ['/pages/crud']},
+                    {label: 'Calendar', icon: 'pi pi-fw pi-calendar-plus', routerLink: ['/pages/calendar']},
+                    {label: 'Landing', icon: 'pi pi-fw pi-globe', url: 'assets/pages/landing.html', target: '_blank'},
+                    {label: 'Login', icon: 'pi pi-fw pi-sign-in', routerLink: ['/login']},
+                    {label: 'Invoice', icon: 'pi pi-fw pi-dollar', routerLink: ['/pages/invoice']},
+                    {label: 'Help', icon: 'pi pi-fw pi-question-circle', routerLink: ['/pages/help']},
+                    {label: 'Error', icon: 'pi pi-fw pi-times-circle', routerLink: ['/error']},
+                    {label: 'Not Found', icon: 'pi pi-fw pi-exclamation-circle', routerLink: ['/notfound']},
+                    {label: 'Access Denied', icon: 'pi pi-fw pi-lock', routerLink: ['/access']},
+                    {label: 'Empty', icon: 'pi pi-fw pi-circle-off', routerLink: ['/pages/empty']}
+                ]
+            },
+            {
+                label: 'Hierarchy', icon: 'pi pi-fw pi-align-left',
                 items: [
                     {
-                        label: 'Flat',
-                        icon: 'fa fa-fw fa-circle',
-                        badge: 7, badgeStyleClass: 'blue-badge',
-                        items: [
-                            {label: 'Dark', icon: 'fa fa-fw fa-paint-brush',
-                              command: (event) => {this.changeLayout('dark'); }},
-                            {label: 'Turquoise', icon: 'fa fa-fw fa-paint-brush',
-                              command: (event) => {this.changeLayout('turquoise'); }},
-                            {label: 'Green', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('green'); }},
-                            {label: 'Blue', icon: 'fa fa-fw fa-paint-brush',
-                              command: (event) => {this.changeLayout('blue'); }},
-                            {label: 'Rose', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('rose'); }},
-                            {label: 'Teal', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('teal'); }},
-                            {label: 'Blue Grey', icon: 'fa fa-fw fa-paint-brush',
-                              command: (event) => {this.changeLayout('bluegrey'); }}
-                        ]
-                    },
-                    {
-                        label: 'Special',
-                        icon: 'fa fa-fw fa-fire',
-                        badge: 8, badgeStyleClass: 'blue-badge',
-                        items: [
-                            {label: 'Cosmic', icon: 'fa fa-fw fa-paint-brush',
-                              command: (event) => {this.changeLayout('cosmic'); }},
-                            {label: 'Lawrencium', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('lawrencium'); }},
-                            {label: 'Couple', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('couple'); }},
-                            {label: 'Stellar', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('stellar'); }},
-                            {label: 'Beach', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('beach'); }},
-                            {label: 'Flow', icon: 'fa fa-fw fa-paint-brush',
-                              command: (event) => {this.changeLayout('flow'); }},
-                            {label: 'Fly', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('fly'); }},
-                            {label: 'Nepal', icon: 'fa fa-fw fa-paint-brush', command: (event) => {this.changeLayout('nepal'); }}
-                        ]
-                    }
-                ]
-            },
-            {
-                label: 'Themes', icon: 'fa fa-fw fa-paint-brush', badge: 7, badgeStyleClass: 'amber-badge',
-                items: [
-                    {label: 'Green Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('green'); }},
-                    {label: 'Teal Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('teal'); }},
-                    {label: 'Blue Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('blue'); }},
-                    {label: 'Amber Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('amber'); }},
-                    {label: 'Purple Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('purple'); }},
-                    {label: 'Turquoise Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('turquoise'); }},
-                    {label: 'Blue Grey Theme', icon: 'fa fa-fw fa-diamond', command: (event) => {this.changeTheme('bluegrey'); }},
-                ]
-            },
-            {
-                label: 'Components', icon: 'fa fa-fw fa-sitemap', routerLink: ['/components'],
-                items: [
-                    {label: 'Sample Page', icon: 'fa fa-fw fa-columns', routerLink: ['/components/sample']},
-                    {label: 'Forms', icon: 'fa fa-fw fa-code', routerLink: ['/components/forms']},
-                    {label: 'Data', icon: 'fa fa-fw fa-table', routerLink: ['/components/data']},
-                    {label: 'Panels', icon: 'fa fa-fw fa-list-alt', routerLink: ['/components/panels']},
-                    {label: 'Overlays', icon: 'fa fa-fw fa-square', routerLink: ['/components/overlays']},
-                    {label: 'Menus', icon: 'fa fa-fw fa-minus-square-o', routerLink: ['/components/menus']},
-                    {label: 'Messages', icon: 'fa fa-fw fa-circle-o-notch', routerLink: ['/components/messages']},
-                    {label: 'Charts', icon: 'fa fa-fw fa-area-chart', routerLink: ['/components/charts']},
-                    {label: 'File', icon: 'fa fa-fw fa-arrow-circle-o-up', routerLink: ['/components/file']},
-                    {label: 'Misc', icon: 'fa fa-fw fa-user-secret', routerLink: ['/components/misc']}
-                ]
-            },
-            {
-                label: 'Template Pages', icon: 'fa fa-fw fa-life-saver', routerLink: ['/pages'],
-                items: [
-                    {label: 'Empty Page', icon: 'fa fa-fw fa-square-o', routerLink: ['/pages/empty']},
-                    {label: 'Landing Page', icon: 'fa fa-fw fa-globe', url: 'assets/pages/landing.html', target: '_blank'},
-                    {label: 'Login Page', icon: 'fa fa-fw fa-sign-in', url: 'assets/pages/login.html', target: '_blank'},
-                    {label: 'Error Page', icon: 'fa fa-fw fa-exclamation-circle', url: 'assets/pages/error.html', target: '_blank'},
-                    {label: '404 Page', icon: 'fa fa-fw fa-times', url: 'assets/pages/404.html', target: '_blank'},
-                    {label: 'Access Denied Page', icon: 'fa fa-fw fa-exclamation-triangle',
-                      url: 'assets/pages/access.html', target: '_blank'}
-                ]
-            },
-            {
-                label: 'Menu Hierarchy', icon: 'fa fa-fw fa-gg',
-                items: [
-                    {
-                        label: 'Submenu 1', icon: 'fa fa-fw fa-sign-in',
+                        label: 'Submenu 1', icon: 'pi pi-fw pi-align-left',
                         items: [
                             {
-                                label: 'Submenu 1.1', icon: 'fa fa-fw fa-sign-in',
+                                label: 'Submenu 1.1', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    {label: 'Submenu 1.1.1', icon: 'fa fa-fw fa-sign-in'},
-                                    {label: 'Submenu 1.1.2', icon: 'fa fa-fw fa-sign-in'},
-                                    {label: 'Submenu 1.1.3', icon: 'fa fa-fw fa-sign-in'},
+                                    {label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-align-left'},
+                                    {label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-align-left'},
+                                    {label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-align-left'},
                                 ]
                             },
                             {
-                                label: 'Submenu 1.2', icon: 'fa fa-fw fa-sign-in',
+                                label: 'Submenu 1.2', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    {label: 'Submenu 1.2.1', icon: 'fa fa-fw fa-sign-in'},
-                                    {label: 'Submenu 1.2.2', icon: 'fa fa-fw fa-sign-in'}
+                                    {label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-align-left'}
                                 ]
                             },
                         ]
                     },
                     {
-                        label: 'Submenu 2', icon: 'fa fa-fw fa-sign-in',
+                        label: 'Submenu 2', icon: 'pi pi-fw pi-align-left',
                         items: [
                             {
-                                label: 'Submenu 2.1', icon: 'fa fa-fw fa-sign-in',
+                                label: 'Submenu 2.1', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    {label: 'Submenu 2.1.1', icon: 'fa fa-fw fa-sign-in'},
-                                    {label: 'Submenu 2.1.2', icon: 'fa fa-fw fa-sign-in'},
-                                    {label: 'Submenu 2.1.3', icon: 'fa fa-fw fa-sign-in'},
+                                    {label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-align-left'},
+                                    {label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-align-left'},
                                 ]
                             },
                             {
-                                label: 'Submenu 2.2', icon: 'fa fa-fw fa-sign-in',
+                                label: 'Submenu 2.2', icon: 'pi pi-fw pi-align-left',
                                 items: [
-                                    {label: 'Submenu 2.2.1', icon: 'fa fa-fw fa-sign-in'},
-                                    {label: 'Submenu 2.2.2', icon: 'fa fa-fw fa-sign-in'}
+                                    {label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-align-left'},
                                 ]
                             },
                         ]
@@ -148,52 +106,11 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Documentation', icon: 'fa fa-fw fa-book',
-                items: [
-                    {label: 'Setup', icon: 'fa fa-fw fa-gear', routerLink: ['/documentation']},
-                    {label: 'Utils', icon: 'fa fa-fw fa-wrench', routerLink: ['/utils']}
-                ]
+                label: 'Buy Now', icon: 'pi pi-fw pi-shopping-cart', url: ['https://www.primefaces.org/store']
+            },
+            {
+                label: 'Documentation', icon: 'pi pi-fw pi-info-circle', routerLink: ['/documentation']
             }
         ];
-    }
-
-    changeTheme(theme) {
-        const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
-        const href = 'assets/theme/theme-' + theme + '.css';
-
-        this.replaceLink(themeLink, href);
-    }
-    changeLayout(layout) {
-        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
-        const href = 'assets/layout/css/layout-' + layout + '.css';
-
-        this.replaceLink(layoutLink, href);
-    }
-
-    isIE() {
-        return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
-    }
-
-    replaceLink(linkElement, href) {
-        if (this.isIE()) {
-            linkElement.setAttribute('href', href);
-        } else {
-            const id = linkElement.getAttribute('id');
-            const cloneLinkElement = linkElement.cloneNode(true);
-
-            cloneLinkElement.setAttribute('href', href);
-            cloneLinkElement.setAttribute('id', id + '-clone');
-
-            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
-
-            cloneLinkElement.addEventListener('load', () => {
-                linkElement.remove();
-                cloneLinkElement.setAttribute('id', id);
-            });
-        }
-    }
-
-    onMenuClick() {
-        this.app.onMenuClick();
     }
 }
