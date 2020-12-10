@@ -11,7 +11,7 @@ import { AppMainComponent } from './app.main.component';
     selector: '[app-menuitem]',
     /* tslint:enable:component-selector */
     template: `
-          <ng-container>
+          <ng-container *ngIf="visible">
               <a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items" (mouseenter)="onMouseEnter()"
                  (keydown.enter)="itemClick($event)" [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
                   <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
@@ -157,6 +157,10 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             this.menuService.onMenuStateChange(this.key);
             this.active = true;
         }
+    }
+
+    get visible():boolean {
+        return this.item ? (typeof this.item.visible === "function" ? this.item.visible() : this.item.visible !== false) : false;
     }
 
     ngOnDestroy() {
