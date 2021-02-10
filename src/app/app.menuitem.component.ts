@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { MenuService } from './app.menu.service';
 import { AppMainComponent } from './app.main.component';
+import { AppComponent } from './app.component';
 
 @Component({
     /* tslint:disable:component-selector */
@@ -73,7 +74,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string;
 
-    constructor(public app: AppMainComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
+    constructor(public appMain: AppMainComponent, public app: AppComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
             // deactivate current active menu
             if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {
@@ -87,7 +88,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
         this.router.events.pipe(filter(event => event instanceof NavigationEnd))
             .subscribe(params => {
-                if (this.app.isHorizontal()) {
+                if (this.appMain.isHorizontal()) {
                     this.active = false;
                 } else {
                     if (this.item.routerLink) {
@@ -100,7 +101,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        if (!this.app.isHorizontal() && this.item.routerLink) {
+        if (!this.appMain.isHorizontal() && this.item.routerLink) {
             this.updateActiveStateFromRoute();
         }
 
@@ -120,7 +121,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
         // navigate with hover in horizontal mode
         if (this.root) {
-            this.app.menuHoverActive = !this.app.menuHoverActive;
+            this.appMain.menuHoverActive = !this.appMain.menuHoverActive;
         }
 
         // notify other items
@@ -139,21 +140,21 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             this.active = true;
 
             // reset horizontal menu
-            if (this.app.isHorizontal()) {
+            if (this.appMain.isHorizontal()) {
                 this.menuService.reset();
             }
 
-            if (this.app.isMobile() || this.app.menuMode === 'overlay' || this.app.menuMode === 'popup') {
-                this.app.menuActive = false;
+            if (this.appMain.isMobile() || this.app.menuMode === 'overlay' || this.app.menuMode === 'popup') {
+                this.appMain.menuActive = false;
             }
 
-            this.app.menuHoverActive = false;
+            this.appMain.menuHoverActive = false;
         }
     }
 
     onMouseEnter() {
         // activate item on hover
-        if (this.root && this.app.menuHoverActive && this.app.isHorizontal() && !this.app.isMobile() && !this.app.isTablet()) {
+        if (this.root && this.appMain.menuHoverActive && this.appMain.isHorizontal() && !this.appMain.isMobile() && !this.appMain.isTablet()) {
             this.menuService.onMenuStateChange(this.key);
             this.active = true;
         }
