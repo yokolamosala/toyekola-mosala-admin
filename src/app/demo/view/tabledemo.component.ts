@@ -7,7 +7,15 @@ import {Table} from 'primeng/table';
 
 @Component({
     templateUrl: './tabledemo.component.html',
-    styleUrls: ['./tabledemo.scss']
+    styleUrls: ['./tabledemo.scss'],
+    styles: [`
+        @media screen and (max-width: 960px) {
+            :host ::ng-deep .p-datatable.p-datatable-customers.rowexpand-table .p-datatable-tbody > tr > td:nth-child(6) {
+                display: flex;
+            }
+        }
+
+    `],
 })
 export class TableDemoComponent implements OnInit {
 
@@ -29,12 +37,18 @@ export class TableDemoComponent implements OnInit {
 
     rowGroupMetadata: any;
 
+    activityValues: number[] = [0, 100];
+
     @ViewChild('dt') table: Table;
 
     constructor(private customerService: CustomerService, private productService: ProductService) {}
 
     ngOnInit() {
-        this.customerService.getCustomersMedium().then(customers => this.customers1 = customers);
+        this.customerService.getCustomersLarge().then(customers => {
+            this.customers1 = customers;
+            // @ts-ignore
+            this.customers1.forEach(customer => customer.date = new Date(customer.date));
+        });
         this.customerService.getCustomersMedium().then(customers => this.customers2 = customers);
         this.customerService.getCustomersMedium().then(customers => this.customers3 = customers);
         this.productService.getProductsWithOrdersSmall().then(data => this.products = data);
