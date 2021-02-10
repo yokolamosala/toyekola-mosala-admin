@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import { CountryService } from '../service/countryservice';
+import {CountryService} from '../service/countryservice';
 
 @Component({
     templateUrl: './floatlabeldemo.component.html',
     styleUrls: ['./floatlabeldemo.scss']
 })
-export class FloatLabelDemoComponent implements OnInit{
+export class FloatLabelDemoComponent implements OnInit {
 
     countries: any[];
 
@@ -32,6 +32,10 @@ export class FloatLabelDemoComponent implements OnInit{
     value9: any;
 
     value10: any;
+
+    value11: any;
+
+    value12: any;
 
     constructor(private countryService: CountryService) {
         this.cities = [
