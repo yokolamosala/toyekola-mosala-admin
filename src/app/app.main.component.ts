@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { MenuService } from './app.menu.service';
 import { PrimeNGConfig } from 'primeng/api';
+import { AppComponent } from './app.component';
 
 @Component({
     selector: 'app-main',
     templateUrl: './app.main.component.html'
 })
 export class AppMainComponent {
-
-    public menuMode = 'horizontal';
 
     public menuActive = true;
 
@@ -24,15 +23,11 @@ export class AppMainComponent {
 
     menuHoverActive: boolean;
 
-    inputStyle = 'outlined';
-
-    ripple: boolean;
-
     configActive: boolean;
 
     configClick: boolean;
 
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig) { }
+    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) { }
 
     ngOnInit() {
         this.primengConfig.ripple = true;
@@ -67,11 +62,11 @@ export class AppMainComponent {
 
     onLayoutClick() {
         if (!this.menuButtonClick && !this.menuClick) {
-            if (this.menuMode === 'horizontal') {
+            if (this.app.menuMode === 'horizontal') {
                 this.menuService.reset();
             }
 
-            if (this.isMobile() || this.menuMode === 'overlay' || this.menuMode === 'popup') {
+            if (this.isMobile() || this.app.menuMode === 'overlay' || this.app.menuMode === 'popup') {
                 this.menuActive = false;
             }
 
@@ -94,7 +89,7 @@ export class AppMainComponent {
     }
 
     onRippleChange(event) {
-        this.ripple = event.checked;
+        this.app.ripple = event.checked;
     }
 
     onConfigClick(event) {
@@ -110,7 +105,7 @@ export class AppMainComponent {
     }
 
     isHorizontal() {
-        return this.menuMode === 'horizontal';
+        return this.app.menuMode === 'horizontal';
     }
 
     isTablet() {

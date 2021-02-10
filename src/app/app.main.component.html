@@ -1,9 +1,9 @@
-<div class="layout-wrapper" [ngClass]="{'layout-menu-horizontal': menuMode === 'horizontal',
-                                        'layout-menu-popup': menuMode === 'popup',
-                                        'layout-menu-overlay': menuMode === 'overlay',
-                                        'layout-menu-static': menuMode === 'static',
-                                        'layout-menu-static-inactive': (menuMode == 'static' && menuActive === false),
-                                        'p-input-filled': inputStyle === 'filled', 'p-ripple-disabled': !ripple}" (click)="onLayoutClick()">
+<div class="layout-wrapper" [ngClass]="{'layout-menu-horizontal': app.menuMode === 'horizontal',
+                                        'layout-menu-popup': app.menuMode === 'popup',
+                                        'layout-menu-overlay': app.menuMode === 'overlay',
+                                        'layout-menu-static': app.menuMode === 'static',
+                                        'layout-menu-static-inactive': (app.menuMode == 'static' && menuActive === false),
+                                        'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple}" (click)="onLayoutClick()">
 
     <app-topbar></app-topbar>
 
