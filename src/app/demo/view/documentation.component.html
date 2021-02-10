@@ -43,19 +43,19 @@ Run 'ng help' for more options.
 </app-code>
 
             <h4>Structure</h4>
-            <p>verona consists of 3 main parts; the application layout, layout resources and theme resources for PrimeNG components. <i>app.component.html</i> inside app folder is the html template for the base layout,
+            <p>verona consists of 3 main parts; the application layout, layout resources and theme resources for PrimeNG components. <i>app.main.component.html</i> inside app folder is the html template for the base layout,
                 required resources for the layout are placed inside the <i>src/assets/layout</i> folder and similarly theme resources are inside <i>src/assets/theme</i> folder.
             </p>
 
             <h4>Template</h4>
-            <p>Main layout is the html view of the app.component.ts, it is divided into a couple of sections such as topbar, profile, menu and footer. Here is the code for
-                the main template. The component class app.component.ts implements the logic such as opening menus, managing layout modes and so on.
+            <p>Main layout is the html view of the app.main.component.ts, it is divided into a couple of sections such as topbar, profile, menu and footer. Here is the code for
+                the main template. The component class app.main.component.ts implements the logic such as opening menus, managing layout modes and so on.
             </p>
 <app-code ngPreserveWhitespaces ngNonBindable>
 &lt;div class="layout-wrapper" [ngClass]="&#123;'layout-menu-horizontal': app.menuMode === 'horizontal',
                                         'layout-menu-popup': app.menuMode === 'popup',
                                         'layout-menu-overlay': app.menuMode === 'overlay',
-                                        'layout-menu-static':app. menuMode === 'static',
+                                        'layout-menu-static': app.menuMode === 'static',
                                         'layout-menu-static-inactive': (app.menuMode == 'static' && menuActive === false),
                                         'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple&#125;" (click)="onLayoutClick()"&gt;
 
