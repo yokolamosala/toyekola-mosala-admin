@@ -1,13 +1,15 @@
-<div class="layout-wrapper" [ngClass]="{'layout-menu-horizontal': app.menuMode === 'horizontal',
-                                        'layout-menu-popup': app.menuMode === 'popup',
-                                        'layout-menu-overlay': app.menuMode === 'overlay',
-                                        'layout-menu-static': app.menuMode === 'static',
-                                        'layout-menu-static-inactive': (app.menuMode == 'static' && menuActive === false),
-                                        'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple}" (click)="onLayoutClick()">
+<div class="layout-wrapper" [ngClass]="{'layout-slim': app.menuMode === 'slim',
+                                        'layout-static': app.menuMode === 'static',
+                                        'layout-mobile-active': staticMenuMobileActive,
+                                        'layout-static-inactive': staticMenuDesktopInactive && app.menuMode === 'static',
+                                        'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple}"
+     [class]="app.colorScheme === 'light' ? app.layoutColor : 'layout-dark'" (click)="onLayoutClick()">
 
     <app-topbar></app-topbar>
 
-    <div class="layout-main">
+    <app-menu></app-menu>
+
+    <div class="layout-content-wrapper">
         <div class="layout-content">
             <router-outlet></router-outlet>
         </div>

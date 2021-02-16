@@ -9,19 +9,19 @@ import { AppComponent } from './app.component';
 })
 export class AppMainComponent {
 
-    public menuActive = true;
+    staticMenuDesktopInactive: boolean;
 
-    public topbarMenuActive = false;
-
-    activeTopbarItem: Element;
+    staticMenuMobileActive: boolean;
 
     menuClick: boolean;
 
-    menuButtonClick: boolean;
+    menuHoverActive = false;
+
+    topbarMenuActive = false;
+
+    activeTopbarItem: Element;
 
     topbarMenuButtonClick: boolean;
-
-    menuHoverActive: boolean;
 
     configActive: boolean;
 
@@ -29,14 +29,43 @@ export class AppMainComponent {
 
     constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) { }
 
-    ngOnInit() {
-        this.primengConfig.ripple = true;
+    onLayoutClick() {
+        if (!this.topbarMenuButtonClick) {
+            this.activeTopbarItem = null;
+            this.topbarMenuActive = false;
+        }
+
+        if (this.configActive && !this.configClick) {
+            this.configActive = false;
+        }
+
+        if (!this.menuClick) {
+            if (this.isSlim()) {
+                this.menuService.reset();
+            }
+
+            this.menuHoverActive = false;
+        }
+
+        this.configClick = false;
+        this.menuClick = false;
+        this.topbarMenuButtonClick = false;
     }
 
     onMenuButtonClick(event: Event) {
-        this.menuButtonClick = true;
-        this.menuActive = !this.menuActive;
+        this.menuClick = true;
+
+        if (!this.isMobile()) {
+            this.staticMenuDesktopInactive = !this.staticMenuDesktopInactive;
+        } else {
+            this.staticMenuMobileActive = !this.staticMenuMobileActive;
+        }
+
         event.preventDefault();
+    }
+
+    onMenuClick() {
+        this.menuClick = true;
     }
 
     onTopbarMenuButtonClick(event: Event) {
@@ -60,52 +89,21 @@ export class AppMainComponent {
         event.preventDefault();
     }
 
-    onLayoutClick() {
-        if (!this.menuButtonClick && !this.menuClick) {
-            if (this.app.menuMode === 'horizontal') {
-                this.menuService.reset();
-            }
-
-            if (this.isMobile() || this.app.menuMode === 'overlay' || this.app.menuMode === 'popup') {
-                this.menuActive = false;
-            }
-
-            this.menuHoverActive = false;
-        }
-
-        if (!this.topbarMenuButtonClick) {
-            this.activeTopbarItem = null;
-            this.topbarMenuActive = false;
-        }
-
-        if (this.configActive && !this.configClick) {
-            this.configActive = false;
-        }
-
-        this.configClick = false;
-        this.menuButtonClick = false;
-        this.menuClick = false;
-        this.topbarMenuButtonClick = false;
-    }
-
     onRippleChange(event) {
         this.app.ripple = event.checked;
+        this.primengConfig = event.checked;
     }
 
     onConfigClick(event) {
         this.configClick = true;
     }
 
-    onMenuClick() {
-        this.menuClick = true;
-    }
-
     isMobile() {
         return window.innerWidth < 1025;
     }
 
-    isHorizontal() {
-        return this.app.menuMode === 'horizontal';
+    isSlim() {
+        return this.app.menuMode === 'slim';
     }
 
     isTablet() {

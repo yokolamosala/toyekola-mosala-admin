@@ -1,0 +1,20 @@
+@import './_topbar_common';
+
+.layout-topbar{
+    background: $topbarBg;
+
+    #menu-button {
+        background: $topbarIconBg;
+        color: #ffffff;
+
+        &:hover {
+            background: $topbarIconHoverBg;
+        }
+    }
+
+    #topbar-menu {
+        background-color: $bodyBg;
+        border: solid 1px $bodyBg;
+    }
+}
+

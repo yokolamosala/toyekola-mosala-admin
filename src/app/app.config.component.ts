@@ -15,16 +15,30 @@ import { AppMainComponent } from './app.main.component';
                 <label for="mode1">Static</label>
             </div>
             <div class="p-field-radiobutton">
-                <p-radioButton name="menuMode" value="overlay" [(ngModel)]="app.menuMode" inputId="mode2"></p-radioButton>
-                <label for="mode2">Overlay</label>
+                <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="mode2"></p-radioButton>
+                <label for="mode2">Slim</label>
+            </div>
+
+            <h5>Layout</h5>
+            <div class="p-field-radiobutton">
+                <p-radioButton name="colorScheme" value="light" [(ngModel)]="app.colorScheme" inputId="scheme1" (onClick)="changeColorScheme('light')"></p-radioButton>
+                <label for="scheme1">Light</label>
             </div>
             <div class="p-field-radiobutton">
-                <p-radioButton name="menuMode" value="popup" [(ngModel)]="app.menuMode" inputId="mode3"></p-radioButton>
-                <label for="mode3">Popup</label>
+                <p-radioButton name="colorScheme" value="dark" [(ngModel)]="app.colorScheme" inputId="scheme2" (onClick)="changeColorScheme('dark')"></p-radioButton>
+                <label for="scheme2">Dark</label>
             </div>
-            <div class="p-field-radiobutton">
-                <p-radioButton name="menuMode" value="horizontal" [(ngModel)]="app.menuMode" inputId="mode4"></p-radioButton>
-                <label for="mode4">Horizontal</label>
+
+            <h5>Layout Colors</h5>
+            <div class="layout-themes" *ngIf="app.colorScheme === 'light'">
+                <div *ngFor="let l of layoutColor">
+                    <a style="cursor: pointer" (click)="changeLayoutColor(l.name)" [ngStyle]="{'background-color': l.color}">
+                        <i class="pi pi-check" *ngIf="app.layoutColor === l.name"></i>
+                    </a>
+                </div>
+            </div>
+            <div *ngIf="app.colorScheme !== 'light'">
+                <p>Layout themes are only available in light mode by design as large surfaces can emit too much brightness in dark mode.</p>
             </div>
 
             <h5>Input Style</h5>
@@ -37,29 +51,8 @@ import { AppMainComponent } from './app.main.component';
                 <label for="inputStyle2">Filled</label>
             </div>
 
-            <hr />
-
             <h5>Ripple Effect</h5>
 			<p-inputSwitch [ngModel]="app.ripple" (onChange)="appMain.onRippleChange($event)"></p-inputSwitch>
-
-            <h5>Flat Layout Colors</h5>
-            <div class="layout-themes">
-                <div *ngFor="let f of flatLayouts">
-                    <a style="cursor: pointer" (click)="changeLayout(f.name)" [ngStyle]="{'background-color': f.color}">
-                        <i class="pi pi-check" *ngIf="app.layout === f.name"></i>
-                    </a>
-                </div>
-            </div>
-
-            <h5>Special Layout Colors</h5>
-            <div class="layout-themes">
-                <div *ngFor="let s of specialLayouts">
-                    <a style="cursor: pointer" (click)="changeLayout(s.name)"
-                       [ngStyle]="{'background-image': 'linear-gradient(to right, ' + s.color1 +','+ s.color2+')'} ">
-                        <i class="pi pi-check" *ngIf="app.layout === s.name"></i>
-                    </a>
-                </div>
-            </div>
 
             <h5>Themes</h5>
             <div class="layout-themes">
@@ -74,62 +67,51 @@ import { AppMainComponent } from './app.main.component';
 })
 export class AppConfigComponent implements OnInit {
 
-    flatLayouts: any[];
-
-    specialLayouts: any[];
+    layoutColor: any[];
 
     themes: any[];
 
     constructor(public appMain: AppMainComponent, public app: AppComponent) {}
 
     ngOnInit() {
-        this.flatLayouts = [
-            {name: 'dark', color: '#3b3b48'},
-            {name: 'turquoise', color: '#04838f'},
-            {name: 'green', color: '#1e8455'},
-            {name: 'blue', color: '#2461cc'},
-            {name: 'rose', color: '#79425a'},
-            {name: 'teal', color: '#427976'},
-            {name: 'bluegrey', color: '#37474f'},
-            {name: 'purple', color: '#5d4279'},
-        ];
-
-        this.specialLayouts = [
-            {name: 'cosmic', color1: '#517fa4', color2: '#243949'},
-            {name: 'lawrencium', color1: '#302b63', color2: '#201B4C'},
-            {name: 'couple', color1: '#3a6186', color2: '#89253e'},
-            {name: 'stellar', color1: '#7474BF', color2: '#348AC7'},
-            {name: 'beach', color1: '#00cdac', color2: '#02aab0'},
-            {name: 'flow', color1: '#136a8a', color2: '#267871'},
-            {name: 'fly', color1: '#7b4397', color2: '#b22f64'},
-            {name: 'nepal', color1: '#614385', color2: '#516395'},
-            {name: 'celestial', color1: '#734b6d', color2: '#734b6d'},
+        this.layoutColor = [
+            {name: 'white', color: '#ffffff'},
+            {name: 'blue', color: '#1976D2'},
+            {name: 'cyan', color: '#0097A7'},
+            {name: 'darkgray', color: '#343a40'},
+            {name: 'deeppurple', color: '#512DA8'},
         ];
 
         this.themes = [
             {name: 'green', color: '#9fd037'},
-            {name: 'teal', color: '#12b886'},
             {name: 'blue', color: '#3ebaf8'},
-            {name: 'amber', color: '#f7cb00'},
             {name: 'purple', color: '#966af1'},
-            {name: 'turquoise', color: '#2ab1be'},
-            {name: 'bluegrey', color: '#546E7A'}
+            {name: 'teal', color: '#12b886'},
         ];
     }
 
     changeTheme(theme) {
         this.app.theme = theme;
         const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
-        const href = 'assets/theme/theme-' + theme + '.css';
+        const href = 'assets/theme/' + theme + '/theme-' + this.app.colorScheme + '.css';
 
         this.replaceLink(themeLink, href);
     }
-    changeLayout(layout) {
-        this.app.layout = layout;
-        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
-        const href = 'assets/layout/css/layout-' + layout + '.css';
 
-        this.replaceLink(layoutLink, href);
+    changeColorScheme(scheme) {
+        this.app.colorScheme = scheme;
+        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
+        const layoutHref = 'assets/layout/css/layout-' + scheme + '.css';
+        this.replaceLink(layoutLink, layoutHref);
+
+        const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
+        const themeHref = 'assets/theme/' + this.app.theme + '/theme-' + scheme + '.css';
+        this.replaceLink(themeLink, themeHref);
+    }
+
+
+    changeLayoutColor(name) {
+        this.app.layoutColor = 'layout-' + name;
     }
 
     isIE() {

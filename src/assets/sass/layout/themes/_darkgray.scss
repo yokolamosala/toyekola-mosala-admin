@@ -1,0 +1,28 @@
+.layout-darkgray {
+    $sidebarBgColor:#343a40;
+    $sidebarBgColorAlt:#2e3439;
+    $sidebarBorder:0 none;
+    $appNameColor:#ffffff;
+    $menuSeparatorBorder: 1px solid rgba(255,255,255,0.2);
+    $menuitemRootTextColor: rgba(255,255,255,0.4);
+    $menuitemTextColor: rgba(255,255,255,0.8);
+    $menuitemHoverBg: #4b545c;
+    $menuitemActiveBg: #3f474e;
+    $menuitemTextActiveColor: #ffffff;
+    $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
+
+    //topbar
+    $topbarBg: #343a40 !default;
+    $topbarBottomBorder: 1px solid $dividerColor !default;
+    $topbarTextColor: $textColor !default;
+    $topbarIconBg: #f8f9fa !default;
+    $topbarIconHoverBg: #e9ecef !default;
+
+    //footer
+    $footerBg: #343a40 !default;
+    $footerBorder: 1px solid $dividerColor !default;
+
+    @import '../sidebar/_sidebar_theme';
+    @import '../topbar/_topbar_theme';
+    @import '../footer/_footer_theme';
+}

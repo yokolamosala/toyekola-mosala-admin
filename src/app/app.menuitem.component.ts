@@ -13,22 +13,21 @@ import { AppComponent } from './app.component';
     /* tslint:enable:component-selector */
     template: `
           <ng-container *ngIf="visible">
+              <div *ngIf="root" class="layout-menuitem-root-text">{{item.label}}</div>
               <a [attr.href]="item.url" (click)="itemClick($event)" *ngIf="!item.routerLink || item.items" (mouseenter)="onMouseEnter()"
                  (keydown.enter)="itemClick($event)" [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
                   <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
-				  <span>{{item.label}}</span>
+                  <span class="layout-menuitem-text">{{item.label}}</span>
 				  <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
-				  <span class="menuitem-badge" *ngIf="item.badge" [ngClass]="item.badgeStyleClass">{{item.badge}}</span>
               </a>
               <a (click)="itemClick($event)" (mouseenter)="onMouseEnter()" *ngIf="item.routerLink && !item.items"
                   [routerLink]="item.routerLink" routerLinkActive="active-menuitem-routerlink"
                   [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0" [ngClass]="item.class" pRipple>
                   <i [ngClass]="item.icon" class="layout-menuitem-icon"></i>
-				  <span>{{item.label}}</span>
+                  <span class="layout-menuitem-text">{{item.label}}</span>
 				  <i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
-				  <span class="menuitem-badge" *ngIf="item.badge" [ngClass]="item.badgeStyleClass">{{item.badge}}</span>
               </a>
-              <ul *ngIf="item.items && active" [@children]="(active ? 'visibleAnimated' : 'hiddenAnimated')">
+              <ul *ngIf="item.items" role="menu" [@children]="(root ? 'visible' : active ? 'visibleAnimated' : 'hiddenAnimated')">
                   <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
                       <li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
                   </ng-template>
@@ -36,7 +35,8 @@ import { AppComponent } from './app.component';
           </ng-container>
       `,
     host: {
-        '[class.active-menuitem]': 'active'
+        '[class.layout-root-menuitem]': 'root',
+        '[class.active-menuitem]': '(active && !root) || (active && appMain.isSlim())'
     },
     animations: [
         trigger('children', [
@@ -74,7 +74,8 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string;
 
-    constructor(public appMain: AppMainComponent, public app: AppComponent, public router: Router, private cd: ChangeDetectorRef, private menuService: MenuService) {
+    constructor(public appMain: AppMainComponent, public app: AppComponent, public router: Router,
+                private cd: ChangeDetectorRef, private menuService: MenuService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
             // deactivate current active menu
             if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {
@@ -88,7 +89,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
         this.router.events.pipe(filter(event => event instanceof NavigationEnd))
             .subscribe(params => {
-                if (this.appMain.isHorizontal()) {
+                if (this.appMain.isSlim()) {
                     this.active = false;
                 } else {
                     if (this.item.routerLink) {
@@ -101,7 +102,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        if (!this.appMain.isHorizontal() && this.item.routerLink) {
+        if (!this.appMain.isSlim() && this.item.routerLink) {
             this.updateActiveStateFromRoute();
         }
 
@@ -139,32 +140,31 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             // activate item
             this.active = true;
 
+            if (this.appMain.isMobile()) {
+                this.appMain.staticMenuMobileActive = false;
+            }
+
             // reset horizontal menu
-            if (this.appMain.isHorizontal()) {
+            if (this.appMain.isSlim()) {
                 this.menuService.reset();
+                this.appMain.menuHoverActive = false;
             }
-
-            if (this.appMain.isMobile() || this.app.menuMode === 'overlay' || this.app.menuMode === 'popup') {
-                this.appMain.menuActive = false;
-            }
-
-            this.appMain.menuHoverActive = false;
         }
     }
 
     onMouseEnter() {
         // activate item on hover
-        if (this.root && this.appMain.menuHoverActive && this.appMain.isHorizontal() && !this.appMain.isMobile() && !this.appMain.isTablet()) {
+        if (this.root && this.appMain.menuHoverActive && this.appMain.isSlim() && !this.appMain.isMobile() && !this.appMain.isTablet()) {
             this.menuService.onMenuStateChange(this.key);
             this.active = true;
         }
     }
 
-    get visible():boolean {
-        return this.item ? (typeof this.item.visible === "function" ? this.item.visible() : this.item.visible !== false) : false;
+    get visible() {
+        return this.item ? (typeof this.item.visible === 'function' ? this.item.visible() : this.item.visible !== false) : false;
     }
 
-    ngOnDestroy() {
+    ngOnDestroy() {
         if (this.menuSourceSubscription) {
             this.menuSourceSubscription.unsubscribe();
         }

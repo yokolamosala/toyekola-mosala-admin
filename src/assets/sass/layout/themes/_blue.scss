@@ -1,0 +1,28 @@
+.layout-blue {
+    $sidebarBgColor:#1976D2;
+    $sidebarBgColorAlt:#1565C0;
+    $sidebarBorder:0 none;
+    $appNameColor:#ffffff;
+    $menuSeparatorBorder: 1px solid rgba(255,255,255,0.2);
+    $menuitemRootTextColor: rgba(255,255,255,0.4);
+    $menuitemTextColor: rgba(255,255,255,0.8);
+    $menuitemHoverBg: rgba(255,255,255,0.1);
+    $menuitemActiveBg: rgba(255,255,255,0.1);
+    $menuitemTextActiveColor: #ffffff;
+    $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
+
+    //topbar
+    $topbarBg: #1976D2 !default;
+    $topbarBottomBorder: 1px solid transparent !default;
+    $topbarTextColor: $textColor !default;
+    $topbarIconBg: transparent !default;
+    $topbarIconHoverBg: $itemHoverBg !default;
+
+    //footer
+    $footerBg: #1976D2 !default;
+    $footerBorder: 1px solid transparent !default;
+
+    @import '../sidebar/_sidebar_theme';
+    @import '../topbar/_topbar_theme';
+    @import '../footer/_footer_theme';
+}

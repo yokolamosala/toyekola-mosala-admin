@@ -1,0 +1,44 @@
+.layout-footer {
+    padding: 16px 32px;
+
+    img {
+        width: 40px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .app-name {
+        margin-left: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .footer-right {
+        float: right;
+        text-align: right;
+        color: $textSecondaryColor;
+
+        a {
+            display: inline-block;
+            font-size: 16px;
+            margin-left: 8px;
+            color: $textSecondaryColor;
+            @include transition(color .3s);
+
+            i {
+                font-size: 16px;
+            }
+
+            &:hover {
+                color: lighten($textSecondaryColor, 15%);
+            }
+        }
+
+        span {
+            display: block;
+            margin-top: 4px;
+        }
+    }
+}

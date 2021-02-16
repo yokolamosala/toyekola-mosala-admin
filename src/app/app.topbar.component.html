@@ -1,6 +1,6 @@
-<div class="topbar">
+<div class="layout-topbar">
         <div class="topbar-main">
-            <a href="#" id="menu-button" (click)="app.onMenuButtonClick($event)">
+            <a href="#" id="menu-button" (click)="app.onMenuButtonClick($event)" *ngIf="!app.isSlim()">
                 <span class="pi pi-bars"></span>
             </a>
 
@@ -165,7 +165,4 @@
                 </li>
             </ul>
         </div>
-
-        <app-menu></app-menu>
-
     </div>
