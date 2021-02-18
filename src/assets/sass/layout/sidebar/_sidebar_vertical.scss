@@ -5,7 +5,6 @@
     left: 0;
     top: 60px;
     overflow: hidden;
-    box-shadow: $overlayShadow;
     @include flex();
     @include flex-direction-column();
     user-select: none;

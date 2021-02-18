@@ -2,8 +2,7 @@
                                         'layout-static': app.menuMode === 'static',
                                         'layout-mobile-active': staticMenuMobileActive,
                                         'layout-static-inactive': staticMenuDesktopInactive && app.menuMode === 'static',
-                                        'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple}"
-     [class]="app.colorScheme === 'light' ? app.layoutColor : 'layout-dark'" (click)="onLayoutClick()">
+                                        'p-input-filled': app.inputStyle === 'filled', 'p-ripple-disabled': !app.ripple}" (click)="onLayoutClick()">
 
     <app-topbar></app-topbar>
 

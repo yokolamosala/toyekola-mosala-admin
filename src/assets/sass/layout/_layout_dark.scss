@@ -11,14 +11,13 @@
 @import './_main';
 @import './sidebar/_sidebar_vertical';
 @import './sidebar/_sidebar_slim';
+@import './sidebar/_sidebar_theme';
+@import './topbar/_topbar_theme';
+@import './footer/_footer_theme';
 @import './_responsive';
 @import './_config';
 @import './_help';
 @import './_invoice';
 @import './_typography';
 @import './_widgets';
-
-//themes
-@import './themes/_dark';
-
 @import '../overrides/_layout_styles';

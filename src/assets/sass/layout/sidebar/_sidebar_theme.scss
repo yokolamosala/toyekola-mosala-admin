@@ -1,7 +1,5 @@
 .layout-sidebar {
-    background: $sidebarBgColor;
-    border-right: $sidebarBorder;
-    background-image: linear-gradient(180deg,$sidebarBgColor 10%,$sidebarBgColorAlt 100%);
+    background: transparent;
 
     .logo {
         border-bottom: $menuSeparatorBorder;
@@ -52,21 +50,6 @@
             > ul {
                 > li.active-menuitem {
                     background: $menuitemActiveBg;
-                }
-            }
-        }
-    }
-}
-
-@media screen and (min-width: $tabletBreakpoint + 1) {
-    &.layout-slim {
-        .layout-sidebar {
-            .layout-menu {
-                .layout-root-menuitem {
-                    > ul {
-                        background: $sidebarBgColor;
-                        background-image: linear-gradient(180deg,$sidebarBgColor 10%,$sidebarBgColorAlt 100%);
-                    }
                 }
             }
         }

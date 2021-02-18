@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
 
     theme = 'purple';
 
-    layoutColor = 'layout-white';
+    layoutColor = 'white';
 
     colorScheme = 'light';
 

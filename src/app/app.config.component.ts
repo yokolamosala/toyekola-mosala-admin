@@ -76,10 +76,10 @@ export class AppConfigComponent implements OnInit {
     ngOnInit() {
         this.layoutColor = [
             {name: 'white', color: '#ffffff'},
-            {name: 'blue', color: '#1976D2'},
-            {name: 'cyan', color: '#0097A7'},
-            {name: 'darkgray', color: '#343a40'},
-            {name: 'deeppurple', color: '#512DA8'},
+            {name: 'blue', color: '#19496C'},
+            {name: 'cyan', color: '#19536C'},
+            {name: 'deepblue', color: '#19216C'},
+            {name: 'purple', color: '#656C98'},
         ];
 
         this.themes = [
@@ -100,8 +100,10 @@ export class AppConfigComponent implements OnInit {
 
     changeColorScheme(scheme) {
         this.app.colorScheme = scheme;
+        this.app.layoutColor = scheme === 'dark' ? scheme : 'white';
+
         const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
-        const layoutHref = 'assets/layout/css/layout-' + scheme + '.css';
+        const layoutHref = 'assets/layout/css/layout-' + (scheme === 'dark' ? scheme : 'white') + '.css';
         this.replaceLink(layoutLink, layoutHref);
 
         const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
@@ -111,7 +113,11 @@ export class AppConfigComponent implements OnInit {
 
 
     changeLayoutColor(name) {
-        this.app.layoutColor = 'layout-' + name;
+        this.app.layoutColor = name;
+
+        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
+        const layoutHref = 'assets/layout/css/layout-' + name + '.css';
+        this.replaceLink(layoutLink, layoutHref);
     }
 
     isIE() {
