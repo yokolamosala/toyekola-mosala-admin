@@ -1,16 +1,17 @@
 <div class="layout-topbar">
         <div class="topbar-main">
-            <a href="#" id="menu-button" (click)="app.onMenuButtonClick($event)" *ngIf="!app.isSlim()">
-                <span class="pi pi-bars"></span>
-            </a>
 
             <a href="/">
                 <img alt="main logo" src="assets/layout/images/logo-main.png" class="logo">
             </a>
 
             <div class="app-name">
-                <a href="/">VERONA</a>
+                <a href="/">Verona</a>
             </div>
+
+            <a href="#" id="menu-button" (click)="app.onMenuButtonClick($event)" *ngIf="!app.isSlim()">
+                <span class="pi pi-bars"></span>
+            </a>
 
             <a href="#" id="user-display" (click)="app.onTopbarMenuButtonClick($event)">
                 <span class="username">Samanta Owens</span>

@@ -14,8 +14,8 @@ $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
 //topbar
 $topbarBottomBorder: 1px solid #dee2e6 !default;
 $topbarTextColor: #495057 !default;
-$topbarIconBg: #f8f9fa !default;
-$topbarIconHoverBg: #e9ecef !default;
+//$topbarIconBg: #f8f9fa !default;
+$topbarIconHoverBg: rgba(255,255,255,0.14) !default;
 
 //footer
 $footerBorder: 1px solid #dee2e6 !default;

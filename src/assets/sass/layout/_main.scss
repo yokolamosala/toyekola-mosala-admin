@@ -31,7 +31,7 @@ body {
 
     .layout-content-wrapper {
         position: absolute;
-        width: 100%;
+        width: calc(100% - 16rem);
         top: 60px;
         display: flex;
         flex-direction: column;
@@ -42,8 +42,8 @@ body {
             padding: 25px 25px 25px 25px;
             flex: 1 1 auto;
             background-color: $contentBg;
-            border-bottom-left-radius: 50px;
-            border-top-left-radius: 50px;
+            border-bottom-left-radius: 30px;
+            border-top-left-radius: 30px;
         }
     }
 }
