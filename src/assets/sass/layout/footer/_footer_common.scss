@@ -13,18 +13,19 @@
         font-weight: bold;
         display: inline-block;
         vertical-align: middle;
+        color: white;
     }
 
     .footer-right {
         float: right;
         text-align: right;
-        color: $textSecondaryColor;
+        color: white;
 
         a {
             display: inline-block;
             font-size: 16px;
             margin-left: 8px;
-            color: $textSecondaryColor;
+            color: white;
             @include transition(color .3s);
 
             i {
