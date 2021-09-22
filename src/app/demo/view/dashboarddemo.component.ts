@@ -3,9 +3,6 @@ import {EventService} from '../service/eventservice';
 import {SelectItem, MenuItem} from 'primeng/api';
 import {Product} from '../domain/product';
 import {ProductService} from '../service/productservice';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
 
 @Component({
     templateUrl: './dashboard.component.html',
@@ -66,12 +63,6 @@ export class DashboardDemoComponent implements OnInit {
         ];
 
         this.fullcalendarOptions = {
-            plugins: [ dayGridPlugin, timeGridPlugin, interactionPlugin ],
-            defaultDate: '2017-02-12',
-            header: {
-                right: 'prev,next,today',
-                left: 'title'
-            }
         };
     }
 }
