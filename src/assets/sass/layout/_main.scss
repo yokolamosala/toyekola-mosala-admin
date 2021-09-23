@@ -21,22 +21,15 @@ body {
 }
 
 .layout-wrapper {
-
-    .layout-main {
-        @include flex();
-        @include flex-direction-column();
-        @include flex-justify-between();
-        min-height: 100vh;
-    }
-
     .layout-content-wrapper {
         position: absolute;
         width: calc(100% - 16rem);
-        top: 60px;
+        padding-top: 80px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: calc(100vh - 60px);
+        min-height: 100%;
+        transition: all $transitionDuration;
 
         .layout-content {
             padding: 25px 25px 25px 25px;

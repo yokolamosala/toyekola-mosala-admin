@@ -1,9 +1,8 @@
 $bodyBg: linear-gradient(147.38deg, #4CB6A3 0%, #19536C 100%);
 
 //menu
-$sidebarBorder:0 none;
-$appNameColor:#495057;
-$menuSeparatorBorder: 1px solid #dee2e6;
+$menuButtonMobileBg: linear-gradient(147.38deg, #4CB6A3 0%, #19536C 100%);
+
 $menuitemRootTextColor: #6c757d;
 $menuitemTextColor: #495057;
 $menuitemHoverBg: #e9ecef;
@@ -12,12 +11,15 @@ $menuitemTextActiveColor:#495057;
 $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
 
 //topbar
+$topbarMenuTextColor: rgba(245, 247, 250, 0.7);
+$topbarMenuTextActiveColor: rgba(245, 247, 250, 1);
+$topbarTextColor: rgba(255, 255, 255, 1);
+
 $topbarBottomBorder: 1px solid #dee2e6 !default;
-$topbarTextColor: #495057 !default;
 //$topbarIconBg: #f8f9fa !default;
 $topbarIconHoverBg: #e9ecef !default;
 
 //footer
-//$footerBorder: 1px solid #dee2e6 !default;
+$footerTextColor: rgba(255, 255, 255, 1) !default;
 
 @import '../../sass/layout/_layout_light';

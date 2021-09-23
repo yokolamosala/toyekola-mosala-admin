@@ -1,42 +1,25 @@
 .layout-footer {
-    padding: 16px 32px;
+    padding: 1.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-    img {
-        width: 40px;
-        display: inline-block;
-        vertical-align: middle;
-    }
+    .footer-left {
+        display: flex;
+        align-items: center;
 
-    .app-name {
-        margin-left: 8px;
-        font-size: 18px;
-        font-weight: bold;
-        display: inline-block;
-        vertical-align: middle;
-        color: white;
+        img {
+            width: 40px;
+        }
+
+        .app-name {
+            margin-left: 1rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+        }
     }
 
     .footer-right {
-        float: right;
-        text-align: right;
-        color: white;
-
-        a {
-            display: inline-block;
-            font-size: 16px;
-            margin-left: 8px;
-            color: white;
-            @include transition(color .3s);
-
-            i {
-                font-size: 16px;
-            }
-
-            &:hover {
-                color: lighten($textSecondaryColor, 15%);
-            }
-        }
-
         span {
             display: block;
             margin-top: 4px;

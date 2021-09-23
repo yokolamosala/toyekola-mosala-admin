@@ -2,5 +2,13 @@
 
 .layout-footer {
     background-color: transparent;
+
+    .footer-left {
+        color: $footerTextColor;
+    }
+
+    .footer-right {
+        color: $footerTextColor;
+    }
 }
 

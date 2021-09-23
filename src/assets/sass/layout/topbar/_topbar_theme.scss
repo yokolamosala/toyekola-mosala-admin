@@ -3,17 +3,58 @@
 .layout-topbar{
     background: transparent;
 
-    #menu-button {
-        color: #ffffff;
+    .layout-topbar-left {
+        .app-name {
+            span {
+                color: $topbarTextColor;
+            }
+        }
 
-        &:hover {
-            background: $topbarIconHoverBg;
+        .menu-button {
+            color: $topbarTextColor;
+
+            &:hover {
+                background: $topbarIconHoverBg;
+            }
+        }
+
+        .topbar-menu {
+            li {
+                a {
+                    color: $topbarMenuTextColor;
+
+                    .active-bottom {
+                        background: transparent;
+                    }
+
+                    &.topbar-active-menuitem-routerlink {
+                        color: $topbarMenuTextActiveColor;
+
+                        .active-bottom {
+                            background: $topbarMenuTextActiveColor;
+                        }
+                    }
+                }
+            }
         }
     }
 
-    #topbar-menu {
+    .topbar-profile-menu {
         background-color: $contentBg;
         border: solid 1px $contentBg;
     }
 }
 
+@media screen and (max-width: $tabletBreakpoint) {
+    .layout-wrapper {
+        .layout-topbar {
+            .layout-topbar-left {
+                .menu-button {
+                    background: $menuButtonMobileBg;
+                    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
+                    border-radius: 30px 0px 0px 0px;
+                }
+            }
+        }
+    }
+}

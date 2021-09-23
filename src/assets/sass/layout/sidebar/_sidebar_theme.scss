@@ -1,23 +1,7 @@
 .layout-sidebar {
     background: transparent;
 
-    .logo {
-        border-bottom: $menuSeparatorBorder;
-
-        &:focus {
-            box-shadow: $menuitemFocusShadow;
-        }
-    }
-
-    .app-name {
-        color: $appNameColor;
-    }
-
     .layout-menu {
-        .menu-separator {
-            border-top: $menuSeparatorBorder;
-        }
-
         li {
             &.active-menuitem {
                 > a {
@@ -59,7 +43,6 @@
 @media screen and (max-width: $tabletBreakpoint + 1) {
     .layout-sidebar {
         .layout-menu {
-
             .layout-root-menuitem {
                 &.active-menuitem {
                     background: transparent;

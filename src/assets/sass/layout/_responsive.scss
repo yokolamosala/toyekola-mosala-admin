@@ -21,6 +21,7 @@
 
             .layout-content-wrapper {
                 margin-left: 0;
+                width: 100%;
             }
         }
     }
@@ -33,23 +34,50 @@
 
     .layout-wrapper {
         .layout-topbar {
-            height: 7.125rem;
+            height: 6.857rem;
             @include flex-wrap(wrap);
             position: fixed;
+            padding: 1rem;
             left: 0;
             top: 0;
             width: 100%;
             z-index: 998;
-            box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 
-            .topbar-left {
-                width: 100%;
-                padding: .5rem 0;
-                @include flex-justify-between();
-                border-bottom: 1px solid $dividerColor;
+            .layout-topbar-left {
+                .app-name {
+                    .app-logo {
+                        width: 52px;
+                    }
 
-                .topbar-separator {
-                    display: none;
+                    span {
+                        display: none;
+                    }
+                }
+
+                .menu-button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: fixed;
+                    bottom: 0;
+                    right: 0;
+                    width: 4.5rem;
+                    height: 4.5rem;
+                    margin: 0;
+
+                    span {
+                        font-size: 30px;
+                    }
+                }
+
+                .topbar-menu {
+                    margin-left: 1rem;
+
+                    li {
+                        a {
+                            font-size: 1rem;
+                        }
+                    }
                 }
             }
 
@@ -58,23 +86,7 @@
                 padding: .5rem 0;
             }
 
-            .menu-button {
-                i:before {
-                    content: "\e91d";
-                }
-            }
-
-            .mobile-logo {
-                display: block;
-                width: 2rem;
-                height: 2rem;
-            }
-
-            .viewname {
-                font-size: 1rem;
-            }
-
-            .topbar-menu {
+            .topbar-profile-menu {
                 @include flex-justify-between();
 
                 > li {
@@ -109,7 +121,12 @@
 
         .layout-content-wrapper {
             margin-left: 0;
-            padding-top: 7.125rem;
+            padding-top: 6.857rem;
+            width: 100%;
+
+            .layout-content {
+                border-radius: 30px;
+            }
         }
 
         .layout-sidebar {
@@ -139,7 +156,7 @@
 @media screen and (max-width: $phoneBreakpoint) {
     .layout-wrapper {
         .layout-topbar {
-            .topbar-menu {
+            .topbar-profile-menu {
                 > li {
                     position: static;
 
