@@ -11,12 +11,16 @@ $menuitemTextActiveColor: #ffffff;
 $menuitemFocusShadow: 0 0 0 1px #BBDEFB;
 
 //topbar
+$topbarTextColor: rgba(255, 255, 255, 1);
+$topbarSecondaryTextColor: rgba(255, 255, 255, 0.72);
 $topbarMenuTextColor: rgba(245, 247, 250, 0.7);
 $topbarMenuTextActiveColor: rgba(245, 247, 250, 1);
-$topbarTextColor: rgba(255, 255, 255, 1);
-
-$topbarBottomBorder: 1px solid transparent;
-//$topbarIconBg: transparent !default;
+$topbarArrowButtonBg: rgba(255, 255, 255, 1);
+$topbarArrowButtonTextColor: #0C1D30;
+$topbarItemsBg: rgba(245, 247, 250, .1);
+$topbarItemsBorder: 2px solid rgba(0, 0, 0, .2);
+$topbarAvatarBg: rgba(255, 255, 255, 1);
+$topbarAvatarTextColor: #0C1D30;
 $topbarIconHoverBg: rgba(255,255,255,.03);
 
 //footer

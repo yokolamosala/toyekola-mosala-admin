@@ -21,6 +21,8 @@ body {
 }
 
 .layout-wrapper {
+    min-height: 100%;
+
     .layout-content-wrapper {
         position: absolute;
         width: calc(100% - 16rem);

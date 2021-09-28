@@ -15,13 +15,17 @@ export class AppMainComponent {
 
     menuClick: boolean;
 
+    topbarItemClick: boolean;
+
     menuHoverActive = false;
 
     topbarMenuActive = false;
 
     activeTopbarItem: Element;
 
-    topbarMenuButtonClick: boolean;
+    searchClick = false;
+
+    search = false;
 
     configActive: boolean;
 
@@ -30,7 +34,7 @@ export class AppMainComponent {
     constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) { }
 
     onLayoutClick() {
-        if (!this.topbarMenuButtonClick) {
+        if (!this.topbarItemClick) {
             this.activeTopbarItem = null;
             this.topbarMenuActive = false;
         }
@@ -47,9 +51,14 @@ export class AppMainComponent {
             this.menuHoverActive = false;
         }
 
+        if (!this.searchClick) {
+            this.search = false;
+        }
+
+        this.searchClick = false;
         this.configClick = false;
         this.menuClick = false;
-        this.topbarMenuButtonClick = false;
+        this.topbarItemClick = false;
     }
 
     onMenuButtonClick(event: Event) {
@@ -68,20 +77,20 @@ export class AppMainComponent {
         this.menuClick = true;
     }
 
-    onTopbarMenuButtonClick(event: Event) {
-        this.topbarMenuButtonClick = true;
-        this.topbarMenuActive = !this.topbarMenuActive;
-        event.preventDefault();
-    }
-
     onTopbarItemClick(event: Event, item: Element) {
-        this.topbarMenuButtonClick = true;
+        this.topbarItemClick = true;
 
         if (this.activeTopbarItem === item) {
             this.activeTopbarItem = null;
         } else {
             this.activeTopbarItem = item;
         }
+
+        if (item.className === 'search-item') {
+            this.search = !this.search;
+            this.searchClick = !this.searchClick;
+        }
+
         event.preventDefault();
     }
 
