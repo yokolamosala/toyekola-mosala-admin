@@ -11,7 +11,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     padding:0;
     margin:0;
-    height: 100%;
+    min-height: 100%;
     background: $bodyBg;
 
     a {
@@ -21,8 +21,6 @@ body {
 }
 
 .layout-wrapper {
-    min-height: 100%;
-
     .layout-content-wrapper {
         position: absolute;
         width: calc(100% - 16rem);
@@ -30,15 +28,21 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 100%;
+        min-height: 100vh;
         transition: all $transitionDuration;
 
         .layout-content {
+            position: relative;
+            overflow: auto;
             padding: 25px 25px 25px 25px;
             flex: 1 1 auto;
             background-color: $contentBg;
             border-bottom-left-radius: 30px;
             border-top-left-radius: 30px;
+
+            > ng-component {
+                position: absolute;
+            }
         }
     }
 }
