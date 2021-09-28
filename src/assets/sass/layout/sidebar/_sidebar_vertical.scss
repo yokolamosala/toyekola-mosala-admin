@@ -1,6 +1,6 @@
 .layout-sidebar {
     width: $sidebarWidth;
-    height: 100%;
+    height: calc(100% - 80px);
     position: fixed;
     left: 0;
     top: 80px;

@@ -12,7 +12,11 @@ body {
     padding:0;
     margin:0;
     min-height: 100%;
-    background: $bodyBg;
+    background-color: #1b6bad;
+    background-image: $bodyBg;;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     a {
         text-decoration: none;
@@ -22,27 +26,24 @@ body {
 
 .layout-wrapper {
     .layout-content-wrapper {
-        position: absolute;
-        width: calc(100% - 16rem);
-        padding-top: 80px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 100vh;
+        position: absolute;
+        overflow: auto;
+        height: calc(100% - 80px);
+        width: calc(100% - 16rem);
+        margin-top: 80px;
+        border-bottom-left-radius: 30px;
+        border-top-left-radius: 30px;
         transition: all $transitionDuration;
 
         .layout-content {
-            position: relative;
-            overflow: auto;
             padding: 25px 25px 25px 25px;
             flex: 1 1 auto;
             background-color: $contentBg;
             border-bottom-left-radius: 30px;
             border-top-left-radius: 30px;
-
-            > ng-component {
-                position: absolute;
-            }
         }
     }
 }
