@@ -3,12 +3,6 @@
 
     .layout-menu {
         li {
-            &.active-menuitem {
-                > a {
-                    color: $menuitemTextActiveColor;
-                }
-            }
-
             a {
                 color: $menuitemTextColor;
 
@@ -28,12 +22,24 @@
             }
 
             &.active-menuitem {
+                background: $menuitemSubmenuBg;
+                color: $menuitemTextColor;
+            }
+
+            .active-menuitem-routerlink {
                 background: $menuitemActiveBg;
+                color: $menuitemTextActiveColor;
             }
 
             > ul {
                 > li.active-menuitem {
+                    background: $menuitemSubmenuBg;
+                    color: $menuitemTextColor;
+                }
+
+                > li .active-menuitem-routerlink {
                     background: $menuitemActiveBg;
+                    color: $menuitemTextActiveColor;
                 }
             }
         }

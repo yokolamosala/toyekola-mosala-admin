@@ -1,14 +1,13 @@
 .layout-sidebar {
+    display: flex;
     width: $sidebarWidth;
     height: calc(100% - 80px);
     position: fixed;
     left: 0;
     top: 80px;
     overflow: hidden;
-    @include flex();
-    @include flex-direction-column();
     user-select: none;
-    transition: transform $animationDuration $animationTimingFunction;
+    transition: transform $transitionDuration;
 
     .layout-menu-container {
         overflow: auto;

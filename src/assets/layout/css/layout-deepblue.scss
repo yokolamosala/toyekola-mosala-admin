@@ -3,9 +3,10 @@ $bodyBg: linear-gradient(147.38deg, #4C63B6 0%, #19216C 100%);
 //menu
 $menuButtonMobileBg: linear-gradient(147.38deg, #4C63B6 0%, #19216C 100%);
 
-$menuitemRootTextColor: #6c757d;
-$menuitemTextColor: #495057;
-$menuitemHoverBg: #e9ecef;
+$menuitemRootTextColor: rgba(255,255,255,0.7);
+$menuitemTextColor: rgba(255,255,255,0.84);
+$menuitemHoverBg: rgba(255,255,255,0.1);
+$menuitemSubmenuBg: rgba(255,255,255,0.1);
 $menuitemActiveBg: #ffffff;
 $menuitemTextActiveColor:#495057;
 $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);

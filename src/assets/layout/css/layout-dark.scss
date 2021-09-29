@@ -3,12 +3,13 @@ $bodyBg: linear-gradient(147.38deg, #0C1D30 0%, #394E66 100%);
 //menu
 $menuButtonMobileBg: linear-gradient(147.38deg, #0C1D30 0%, #394E66 100%);
 
-$menuitemRootTextColor: rgba(255,255,255,.60);
-$menuitemTextColor: rgba(255,255,255,.87);
-$menuitemHoverBg: rgba(255,255,255,.03);
-$menuitemActiveBg: #2b2b2b;
-$menuitemTextActiveColor: #ffffff;
-$menuitemFocusShadow: 0 0 0 1px #BBDEFB;
+$menuitemRootTextColor: rgba(255,255,255,0.7);
+$menuitemTextColor: rgba(255,255,255,0.84);
+$menuitemHoverBg: rgba(255,255,255,0.1);
+$menuitemSubmenuBg: rgba(255,255,255,0.1);
+$menuitemActiveBg: #ffffff;
+$menuitemTextActiveColor:#495057;
+$menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
 
 //topbar
 $topbarTextColor: rgba(255, 255, 255, 1);
