@@ -13,6 +13,14 @@
         .menu-button {
             color: $topbarTextColor;
 
+            .menu-button-icon {
+                background-color: $topbarTextColor;
+
+                &:before, &:after {
+                    background-color: $topbarTextColor;
+                }
+            }
+
             &:hover {
                 background: $topbarIconHoverBg;
             }

@@ -1,10 +1,10 @@
 .layout-sidebar {
     display: flex;
     width: $sidebarWidth;
-    height: calc(100% - 80px);
+    height: calc(100% - 7rem);
     position: fixed;
     left: 0;
-    top: 80px;
+    top: 7rem;
     overflow: hidden;
     user-select: none;
     transition: transform $transitionDuration;
@@ -12,7 +12,7 @@
     .layout-menu-container {
         overflow: auto;
         flex: 1;
-        padding: 1rem;
+        padding: 1rem 1.5rem 1rem 1rem;
 
         .layout-menu {
             margin: 0;
@@ -37,43 +37,46 @@
                 padding: 0;
                 list-style-type: none;
 
-                a {
-                    @include flex();
-                    @include flex-align-center();
-                    position: relative;
-                    padding: .5rem;
-                    margin-bottom: .25rem;
-                    font-size: 1rem;
+                li {
                     border-radius: 7px;
-                    outline: 0 none;
-                    cursor: pointer;
-                    transition: background-color $transitionDuration, box-shadow $transitionDuration;
 
-                    .layout-menuitem-icon {
-                        margin-right: .5rem;
-                    }
+                    a {
+                        @include flex();
+                        @include flex-align-center();
+                        position: relative;
+                        padding: .5rem;
+                        margin-bottom: .25rem;
+                        font-size: 1rem;
+                        border-radius: 7px;
+                        outline: 0 none;
+                        cursor: pointer;
+                        transition: background-color $transitionDuration, box-shadow $transitionDuration;
 
-                    .layout-submenu-toggler {
-                        font-size: 75%;
-                        margin-left: auto;
-                        transition: transform $transitionDuration;
-                    }
-
-                    &.rotated-icon {
                         .layout-menuitem-icon {
-                            transform: rotate(90deg);
+                            font-size: 1.5rem;
+                            margin-right: .5rem;
                         }
-                    }
 
-                    &.active-route {
-                        font-weight: 700;
+                        .layout-submenu-toggler {
+                            font-size: 75%;
+                            margin-left: auto;
+                            transition: transform $transitionDuration;
+                        }
+
+                        &.rotated-icon {
+                            .layout-menuitem-icon {
+                                transform: rotate(90deg);
+                            }
+                        }
+
+                        &.active-route {
+                            font-weight: 700;
+                        }
                     }
                 }
 
                 li {
                     &.active-menuitem {
-                        border-radius: $borderRadius;
-
                         > a {
                             .layout-submenu-toggler {
                                 transform: rotate(-180deg);

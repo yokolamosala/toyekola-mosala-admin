@@ -49,6 +49,7 @@ export class AppMainComponent {
             }
 
             this.menuHoverActive = false;
+            this.staticMenuMobileActive = false;
         }
 
         if (!this.searchClick) {
@@ -113,6 +114,10 @@ export class AppMainComponent {
 
     isSlim() {
         return this.app.menuMode === 'slim';
+    }
+
+    isStatic() {
+        return this.app.menuMode === 'static';
     }
 
     isTablet() {

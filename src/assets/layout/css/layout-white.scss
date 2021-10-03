@@ -6,9 +6,12 @@ $menuButtonMobileBg: linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
 $menuitemRootTextColor: #6c757d;
 $menuitemTextColor: #495057;
 $menuitemHoverBg: #e9ecef;
-$menuitemActiveBg: #ffffff;
-$menuitemTextActiveColor:#495057;
+$menuitemSubmenuBg: #e9ecef;
+$menuitemActiveBg: #D9E2EC;
+$menuitemTextActiveColor: #3E4C59;
 $menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
+
+$slimSubMenuBg: linear-gradient(0deg, rgba(62, 76, 89, 0.25), rgba(62, 76, 89, 0.25)), linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
 
 //topbar
 $topbarMenuTextColor: rgba(123, 135, 148, 1);

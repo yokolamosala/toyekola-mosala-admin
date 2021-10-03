@@ -1,6 +1,6 @@
 @import '_common';
 
-$contentBg: #ffffff !default;
+$contentBg: #F5F7FA;
 $textColor:#495057 !default;
 $textSecondaryColor:#6c757d !default;
 $dividerColor:#dee2e6 !default;
@@ -13,11 +13,12 @@ $overlayShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1p
 //card
 $cardBg: #ffffff !default;
 $cardBorder: 0 none !default;
+$cardShadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
 
 //accent
 $accentColor: #1976D2 !default;
 $accentTextColor: #ffffff !default;
 
 //sidebar
-$sidebarWidth: 16rem !default;
-$slimSidebarWidth: 6rem !default;
+$sidebarWidth: 14rem !default;
+$slimSidebarWidth: 7rem !default;

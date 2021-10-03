@@ -6,11 +6,12 @@
 }
 
 .card {
-    @include border-radius($borderRadius);
     background: $cardBg;
     padding: 16px;
     box-sizing: border-box;
     margin-bottom: 16px;
+    box-shadow: $cardShadow;
+    border-radius: 14px;
 
     &:last-child {
         margin-bottom: 0;
