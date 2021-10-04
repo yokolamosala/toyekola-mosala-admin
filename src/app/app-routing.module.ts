@@ -38,6 +38,7 @@ import {AppCalendarComponent} from './pages/app.calendar.component';
 import {AppTimelineDemoComponent} from './pages/app.timelinedemo.component';
 import {AppInvoiceComponent} from './pages/app.invoice.component';
 import {AppHelpComponent} from './pages/app.help.component';
+import {DashboardAnalyticsComponent} from './demo/view/dashboardanalytics.component';
 
 @NgModule({
     imports: [
@@ -46,6 +47,7 @@ import {AppHelpComponent} from './pages/app.help.component';
                 path: '', component: AppMainComponent,
                 children: [
                     {path: '', component: DashboardDemoComponent},
+                    {path: 'analytics', component: DashboardAnalyticsComponent},
                     {path: 'uikit/formlayout', component: FormLayoutDemoComponent},
                     {path: 'uikit/input', component: InputDemoComponent},
                     {path: 'uikit/floatlabel', component: FloatLabelDemoComponent},
