@@ -1,10 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {EventService} from '../service/eventservice';
-import {SelectItem, MenuItem} from 'primeng/api';
-import {Product} from '../domain/product';
-import {ProductService} from '../service/productservice';
+import {Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {AppComponent} from '../../app.component';
-import {PrimeIcons} from 'primeng/api';
+import {AppMainComponent} from '../../app.main.component';
 
 @Component({
     templateUrl: './dashboard.component.html'
@@ -19,30 +15,13 @@ export class DashboardDemoComponent implements OnInit {
 
     selectedOverviewWeek: any;
 
-    timelineEvents: any[];
-
-
-
-
-
-
-
-
-    cities: SelectItem[];
-
-    products: Product[];
-
     chartData: any;
 
-    events: any[];
+    chartOptions: any;
 
-    selectedCity: any;
+    chart: any;
 
-    items: MenuItem[];
-
-    fullcalendarOptions: any;
-
-    constructor(public app: AppComponent, private productService: ProductService, private eventService: EventService) { }
+    constructor(public app: AppComponent, public appMain: AppMainComponent) { }
 
     ngOnInit() {
         this.overviewChart = {
@@ -60,7 +39,7 @@ export class DashboardDemoComponent implements OnInit {
                 },
                 {
                     data: [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1],
-                    backgroundColor: '#E4E7EB',
+                    backgroundColor: ['#E4E7EB'] ,
                     fill: true,
                     borderRadius: 10,
                     borderSkipped: 'top bottom',
@@ -69,7 +48,99 @@ export class DashboardDemoComponent implements OnInit {
             ]
         };
 
-        this.overviewChartOptions = {
+        this.overviewChartOptions = this.getOrdersOptions();
+
+        this.overviewWeek = [
+            {name: 'Last Week', code: '0'},
+            {name: 'This Week', code: '1'}
+        ];
+
+        this.chartData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [
+                {
+                    data: [11, 17, 30, 60, 88, 92],
+                    borderColor: 'rgba(25, 146, 212, 0.5)',
+                    pointBorderColor: 'transparent',
+                    pointBackgroundColor: 'transparent',
+                    fill: false,
+                    tension: .4
+                },
+                {
+                    data: [11, 19, 39, 59, 69, 71],
+                    borderColor: 'rgba(25, 146, 212, 0.5)',
+                    pointBorderColor: 'transparent',
+                    pointBackgroundColor: 'transparent',
+                    fill: false,
+                    tension: .4
+                },
+                {
+                    data: [11, 17, 21, 30, 47, 83],
+                    backgroundColor: 'rgba(25, 146, 212, 0.2)',
+                    borderColor: 'rgba(25, 146, 212, 0.5)',
+                    pointBorderColor: 'transparent',
+                    pointBackgroundColor: 'transparent',
+                    fill: true,
+                    tension: .4
+                }
+            ]
+        };
+
+        this.chartOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    max: 100,
+                    min: 0,
+                    ticks: {
+                        color: '#A0A7B5'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: true,
+                    },
+                    ticks: {
+                        color: '#A0A7B5',
+                        beginAtZero: true,
+                    }
+                }
+            }
+        };
+
+        this.getGradient();
+
+        this.appMain['refreshChart'] = () => {
+            this.overviewChartOptions = this.getOrdersOptions();
+            this.overviewChart.datasets[1].backgroundColor[0] = this.app.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB';
+        };
+
+    }
+
+    getGradient() {
+        this.chart = document.getElementsByTagName('canvas')[1].getContext('2d');
+        const gradientStroke = this.chart.createLinearGradient(100, 0, 1150, 100);
+        gradientStroke.addColorStop(0, 'rgba(21, 184, 194, 0)');
+        gradientStroke.addColorStop(0.5, 'rgba(25, 146, 212, 1)');
+        gradientStroke.addColorStop(1, 'rgba(23, 88, 124, 1)');
+
+        const gradientFill = this.chart.createLinearGradient(0, 0, 1150, 0);
+        gradientFill.addColorStop(1, 'rgba(25, 146, 212, 0.34)');
+        gradientFill.addColorStop(0, 'rgba(232, 247, 255, 0.34)');
+
+        this.chartData.datasets[0].borderColor = gradientStroke;
+        this.chartData.datasets[1].borderColor = gradientStroke;
+        this.chartData.datasets[2].borderColor = gradientStroke;
+
+        this.chartData.datasets[2].backgroundColor = gradientFill;
+    }
+
+    getOrdersOptions() {
+        return {
             plugins: {
                 legend: {
                     display: false
@@ -108,59 +179,6 @@ export class DashboardDemoComponent implements OnInit {
                     }
                 }
             }
-        };
-
-        this.overviewWeek = [
-            {name: 'Last Week', code: '0'},
-            {name: 'This Week', code: '1'}
-        ];
-
-        this.timelineEvents = [
-            {status: 'Ordered', date: '15/10/2020 10:30', icon: PrimeIcons.SHOPPING_CART, color: '#9C27B0', image: 'game-controller.jpg'},
-            {status: 'Processing', date: '15/10/2020 14:00', icon: PrimeIcons.COG, color: '#673AB7'},
-            {status: 'Shipped', date: '15/10/2020 16:15', icon: PrimeIcons.ENVELOPE, color: '#FF9800'},
-            {status: 'Delivered', date: '16/10/2020 10:00', icon: PrimeIcons.CHECK, color: '#607D8B'}
-        ];
-
-
-
-
-        this.productService.getProducts().then(data => this.products = data);
-        this.eventService.getEvents().then(events => {this.events = events; });
-
-        this.cities = [];
-        this.cities.push({label: 'Select City', value: null});
-        this.cities.push({label: 'New York', value: {id: 1, name: 'New York', code: 'NY'}});
-        this.cities.push({label: 'Rome', value: {id: 2, name: 'Rome', code: 'RM'}});
-        this.cities.push({label: 'London', value: {id: 3, name: 'London', code: 'LDN'}});
-        this.cities.push({label: 'Istanbul', value: {id: 4, name: 'Istanbul', code: 'IST'}});
-        this.cities.push({label: 'Paris', value: {id: 5, name: 'Paris', code: 'PRS'}});
-
-        this.chartData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    borderColor: '#FFC107'
-                },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    borderColor: '#03A9F4'
-                }
-            ]
-        };
-
-        this.items = [
-            {label: 'Save', icon: 'pi pi-check'},
-            {label: 'Update', icon: 'pi pi-refresh'},
-            {label: 'Delete', icon: 'pi pi-trash'}
-        ];
-
-        this.fullcalendarOptions = {
         };
     }
 

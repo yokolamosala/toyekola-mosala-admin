@@ -10,21 +10,21 @@ import { AppMainComponent } from './app.main.component';
         </a>
         <div class="layout-config" [ngClass]="{'layout-config-active': appMain.configActive}" (click)="appMain.onConfigClick($event)">
             <h5>Menu Type</h5>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="menuMode" value="static" [(ngModel)]="app.menuMode" inputId="mode1"></p-radioButton>
                 <label for="mode1">Static</label>
             </div>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="menuMode" value="slim" [(ngModel)]="app.menuMode" inputId="mode2"></p-radioButton>
                 <label for="mode2">Slim</label>
             </div>
 
             <h5>Layout</h5>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="colorScheme" value="light" [(ngModel)]="app.colorScheme" inputId="scheme1" (onClick)="changeColorScheme('light')"></p-radioButton>
                 <label for="scheme1">Light</label>
             </div>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="colorScheme" value="dark" [(ngModel)]="app.colorScheme" inputId="scheme2" (onClick)="changeColorScheme('dark')"></p-radioButton>
                 <label for="scheme2">Dark</label>
             </div>
@@ -42,11 +42,11 @@ import { AppMainComponent } from './app.main.component';
             </div>
 
             <h5>Input Style</h5>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="app.inputStyle" inputId="inputStyle1"></p-radioButton>
                 <label for="inputStyle1">Outlined</label>
             </div>
-            <div class="p-field-radiobutton">
+            <div class="field-radiobutton">
                 <p-radioButton name="inputStyle" value="filled" [(ngModel)]="app.inputStyle" inputId="inputStyle2"></p-radioButton>
                 <label for="inputStyle2">Filled</label>
             </div>
@@ -108,7 +108,7 @@ export class AppConfigComponent implements OnInit {
 
         const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
         const themeHref = 'assets/theme/' + this.app.theme + '/theme-' + scheme + '.css';
-        this.replaceLink(themeLink, themeHref);
+        this.replaceLink(themeLink, themeHref, this.appMain['refreshChart']);
     }
 
 
@@ -124,9 +124,13 @@ export class AppConfigComponent implements OnInit {
         return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
     }
 
-    replaceLink(linkElement, href) {
+    replaceLink(linkElement, href, callback?) {
         if (this.isIE()) {
             linkElement.setAttribute('href', href);
+
+            if (callback) {
+                callback();
+            }
         } else {
             const id = linkElement.getAttribute('id');
             const cloneLinkElement = linkElement.cloneNode(true);
@@ -139,6 +143,10 @@ export class AppConfigComponent implements OnInit {
             cloneLinkElement.addEventListener('load', () => {
                 linkElement.remove();
                 cloneLinkElement.setAttribute('id', id);
+
+                if (callback) {
+                    callback();
+                }
             });
         }
     }

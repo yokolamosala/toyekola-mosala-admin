@@ -9,7 +9,7 @@
                         <span class="subheader block text-4xl font-bold">3882</span>
                     </div>
                 </div>
-                <img src="assets/layout/images/dashboard/users.png" class="w-full" alt="users">
+                <img src="assets/layout/images/dashboard/users.svg" class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -21,7 +21,7 @@
                         <span class="subheader block text-4xl font-bold">532</span>
                     </div>
                 </div>
-                <img src="assets/layout/images/dashboard/locations.png" class="w-full" alt="users">
+                <img src="assets/layout/images/dashboard/locations.svg" class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -33,7 +33,7 @@
                         <span class="subheader block text-4xl font-bold">12.6%</span>
                     </div>
                 </div>
-                <img src="assets/layout/images/dashboard/rate.png" class="w-full" alt="users">
+                <img src="assets/layout/images/dashboard/rate.svg" class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -45,7 +45,7 @@
                         <span class="subheader block text-4xl font-bold">440</span>
                     </div>
                 </div>
-                <img src="assets/layout/images/dashboard/interactions.png" class="w-full" alt="users">
+                <img src="assets/layout/images/dashboard/interactions.svg" class="w-full" alt="users">
             </div>
         </div>
 
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="graph mb-3">
-                    <p-chart #overview type="bar" [data]="overviewChart" [options]="overviewChartOptions" id="visitor-chart"></p-chart>
+                    <p-chart #overview type="bar" [data]="overviewChart" [options]="overviewChartOptions" id="overview-chart"></p-chart>
                 </div>
 
                 <div class="graph-footer flex align-items-center justify-content-end">
@@ -118,7 +118,7 @@
         <div class="col-12 md:col-3">
             <div class="card widget-profile-completion">
                 <div class="flex justify-content-center">
-                    <img  [src]="'assets/layout/images/dashboard/completion-graph-' + (app.colorScheme === 'light' ? 'light' : 'dark') + '.png'"
+                    <img  [src]="'assets/layout/images/dashboard/completion-graph-' + (app.colorScheme === 'light' ? 'light' : 'dark') + '.svg'"
                           alt="graph" class="w-auto md:w-full mb-5">
                 </div>
 
@@ -528,11 +528,11 @@
                     </div>
 
                     <div class="ml-3 w-full">
-                        <div class="flex align-items-center justify-content-between timeline-event-header mb-3">
+                        <div class="flex align-items-center justify-content-between timeline-event-header mb-3 mt-2">
                             <span><span class="font-bold">Tom Mathias</span> retweeted a tweet about your following keyword.</span>
                             <span class="font-bold text-gray-400">46m</span>
                         </div>
-                        <div class="p-3" [style]="{'background-color':'rgba(227, 248, 255, 0.5)', 'border-radius': '6px'}">
+                        <div class="p-3" [style]="{'background-color':app.colorScheme === 'dark'? 'rgba(227, 248, 255, 0.1)' :'rgba(227, 248, 255, 0.5)', 'border-radius': '6px'}">
                             <div class="flex align-items-center justify-content-between mb-2">
                                 <img src="assets/demo/images/avatar/xuxuefeng.png" alt="avatar" class="w-2rem">
                                 <p-avatarGroup styleClass="w-6rem justify-content-evenly">
@@ -548,11 +548,55 @@
                         </div>
                     </div>
                 </div>
+                <div class="flex mb-2 p-3 pb-0">
+                    <div class="flex flex-column align-items-center">
+                        <span class="flex align-items-center justify-content-center border-circle p-2 timeline-icon timeline-icon-2">
+                            <i class="pi pi-star"></i>
+                        </span>
+                        <div class="h-full timeline-line-2" style="width: 2px; min-height: 2rem"></div>
+                    </div>
+
+                    <div class="ml-3 w-full">
+                        <div class="flex align-items-center justify-content-between timeline-event-header mb-3 mt-2">
+                            <span><span class="font-bold">Scott Wesley</span> starred NS0021 on product list.</span>
+                            <span class="font-bold text-gray-400">1h 51m</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex mb-4 p-3 pb-0 shadow-2" style="border-radius: 10px">
+                    <div class="flex flex-column align-items-center">
+                        <span class="flex align-items-center justify-content-center border-circle p-2 timeline-icon timeline-icon-3">
+                            <i class="pi pi-link"></i>
+                        </span>
+                        <div class="h-full timeline-line-3" style="width: 2px; min-height: 4rem"></div>
+                    </div>
+
+                    <div class="ml-3 w-full">
+                        <div class="flex align-items-center justify-content-between timeline-event-header mb-3 mt-2">
+                            <span><span class="font-bold">Jorge Gomez</span> shared design files on cloud.</span>
+                            <span class="font-bold text-gray-400">12h 14m</span>
+                        </div>
+                        <div class="flex align-items-center justify-content-start mb-2">
+                            <img src="assets/layout/images/dashboard/bg-detail.png" alt="bg" class="w-2rem">
+                            <span class="font-bold ml-2">01.Verona-Remastered.fig</span>
+                        </div>
+                        <div class="flex align-items-center justify-content-start mb-3">
+                            <img src="assets/layout/images/dashboard/bg-detail.png" alt="bg" class="w-2rem">
+                            <span class="font-bold ml-2">02.Verona-Marketing.fig</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-footer flex align-items-center justify-content-center cursor-pointer">
+                    <i class="pi pi-chevron-down p-1"></i>
+                    <span class="font-bold ml-2">See More</span>
+                </div>
             </div>
         </div>
         <div class="col-12 md:col-6">
-            <div class="card widget-graph">
-                <div class="card-header font-bold mb-4">NASDAQ 100</div>
+            <div class="card widget-graph p-5">
+                <div class="card-header font-bold mb-5">NASDAQ 100</div>
+
+                <p-chart type="line" [data]="chartData" [options]="chartOptions" id="nasdaq-chart"></p-chart>
             </div>
         </div>
     </div>
