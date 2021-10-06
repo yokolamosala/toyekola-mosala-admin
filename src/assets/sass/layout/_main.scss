@@ -37,7 +37,7 @@ body {
         transition: all $transitionDuration;
 
         .layout-content {
-            padding: 25px 25px 25px 25px;
+            padding: 2rem;
             flex: 1 1 auto;
             background-color: $contentBg;
             border-bottom-left-radius: 30px;

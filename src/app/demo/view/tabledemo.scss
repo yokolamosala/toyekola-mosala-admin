@@ -1,32 +1,4 @@
 :host ::ng-deep {
-	.p-paginator {
-		.p-paginator-current {
-			margin-left: auto;
-		}
-	}
-
-	.p-progressbar {
-		height: .5rem;
-		background-color: #D8DADC;
-
-		.p-progressbar-value {
-			background-color: #607D8B;
-		}
-	}
-
-	.table-header {
-		display: flex;
-		justify-content: space-between;
-	}
-
-	.p-calendar .p-datepicker {
-		min-width: 25rem;
-
-		td {
-			font-weight: 400;
-		}
-	}
-
 	.p-datatable.p-datatable-customers {
 		.p-datatable-header {
 			padding: 1rem;
@@ -45,6 +17,34 @@
 		.p-dropdown-label:not(.p-placeholder) {
 			text-transform: uppercase;
 		}
+
+        .p-paginator {
+            .p-paginator-current {
+                margin-left: auto;
+            }
+        }
+
+        .p-progressbar {
+            height: .5rem;
+            background-color: #D8DADC;
+
+            .p-progressbar-value {
+                background-color: #607D8B;
+            }
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .p-calendar .p-datepicker {
+            min-width: 25rem;
+
+            td {
+                font-weight: 400;
+            }
+        }
 	}
 
 	.p-datatable.p-datatable-customers:not(.p-datatable-gridlines) {
