@@ -9,8 +9,8 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <title>PrimeNG - Verona - Landing Page</title>
 
-        <link rel="stylesheet" type="text/css" href="../theme/theme-green.css">
-        <link rel="stylesheet" type="text/css" href="../layout/css/layout-dark.css">
+        <link rel="stylesheet" type="text/css" href="../theme/purple/theme-light.css">
+        <link rel="stylesheet" type="text/css" href="../layout/css/layout-blue.css">
         <link rel="stylesheet" type="text/css" href="primeng.min.css">
         <link rel="stylesheet" type="text/css" href="primeflex.min.css">
         <link rel="stylesheet" type="text/css" href="primeicons-static.css">
@@ -18,43 +18,47 @@
 
     <body class="landing-body">
         <div class="landing-wrapper">
-            <div id="header">
-                <div class="header-top">
-                    <img alt="logo" src="../layout/images/logo-white.png" class="logo"/>
+            <div id="header" class="flex flex-column px-4 md:px-8 py-3 md:py-6">
+                <div class="header-top flex align-items-center justify-content-between">
+                    <h4 class="font-bold m-0">VERONA</h4>
 
-                    <a id="menu-button" href="#">
-                        <img src="../layout/images/icon-menu.svg" alt="Menu"/>
-                    </a>
+                    <div>
+                        <a id="menu-button" class="align-items-center justify-content-center" href="#">
+                            <i class="pi pi-bars"></i>
+                        </a>
 
-                    <ul id="landing-menu" class="animated fadeInDown">
-                        <li>
-                            <a href="#home">HOME</a>
-                        </li>
-                        <li>
-                            <a href="#features">FEATURES</a>
-                        </li>
-                        <li>
-                            <a href="#statistics">STATISTICS</a>
-                        </li>
-                        <li>
-                            <a href="#pricing">PRICING</a>
-                        </li>
-                        <li>
-                            <a href="#video">VIDEO</a>
-                        </li>
-                    </ul>
+                        <ul id="landing-menu" class="m-0 p-0 list-none animated fadeInDown">
+                            <li>
+                                <a href="#home">HOME</a>
+                            </li>
+                            <li>
+                                <a href="#features">FEATURES</a>
+                            </li>
+                            <li>
+                                <a href="#statistics">STATISTICS</a>
+                            </li>
+                            <li>
+                                <a href="#pricing">PRICING</a>
+                            </li>
+                            <li>
+                                <a href="#video">VIDEO</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="header-content">
-                    <h1>PrimeNG Presents Verona</h1>
-                    <h2>Minimal layout inspired by a beautiful city</h2>
-                    <div>
-                        <a href="#">
-                            LEARN MORE
-                        </a>
+                <div class="header-content flex align-items-center">
+                    <div class="header-content-left">
+                        <h1>PrimeNG Presents Verona</h1>
+                        <h2>Minimal layout inspired by a beautiful city</h2>
+                        <div>
+                            <a href="#">
+                                LEARN MORE
+                            </a>
+                        </div>
                     </div>
-                    <div class="introduction-image">
-                        <img src="../layout/images/landing/verona.png" alt="verona" />
+                    <div class="header-content-right flex align-items-center justify-content-center">
+                        <img src="../layout/images/landing/screen.svg" alt="verona" />
                     </div>
                 </div>
             </div>
@@ -179,15 +183,6 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="video">
-                <div>
-                    <h1>Video</h1>
-                    <div class="video-container">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-YHA84oG-eQ" frameborder="0" allowfullscreen="true"></iframe>
                     </div>
                 </div>
             </div>

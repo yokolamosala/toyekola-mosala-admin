@@ -1,75 +1,47 @@
 .landing-body {
     .landing-wrapper {
         #header {
-            background-color: #6d6d7e;
-	        background-image: radial-gradient(circle at 50% 100%, #6d6d7e, #3b3b48);
-            padding: 16px 0;
+            width: 100%;
+            min-height: 900px;
+            background-image: url("../../layout/images/landing/header-effect-1.svg") top right no-repeat;
+            background-size: contain;
+            background: linear-gradient(147.38deg, #EDF5F8 0%, #E8EDF0 100%);
+            /*padding: 16px 0;
             height: 480px;
-            overflow: hidden;
-
-            > div {
-                width: 960px;
-                margin: 0 auto;
-            }
+            overflow: hidden;*/
 
             .header-top {
-                height: 83px;
+                color: #495057;
 
-                .menu-button {
-                    background-color: #62626c;
-                    width: 60px;
-                    height: 60px;
-                    line-height: 60px;
+                #menu-button {
+                    background-color: #495057;
+                    width: 3rem;
+                    height: 3rem;
                     display: none;
-                    color: #b3b3b3;
-                    float: right;
-                    margin-right: 30px;
-                    text-align: center;
-                    color: #ffffff;
-                    @include transition(background-color .3s);
-                    @include border-radius(50%);
+                    color: #FFFFFF;
+                    border-radius: 14px;
 
-                    span {
-                        font-size: 28px;
-                        line-height: inherit;
+                    i {
+                        color: #FFFFFF;
+                        font-size: 1.5rem;
                     }
 
-                    &:hover {
-                        background-color: #e96d66;
-                    }
-
-                    img {
-                        width: 24px;
-                        margin: 18px 0 0 0;
-                    }
-
-                }
-
-                img {
-                    width: 80px;
-                    margin-left: 30px;
                 }
 
                 ul {
-                    list-style-type: none;
-                    float: right;
-                    margin: 20px 0 0 0;
-                    padding: 0;
+                    display: flex;
 
                     li {
-                        float: left;
-                        padding-right: 12px;
-
                         a {
-                            font-size: 15px;
-                            color: #afafc0;
+                            font-weight: 700;
+                            color: $textSecondaryColor;
                             display: block;
                             padding: 8px;
                             border-bottom: 2px solid transparent;
                             @include transition(border-bottom-color .3s);
 
                             &:hover {
-                                border-color: #afafc0;
+                                color: $textColor;
                             }
                         }
                     }
@@ -77,9 +49,16 @@
             }
 
             .header-content {
-                text-align: center;
+                /*text-align: center;
                 height: 438px;
-                position: relative;
+                position: relative;*/
+
+                .header-content-left {
+
+                }
+
+                .header-content-right {
+                }
 
                 h1 {
                     color: #f5f8f9;
@@ -323,26 +302,6 @@
             }
         }
 
-        #video {
-            background-color: #f5f8f9;
-            padding: 40px 0;
-
-            h1 {
-                color: #6a6a7d;
-                font-size: 22px;
-                border-bottom: 3px solid #afafc0;
-                display: inline-block;
-                padding-bottom: 5px;
-                margin: 0 0 40px 0;
-            }
-
-            > div {
-                width: 960px;
-                margin: 0 auto;
-                text-align: center;
-            }
-        }
-
         #footer {
             background-color: #3b3b48;
             padding: 40px 0;
@@ -394,8 +353,12 @@
     .landing-body {
         .landing-wrapper {
             #header {
-                > div {
+                .header-top {
                     width: 100%;
+
+                    #menu-button {
+                        display: flex;
+                    }
 
                     ul {
                         display: none;
@@ -410,7 +373,6 @@
                             top: 60px;
                             text-align: center;
                             padding: 18px 0 6px 0;
-                            border-top: 10px solid green;
                             z-index: 1000;
                             -webkit-animation-duration: .5s;
                             -moz-animation-duration: .5s;
@@ -432,16 +394,6 @@
                             }
 
                         }
-                    }
-                }
-
-                .header-top {
-                    .menu-button {
-                        display: block;
-                    }
-
-                    .logo {
-                        width: 60px;
                     }
                 }
             }
