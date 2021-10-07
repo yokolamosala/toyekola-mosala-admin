@@ -24,7 +24,7 @@ import {trigger, state, style, transition, animate} from '@angular/animations';
             border-radius: 4px;
         }
 
-        .nested-grid .p-col-4 {
+        .nested-grid .col-4 {
             padding-bottom: 1rem;
         }
     `],

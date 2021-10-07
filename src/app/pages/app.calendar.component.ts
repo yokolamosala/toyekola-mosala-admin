@@ -36,7 +36,7 @@ export class AppCalendarComponent implements OnInit {
         });
 
         this.options = {
-            initialDate: '2021-01-01',
+            initialDate: '2021-02-01',
             headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',

@@ -16,5 +16,5 @@ import {Component} from '@angular/core';
     `]
 })
 export class ElevationComponent {
-    boxes: Array<number> = new Array(24);
+    boxes: Array<number> = new Array(8);
 }
