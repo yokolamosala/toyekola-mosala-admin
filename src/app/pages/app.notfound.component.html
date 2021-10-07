@@ -1,9 +1,32 @@
-<div class="exception-body">
-    <div class="exception-panel">
-        <img src="assets/layout/images/icon-404.png" alt="404" />
+<div class="exception-body flex align-items-center justify-content-center">
+    <div class="exception-panel p-5 flex flex-column justify-content-center">
+        <h4 class="font-bold">NOT FOUND</h4>
+        <span class="mb-4 line-height-3">Looks like you are lost. You may try these<br/> or go back to <span class="font-bold">dashboard.</span></span>
 
-        <h1>Page Not Found</h1>
-        <p>The page you requested cannot be found.</p>
-        <button type="button" pButton label="GO TO DASHBOARD" [routerLink]="['/']" class="p-button-secondary"></button>
+        <div class="flex align-items-center justify-content-between mb-3">
+            <div class="flex align-items-center justify-content-start">
+                <img src="assets/layout/images/pages/icon-widgets.svg" alt="verona-layout" width="42" height="42" class="border-round"/>
+                <div class="ml-3">
+                    <span class="font-bold block line-height-3">Widgets</span>
+                    <span class="subtext block line-height-3">Create your own Verona</span>
+                </div>
+            </div>
+
+            <i class="pi pi-chevron-right subtext"></i>
+        </div>
+
+        <div class="flex align-items-center justify-content-between mb-6">
+            <div class="flex align-items-center justify-content-start">
+                <img src="assets/layout/images/pages/icon-crud.svg" alt="verona-layout" width="42" height="42" class="border-round"/>
+                <div class="ml-3">
+                    <span class="font-bold block line-height-3">Crud</span>
+                    <span class="subtext block line-height-3">Data heavy operations</span>
+                </div>
+            </div>
+
+            <i class="pi pi-chevron-right subtext"></i>
+        </div>
+
+        <button type="button" pButton label="Go to Dashboard" [routerLink]="['/']"></button>
     </div>
 </div>

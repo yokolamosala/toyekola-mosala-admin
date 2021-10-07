@@ -1,30 +1,20 @@
-<div class="login-body">
-    <div class="login-panel p-fluid">
-        <div class="p-grid">
-            <div class="col-12 logo-container">
-                <img src="../../assets/layout/images/logo-white.png" alt="logo-dark" />
-                <h1>Login To Your Account</h1>
-                <h2>WELCOME TO VERONA</h2>
-            </div>
-            <div class="col-12">
-                <div class="input-wrapper">
-                    <input type="text" autocomplete="off" placeholder="Username" pInputText>
-                </div>
-            </div>
-            <div class="col-12">
-                <div class="input-wrapper">
-                    <input type="password" autocomplete="off" placeholder="Password" pInputText>
-                </div>
-            </div>
-            <div class="col-12 chkbox-container">
-                <div class="field-checkbox">
-                    <p-checkbox [binary]="true"></p-checkbox>
-                    <label>Remember Me</label>
-                </div>
-            </div>
-            <div class="col-12 button-container">
-                <button type="button" pButton label="Sing In" [routerLink]="['/']" class="p-button-success p-button-rounded p-button-raised"></button>
-            </div>
-        </div>
+<div class="login-body flex flex-column align-items-center justify-content-center">
+    <div class="login-panel p-5 pt-6 p-fluid flex flex-column justify-content-center">
+        <h4 class="font-bold">VERONA</h4>
+        <span class="mb-4 line-height-3">Welcome to the <span class="font-bold">Verona Community</span>,<br/> where the magic happens, sign in to continue</span>
+
+        <span class="p-input-icon-left mb-3">
+            <i class="pi pi-user"></i>
+            <input type="text" pInputText placeholder="Email Address" />
+        </span>
+
+        <span class="p-input-icon-left mb-6">
+            <i class="pi pi-key"></i>
+            <input type="password" pInputText placeholder="Password" />
+        </span>
+
+        <button type="button" pButton label="Sing In" [routerLink]="['/']"></button>
     </div>
+
+    <span class="text-white mt-4">Don’t you have an account, <span class="font-bold">sign up</span></span>
 </div>
