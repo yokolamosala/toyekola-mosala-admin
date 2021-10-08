@@ -4,21 +4,10 @@ $contentBg: #162a41;
 $textColor:#DBE2EB !default;
 $textSecondaryColor:#A3B3C6 !default;
 $dividerColor:#4E657F !default;
-$itemHoverBg:rgba(255,255,255,.03) !default;
-$focusShadow:0 0 0 1px #BBDEFB !default;
 $linkColor: #90CAF9 !default;
-$overlayBorder:1px solid $dividerColor !default;
-$overlayShadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
+$overlayBg: rgba(228, 231, 235, 0.5) !default;
 
 //card
 $cardBg: #293B51 !default;
 $cardBorder: 0 none !default;
 $cardShadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
-
-//accent
-$accentColor: #90CAF9 !default;
-$accentTextColor: #121212 !default;
-
-//sidebar
-$sidebarWidth: 14rem !default;
-$slimSidebarWidth: 7rem !default;

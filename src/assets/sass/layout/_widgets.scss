@@ -1,9 +1,3 @@
-.layout-dashboard {
-    .subtext {
-        color: $textSecondaryColor;
-    }
-}
-
 .widget-overview-box {
     &.widget-overview-box-1 {
         i {
@@ -270,6 +264,10 @@
 }
 
 .widget-timeline {
+    .subtext {
+        color: $textSecondaryColor;
+    }
+
     .timeline-icon {
         i {
             font-size: 1.5rem;
@@ -327,15 +325,12 @@
     }
 }
 
-//DASHBOARD ANALYTICS
-
-.layout-analytics-dashboard {
+//Dashboard Analytics
+.widget-header {
     .subtext {
         color: $textSecondaryColor;
     }
-}
 
-.widget-header {
     .header-left-section {
         img {
             border-color:#65D6AD;
@@ -380,6 +375,10 @@
 }
 
 .widget-tabbedchart {
+    .subtext {
+        color: $textSecondaryColor;
+    }
+
     .tab-content {
         ul {
             li {
@@ -427,6 +426,10 @@
 }
 
 .widget-boxes {
+    .border-solid {
+        border-color: $dividerColor;
+    }
+
     .p-progressbar {
         height: .5rem;
 
@@ -438,13 +441,17 @@
 
 .widget-chat {
     .message-nth {
-        background: #F4F5F7;
+        background: $overlayBg;
         border-radius: 3px 14px 14px 14px;
     }
 
     .message-2nth {
-        background: #F4F5F7;
+        background: $overlayBg;
         border-radius: 14px 3px 14px 14px;;
+    }
+
+    .subtext {
+        color: $textSecondaryColor;
     }
 }
 
@@ -455,11 +462,19 @@
             height: 1.75rem !important;
         }
     }
+
+    .subtext {
+        color: $textSecondaryColor;
+    }
 }
 
 .widget-list-type1 {
     .border-bottom-1 {
         border-color: $dividerColor;
+    }
+
+    .subtext {
+        color: $textSecondaryColor;
     }
 }
 
@@ -560,6 +575,10 @@
         transform: rotate(18deg);
         display:none;
     }
+
+    .subtext {
+        color: $textSecondaryColor;
+    }
 }
 
 .widget-blog {
@@ -569,9 +588,18 @@
             height: 1.75rem !important;
         }
     }
+
+    .subtext {
+        color: $textSecondaryColor;
+    }
 }
 
 .widget-teamstatus {
+
+    .subtext {
+        color: $textSecondaryColor;
+    }
+
     .new-button {
         width: 4.571rem;
         height: 4.571rem;
@@ -608,6 +636,62 @@
             padding: 2.5px;
             border-radius: 50%;
             border: 3px solid $cardBg;
+        }
+    }
+}
+
+//Widget Page
+
+.widget-info-positive {
+    border-top: 16px solid #27AB83;
+
+    .card-content {
+        .border-solid {
+            border-color: $dividerColor;
+        }
+    }
+
+    .subtext {
+        color: $textSecondaryColor;
+    }
+}
+.widget-info-neutral {
+    border-top: 16px solid #DE911D;
+
+    .card-content {
+        .border-solid {
+            border-color: $dividerColor;
+        }
+    }
+
+    .subtext {
+        color: $textSecondaryColor;
+    }
+}
+
+.widget-image-stats {
+    .header-right-section {
+        button {
+            width: 1.75rem !important;
+            height: 1.75rem !important;
+        }
+    }
+
+    .p-progressbar {
+        height: .5rem;
+
+        &.orange-bar {
+            .p-progressbar-value {
+                border-radius: 10px;
+                background: #DE911D;
+            }
+        }
+
+        &.green-bar {
+            .p-progressbar-value {
+                border-radius: 10px;
+                background: #27AB83;
+            }
         }
     }
 }

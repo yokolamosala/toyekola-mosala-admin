@@ -73,8 +73,8 @@
     width: 3rem;
     height: 3rem;
     line-height: 3rem;
-    background: $accentColor;
-    color: $accentTextColor;
+    background: $menuButtonMobileBg;
+    color: $menuitemTextColor;
     text-align: center;
     top: 50%;
     right: 0;
@@ -95,6 +95,6 @@
     }
 
     &:hover {
-        background: lighten($accentColor, 5%);
+        opacity: .9;
     }
 }
