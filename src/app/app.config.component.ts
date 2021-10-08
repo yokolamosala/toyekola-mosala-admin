@@ -32,7 +32,7 @@ import { AppMainComponent } from './app.main.component';
             <h5>Layout Colors</h5>
             <div class="layout-themes" *ngIf="app.colorScheme === 'light'">
                 <div *ngFor="let l of layoutColor">
-                    <a style="cursor: pointer" (click)="changeLayoutColor(l.name)" [ngStyle]="{'background-color': l.color}">
+                    <a style="cursor: pointer" (click)="changeLayoutColor(l.name)" [ngStyle]="{'background': l.color}">
                         <i class="pi pi-check" *ngIf="app.layoutColor === l.name"></i>
                     </a>
                 </div>
@@ -71,15 +71,25 @@ export class AppConfigComponent implements OnInit {
 
     themes: any[];
 
+    tempLayoutColor: 'white';
+
     constructor(public appMain: AppMainComponent, public app: AppComponent) {}
 
     ngOnInit() {
         this.layoutColor = [
             {name: 'white', color: '#ffffff'},
-            {name: 'blue', color: '#19496C'},
-            {name: 'cyan', color: '#19536C'},
-            {name: 'deepblue', color: '#19216C'},
-            {name: 'purple', color: '#656C98'},
+            {name: 'blue', color: 'linear-gradient(147.38deg, #4C96B6 0%, #19496C 100%)'},
+            {name: 'cyan', color: 'linear-gradient(147.38deg, #4CB6A3 0%, #19536C 100%)'},
+            {name: 'deepblue', color: 'linear-gradient(147.38deg, #4C63B6 0%, #19216C 100%)'},
+            {name: 'purple', color: 'linear-gradient(147.38deg, #9E768F 0%, #656C98 100%)'},
+            {name: 'yellow', color: 'linear-gradient(147.38deg, #C57F6A 0%, #DABE67 100%)'},
+            {name: 'deeppurple', color: 'linear-gradient(147.38deg, #684789 0%, #647DEE 100%)'},
+            {name: 'orange', color: 'linear-gradient(147.38deg, #BD9279 0%, #BE5757 100%)'},
+            {name: 'green', color: 'linear-gradient(147.38deg, #45947A 0%, #A6BF5D 100%)'},
+            {name: 'mauve', color: 'linear-gradient(147.38deg, #455B94 0%, #BFAA5D 100%)'},
+            {name: 'dusk', color: 'linear-gradient(147.38deg, #7B3F81 0%, #5DB3BF 100%)'},
+            {name: 'ocean', color: 'linear-gradient(147.38deg, #455B94 0%, #90B967 100%)'},
+            {name: 'deepgreen', color: 'linear-gradient(147.38deg, #767C50 0%, #344B6F 100%)'},
         ];
 
         this.themes = [
@@ -100,10 +110,10 @@ export class AppConfigComponent implements OnInit {
 
     changeColorScheme(scheme) {
         this.app.colorScheme = scheme;
-        this.app.layoutColor = scheme === 'dark' ? scheme : 'white';
+        this.app.layoutColor = scheme === 'dark' ? scheme : this.tempLayoutColor;
 
         const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
-        const layoutHref = 'assets/layout/css/layout-' + (scheme === 'dark' ? scheme : 'white') + '.css';
+        const layoutHref = 'assets/layout/css/layout-' + (scheme === 'dark' ? scheme : this.tempLayoutColor) + '.css';
         this.replaceLink(layoutLink, layoutHref);
 
         const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
@@ -113,6 +123,7 @@ export class AppConfigComponent implements OnInit {
 
 
     changeLayoutColor(name) {
+        this.tempLayoutColor = name;
         this.app.layoutColor = name;
 
         const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;

@@ -14,11 +14,11 @@ export class AppComponent implements OnInit{
 
     theme = 'purple';
 
-    layoutColor = 'blue';
+    layoutColor = 'white';
 
     colorScheme = 'light';
 
-    menuMode = 'static';
+    menuMode = 'slim';
 
     constructor(private primengConfig: PrimeNGConfig) {
     }
