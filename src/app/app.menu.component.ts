@@ -21,7 +21,7 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'UI Kit', icon: 'pi pi-star', routerLink: ['/uikit'], badge: 7, badgeStyleClass: 'amber-badge',
+                label: 'UI Kit', icon: 'pi pi-star', routerLink: ['/uikit'],
                 items: [
                     {label: 'Form Layout', icon: 'pi pi-id-card', routerLink: ['/uikit/formlayout']},
                     {label: 'Input', icon: 'pi pi-check-square', routerLink: ['/uikit/input']},
@@ -42,7 +42,7 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Utilities', icon: 'pi pi-compass', routerLink: ['utilities'], badge: 4, badgeStyleClass: 'green-badge',
+                label: 'Utilities', icon: 'pi pi-compass', routerLink: ['utilities'],
                 items: [
                     {label: 'Display', icon: 'pi pi-desktop', routerLink: ['utilities/display']},
                     {label: 'Elevation', icon: 'pi pi-external-link', routerLink: ['utilities/elevation']},
