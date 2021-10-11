@@ -71,7 +71,7 @@ export class AppConfigComponent implements OnInit {
 
     themes: any[];
 
-    tempLayoutColor: 'white';
+    tempLayoutColor = 'white';
 
     constructor(public appMain: AppMainComponent, public app: AppComponent) {}
 

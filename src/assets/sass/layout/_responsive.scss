@@ -44,6 +44,8 @@
             z-index: 998;
 
             .layout-topbar-left {
+                z-index: 1;
+
                 .app-name {
                     .app-logo {
                         width: 52px;
@@ -84,6 +86,8 @@
             }
 
             .layout-topbar-right {
+                z-index: 0;
+
                 .layout-topbar-actions {
                     > li {
                         &.active-topmenuitem {
