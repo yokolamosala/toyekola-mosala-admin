@@ -39,7 +39,7 @@ export class DashboardDemoComponent implements OnInit {
                 },
                 {
                     data: [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1],
-                    backgroundColor: ['#E4E7EB'] ,
+                    backgroundColor: [this.app.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB'] ,
                     fill: true,
                     borderRadius: 10,
                     borderSkipped: 'top bottom',

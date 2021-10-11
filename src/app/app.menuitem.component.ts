@@ -150,6 +150,25 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
                 this.appMain.menuHoverActive = false;
             }
         }
+
+        this.removeActiveInk(event);
+    }
+
+    removeActiveInk(event: Event) {
+        const currentTarget = (event.currentTarget as HTMLElement);
+        setTimeout(() => {
+            if (currentTarget) {
+                const activeInk = currentTarget.querySelector('.p-ink-active');
+                if (activeInk) {
+                    if (activeInk.classList) {
+                        activeInk.classList.remove('p-ink-active');
+                    }
+                    else {
+                        activeInk.className = activeInk.className.replace(new RegExp('(^|\\b)' + 'p-ink-active'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+                    }
+                }
+            }
+        }, 401);
     }
 
     onMouseEnter() {

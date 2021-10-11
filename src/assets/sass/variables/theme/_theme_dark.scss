@@ -1,10 +1,23 @@
+$colors: (
+    "blue": #54B0F3,
+    "green": #29C76F,
+    "yellow": #F3D054,
+    "cyan": #3EC9D6,
+    "pink": #EA5455,
+    "indigo": #5464F3,
+    "teal": #0DC381,
+    "orange": #FF9F42,
+    "bluegray": #6878A0,
+    "purple": #7254F3
+) !default;
+
 //shades
-$shade000:#DBE2EB !default;  //text color
-$shade100:#A3B3C6 !default;  //text secondary color
-$shade600: rgba(62, 64, 83, 0.6) !default;  //input bg, border, divider
-$shade700:#333544 !default;  //unused
-$shade800:#282936 !default;  //elevated surface
-$shade900: rgba(29, 30, 39, 0.6) !default;  //ground surface
+$shade000:rgba(255,255,255,.87) !default;  //text color
+$shade100:rgba(255,255,255,.60) !default;  //text secondary color
+$shade600:#1c344b !default;  //input bg, border, divider
+$shade700:#102a43 !default;  //unused
+$shade800:#102a43 !default;  //elevated surface
+$shade900:#102a43 !default;  //ground surface
 
 $hoverBg:rgba(255,255,255,.03) !default;
 
@@ -504,10 +517,6 @@ $dataViewContentBorder:0 none !default;
 $dataViewListItemBorder:solid $shade600 !default;
 $dataViewListItemBorderWidth:0 0 1px 0 !default;
 
-//orderlist, picklist
-$orderListBreakpoint:960px !default;
-$pickListBreakpoint:960px !default;
-
 //schedule
 $fullCalendarEventBg:$primaryDarkColor !default;
 $fullCalendarEventBorderColor: $primaryDarkColor !default;
@@ -595,6 +604,10 @@ $dialogContentPadding:0 1.5rem 2rem 1.5rem !default;
 $dialogFooterBorder:0 none !default;
 $dialogFooterPadding:0 1.5rem 1.5rem 1.5rem !default;
 
+//confirmpopup
+$confirmPopupContentPadding:$panelContentPadding !default;
+$confirmPopupFooterPadding:0 1.25rem 1.25rem 1.25rem !default;
+
 //tooltip
 $tooltipBg:$shade600 !default;
 $tooltipTextColor:$shade000 !default;
@@ -643,7 +656,7 @@ $overlayMenuBg:$menuBg !default;
 $overlayMenuBorder:1px solid $shade600 !default;
 $overlayMenuShadow:0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12) !default;
 $verticalMenuPadding:.25rem 0 !default;
-$verticalMenuitemMargin:0;
+$verticalMenuitemMargin:0 !default;
 $menuSeparatorMargin:.25rem 0 !default;
 
 $breadcrumbPadding:1rem !default;
@@ -735,38 +748,38 @@ $galleriaThumbnailNavigatorWidth:2rem !default;
 $galleriaThumbnailNavigatorHeight:2rem !default;
 
 //divider
-$dividerHorizontalMargin:1.25rem 0;
-$dividerHorizontalPadding:0 1.25rem;
-$dividerVerticalMargin:0 1.25rem;
-$dividerVerticalPadding:1.25rem 0;
-$dividerSize:1px;
-$dividerColor:$shade600;
+$dividerHorizontalMargin:1.25rem 0 !default;
+$dividerHorizontalPadding:0 1.25rem !default;
+$dividerVerticalMargin:0 1.25rem !default;
+$dividerVerticalPadding:1.25rem 0 !default;
+$dividerSize:1px !default;
+$dividerColor:$shade600 !default;
 
 //avatar
-$avatarBg:$shade600;
-$avatarTextColor:$textColor;
+$avatarBg:$shade600 !default;
+$avatarTextColor:$textColor !default;
 
 //chip
-$chipBg:$shade600;
-$chipTextColor:$textColor;
-$chipBorderRadius: 16px;
+$chipBg:$shade600 !default;
+$chipTextColor:$textColor !default;
+$chipBorderRadius: 16px !default;
 
 //scrollTop
-$scrollTopBg:$highlightBg;
-$scrollTopHoverBg:scale-color($highlightBg, $alpha: 24%);
-$scrollTopWidth:3rem;
-$scrollTopHeight:3rem;
-$scrollTopBorderRadius:50%;
-$scrollTopFontSize:1.5rem;
-$scrollTopTextColor:$highlightTextColor;
+$scrollTopBg:$highlightBg !default;
+$scrollTopHoverBg:scale-color($highlightBg, $alpha: 24%) !default;
+$scrollTopWidth:3rem !default;
+$scrollTopHeight:3rem !default;
+$scrollTopBorderRadius:50% !default;
+$scrollTopFontSize:1.5rem !default;
+$scrollTopTextColor:$highlightTextColor !default;
 
 //skeleton
-$skeletonBg:rgba(255,255,255,.06);
-$skeletonAnimationBg:rgba(255,255,255,.04);
+$skeletonBg:rgba(255,255,255,.06) !default;
+$skeletonAnimationBg:rgba(255,255,255,.04) !default;
 
 //splitter
-$splitterGutterBg:rgba(255,255,255,.03);
-$splitterGutterHandleBg:$shade600;
+$splitterGutterBg:rgba(255,255,255,.03) !default;
+$splitterGutterHandleBg:$shade600 !default;
 
 //speeddial
 $speedDialButtonWidth: 4rem !default;
