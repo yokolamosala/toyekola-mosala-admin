@@ -9,7 +9,7 @@
                         <span class="subheader block text-4xl font-bold">3882</span>
                     </div>
                 </div>
-                <img src="assets/layout/images/dashboard/users.svg" class="w-full" alt="users">
+                <img [src]="'assets/layout/images/dashboard/users' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -21,7 +21,7 @@
                         <span class="subheader block text-4xl font-bold">532</span>
                     </div>
                 </div>
-                <img src="assets/layout/images/dashboard/locations.svg" class="w-full" alt="users">
+                <img [src]="'assets/layout/images/dashboard/locations' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -33,7 +33,7 @@
                         <span class="subheader block text-4xl font-bold">12.6%</span>
                     </div>
                 </div>
-                <img src="assets/layout/images/dashboard/rate.svg" class="w-full" alt="users">
+                <img [src]="'assets/layout/images/dashboard/rate' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -45,7 +45,7 @@
                         <span class="subheader block text-4xl font-bold">440</span>
                     </div>
                 </div>
-                <img src="assets/layout/images/dashboard/interactions.svg" class="w-full" alt="users">
+                <img [src]="'assets/layout/images/dashboard/interactions' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
             </div>
         </div>
 

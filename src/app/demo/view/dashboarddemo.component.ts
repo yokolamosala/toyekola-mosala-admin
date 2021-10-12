@@ -163,10 +163,12 @@ export class DashboardDemoComponent implements OnInit {
                             else {
                                 return value + 'k';
                             }
-                        }
+                        },
+                        color: this.app.colorScheme === 'dark' ? '#DBE2EB' : '#3E4C59'
                     },
                     grid: {
                         borderDash: [2, 2],
+                        color: this.app.colorScheme === 'dark' ? '#4E657F' : '#E4E7EB',
                         drawBorder: false,
                     },
                 },
@@ -176,6 +178,7 @@ export class DashboardDemoComponent implements OnInit {
                     },
                     ticks: {
                         beginAtZero: true,
+                        color: this.app.colorScheme === 'dark' ? '#DBE2EB' : '#3E4C59'
                     }
                 }
             }
