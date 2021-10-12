@@ -1,11 +1,14 @@
-import {Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {AppComponent} from '../../app.component';
 import {AppMainComponent} from '../../app.main.component';
+import {MenuItem} from 'primeng/api';
 
 @Component({
     templateUrl: './dashboard.component.html'
 })
 export class DashboardDemoComponent implements OnInit {
+
+    items: MenuItem[];
 
     overviewChart: any;
 
@@ -24,6 +27,11 @@ export class DashboardDemoComponent implements OnInit {
     constructor(public app: AppComponent, public appMain: AppMainComponent) { }
 
     ngOnInit() {
+        this.items = [
+            { label: 'Edit', icon: 'pi pi-pencil' },
+            { label: 'Delete', icon: 'pi pi-trash' }
+        ];
+
         this.overviewChart = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
             datasets: [

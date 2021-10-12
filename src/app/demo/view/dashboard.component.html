@@ -170,7 +170,8 @@
                             <td>
                                 <div class="flex align-items-center justify-content-between">
                                     <span>Apollo</span>
-                                    <i class="pi pi-chevron-down"></i>
+                                    <p-menu #menu1 [popup]="true" appendTo="body" [model]="items"></p-menu>
+                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu1.toggle($event)"></button>
                                 </div>
                             </td>
                             <td class="text-center none-data">
@@ -196,7 +197,8 @@
                             <td>
                                 <div class="flex align-items-center justify-content-between">
                                     <span>Ultima</span>
-                                    <i class="pi pi-chevron-down"></i>
+                                    <p-menu #menu2 [popup]="true" appendTo="body" [model]="items"></p-menu>
+                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu2.toggle($event)"></button>
                                 </div>
                             </td>
                             <td class="text-center warning-data">
@@ -222,7 +224,8 @@
                             <td>
                                 <div class="flex align-items-center justify-content-between">
                                     <span>Poseidon</span>
-                                    <i class="pi pi-chevron-down"></i>
+                                    <p-menu #menu3 [popup]="true" appendTo="body" [model]="items"></p-menu>
+                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu3.toggle($event)"></button>
                                 </div>
                             </td>
                             <td class="text-center warning-data">
@@ -245,7 +248,8 @@
                             <td>
                                 <div class="flex align-items-center justify-content-between">
                                     <span>Rain</span>
-                                    <i class="pi pi-chevron-down"></i>
+                                    <p-menu #menu4 [popup]="true" appendTo="body" [model]="items"></p-menu>
+                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu4.toggle($event)"></button>
                                 </div>
                             </td>
                             <td class="p-0 pb-3 danger-data">
@@ -277,7 +281,8 @@
                             <td>
                                 <div class="flex align-items-center justify-content-between">
                                     <span>Mirage</span>
-                                    <i class="pi pi-chevron-down"></i>
+                                    <p-menu #menu5 [popup]="true" appendTo="body" [model]="items"></p-menu>
+                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu5.toggle($event)"></button>
                                 </div>
                             </td>
                             <td class="text-center none-data">
@@ -300,7 +305,8 @@
                             <td>
                                 <div class="flex align-items-center justify-content-between">
                                     <span>Diamond</span>
-                                    <i class="pi pi-chevron-down"></i>
+                                    <p-menu #menu6 [popup]="true" appendTo="body" [model]="items"></p-menu>
+                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu6.toggle($event)"></button>
                                 </div>
                             </td>
                             <td class="text-center none-data">

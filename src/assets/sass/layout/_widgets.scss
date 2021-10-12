@@ -141,7 +141,7 @@
 
             td {
                 border: 1px solid $dividerColor;
-                padding: 1rem 0.5rem;
+                padding: 0.5rem;
 
                 &:first-child {
                     border-right: 0;
@@ -459,6 +459,8 @@
 }
 
 .widget-pies {
+    overflow-x: hidden;
+
     .header-right-section {
         button {
             width: 1.75rem !important;
