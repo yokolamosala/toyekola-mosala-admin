@@ -77,19 +77,19 @@
 
         #features {
             .responsive {
+                min-width: 420px;
                 background: #FFFAEB;
-                padding: 48px 90px;
                 border-radius: 74px 14px 14px 14px;
             }
 
             .design {
-                padding: 48px 90px;
+                min-width: 420px;
                 background: #F3FFD9;
                 border-radius: 14px;
             }
 
             .clean {
-                padding: 48px 90px;
+                min-width: 420px;
                 background: #FFEEEE;
                 border-radius: 14px 14px 74px 14px;
             }
@@ -264,7 +264,7 @@
 
             #features {
                 .responsive, .design, .clean {
-                    padding: 24px 45px;
+                    min-width: 315px;
                 }
             }
 
