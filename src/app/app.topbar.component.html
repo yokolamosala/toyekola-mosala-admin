@@ -34,13 +34,13 @@
         </a>
         <ul class="layout-topbar-actions">
             <li #searchItem class="search-item" [ngClass]="{'active-topmenuitem': appMain.search}">
-                <a href="#" tabindex="0" (click)="appMain.onTopbarItemClick($event,searchItem)">
+                <a href="#" tabindex="0" (click)="appMain.onTopbarItemClick($event,searchItem); searchFocus($event)">
                     <i class="pi pi-search"></i>
                 </a>
 
                 <div class="search-input-wrapper">
                     <span class="p-input-icon-right">
-                        <input type="text" pInputText placeholder="Type your keywords" (click)="appMain.searchClick = true;"/>
+                        <input #input1 type="text" pInputText placeholder="Type your keywords" (click)="appMain.searchClick = true;" autofocus/>
                         <i class="pi pi-search"></i>
                     </span>
                 </div>
@@ -48,7 +48,7 @@
                 <ul class="fadeInDown">
                     <div class="search-input-wrapper p-fluid" style="width: 100%">
                         <span class="p-input-icon-right">
-                            <input type="text" pInputText placeholder="Type your keywords" (click)="appMain.searchClick = true;"/>
+                            <input #input2 type="text" pInputText placeholder="Type your keywords" (click)="appMain.searchClick = true;" autofocus/>
                             <i class="pi pi-search"></i>
                         </span>
                     </div>

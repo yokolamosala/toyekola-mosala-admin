@@ -93,7 +93,7 @@
                         &.active-topmenuitem {
                             &.search-item {
                                 a {
-                                    display: block;
+                                    opacity: 1;
                                 }
                                 >.search-input-wrapper{
                                     display: none;
