@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <title>PrimeNG - Verona - Landing Page</title>
+        <title>Verona - Landing Page</title>
 
         <link rel="stylesheet" type="text/css" href="../theme/purple/theme-light.css">
         <link rel="stylesheet" type="text/css" href="../layout/css/layout-blue.css">
@@ -22,7 +22,7 @@
                 <div class="header-top flex align-items-center justify-content-between">
                     <h4 class="font-bold m-0">VERONA</h4>
                     <div>
-                        <a id="menu-button" class="align-items-center justify-content-center" href="#" onclick="openMenu()">
+                        <a id="menu-button" class="align-items-center justify-content-center" onclick="openMenu()">
                             <i class="pi pi-bars"></i>
                         </a>
 
@@ -34,7 +34,7 @@
                             </li>
 
                             <li>
-                                <a href="#home">HOME</a>
+                                <a href="#header">HOME</a>
                             </li>
                             <li>
                                 <a href="#features">FEATURES</a>
@@ -301,6 +301,20 @@
                 var menuitem = menuitems[i];
                 menuitem.addEventListener('click', function(e) {
                     closeMenu();
+                });
+            }
+
+            var links = document.querySelectorAll('a[href^="#"]');
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i];
+                link.addEventListener('click', function(e) {
+                    if (document.documentElement.scrollIntoView) {
+                        e.preventDefault();
+                        document.getElementById(event.currentTarget.getAttribute('href').substring(1)).scrollIntoView({
+                            behavior: 'smooth',
+                            offsetTop: 20
+                        });
+                    }
                 });
             }
 
