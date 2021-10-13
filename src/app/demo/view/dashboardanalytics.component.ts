@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {SelectItem} from 'primeng/api';
 import {Product} from '../domain/product';
 import {ProductService} from '../service/productservice';
+import {AppComponent} from '../../app.component';
 
 @Component({
     templateUrl: './dashboardanalytics.component.html',
@@ -27,7 +28,11 @@ export class DashboardAnalyticsComponent implements OnInit {
 
     revenueOptions: any;
 
-    constructor(private productService: ProductService) {}
+    chatMessages: any[];
+
+    @ViewChild('chatcontainer') chatContainerViewChild: ElementRef;
+
+    constructor(private productService: ProductService, public app: AppComponent) {}
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data.slice(0, 5));
@@ -67,6 +72,12 @@ export class DashboardAnalyticsComponent implements OnInit {
             responsive: true,
             cutout: 60
         };
+
+        this.chatMessages = [
+            { nth: true, from: 'Jane Cooper', url: 'assets/demo/images/avatar/stephenshaw.png', messages: ['Hey M. hope you are well. Our idea is accepted by the board. '] },
+            { nth: false, from: 'Jerome Bell', url: 'assets/demo/images/avatar/ivanmagalhaes.png', messages: ['we did it! 🤠'] },
+            { nth: true, from: 'Darlene Robertson', url: 'assets/demo/images/avatar/amyelsner.png', messages: ['I’ll be looking at the process then, just to be sure 🤓 '] },
+        ];
     }
 
     recentSales(event) {
@@ -74,6 +85,36 @@ export class DashboardAnalyticsComponent implements OnInit {
             this.products = this.productsThisWeek;
         } else {
             this.products = this.productsLastWeek;
+        }
+    }
+
+    onChatKeydown(event) {
+        if (event.key === 'Enter') {
+            const message = event.currentTarget.value;
+            const lastMessage = this.chatMessages[this.chatMessages.length - 1];
+
+            if (lastMessage.from) {
+                this.chatMessages.push({ nth: false, from: 'Verona',
+                    url: 'assets/layout/images/logo-' + (this.app.colorScheme === 'light' ? 'dark' : 'white') + '.png',
+                    messages: [message] });
+            }
+            else {
+                lastMessage.messages.push(message);
+            }
+
+            if (message.match(/primeng|primereact|primefaces|primevue/i)) {
+                this.chatMessages.push({ nth: true, from: 'Ioni Bowcher', url: 'assets/demo/images/avatar/ionibowcher.png', messages: ['Always bet on Prime!'] });
+            }
+
+            event.currentTarget.value = '';
+
+            const el = this.chatContainerViewChild.nativeElement;
+            setTimeout(() => {
+                el.scroll({
+                    top: el.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 1);
         }
     }
 }
