@@ -30,6 +30,14 @@ export class DashboardAnalyticsComponent implements OnInit {
 
     chatMessages: any[];
 
+    activeTab = 0;
+
+    activeListItemIndex = 1;
+
+    activeListItem = {image: 'assets/layout/images/dashboard/headphones.svg', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'};
+
+    listItems: any[];
+
     @ViewChild('chatcontainer') chatContainerViewChild: ElementRef;
 
     constructor(private productService: ProductService, public app: AppComponent) {}
@@ -78,6 +86,12 @@ export class DashboardAnalyticsComponent implements OnInit {
             { nth: false, from: 'Jerome Bell', url: 'assets/demo/images/avatar/ivanmagalhaes.png', messages: ['we did it! 🤠'] },
             { nth: true, from: 'Darlene Robertson', url: 'assets/demo/images/avatar/amyelsner.png', messages: ['I’ll be looking at the process then, just to be sure 🤓 '] },
         ];
+
+        this.listItems = [
+            {image: 'assets/layout/images/dashboard/sneaker.svg', text: 'Red Sneakers', subtext: 'RX Series', ratio: '+40%'},
+            {image: 'assets/layout/images/dashboard/headphones.svg', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
+            {image: 'assets/layout/images/dashboard/sunglasses.svg', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
+        ];
     }
 
     recentSales(event) {
@@ -116,5 +130,31 @@ export class DashboardAnalyticsComponent implements OnInit {
                 });
             }, 1);
         }
+    }
+
+    onTabClick(event, index) {
+        this.activeTab = index;
+
+        if (index === 0) {
+            this.listItems = [
+                {image: 'assets/layout/images/dashboard/sneaker.svg', text: 'Red Sneakers', subtext: 'RX Series', ratio: '+40%'},
+                {image: 'assets/layout/images/dashboard/headphones.svg', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
+                {image: 'assets/layout/images/dashboard/sunglasses.svg', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
+            ];
+        } else if (index === 1) {
+            this.listItems = [
+                {image: 'assets/layout/images/dashboard/camera.svg', text: 'Instant Camera', subtext: 'II-Mark', ratio: '+27%'},
+                {image: 'assets/layout/images/dashboard/cupcake.svg', text: 'Cupcake', subtext: 'Cinnamon', ratio: '+41%'},
+                {image: 'assets/layout/images/dashboard/drink.svg', text: 'Cold Drink', subtext: 'Lime', ratio: '+56%'}
+            ];
+        } else if (index === 2) {
+            this.listItems = [
+                {image: 'assets/layout/images/dashboard/tripod.svg', text: 'Tripod', subtext: 'Stabilizer', ratio: '+34%'},
+                {image: 'assets/layout/images/dashboard/headphone2.svg', text: 'Headphone', subtext: 'Wireless', ratio: '+67%'},
+                {image: 'assets/layout/images/dashboard/spoon.svg', text: 'Spoon Set', subtext: 'Colorful', ratio: '+8%'}
+            ];
+        }
+
+        this.activeListItem = this.listItems[this.activeListItemIndex];
     }
 }

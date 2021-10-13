@@ -27,36 +27,15 @@
             <div class="card widget-tabbedchart">
                 <div class="card-header font-bold">Store Overview</div>
                 <div class="tab-content flex flex-column md:flex-row">
-                    <ul class="w-full list-none p-0 mb-5">
-                        <li class="py-3 pr-2 pl-4 flex">
-                            <img src="assets/layout/images/dashboard/sneaker.svg" width="64" class="mr-3">
+                    <ul class="w-full list-none p-0 mb-5 h-21rem">
+                        <li *ngFor="let item of listItems; let i = index" (click)="activeListItemIndex = i; activeListItem = item"
+                            class="py-3 pr-2 pl-4 flex cursor-pointer" [ngClass]="{'active-tab-listitem': activeListItemIndex === i}">
+                            <img [src]="item.image" width="64" class="mr-3">
                             <div class="flex align-items-center justify-content-between w-full">
                                 <div>
-                                    <span class="font-bold block">Red Sneakers</span>
-                                    <span class="subtext block mb-1">RX Series</span>
-                                    <span class="tab-badge font-bold px-1">+40%</span>
-                                </div>
-                                <i class="pi pi-chevron-right subtext"></i>
-                            </div>
-                        </li>
-                        <li class="py-3 pr-2 pl-4 flex active-tab-listitem">
-                            <img src="assets/layout/images/dashboard/headphones.svg" width="64" class="mr-3">
-                            <div class="flex align-items-center justify-content-between w-full">
-                                <div>
-                                    <span class="font-bold block">HF Headphones</span>
-                                    <span class="subtext block mb-1">Wireless</span>
-                                    <span class="tab-badge font-bold px-1">+24%</span>
-                                </div>
-                                <i class="pi pi-chevron-right"></i>
-                            </div>
-                        </li>
-                        <li class="py-3 pr-2 pl-4 flex">
-                            <img src="assets/layout/images/dashboard/sunglasses.svg" width="64" class="mr-3">
-                            <div class="flex align-items-center justify-content-between w-full">
-                                <div>
-                                    <span class="font-bold block">Sunglasses</span>
-                                    <span class="subtext block mb-1">UV Protection</span>
-                                    <span class="tab-badge font-bold px-1">+17%</span>
+                                    <span class="font-bold block">{{item.text}}</span>
+                                    <span class="subtext block mb-1">{{item.subtext}}</span>
+                                    <span class="tab-badge font-bold px-1">{{item.ratio}}</span>
                                 </div>
                                 <i class="pi pi-chevron-right subtext"></i>
                             </div>
@@ -64,31 +43,31 @@
                     </ul>
                     <div class="w-full flex flex-column align-items-center justify-content-center">
                         <div class="bars flex align-items-end mb-4">
-                            <div class="w-1rem h-2rem mr-2"></div>
-                            <div class="w-1rem h-3rem mr-2"></div>
+                            <div class="w-1rem h-2rem mr-2" [ngClass]="{'h-3rem active-bar': activeListItemIndex === 2 && activeTab === 0}"></div>
+                            <div class="w-1rem h-3rem mr-2" [ngClass]="{'h-5rem active-bar': activeListItemIndex === 1 && activeTab !== 2}"></div>
                             <div class="w-1rem h-4rem mr-2"></div>
-                            <div class="w-1rem h-6rem mr-2"></div>
-                            <div class="w-1rem h-4rem mr-2 active-bar"></div>
-                            <div class="w-1rem h-5rem mr-2"></div>
-                            <div class="w-1rem h-3rem mr-2"></div>
+                            <div class="w-1rem h-6rem mr-2" [ngClass]="{'h-4rem active-bar': activeListItemIndex === 2 && activeTab !== 0}"></div>
+                            <div class="w-1rem h-2rem mr-2" [ngClass]="{'h-4rem active-bar': activeListItemIndex === 1 && activeTab === 2}"></div>
+                            <div class="w-1rem h-5rem mr-2" [ngClass]="{'h-4rem active-bar': activeListItemIndex === 0 && activeTab === 1}"></div>
+                            <div class="w-1rem h-3rem mr-2" [ngClass]="{'h-4rem active-bar': activeListItemIndex === 0 && activeTab !== 1}"></div>
                             <div class="w-1rem h-1rem mr-2"></div>
                         </div>
-                        <span class="font-bold">HF Headphones</span>
-                        <span class="subtext">Wireless</span>
+                        <span class="font-bold">{{activeListItem.text}}</span>
+                        <span class="subtext">{{activeListItem.subtext}}</span>
                     </div>
                 </div>
                 <div class="tabs flex align-items-center">
-                    <div class="flex flex-column align-items-center w-full active-tab py-2">
+                    <div class="flex flex-column align-items-center w-full py-2 cursor-pointer" [ngClass]="{'active-tab': activeTab === 0}" (click)="onTabClick($event, 0)">
                         <i class="pi pi-sort-amount-down text-2xl mb-2"></i>
                         <span class="font-bold">Latest</span>
                     </div>
-                    <div class="flex flex-column align-items-center w-full py-2">
-                        <i class="pi pi-chart-line text-2xl mb-2 subtext"></i>
-                        <span class="font-bold subtext">Trending</span>
+                    <div class="flex flex-column align-items-center w-full py-2 cursor-pointer" [ngClass]="{'active-tab': activeTab === 1}" (click)="onTabClick($event, 1)">
+                        <i class="pi pi-chart-line text-2xl mb-2"></i>
+                        <span class="font-bold">Trending</span>
                     </div>
-                    <div class="flex flex-column align-items-center w-full py-2">
-                        <i class="pi pi-star text-2xl mb-2 subtext"></i>
-                        <span class="font-bold subtext">Starred</span>
+                    <div class="flex flex-column align-items-center w-full py-2 cursor-pointer" [ngClass]="{'active-tab': activeTab === 2}" (click)="onTabClick($event, 2)">
+                        <i class="pi pi-star text-2xl mb-2"></i>
+                        <span class="font-bold">Starred</span>
                     </div>
                 </div>
             </div>
