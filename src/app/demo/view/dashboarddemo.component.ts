@@ -8,8 +8,6 @@ import {MenuItem} from 'primeng/api';
 })
 export class DashboardDemoComponent implements OnInit {
 
-    items: MenuItem[];
-
     overviewChart: any;
 
     overviewChartOptions: any;
@@ -27,11 +25,6 @@ export class DashboardDemoComponent implements OnInit {
     constructor(public app: AppComponent, public appMain: AppMainComponent) { }
 
     ngOnInit() {
-        this.items = [
-            { label: 'Edit', icon: 'pi pi-pencil' },
-            { label: 'Delete', icon: 'pi pi-trash' }
-        ];
-
         this.overviewChart = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
             datasets: [

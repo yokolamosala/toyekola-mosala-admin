@@ -161,170 +161,34 @@
         </div>
 
         <div class="col-12 md:col-4">
-            <div class="card widget-grid">
-                <div class="card-header font-bold mb-5">Grid Widget</div>
-                <div>
-                    <table class="w-full">
-                        <tbody>
-                        <tr>
-                            <td>
-                                <div class="flex align-items-center justify-content-between">
-                                    <span>Apollo</span>
-                                    <p-menu #menu1 [popup]="true" appendTo="body" [model]="items"></p-menu>
-                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu1.toggle($event)"></button>
-                                </div>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">N/A</span>
-                            </td>
-                            <td class="p-0 pb-3 success-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">+2</span>
-                                    <span class="block font-bold text-center">5.3</span>
-                                </div>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">N/A</span>
-                            </td>
-                            <td class="p-0 pb-3 success-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">+6</span>
-                                    <span class="block font-bold text-center">5.9</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="flex align-items-center justify-content-between">
-                                    <span>Ultima</span>
-                                    <p-menu #menu2 [popup]="true" appendTo="body" [model]="items"></p-menu>
-                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu2.toggle($event)"></button>
-                                </div>
-                            </td>
-                            <td class="text-center warning-data">
-                                <span class="font-bold">2.1</span>
-                            </td>
-                            <td class="p-0 pb-3 success-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">+3</span>
-                                    <span class="block font-bold text-center">5.1</span>
-                                </div>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">N/A</span>
-                            </td>
-                            <td class="p-0 pb-3 success-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">+0.3</span>
-                                    <span class="block font-bold text-center">5.4</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="flex align-items-center justify-content-between">
-                                    <span>Poseidon</span>
-                                    <p-menu #menu3 [popup]="true" appendTo="body" [model]="items"></p-menu>
-                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu3.toggle($event)"></button>
-                                </div>
-                            </td>
-                            <td class="text-center warning-data">
-                                <span class="font-bold">4.4</span>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">N/A</span>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">N/A</span>
-                            </td>
-                            <td class="p-0 pb-3 danger-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">-0.5</span>
-                                    <span class="block font-bold text-center">3.9</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="flex align-items-center justify-content-between">
-                                    <span>Rain</span>
-                                    <p-menu #menu4 [popup]="true" appendTo="body" [model]="items"></p-menu>
-                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu4.toggle($event)"></button>
-                                </div>
-                            </td>
-                            <td class="p-0 pb-3 danger-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">-4</span>
-                                    <span class="block font-bold text-center">9.7</span>
-                                </div>
-                            </td>
-                            <td class="p-0 pb-3 success-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">+4</span>
-                                    <span class="block font-bold text-center">13.7</span>
-                                </div>
-                            </td>
-                            <td class="p-0 pb-3 success-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">+1.1</span>
-                                    <span class="block font-bold text-center">14.8</span>
-                                </div>
-                            </td>
-                            <td class="p-0 pb-3 success-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">+8</span>
-                                    <span class="block font-bold text-center">22.8</span>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="flex align-items-center justify-content-between">
-                                    <span>Mirage</span>
-                                    <p-menu #menu5 [popup]="true" appendTo="body" [model]="items"></p-menu>
-                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu5.toggle($event)"></button>
-                                </div>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">N/A</span>
-                            </td>
-                            <td class="p-0 pb-3 success-data">
-                                <div class="p-1">
-                                    <span class="block font-bold flex justify-content-end text-xs">+0.1</span>
-                                    <span class="block font-bold text-center">9.1</span>
-                                </div>
-                            </td>
-                            <td class="text-center warning-data">
-                                <span class="font-bold">9.2</span>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">N/A</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="flex align-items-center justify-content-between">
-                                    <span>Diamond</span>
-                                    <p-menu #menu6 [popup]="true" appendTo="body" [model]="items"></p-menu>
-                                    <button type="button" pButton icon="pi pi-chevron-down" class="p-button-text p-button-plain p-2" (click)="menu6.toggle($event)"></button>
-                                </div>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">N/A</span>
-                            </td>
-                            <td class="text-center warning-data">
-                                <span class="font-bold">7.5</span>
-                            </td>
-                            <td class="text-center warning-data">
-                                <span class="font-bold">7.5</span>
-                            </td>
-                            <td class="text-center none-data">
-                                <span class="font-bold">5.1</span>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+            <div class="card widget-image-stats relative">
+                <div class="card-header">
+                    <span class="font-bold">Sales Channels</span>
+                    <div class="header-right-section flex align-items-center">
+                        <button pButton type="button" icon="pi pi-angle-left" class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-2 p-2"></button>
+                        <button pButton type="button" icon="pi pi-angle-right" class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-3 p-2"></button>
+                        <span class="font-bold">1</span><span>/5</span>
+                    </div>
                 </div>
+                <img src="assets/layout/images/bg-product.png" alt="prodcuct" class="w-full my-4">
+
+                <div class="flex align-items-center justify-content-between mb-2">
+                    <span class="font-bold">Online Marketplaces</span>
+                    <span>%40</span>
+                </div>
+                <p-progressBar value="40" [showValue]="false" styleClass="orange-bar mb-4"></p-progressBar>
+
+                <div class="flex align-items-center justify-content-between mb-2">
+                    <span class="font-bold">Distributors</span>
+                    <span>%89</span>
+                </div>
+                <p-progressBar value="89" [showValue]="false" styleClass="green-bar mb-4"></p-progressBar>
+
+                <div class="flex align-items-center justify-content-between mb-2">
+                    <span class="font-bold">Affiliate</span>
+                    <span>%82</span>
+                </div>
+                <p-progressBar value="82" [showValue]="false" styleClass="green-bar"></p-progressBar>
             </div>
         </div>
         <div class="col-12 md:col-4">
