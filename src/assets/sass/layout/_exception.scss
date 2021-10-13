@@ -23,6 +23,26 @@
             font-weight: 700;
         }
 
+        .direction-button {
+            border-radius: 7px;
+            border-color: transparent;
+
+            &.direction-button-1 {
+                &:hover {
+                    background: rgba(250, 219, 95, 0.1);
+                    border-color: #FADB5F;
+                }
+            }
+
+            &.direction-button-2 {
+                &:hover {
+                    background: rgba(101, 214, 173, 0.1);
+                    border-color: #65D6AD;
+                }
+            }
+
+        }
+
     }
 
     .subtext {
