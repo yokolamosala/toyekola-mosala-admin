@@ -9,7 +9,9 @@
                         <span class="subheader block text-4xl font-bold">3882</span>
                     </div>
                 </div>
-                <img [src]="'assets/layout/images/dashboard/users' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
+                <img
+                    [src]="'assets/layout/images/dashboard/users' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'"
+                    class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -21,7 +23,9 @@
                         <span class="subheader block text-4xl font-bold">532</span>
                     </div>
                 </div>
-                <img [src]="'assets/layout/images/dashboard/locations' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
+                <img
+                    [src]="'assets/layout/images/dashboard/locations' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'"
+                    class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -33,7 +37,9 @@
                         <span class="subheader block text-4xl font-bold">12.6%</span>
                     </div>
                 </div>
-                <img [src]="'assets/layout/images/dashboard/rate' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
+                <img
+                    [src]="'assets/layout/images/dashboard/rate' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'"
+                    class="w-full" alt="users">
             </div>
         </div>
         <div class="col-12 md:col-3">
@@ -45,7 +51,9 @@
                         <span class="subheader block text-4xl font-bold">440</span>
                     </div>
                 </div>
-                <img [src]="'assets/layout/images/dashboard/interactions' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
+                <img
+                    [src]="'assets/layout/images/dashboard/interactions' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'"
+                    class="w-full" alt="users">
             </div>
         </div>
 
@@ -53,71 +61,78 @@
             <div class="card widget-overview-chart h-full">
                 <div class="card-header">
                     <span class="font-bold">Acquisition Overview</span>
-                    <p-dropdown [options]="overviewWeek" [(ngModel)]="selectedOverviewWeek" optionLabel="name" (onChange)="changeOverviewWeek($event); overview.refresh()"></p-dropdown>
+                    <p-dropdown [options]="overviewWeek" [(ngModel)]="selectedOverviewWeek" optionLabel="name"
+                                (onChange)="changeOverviewWeek($event); overview.refresh()"></p-dropdown>
                 </div>
 
                 <div class="graph mb-3">
-                    <p-chart #overview type="bar" [data]="overviewChart" [options]="overviewChartOptions" id="overview-chart"></p-chart>
+                    <p-chart #overview type="bar" [data]="overviewChart" [options]="overviewChartOptions"
+                             id="overview-chart"></p-chart>
                 </div>
 
                 <div class="graph-footer flex align-items-center justify-content-end">
-                    <button pButton type="button" label="Organic" class="p-button-outlined p-button-rounded p-button-sm font-bold mr-3 py-1 first-data-button"></button>
-                    <button pButton type="button" label="Referral"class="p-button-outlined p-button-rounded p-button-sm font-bold py-1 second-data-button"></button>
+                    <button pButton type="button" label="Organic"
+                            class="p-button-outlined p-button-rounded p-button-sm font-bold mr-3 py-1 first-data-button"></button>
+                    <button pButton type="button" label="Referral"
+                            class="p-button-outlined p-button-rounded p-button-sm font-bold py-1 second-data-button"></button>
                 </div>
             </div>
         </div>
         <div class="col-12 md:col-3">
             <div class="card p-0 widget-people h-full relative">
                 <div class="header font-bold py-4 px-3">People</div>
-                <div class="mb-4 px-3 flex align-items-center justify-content-start">
-                    <p-avatar label="BS" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(101, 214, 173, 0.1)', 'color': '#27AB83', 'border': '1px solid #65D6AD'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="name block">Brooklyn Simmons</span>
-                        <span class="position block">Manager at Mitsubishi</span>
+                <div class="overflow-y-auto" style="max-height: calc(100% - 100px)">
+                    <div class="mb-4 px-3 flex align-items-center justify-content-start">
+                        <p-avatar label="BS" size="large" shape="circle" styleClass="text-base font-bold"
+                                  [style]="{'background-color':'rgba(101, 214, 173, 0.1)', 'color': '#27AB83', 'border': '1px solid #65D6AD'}"></p-avatar>
+                        <div class="ml-3">
+                            <span class="name block">Brooklyn Simmons</span>
+                            <span class="position block">Manager at Mitsubishi</span>
+                        </div>
+                    </div>
+                    <div class="mb-4 px-3 flex align-items-center justify-content-start">
+                        <p-avatar label="LA" size="large" shape="circle" styleClass="text-base font-bold"
+                                  [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
+                        <div class="ml-3">
+                            <span class="name block">Leslie Alexander</span>
+                            <span class="position block">Customer Success at General Electric</span>
+                        </div>
+                    </div>
+                    <div class="mb-4 px-3 flex align-items-center justify-content-start">
+                        <p-avatar label="JB" size="large" shape="circle" styleClass="text-base font-bold"
+                                  [style]="{'background-color':'rgba(94, 208, 250, 0.1)', 'color': '#1992D4', 'border': '1px solid #5ED0FA'}"></p-avatar>
+                        <div class="ml-3">
+                            <span class="name block">Jerome Bell</span>
+                            <span class="position block">Mario Carrier at Nintendo</span>
+                        </div>
+                    </div>
+                    <div class="mb-4 px-3 flex align-items-center justify-content-start">
+                        <p-avatar label="WW" size="large" shape="circle" styleClass="text-base font-bold"
+                                  [style]="{'background-color':'rgba(43, 176, 237, 0.1)', 'color': '#127FBF', 'border': '1px solid #2BB0ED'}"></p-avatar>
+                        <div class="ml-3">
+                            <span class="name block">Wade Warren</span>
+                            <span class="position block">Reliability Engineer at eBay</span>
+                        </div>
+                    </div>
+                    <div class="mb-4 px-3 flex align-items-center justify-content-start">
+                        <p-avatar label="AB" size="large" shape="circle" styleClass="text-base font-bold"
+                                  [style]="{'background-color':'rgba(255, 155, 155, 0.1)', 'color': '#CF1124', 'border': '1px solid #FF9B9B'}"></p-avatar>
+                        <div class="ml-3">
+                            <span class="name block">Annette Black</span>
+                            <span class="position block">Delivery Woman at Pizza Hut</span>
+                        </div>
+                    </div>
+                    <div class="mb-4 px-3 flex align-items-center justify-content-start">
+                        <p-avatar label="AF" size="large" shape="circle" styleClass="text-base font-bold"
+                                  [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
+                        <div class="ml-3">
+                            <span class="name block">Albert Flores</span>
+                            <span class="position block">Team Leader at Insomniac Games</span>
+                        </div>
                     </div>
                 </div>
-                <div class="mb-4 px-3 flex align-items-center justify-content-start">
-                    <p-avatar label="LA" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="name block">Leslie Alexander</span>
-                        <span class="position block">Customer Success at General Electric</span>
-                    </div>
-                </div>
-                <div class="mb-4 px-3 flex align-items-center justify-content-start">
-                    <p-avatar label="JB" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(94, 208, 250, 0.1)', 'color': '#1992D4', 'border': '1px solid #5ED0FA'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="name block">Jerome Bell</span>
-                        <span class="position block">Mario Carrier at Nintendo</span>
-                    </div>
-                </div>
-                <div class="mb-4 px-3 flex align-items-center justify-content-start">
-                    <p-avatar label="WW" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(43, 176, 237, 0.1)', 'color': '#127FBF', 'border': '1px solid #2BB0ED'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="name block">Wade Warren</span>
-                        <span class="position block">Reliability Engineer at eBay</span>
-                    </div>
-                </div>
-                <div class="mb-4 px-3 flex align-items-center justify-content-start">
-                    <p-avatar label="AB" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(255, 155, 155, 0.1)', 'color': '#CF1124', 'border': '1px solid #FF9B9B'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="name block">Annette Black</span>
-                        <span class="position block">Delivery Woman at Pizza Hut</span>
-                    </div>
-                </div>
-                <div class="mb-4 px-3 flex align-items-center justify-content-start">
-                    <p-avatar label="Af" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="name block">Albert Flores</span>
-                        <span class="position block">Team Leader at Insomniac Games</span>
-                    </div>
-                </div>
-                <div class="footer cursor-pointer flex align-items-center justify-content-center p-3 absolute bottom-0 w-full">
+                <div
+                    class="footer cursor-pointer flex align-items-center justify-content-center p-3 absolute bottom-0 w-full">
                     <span class="font-bold mr-2">SEE ALL</span>
                     <i class="pi pi-chevron-right"></i>
                 </div>
@@ -126,8 +141,9 @@
         <div class="col-12 md:col-3">
             <div class="card widget-profile-completion">
                 <div class="flex justify-content-center">
-                    <img  [src]="'assets/layout/images/dashboard/completion-graph-' + (app.colorScheme === 'light' ? 'light' : 'dark') + '.svg'"
-                          alt="graph" class="w-auto md:w-full mb-5">
+                    <img
+                        [src]="'assets/layout/images/dashboard/completion-graph-' + (app.colorScheme === 'light' ? 'light' : 'dark') + '.svg'"
+                        alt="graph" class="w-auto md:w-full mb-5">
                 </div>
 
                 <div class="mb-4 flex align-items-center justify-content-start">
@@ -173,8 +189,10 @@
                 <div class="card-header">
                     <span class="font-bold">Sales Channels</span>
                     <div class="header-right-section flex align-items-center">
-                        <button pButton type="button" icon="pi pi-angle-left" class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-2 p-2"></button>
-                        <button pButton type="button" icon="pi pi-angle-right" class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-3 p-2"></button>
+                        <button pButton type="button" icon="pi pi-angle-left"
+                                class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-2 p-2"></button>
+                        <button pButton type="button" icon="pi pi-angle-right"
+                                class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-3 p-2"></button>
                         <span class="font-bold">1</span><span>/5</span>
                     </div>
                 </div>
@@ -205,13 +223,17 @@
                     <span class="block font-bold mb-3">Upcoming Tasks</span>
                     <span class="block font-bold text-2xl mb-4">Design Promo Artwork for Garden</span>
                     <span class="badge block w-min font-bold mb-4 px-2 py-1 border-1 border-solid">Design</span>
-                    <span class="clock"><i class="pi pi-clock mr-1"></i>Jan 15 . <span class="font-bold">4 days 36 mins</span></span>
+                    <span class="clock"><i class="pi pi-clock mr-1"></i>Jan 15 . <span
+                        class="font-bold">4 days 36 mins</span></span>
                 </div>
-                <p class="px-2 mb-8">Sit amet nulla facilisi morbi tempus iaculis. Dolor magna eget est lorem ipsum dolor sit. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. </p>
+                <p class="px-2 mb-8">Sit amet nulla facilisi morbi tempus iaculis. Dolor magna eget est lorem ipsum
+                    dolor sit. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus. </p>
                 <div class="card-footer flex flex-wrap align-items-center justify-content-between pt-3">
                     <div class="footer-left flex align-items-center">
-                        <button pButton type="button" icon="pi pi-angle-left" class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-2 p-2 w-2rem h-2rem"></button>
-                        <button pButton type="button" icon="pi pi-angle-right" class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-3 p-2 w-2rem h-2rem"></button>
+                        <button pButton type="button" icon="pi pi-angle-left"
+                                class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-2 p-2 w-2rem h-2rem"></button>
+                        <button pButton type="button" icon="pi pi-angle-right"
+                                class="p-button-outlined p-button-rounded p-button-plain p-button-sm font-bold mr-3 p-2 w-2rem h-2rem"></button>
                         <span class="font-bold">4</span><span>/ 52</span>
                     </div>
                     <div class="footer-right">
@@ -232,84 +254,88 @@
                 <p-tabView orientation="left">
                     <p-tabPanel header="Tab Title I">
                         <table class="w-full">
-                                <tbody>
-                                <tr>
-                                    <td class="w-4">Icarus</td>
-                                    <td class="w-1"><span class="font-bold">3.9</span></td>
-                                    <td class="w-2">
-                                        <div class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
-                                            <i class="pi pi-circle-off"></i>
-                                            <span class="font-bold ml-1">0.2</span>
-                                        </div>
-                                    </td>
-                                    <td class="w-4">
-                                        <div class="flex align-items-center justify-content-center low-tag p-1">
-                                            <span class="font-bold">LOW PRIORITY</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-4">Omega</td>
-                                    <td class="w-1"><span class="font-bold">2.8</span></td>
-                                    <td class="w-2">
-                                        <div class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
-                                            <i class="pi pi-circle-off"></i>
-                                            <span class="font-bold ml-1">0.9</span>
-                                        </div>
-                                    </td>
-                                    <td class="w-4">
-                                        <div class="flex align-items-center justify-content-center high-tag p-1">
-                                            <span class="font-bold">HIGH PRIORITY</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-4">Woofer</td>
-                                    <td class="w-1"><span class="font-bold">4.6</span></td>
-                                    <td class="w-2">
-                                        <div class="flex align-items-center justify-content-between px-2 py-1 success-badge">
-                                            <i class="pi pi-arrow-up"></i>
-                                            <span class="font-bold ml-1">1.7</span>
-                                        </div>
-                                    </td>
-                                    <td class="w-4">
-                                        <div class="flex align-items-center justify-content-center high-tag p-1">
-                                            <span class="font-bold">HIGH PRIORITY</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-4">Alphine</td>
-                                    <td class="w-1"><span class="font-bold">9.0</span></td>
-                                    <td class="w-2">
-                                        <div class="flex align-items-center justify-content-between px-2 py-1 danger-badge">
-                                            <i class="pi pi-arrow-down"></i>
-                                            <span class="font-bold ml-1">4.5</span>
-                                        </div>
-                                    </td>
-                                    <td class="w-4">
-                                        <div class="flex align-items-center justify-content-center low-tag p-1">
-                                            <span class="font-bold">LOW PRIORITY</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="w-4">Doctrine</td>
-                                    <td class="w-1"><span class="font-bold">6.1</span></td>
-                                    <td class="w-2">
-                                        <div class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
-                                            <i class="pi pi-circle-off"></i>
-                                            <span class="font-bold ml-1">7.0</span>
-                                        </div>
-                                    </td>
-                                    <td class="w-4">
-                                        <div class="flex align-items-center justify-content-center high-tag p-1">
-                                            <span class="font-bold">HIGH PRIORITY</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <tbody>
+                            <tr>
+                                <td class="w-4">Icarus</td>
+                                <td class="w-1"><span class="font-bold">3.9</span></td>
+                                <td class="w-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">0.2</span>
+                                    </div>
+                                </td>
+                                <td class="w-4">
+                                    <div class="flex align-items-center justify-content-center low-tag p-1">
+                                        <span class="font-bold">LOW PRIORITY</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4">Omega</td>
+                                <td class="w-1"><span class="font-bold">2.8</span></td>
+                                <td class="w-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">0.9</span>
+                                    </div>
+                                </td>
+                                <td class="w-4">
+                                    <div class="flex align-items-center justify-content-center high-tag p-1">
+                                        <span class="font-bold">HIGH PRIORITY</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4">Woofer</td>
+                                <td class="w-1"><span class="font-bold">4.6</span></td>
+                                <td class="w-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 success-badge">
+                                        <i class="pi pi-arrow-up"></i>
+                                        <span class="font-bold ml-1">1.7</span>
+                                    </div>
+                                </td>
+                                <td class="w-4">
+                                    <div class="flex align-items-center justify-content-center high-tag p-1">
+                                        <span class="font-bold">HIGH PRIORITY</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4">Alphine</td>
+                                <td class="w-1"><span class="font-bold">9.0</span></td>
+                                <td class="w-2">
+                                    <div class="flex align-items-center justify-content-between px-2 py-1 danger-badge">
+                                        <i class="pi pi-arrow-down"></i>
+                                        <span class="font-bold ml-1">4.5</span>
+                                    </div>
+                                </td>
+                                <td class="w-4">
+                                    <div class="flex align-items-center justify-content-center low-tag p-1">
+                                        <span class="font-bold">LOW PRIORITY</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4">Doctrine</td>
+                                <td class="w-1"><span class="font-bold">6.1</span></td>
+                                <td class="w-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">7.0</span>
+                                    </div>
+                                </td>
+                                <td class="w-4">
+                                    <div class="flex align-items-center justify-content-center high-tag p-1">
+                                        <span class="font-bold">HIGH PRIORITY</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </p-tabPanel>
                     <p-tabPanel header="Tab Title II">
                         <table class="w-full">
@@ -318,7 +344,8 @@
                                 <td class="w-4">Omega</td>
                                 <td class="w-1"><span class="font-bold">2.8</span></td>
                                 <td class="w-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
                                         <i class="pi pi-circle-off"></i>
                                         <span class="font-bold ml-1">0.9</span>
                                     </div>
@@ -348,7 +375,8 @@
                                 <td class="w-4">Icarus</td>
                                 <td class="w-1"><span class="font-bold">3.9</span></td>
                                 <td class="w-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
                                         <i class="pi pi-circle-off"></i>
                                         <span class="font-bold ml-1">0.2</span>
                                     </div>
@@ -363,7 +391,8 @@
                                 <td class="w-4">Woofer</td>
                                 <td class="w-1"><span class="font-bold">4.6</span></td>
                                 <td class="w-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 success-badge">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 success-badge">
                                         <i class="pi pi-arrow-up"></i>
                                         <span class="font-bold ml-1">1.7</span>
                                     </div>
@@ -378,7 +407,8 @@
                                 <td class="w-4">Doctrine</td>
                                 <td class="w-1"><span class="font-bold">6.1</span></td>
                                 <td class="w-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 warning-badge">
                                         <i class="pi pi-circle-off"></i>
                                         <span class="font-bold ml-1">7.0</span>
                                     </div>
@@ -401,7 +431,8 @@
                 <div class="card-header font-bold mb-4">Timeline</div>
                 <div class="flex mb-2 p-3 pb-0">
                     <div class="flex flex-column align-items-center">
-                        <span class="flex align-items-center justify-content-center border-circle p-2 timeline-icon timeline-icon-1">
+                        <span
+                            class="flex align-items-center justify-content-center border-circle p-2 timeline-icon timeline-icon-1">
                             <i class="pi pi-twitter"></i>
                         </span>
                         <div class="h-full timeline-line-1" style="width: 2px; min-height: 4rem"></div>
@@ -412,17 +443,22 @@
                             <span><span class="font-bold">Tom Mathias</span> retweeted a tweet about your following keyword.</span>
                             <span class="font-bold subtext">46m</span>
                         </div>
-                        <div class="p-3" [style]="{'background-color':app.colorScheme === 'dark'? 'rgba(227, 248, 255, 0.1)' :'rgba(227, 248, 255, 0.5)', 'border-radius': '6px'}">
+                        <div class="p-3"
+                             [style]="{'background-color':app.colorScheme === 'dark'? 'rgba(227, 248, 255, 0.1)' :'rgba(227, 248, 255, 0.5)', 'border-radius': '6px'}">
                             <div class="flex align-items-center justify-content-between mb-2">
                                 <img src="assets/demo/images/avatar/xuxuefeng.png" alt="avatar" class="w-2rem">
                                 <p-avatarGroup styleClass="w-6rem justify-content-evenly">
                                     <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                                    <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                                    <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
+                                    <p-avatar image="assets/demo/images/avatar/asiyajavayant.png"
+                                              shape="circle"></p-avatar>
+                                    <p-avatar image="assets/demo/images/avatar/onyamalimba.png"
+                                              shape="circle"></p-avatar>
                                 </p-avatarGroup>
                             </div>
                             <span class="font-bold">Jeff Atwood</span>
-                            <p class="subtext text-sm line-height-3 mb-3" style="max-width: 28rem">Hooray! I suck at hardware but I was able to get the pi zero W, plus usb case, plus two color e-ink hat, to work!</p>
+                            <p class="subtext text-sm line-height-3 mb-3" style="max-width: 28rem">Hooray! I suck at
+                                hardware but I was able to get the pi zero W, plus usb case, plus two color e-ink hat,
+                                to work!</p>
 
                             <p-progressBar [value]="50" [showValue]="false" styleClass="w-6"></p-progressBar>
                         </div>
@@ -430,7 +466,8 @@
                 </div>
                 <div class="flex mb-2 p-3 pb-0">
                     <div class="flex flex-column align-items-center">
-                        <span class="flex align-items-center justify-content-center border-circle p-2 timeline-icon timeline-icon-2">
+                        <span
+                            class="flex align-items-center justify-content-center border-circle p-2 timeline-icon timeline-icon-2">
                             <i class="pi pi-star"></i>
                         </span>
                         <div class="h-full timeline-line-2" style="width: 2px; min-height: 2rem"></div>
@@ -445,7 +482,8 @@
                 </div>
                 <div class="flex mb-4 p-3 pb-0 shadow-2" style="border-radius: 10px">
                     <div class="flex flex-column align-items-center">
-                        <span class="flex align-items-center justify-content-center border-circle p-2 timeline-icon timeline-icon-3">
+                        <span
+                            class="flex align-items-center justify-content-center border-circle p-2 timeline-icon timeline-icon-3">
                             <i class="pi pi-link"></i>
                         </span>
                         <div class="h-full timeline-line-3" style="width: 2px; min-height: 4rem"></div>
