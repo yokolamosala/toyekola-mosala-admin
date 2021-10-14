@@ -28,7 +28,7 @@ import {AppComponent} from './app.component';
                 <span class="layout-topbar-menuitem-text">{{item.label}}</span>
                 <i class="pi pi-fw pi-angle-down layout-topbar-submenu-toggler" *ngIf="item.items"></i>
             </a>
-            <ul *ngIf="item.items && active" role="menu"
+            <ul *ngIf="item.items && active && appMain.topbarActive" role="menu"
                 [@children]="(root? 'visible' : active ? 'visibleAnimated' : 'hiddenAnimated')">
                 <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
                     <li app-topmenu [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
@@ -37,7 +37,7 @@ import {AppComponent} from './app.component';
         </ng-container>
     `,
     host: {
-        '[class.topbar-active-menuitem]': '(active)'
+        '[class.topbar-active-menuitem]': '(active && appMain.topbarActive)'
     },
     animations: [
         trigger('children', [
