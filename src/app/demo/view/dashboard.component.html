@@ -50,7 +50,7 @@
         </div>
 
         <div class="col-12 md:col-6">
-            <div class="card widget-overview-chart">
+            <div class="card widget-overview-chart h-full">
                 <div class="card-header">
                     <span class="font-bold">Acquisition Overview</span>
                     <p-dropdown [options]="overviewWeek" [(ngModel)]="selectedOverviewWeek" optionLabel="name" (onChange)="changeOverviewWeek($event); overview.refresh()"></p-dropdown>
@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="col-12 md:col-3">
-            <div class="card p-0 widget-people">
+            <div class="card p-0 widget-people h-full relative">
                 <div class="header font-bold py-4 px-3">People</div>
                 <div class="mb-4 px-3 flex align-items-center justify-content-start">
                     <p-avatar label="BS" size="large" shape="circle" styleClass="text-base font-bold"
@@ -109,7 +109,15 @@
                         <span class="position block">Delivery Woman at Pizza Hut</span>
                     </div>
                 </div>
-                <div class="footer cursor-pointer flex align-items-center justify-content-center p-3">
+                <div class="mb-4 px-3 flex align-items-center justify-content-start">
+                    <p-avatar label="Af" size="large" shape="circle" styleClass="text-base font-bold"
+                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
+                    <div class="ml-3">
+                        <span class="name block">Albert Flores</span>
+                        <span class="position block">Team Leader at Insomniac Games</span>
+                    </div>
+                </div>
+                <div class="footer cursor-pointer flex align-items-center justify-content-center p-3 absolute bottom-0 w-full">
                     <span class="font-bold mr-2">SEE ALL</span>
                     <i class="pi pi-chevron-right"></i>
                 </div>
