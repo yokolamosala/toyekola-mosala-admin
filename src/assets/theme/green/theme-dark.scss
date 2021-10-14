@@ -1,8 +1,8 @@
-$primaryColor: #9fd037;
+$primaryColor: #44D4A9;
 $primaryLightColor: scale-color($primaryColor, $lightness: 60%) !default;
 $primaryDarkColor: scale-color($primaryColor, $lightness: -10%) !default;
 $primaryDarkerColor: scale-color($primaryColor, $lightness: -20%) !default;
-$primaryTextColor: #ffffff;
+$primaryTextColor: #3E4C59;
 
 $highlightBg: $primaryColor;
 $highlightTextColor: $primaryTextColor;

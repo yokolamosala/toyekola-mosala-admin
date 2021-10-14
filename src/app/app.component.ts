@@ -12,7 +12,7 @@ export class AppComponent implements OnInit{
 
     ripple: boolean;
 
-    theme = 'purple';
+    theme = 'indigo';
 
     layoutColor = 'white';
 
