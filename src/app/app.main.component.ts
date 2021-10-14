@@ -31,6 +31,8 @@ export class AppMainComponent {
 
     configClick: boolean;
 
+    topbarMenuClick = false;
+
     constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) { }
 
     onLayoutClick() {
@@ -43,7 +45,8 @@ export class AppMainComponent {
             this.configActive = false;
         }
 
-        if (!this.menuClick) {
+        if (!this.menuClick && !this.topbarMenuClick) {
+            console.log("bbb")
             if (this.isSlim()) {
                 this.menuService.reset();
             }
@@ -56,10 +59,16 @@ export class AppMainComponent {
             this.search = false;
         }
 
+        if (!this.topbarMenuClick && !this.menuClick) {
+            console.log("aaa")
+            this.menuService.reset();
+        }
+
         this.searchClick = false;
         this.configClick = false;
         this.menuClick = false;
         this.topbarItemClick = false;
+        this.topbarMenuClick = false;
     }
 
     onMenuButtonClick(event: Event) {
@@ -76,6 +85,10 @@ export class AppMainComponent {
 
     onMenuClick() {
         this.menuClick = true;
+    }
+
+    onTopbarMenuClick() {
+        this.topbarMenuClick = true;
     }
 
     onTopbarItemClick(event: Event, item: Element) {

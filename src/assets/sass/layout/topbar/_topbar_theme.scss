@@ -1,4 +1,5 @@
 @import './_topbar_common';
+@import './_topbar_menu';
 
 .layout-topbar{
     background: transparent;
@@ -26,7 +27,7 @@
             }
         }
 
-        .topbar-menu {
+        .layout-topbar-main-menu {
             li {
                 a {
                     color: $topbarMenuTextColor;
@@ -44,15 +45,36 @@
                     }
                 }
             }
+
+            .layout-topbar-menu {
+                li {
+                    a {
+                        color: $menuitemTextColor;
+                    }
+                }
+
+                &.topbar-active-menuitem {
+                    > ul {
+                        background: $slimSubMenuBg;
+
+                        li.topbar-active-menuitem {
+                            > a {
+                                font-weight: 700;
+                            }
+                        }
+
+                        > li.topbar-active-menuitem {
+                            background: $menuitemSubmenuBg;
+                            color: $menuitemTextColor;
+                            box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
+                        }
+                    }
+                }
+            }
         }
     }
 
     .layout-topbar-right {
-        .topbar-arrow-button {
-            background-color: $topbarArrowButtonBg;
-            color: $topbarArrowButtonTextColor;
-        }
-
         .layout-topbar-actions {
             li {
                 > ul {

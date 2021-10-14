@@ -93,6 +93,7 @@ import {AppMainComponent} from './app.main.component';
 import {AppConfigComponent} from './app.config.component';
 import {AppMenuComponent} from './app.menu.component';
 import {AppMenuitemComponent} from './app.menuitem.component';
+import {AppTopbarMenuComponent} from './app.topbarmenu.component';
 import {AppTopBarComponent} from './app.topbar.component';
 import {AppFooterComponent} from './app.footer.component';
 
@@ -252,6 +253,7 @@ FullCalendarModule.registerPlugins([
         AppConfigComponent,
         AppMenuComponent,
         AppMenuitemComponent,
+        AppTopbarMenuComponent,
         AppTopBarComponent,
         AppFooterComponent,
         DashboardDemoComponent,

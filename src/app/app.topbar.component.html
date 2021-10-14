@@ -9,7 +9,7 @@
             <div class="menu-button-icon"></div>
         </a>
 
-        <ul class="topbar-menu">
+        <ul class="layout-topbar-main-menu">
             <li>
                 <a [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}"
                    routerLinkActive="topbar-active-menuitem-routerlink">Sales
@@ -26,12 +26,10 @@
                     <span class="active-bottom"></span>
                 </a>
             </li>
+            <li app-topmenu *ngFor="let item of menu; let i = index;" [item]="item" [index]="i" [root]="true" class="layout-topbar-menu" (click)="appMain.onTopbarMenuClick($event)"></li>
         </ul>
     </div>
     <div class="layout-topbar-right">
-        <a href="#" class="topbar-arrow-button">
-            <i class="pi pi-angle-down"></i>
-        </a>
         <ul class="layout-topbar-actions">
             <li #searchItem class="search-item" [ngClass]="{'active-topmenuitem': appMain.search}">
                 <a href="#" tabindex="0" (click)="appMain.onTopbarItemClick($event,searchItem); searchFocus($event)">
