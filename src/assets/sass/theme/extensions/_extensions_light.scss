@@ -98,3 +98,19 @@
         background-color: $primaryColor;
     }
 }
+.p-tree {
+    .p-tree-container {
+        .p-treenode {
+            .p-treenode-content {
+                &.p-highlight {
+                    .p-tree-toggler,
+                    .p-treenode-icon {
+                        &:hover {
+                            color: $textColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
