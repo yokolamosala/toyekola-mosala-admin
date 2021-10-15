@@ -88,9 +88,9 @@ export class DashboardAnalyticsComponent implements OnInit {
         ];
 
         this.listItems = [
-            {image: 'assets/layout/images/dashboard/sneaker.svg', text: 'Red Sneakers', subtext: 'RX Series', ratio: '+40%'},
-            {image: 'assets/layout/images/dashboard/headphones.svg', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
-            {image: 'assets/layout/images/dashboard/sunglasses.svg', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
+            {image: 'assets/layout/images/dashboard/sneaker.png', text: 'Red Sneakers', subtext: 'RX Series', ratio: '+40%'},
+            {image: 'assets/layout/images/dashboard/headphones.png', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
+            {image: 'assets/layout/images/dashboard/sunglasses.png', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
         ];
     }
 
@@ -137,21 +137,21 @@ export class DashboardAnalyticsComponent implements OnInit {
 
         if (index === 0) {
             this.listItems = [
-                {image: 'assets/layout/images/dashboard/sneaker.svg', text: 'Red Sneakers', subtext: 'RX Series', ratio: '+40%'},
-                {image: 'assets/layout/images/dashboard/headphones.svg', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
-                {image: 'assets/layout/images/dashboard/sunglasses.svg', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
+                {image: 'assets/layout/images/dashboard/sneaker.png', text: 'Red Sneakers', subtext: 'RX Series', ratio: '+40%'},
+                {image: 'assets/layout/images/dashboard/headphones.png', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
+                {image: 'assets/layout/images/dashboard/sunglasses.png', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
             ];
         } else if (index === 1) {
             this.listItems = [
-                {image: 'assets/layout/images/dashboard/camera.svg', text: 'Instant Camera', subtext: 'II-Mark', ratio: '+27%'},
-                {image: 'assets/layout/images/dashboard/cupcake.svg', text: 'Cupcake', subtext: 'Cinnamon', ratio: '+41%'},
-                {image: 'assets/layout/images/dashboard/drink.svg', text: 'Cold Drink', subtext: 'Lime', ratio: '+56%'}
+                {image: 'assets/layout/images/dashboard/camera.png', text: 'Instant Camera', subtext: 'II-Mark', ratio: '+27%'},
+                {image: 'assets/layout/images/dashboard/cupcake.png', text: 'Cupcake', subtext: 'Cinnamon', ratio: '+41%'},
+                {image: 'assets/layout/images/dashboard/drink.png', text: 'Cold Drink', subtext: 'Lime', ratio: '+56%'}
             ];
         } else if (index === 2) {
             this.listItems = [
-                {image: 'assets/layout/images/dashboard/tripod.svg', text: 'Tripod', subtext: 'Stabilizer', ratio: '+34%'},
-                {image: 'assets/layout/images/dashboard/headphone2.svg', text: 'Headphone', subtext: 'Wireless', ratio: '+67%'},
-                {image: 'assets/layout/images/dashboard/spoon.svg', text: 'Spoon Set', subtext: 'Colorful', ratio: '+8%'}
+                {image: 'assets/layout/images/dashboard/tripod.png', text: 'Tripod', subtext: 'Stabilizer', ratio: '+34%'},
+                {image: 'assets/layout/images/dashboard/headphone2.png', text: 'Headphone', subtext: 'Wireless', ratio: '+67%'},
+                {image: 'assets/layout/images/dashboard/spoon.png', text: 'Spoon Set', subtext: 'Colorful', ratio: '+8%'}
             ];
         }
 
