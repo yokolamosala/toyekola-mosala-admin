@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '../app.component';
 import {MenuItem} from 'primeng/api';
 
@@ -20,6 +20,10 @@ export class WidgetsComponent implements OnInit{
     activeListItem = {image: 'assets/layout/images/dashboard/headphones.svg', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'};
 
     listItems: any[];
+
+    chatMessages: any[];
+
+    @ViewChild('chatcontainer') chatContainerViewChild: ElementRef;
 
     constructor(public app: AppComponent) {}
 
@@ -57,6 +61,12 @@ export class WidgetsComponent implements OnInit{
             {image: 'assets/layout/images/dashboard/headphones.png', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
             {image: 'assets/layout/images/dashboard/sunglasses.png', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
         ];
+
+        this.chatMessages = [
+            { nth: true, from: 'Jane Cooper', url: 'assets/demo/images/avatar/stephenshaw.png', messages: ['Hey M. hope you are well. Our idea is accepted by the board. '] },
+            { nth: false, from: 'Jerome Bell', url: 'assets/demo/images/avatar/ivanmagalhaes.png', messages: ['we did it! 🤠'] },
+            { nth: true, from: 'Darlene Robertson', url: 'assets/demo/images/avatar/amyelsner.png', messages: ['I’ll be looking at the process then, just to be sure 🤓 '] },
+        ];
     }
 
     onTabClick(event, index) {
@@ -83,5 +93,35 @@ export class WidgetsComponent implements OnInit{
         }
 
         this.activeListItem = this.listItems[this.activeListItemIndex];
+    }
+
+    onChatKeydown(event) {
+        if (event.key === 'Enter') {
+            const message = event.currentTarget.value;
+            const lastMessage = this.chatMessages[this.chatMessages.length - 1];
+
+            if (lastMessage.from) {
+                this.chatMessages.push({ nth: false, from: 'Verona',
+                    url: 'assets/layout/images/logo-' + (this.app.colorScheme === 'light' ? 'dark' : 'white') + '.png',
+                    messages: [message] });
+            }
+            else {
+                lastMessage.messages.push(message);
+            }
+
+            if (message.match(/primeng|primereact|primefaces|primevue/i)) {
+                this.chatMessages.push({ nth: true, from: 'Ioni Bowcher', url: 'assets/demo/images/avatar/ionibowcher.png', messages: ['Always bet on Prime!'] });
+            }
+
+            event.currentTarget.value = '';
+
+            const el = this.chatContainerViewChild.nativeElement;
+            setTimeout(() => {
+                el.scroll({
+                    top: el.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 1);
+        }
     }
 }

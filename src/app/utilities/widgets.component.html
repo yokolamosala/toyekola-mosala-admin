@@ -284,34 +284,25 @@
         <div class="card height-100">
             <div class="card-header widget-chat font-bold">Team Chat</div>
             <div class="widget-chat">
-                <ul  class="list-none p-0 mt-4 mb-6">
-                    <li class="flex justify-content-start mb-3">
-                        <img src="assets/demo/images/avatar/stephenshaw.png" width="36" height="36" class="border-circle">
-                        <div class="ml-2">
-                            <span class="font-bold mr-3">Jane Cooper</span><span class="subtext">2m ago</span>
-                            <div class="message-nth px-5 py-3 mt-3">Hey M. hope you are well. Our idea is accepted by the board. </div>
+                <ul #chatcontainer class="list-none p-0 px-3 mt-4 mb-6 h-21rem overflow-y-auto">
+                    <li *ngFor="let chartMessage of chatMessages; let last = last;" class="flex align-items-start mb-3" [ngClass]="{'justify-content-start': chartMessage.nth, 'justify-content-end': !chartMessage.nth}">
+                        <img *ngIf="chartMessage.nth" [src]="chartMessage.url" width="36" height="36" class="border-circle">
+                        <div class="ml-2" *ngIf="chartMessage.nth">
+                            <span class="font-bold mr-3">{{chartMessage.from}}</span><span class="subtext">2m ago</span>
+                            <div class="message-nth px-5 py-3 mt-3" *ngFor="let message of chartMessage.messages; let first = first">{{message}}</div>
                         </div>
-                    </li>
-                    <li class="flex justify-content-end mb-3">
-                        <div class="mr-3">
-                            <span class="subtext">2m ago</span><span class="font-bold ml-3">Jerome Bell</span>
-                            <div class="message-2nth px-5 py-3 mt-3">we did it! 🤠</div>
+                        <div class="mr-3" *ngIf="!chartMessage.nth">
+                            <span class="subtext">2m ago</span><span class="font-bold ml-3">{{chartMessage.from}}</span>
+                            <div class="message-2nth px-5 py-3 mt-3" *ngFor="let message of chartMessage.messages; let first = first">{{message}}</div>
                         </div>
-                        <img src="assets/demo/images/avatar/ivanmagalhaes.png" width="36" height="36" class="border-circle">
-                    </li>
-                    <li class="flex justify-content-start mb-3">
-                        <img src="assets/demo/images/avatar/amyelsner.png" width="36" height="36" class="border-circle">
-                        <div class="ml-2">
-                            <span class="font-bold mr-3">Darlene Robertson</span><span class="subtext">2m ago</span>
-                            <div class="message-nth px-5 py-3 mt-3">I’ll be looking at the process then, just to be sure 🤓 </div>
-                        </div>
+                        <img *ngIf="!chartMessage.nth" [src]="chartMessage.url" width="36" height="36" class="border-circle">
                     </li>
                 </ul>
                 <div class="p-inputgroup write-message mt-3">
                         <span class="p-inputgroup-addon">
                             <button pButton pRipple type="button" icon="pi pi-plus-circle" class="p-button-text p-button-plain"></button>
                         </span>
-                    <input type="text" pInputText placeholder="Write your message">
+                    <input type="text" pInputText placeholder="Write your message (Hint: 'PrimeNG')" (keydown)="onChatKeydown($event)">
                 </div>
             </div>
         </div>
