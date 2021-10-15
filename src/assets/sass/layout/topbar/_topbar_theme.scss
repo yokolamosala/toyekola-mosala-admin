@@ -50,6 +50,14 @@
                 li {
                     a {
                         color: $menuitemTextColor;
+
+                        &:hover {
+                            background: $menuitemHoverBg;
+                        }
+
+                        &:focus {
+                            box-shadow: $menuitemFocusShadow;
+                        }
                     }
                 }
 
