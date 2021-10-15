@@ -53,6 +53,21 @@
     }
 }
 
+.layout-tooltip {
+    &.p-tooltip {
+        .p-tooltip-text {
+            background: $slimSubMenuBg;
+            color: $menuitemTextColor;
+        }
+
+        &.p-tooltip-right {
+            .p-tooltip-arrow {
+                display: none;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: $tabletBreakpoint + 1) {
     .layout-sidebar {
         background: $bodyBg;
