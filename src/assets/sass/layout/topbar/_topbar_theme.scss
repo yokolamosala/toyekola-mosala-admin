@@ -146,6 +146,14 @@
                         li {
                             a {
                                 color: $textColor;
+
+                                &:hover {
+                                    background: $menuitemHoverBg;
+                                }
+
+                                &:focus {
+                                    box-shadow: $menuitemFocusShadow;
+                                }
                             }
                         }
                     }
