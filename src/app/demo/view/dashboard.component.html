@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col-12 md:col-3">
-            <div class="card p-0 widget-overview-box widget-overview-box-4">
+            <div class="card p-0 widget-overview-box widget-overview-box-4 md:h-full md:relative">
                 <div class="flex align-items-center justify-content-start pt-3 pb-2 px-4">
                     <i class="pi pi-comments text-6xl"></i>
                     <div class="pl-3 overflow-hidden">
@@ -51,13 +51,12 @@
                         <span class="block text-4xl font-bold" [style]="{'color': (app.colorScheme === 'light' ? '#6551B7' : '#A896FF')}">440</span>
                     </div>
                 </div>
-                <img
-                    [src]="'assets/layout/images/dashboard/interactions' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'"
-                    class="w-full" alt="users">
+                <img [src]="'assets/layout/images/dashboard/interactions' + (app.colorScheme === 'light' ? '' : '-dark') + '.svg'"
+                    class="w-full md:absolute md:bottom-0" alt="users">
             </div>
         </div>
 
-        <div class="col-12 md:col-6">
+        <div class="col-12 lg:col-6">
             <div class="card widget-overview-chart h-full">
                 <div class="card-header">
                     <span class="font-bold">Acquisition Overview</span>
@@ -78,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 md:col-3">
+        <div class="col-12 md:col-6 lg:col-3">
             <div class="card p-0 widget-people h-full relative">
                 <div class="header font-bold py-4 px-3">People</div>
                 <div class="overflow-y-auto" style="max-height: calc(100% - 100px)">
@@ -138,7 +137,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 md:col-3">
+        <div class="col-12 md:col-6 lg:col-3">
             <div class="card widget-profile-completion">
                 <div class="flex justify-content-center">
                     <img
@@ -184,7 +183,7 @@
             </div>
         </div>
 
-        <div class="col-12 md:col-4">
+        <div class="col-12 md:col-6 lg:col-4">
             <div class="card widget-image-stats relative">
                 <div class="card-header">
                     <span class="font-bold">Sales Channels</span>
@@ -217,7 +216,7 @@
                 <p-progressBar value="82" [showValue]="false" styleClass="green-bar"></p-progressBar>
             </div>
         </div>
-        <div class="col-12 md:col-4">
+        <div class="col-12 md:col-6 lg:col-4">
             <div class="card widget-tasks">
                 <div class="card-header block mb-3 px-2">
                     <span class="block font-bold mb-3">Upcoming Tasks</span>
@@ -248,7 +247,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 md:col-4">
+        <div class="col-12 md:col-6 lg:col-4">
             <div class="card widget-ratings">
                 <div class="card-header font-bold mb-4">Ratings</div>
                 <p-tabView orientation="left">
@@ -426,7 +425,7 @@
             </div>
         </div>
 
-        <div class="col-12 md:col-6">
+        <div class="col-12 md:col-6 lg:col-6">
             <div class="card widget-timeline">
                 <div class="card-header font-bold mb-4">Timeline</div>
                 <div class="flex mb-2 p-3 pb-0">
@@ -510,7 +509,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 md:col-6">
+        <div class="col-12 lg:col-6">
             <div class="card widget-graph p-5">
                 <div class="card-header font-bold mb-5">NASDAQ 100</div>
 
