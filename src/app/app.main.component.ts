@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuService } from './app.menu.service';
+import { TopbarMenuService } from './app.topbarmenu.service';
 import { PrimeNGConfig } from 'primeng/api';
 import { AppComponent } from './app.component';
 
@@ -32,9 +33,9 @@ export class AppMainComponent {
     configClick: boolean;
 
     topbarMenuClick = false;
-    topbarActive = false;
 
-    constructor(private menuService: MenuService, private primengConfig: PrimeNGConfig, public app: AppComponent) { }
+    constructor(private menuService: MenuService, private topbarmenuService: TopbarMenuService,
+                private primengConfig: PrimeNGConfig, public app: AppComponent) { }
 
     onLayoutClick() {
         if (!this.topbarItemClick) {
@@ -46,7 +47,7 @@ export class AppMainComponent {
             this.configActive = false;
         }
 
-        if (!this.menuClick && !this.topbarMenuClick) {
+        if (!this.menuClick) {
             if (this.isSlim()) {
                 this.menuService.reset();
             }
@@ -61,7 +62,7 @@ export class AppMainComponent {
             }
         }
         if (!this.topbarMenuClick) {
-            this.topbarActive = false;
+            this.topbarmenuService.reset();
         }
 
         if (!this.searchClick) {
@@ -93,7 +94,6 @@ export class AppMainComponent {
 
     onTopbarMenuClick() {
         this.topbarMenuClick = true;
-        this.topbarActive = true;
     }
 
     onTopbarItemClick(event: Event, item: Element) {

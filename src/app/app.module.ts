@@ -148,6 +148,7 @@ import {ProductService} from './demo/service/productservice';
 
 // Application services
 import {MenuService} from './app.menu.service';
+import {TopbarMenuService} from './app.topbarmenu.service';
 
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -299,7 +300,7 @@ FullCalendarModule.registerPlugins([
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         CountryService, CustomerService, EventService, IconService, NodeService,
-        PhotoService, ProductService, MenuService
+        PhotoService, ProductService, MenuService, TopbarMenuService
     ],
     bootstrap: [AppComponent]
 })

@@ -3,7 +3,7 @@ import {NavigationEnd, Router} from '@angular/router';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
-import {MenuService} from './app.menu.service';
+import {TopbarMenuService} from './app.topbarmenu.service';
 import {AppMainComponent} from './app.main.component';
 import {AppComponent} from './app.component';
 
@@ -28,7 +28,7 @@ import {AppComponent} from './app.component';
                 <span class="layout-topbar-menuitem-text">{{item.label}}</span>
                 <i class="pi pi-fw pi-angle-down layout-topbar-submenu-toggler" *ngIf="item.items"></i>
             </a>
-            <ul *ngIf="item.items && active && appMain.topbarActive" role="menu"
+            <ul *ngIf="item.items && active" role="menu"
                 [@children]="(root? 'visible' : active ? 'visibleAnimated' : 'hiddenAnimated')">
                 <ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
                     <li app-topmenu [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
@@ -37,7 +37,7 @@ import {AppComponent} from './app.component';
         </ng-container>
     `,
     host: {
-        '[class.topbar-active-menuitem]': '(active && appMain.topbarActive)'
+        '[class.topbar-active-menuitem]': '(active)'
     },
     animations: [
         trigger('children', [
@@ -76,15 +76,15 @@ export class AppTopbarMenuComponent implements OnInit {
     key: string;
 
     constructor(public appMain: AppMainComponent, public app: AppComponent, public router: Router,
-                private cd: ChangeDetectorRef, private menuService: MenuService) {
-        this.menuSourceSubscription = this.menuService.menuSource$.subscribe(key => {
+                private cd: ChangeDetectorRef, private topbarmenuService: TopbarMenuService) {
+        this.menuSourceSubscription = this.topbarmenuService.menuSource$.subscribe(key => {
             // deactivate current active menu
             if (this.active && this.key !== key && key.indexOf(this.key) !== 0) {
                 this.active = false;
             }
         });
 
-        this.menuResetSubscription = this.menuService.resetSource$.subscribe(() => {
+        this.menuResetSubscription = this.topbarmenuService.resetSource$.subscribe(() => {
             this.active = false;
         });
 
@@ -121,7 +121,7 @@ export class AppTopbarMenuComponent implements OnInit {
         if (this.item.command) {
             this.item.command({originalEvent: event, item: this.item});
         }
-        this.menuService.onMenuStateChange(this.key);
+        this.topbarmenuService.onMenuStateChange(this.key);
 
         // toggle active state
         if (this.item.items) {

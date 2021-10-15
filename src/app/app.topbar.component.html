@@ -26,7 +26,7 @@
                     <span class="active-bottom"></span>
                 </a>
             </li>
-            <li app-topmenu *ngFor="let item of menu; let i = index;" [item]="item" [index]="i" [root]="true" [parentKey]="9" class="layout-topbar-menu" (click)="appMain.onTopbarMenuClick($event)"></li>
+            <li app-topmenu *ngFor="let item of menu; let i = index;" [item]="item" [index]="i" [root]="true" class="layout-topbar-menu" (click)="appMain.onTopbarMenuClick($event)"></li>
         </ul>
     </div>
     <div class="layout-topbar-right">
