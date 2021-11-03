@@ -1,5 +1,36 @@
 # Changelog
 
+## 12.2.0
+**Migration Guide**
+- Update theme files and layout files.
+
+**Implemented New Features and Enhancements:**
+
+- Styles of new PrimeNG components
+
+## 12.1.0
+
+**Migration Guide**
+- Update app files(app.menuitem.component.ts etc..).
+- Update theme files and layout files.
+
+**Implemented New Features and Enhancements:**
+
+- New Design for Menu, Topbar and Config
+- New Design for Template Pages (Error, Login, Not Found, Access Denied)
+- Implementation of Dark and Light Modes
+
+## 12.0.0
+**Migration Guide**
+- Update your project to Angular 12.
+- Update app.menuitem.component.ts
+- Update theme files and layout files.
+
+**Implemented New Features and Enhancements:**
+
+- Upgrade to Angular and PrimeNG 12
+- Styles of new PrimeNG components
+
 ## 11.0.0
 **Migration Guide**
 - Update your project to Angular 11.
