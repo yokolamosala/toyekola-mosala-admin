@@ -12,7 +12,6 @@
         display: flex;
         justify-content: start;
         align-items: center;
-        width: 50%;
 
         .app-name {
             display: flex;
@@ -111,11 +110,9 @@
     }
 
     .layout-topbar-right {
-        flex-grow: 1;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 50%;
+        justify-content: end;
 
         .layout-topbar-actions {
             display: flex;
