@@ -49,7 +49,7 @@ export class AppMenuComponent implements OnInit {
                     {label: 'FlexBox', icon: 'pi pi-directions', routerLink: ['utilities/flexbox']},
                     {label: 'Icons', icon: 'pi pi-search', routerLink: ['utilities/icons']},
                     {label: 'Text', icon: 'pi pi-pencil', routerLink: ['utilities/text']},
-                    {label: 'Widgets', icon: 'pi pi-star-o', routerLink: ['utilities/widgets']},
+                    {label: 'Widgets', icon: 'pi pi-star', routerLink: ['utilities/widgets']},
                     {label: 'Grid System', icon: 'pi pi-th-large', routerLink: ['utilities/grid']},
                     {label: 'Spacing', icon: 'pi pi-arrow-right', routerLink: ['utilities/spacing']},
                     {label: 'Typography', icon: 'pi pi-align-center', routerLink: ['utilities/typography']}
