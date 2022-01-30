@@ -11,7 +11,7 @@
 					<input type="text" pInputText placeholder="Disabled" [disabled]="true"/>
 				</div>
 				<div class="col-12 mb-2 lg:col-4 lg:mb-0">
-					<input type="text" pInputText placeholder="Invalid" class="ng-dirty ng-invalid "/>
+					<input type="text" pInputText placeholder="Invalid" class="ng-dirty ng-invalid"/>
 				</div>
 			</div>
 
@@ -62,26 +62,27 @@
 			<p-chips></p-chips>
 		</div>
 
+
 		<div class="card">
-			<div class="grid">
-				<div class="col-12">
-					<h5>Slider</h5>
-					<input type="text" pInputText [(ngModel)]="valSlider" readonly/>
-					<p-slider [(ngModel)]="valSlider"></p-slider>
-				</div>
-				<div class="col-12 md:col-6">
-					<h5>Rating</h5>
-					<p-rating></p-rating>
-				</div>
-				<div class="col-12 md:col-6">
-					<h5>ColorPicker</h5>
-					<p-colorPicker [(ngModel)]="valColor"></p-colorPicker>
-				</div>
-				<div class="col-12">
-					<h5>Knob</h5>
-					<p-knob [(ngModel)]="valueKnob" valueTemplate="{value}%" [step]="10" [min]="-50" [max]="50"></p-knob>
-				</div>
-			</div>
+            <div class="grid">
+                <div class="col-12">
+                    <h5>Slider</h5>
+                    <input type="text" pInputText [(ngModel)]="valSlider" readonly/>
+                    <p-slider [(ngModel)]="valSlider"></p-slider>
+                </div>
+                <div class="col-12 md:col-6">
+                    <h5>Rating</h5>
+                    <p-rating></p-rating>
+                </div>
+                <div class="col-12 md:col-6">
+                    <h5>ColorPicker</h5>
+                    <p-colorPicker [(ngModel)]="valColor"></p-colorPicker>
+                </div>
+                <div class="col-12">
+                    <h5>Knob</h5>
+                    <p-knob [(ngModel)]="valueKnob" valueTemplate="{value}%" [step]="10" [min]="-50" [max]="50"></p-knob>
+                </div>
+            </div>
 		</div>
 	</div>
 
@@ -136,12 +137,13 @@
 			<p-inputSwitch [(ngModel)]="valSwitch"></p-inputSwitch>
 		</div>
 
-		<div class="card p-fluid">
+		<div class="card">
 			<h5>Listbox</h5>
 			<p-listbox [options]="cities" [(ngModel)]="selectedList" [filter]="true"></p-listbox>
 
 			<h5>Dropdown</h5>
 			<p-dropdown [options]="cities" [(ngModel)]="selectedDrop" placeholder="Select a City" [showClear]="true"></p-dropdown>
+
 
 			<h5>Multiselect</h5>
 			<p-multiSelect [options]="countries" [(ngModel)]="selectedMulti" defaultLabel="Select a Country" optionLabel="name" class="multiselect-custom">
@@ -168,7 +170,7 @@
 			<p-toggleButton [(ngModel)]="valToggle" onLabel="Yes" offLabel="No" [style]="{'width': '10em'}"></p-toggleButton>
 
 			<h5>SelectOneButton</h5>
-			<p-selectButton [options]="paymentOptions" [(ngModel)]="valSelect1" multiple="multiple" optionLabel="name"></p-selectButton>
+			<p-selectButton [options]="paymentOptions" [(ngModel)]="valSelect1" optionLabel="name"></p-selectButton>
 
 			<h5>SelectManyButton</h5>
 			<p-selectButton [options]="paymentOptions" [(ngModel)]="valSelect2" multiple="multiple" optionLabel="name"></p-selectButton>

@@ -118,7 +118,7 @@ export class AppMenuComponent implements OnInit &#123;
                     &#123;label: 'Panel', icon: 'pi pi-tablet', routerLink: ['/uikit/panel']&#125;,
                     &#123;label: 'Overlay', icon: 'pi pi-clone', routerLink: ['/uikit/overlay']&#125;,
                     &#123;label: 'Media', icon: 'pi pi-image', routerLink: ['/uikit/media']&#125;,
-                    &#123;label: 'Menu', icon: 'pi pi-bars', routerLink: ['/uikit/menu']&#125;,
+                    &#123;label: 'Menu', icon: 'pi pi-bars', routerLink: ['/uikit/menu'], preventExact: true&#125;,
                     &#123;label: 'Message', icon: 'pi pi-comment', routerLink: ['/uikit/message']&#125;,
                     &#123;label: 'File', icon: 'pi pi-file', routerLink: ['/uikit/file']&#125;,
                     &#123;label: 'Chart', icon: 'pi pi-chart-bar', routerLink: ['/uikit/charts']&#125;,
@@ -126,17 +126,17 @@ export class AppMenuComponent implements OnInit &#123;
                 ]
             &#125;,
             &#123;
-                label: 'Utilities', icon: 'pi pi-compass', routerLink: ['utilities'],
+                label: 'Prime Blocks', icon: 'pi pi-fw pi-prime', routerLink: ['/blocks'],
                 items: [
-                    &#123;label: 'Display', icon: 'pi pi-desktop', routerLink: ['utilities/display']&#125;,
-                    &#123;label: 'Elevation', icon: 'pi pi-external-link', routerLink: ['utilities/elevation']&#125;,
-                    &#123;label: 'FlexBox', icon: 'pi pi-directions', routerLink: ['utilities/flexbox']&#125;,
-                    &#123;label: 'Icons', icon: 'pi pi-search', routerLink: ['utilities/icons']&#125;,
-                    &#123;label: 'Text', icon: 'pi pi-pencil', routerLink: ['utilities/text']&#125;,
-                    &#123;label: 'Widgets', icon: 'pi pi-star', routerLink: ['utilities/widgets']&#125;,
-                    &#123;label: 'Grid System', icon: 'pi pi-th-large', routerLink: ['utilities/grid']&#125;,
-                    &#123;label: 'Spacing', icon: 'pi pi-arrow-right', routerLink: ['utilities/spacing']&#125;,
-                    &#123;label: 'Typography', icon: 'pi pi-align-center', routerLink: ['utilities/typography']&#125;
+                    &#123;label: 'Free Blocks', icon: 'pi pi-fw pi-eye', routerLink: ['/blocks']&#125;,
+                    &#123;label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: ['https://www.primefaces.org/primeblocks-ng'], target: '_blank'&#125;,
+                ]
+            &#125;,
+            &#123;
+                label: 'Utilities', icon: 'pi pi-fw pi-compass', routerLink: ['/utilities'],
+                items: [
+                    &#123;label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', routerLink: ['utilities/icons']&#125;,
+                    &#123;label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: ['https://www.primefaces.org/primeflex/'], target: '_blank'&#125;,
                 ]
             &#125;,
             &#123;
@@ -364,16 +364,16 @@ $slimSidebarWidth: 7rem !default;
 <div style="height:400px;overflow: auto;">
 <app-code ngPreserveWhitespaces ngNonBindable lang="css">
 $colors: (
-"blue": #54B0F3,
-"green": #29C76F,
-"yellow": #F3D054,
-"cyan": #3EC9D6,
-"pink": #EA5455,
-"indigo": #5464F3,
-"teal": #0DC381,
-"orange": #FF9F42,
-"bluegray": #6878A0,
-"purple": #7254F3
+    "blue": #2196F3,
+    "green": #4caf50,
+    "yellow": #FBC02D,
+    "cyan": #00BCD4,
+    "pink": #E91E63,
+    "indigo": #3F51B5,
+    "teal": #009688,
+    "orange": #F57C00,
+    "bluegray": #607D8B,
+    "purple": #9C27B0
 ) !default;
 
 //reused color variables

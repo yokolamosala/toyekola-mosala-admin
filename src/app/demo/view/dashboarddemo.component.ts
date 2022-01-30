@@ -1,10 +1,9 @@
-import {Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppComponent} from '../../app.component';
 import {AppMainComponent} from '../../app.main.component';
-import {MenuItem} from 'primeng/api';
-
 @Component({
-    templateUrl: './dashboard.component.html'
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['../../../assets/demo/badges.scss']
 })
 export class DashboardDemoComponent implements OnInit {
 

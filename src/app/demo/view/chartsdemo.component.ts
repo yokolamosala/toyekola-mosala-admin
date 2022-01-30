@@ -52,7 +52,7 @@ export class ChartsDemoComponent implements OnInit {
             plugins: {
                 legend: {
                     labels: {
-                        fontColor: '#A0A7B5'
+                        color: '#A0A7B5'
                     }
                 }
             },
@@ -98,7 +98,7 @@ export class ChartsDemoComponent implements OnInit {
             plugins: {
                 legend: {
                     labels: {
-                        fontColor: '#A0A7B5'
+                        color: '#A0A7B5'
                     }
                 }
             },
@@ -140,7 +140,7 @@ export class ChartsDemoComponent implements OnInit {
             plugins: {
                 legend: {
                     labels: {
-                        fontColor: '#A0A7B5'
+                        color: '#A0A7B5'
                     }
                 }
             }
@@ -174,7 +174,7 @@ export class ChartsDemoComponent implements OnInit {
             plugins: {
                 legend: {
                     labels: {
-                        fontColor: '#A0A7B5'
+                        color: '#A0A7B5'
                     }
                 }
             },
@@ -217,7 +217,7 @@ export class ChartsDemoComponent implements OnInit {
             plugins: {
                 legend: {
                     labels: {
-                        fontColor: '#A0A7B5'
+                        color: '#A0A7B5'
                     }
                 }
             },

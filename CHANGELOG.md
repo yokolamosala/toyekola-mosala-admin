@@ -1,5 +1,11 @@
 # Changelog
 
+## 13.1.0
+- Update your project to PrimeNG 13.1.0
+- Update your project to PrimeFlex 3.1.2
+
+**Implemented New Features and Enhancements:**
+- Update for demo components.
 ## 13.0.0
 **Migration Guide**
 - Update your project to Angular 13.
