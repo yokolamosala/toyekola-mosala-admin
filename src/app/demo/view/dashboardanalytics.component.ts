@@ -5,8 +5,7 @@ import {ProductService} from '../service/productservice';
 import {AppComponent} from '../../app.component';
 
 @Component({
-    templateUrl: './dashboardanalytics.component.html',
-    styleUrls: ['./tabledemo.scss']
+    templateUrl: './dashboardanalytics.component.html'
 })
 export class DashboardAnalyticsComponent implements OnInit {
 
