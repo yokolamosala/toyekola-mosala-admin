@@ -1,14 +1,15 @@
 $colors: (
-    "blue": #2196F3,
-    "green": #4caf50,
-    "yellow": #FBC02D,
-    "cyan": #00BCD4,
-    "pink": #E91E63,
-    "indigo": #3F51B5,
-    "teal": #009688,
-    "orange": #F57C00,
-    "bluegray": #607D8B,
-    "purple": #9C27B0
+    "blue": #54B0F3,
+    "green": #29C76F,
+    "yellow": #F3D054,
+    "cyan": #3EC9D6,
+    "pink": #EA5455,
+    "indigo": #5464F3,
+    "teal": #0DC381,
+    "orange": #FF9F42,
+    "bluegray": #6878A0,
+    "purple": #7254F3,
+    "red": #FF384B
 ) !default;
 
 //reused color variables
@@ -97,7 +98,7 @@ $inputListItemTextHoverColor:$shade700 !default;
 $inputListItemBorder:0 none !default;
 $inputListItemBorderRadius:0 !default;
 $inputListItemMargin:0 !default;
-$inputListItemFocusShadow:inset 0 0 0 1px $focusOutlineColor !default;
+$inputListItemFocusShadow:inset 0 0 0 0.15rem $focusOutlineColor !default;
 $inputListHeaderPadding:.75rem 1.25rem !default;
 $inputListHeaderMargin:0 !default;
 $inputListHeaderBg:$shade100 !default;
@@ -238,7 +239,6 @@ $radiobuttonActiveHoverBorderColor:$primaryDarkerColor !default;
 $colorPickerPreviewWidth:2rem !default;
 $colorPickerPreviewHeight:2rem !default;
 $colorPickerBg:#323232 !default;
-$colorPickerBorderColor:#191919 !default;
 $colorPickerBorder:1px solid #191919 !default;
 $colorPickerHandleColor:$shade000 !default;
 
@@ -354,6 +354,7 @@ $panelHeaderTextHoverColor:$shade600 !default;
 $panelContentBorderColor: $shade300 !default;
 $panelContentBorder:1px solid $shade300 !default;
 $panelContentBg:$shade000 !default;
+$panelContentEvenRowBg:scale-color($panelContentBg, $lightness: -1%) !default;
 $panelContentTextColor:$shade700 !default;
 $panelContentPadding:1.25rem !default;
 
@@ -866,4 +867,6 @@ $imagePreviewActionIconBorderRadius:50% !default;
     --surface-overlay:#ffffff;
     --surface-border:#dfe7ef;
     --surface-hover:#f6f9fc;
+    --maskbg: #{$maskBg};
+    --focus-ring: #{$focusShadow};
 }

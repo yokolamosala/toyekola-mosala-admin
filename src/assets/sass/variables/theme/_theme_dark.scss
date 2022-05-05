@@ -1,14 +1,15 @@
 $colors: (
-    "blue": #2196F3,
-    "green": #4caf50,
-    "yellow": #FBC02D,
-    "cyan": #00BCD4,
-    "pink": #E91E63,
-    "indigo": #3F51B5,
-    "teal": #009688,
-    "orange": #F57C00,
-    "bluegray": #607D8B,
-    "purple": #9C27B0
+    "blue": #54B0F3,
+    "green": #29C76F,
+    "yellow": #F3D054,
+    "cyan": #3EC9D6,
+    "pink": #EA5455,
+    "indigo": #5464F3,
+    "teal": #0DC381,
+    "orange": #FF9F42,
+    "bluegray": #6878A0,
+    "purple": #7254F3,
+    "red": #FF384B
 ) !default;
 
 //shades
@@ -94,7 +95,7 @@ $inputListItemTextHoverColor:$shade000 !default;
 $inputListItemBorder:0 none !default;
 $inputListItemBorderRadius:0 !default;
 $inputListItemMargin:0 !default;
-$inputListItemFocusShadow:inset 0 0 0 1px $focusOutlineColor !default;
+$inputListItemFocusShadow:inset 0 0 0 0.15rem $focusOutlineColor !default;
 $inputListHeaderPadding:.75rem 1.25rem !default;
 $inputListHeaderMargin:0 !default;
 $inputListHeaderBg:$shade800 !default;
@@ -235,7 +236,6 @@ $radiobuttonActiveHoverBorderColor:$primaryDarkerColor !default;
 $colorPickerPreviewWidth:2rem !default;
 $colorPickerPreviewHeight:2rem !default;
 $colorPickerBg:$shade800 !default;
-$colorPickerBorderColor:$shade600 !default;
 $colorPickerBorder:1px solid $shade600 !default;
 $colorPickerHandleColor:$shade000 !default;
 
@@ -351,6 +351,7 @@ $panelHeaderTextHoverColor:$shade000 !default;
 $panelContentBorderColor: $shade600 !default;
 $panelContentBorder:1px solid $shade600 !default;
 $panelContentBg:$shade800 !default;
+$panelContentEvenRowBg:rgba(255,255,255,0.01) !default;
 $panelContentTextColor:$shade000 !default;
 $panelContentPadding:1.25rem !default;
 
@@ -484,7 +485,7 @@ $tableSortableColumnBadgeSize:1.143rem !default;
 
 $tableBodyRowBg:$shade800 !default;
 $tableBodyRowTextColor:$shade000 !default;
-$tableBodyRowEvenBg:rgba(255,255,255,0.01) !default;
+$tableBodyRowEvenBg:#2b2c38 !default;
 $tableBodyRowHoverBg:$hoverBg !default;
 $tableBodyRowTextHoverColor:$shade000 !default;
 $tableBodyCellBorder:1px solid $shade600 !default;
@@ -863,4 +864,6 @@ $imagePreviewActionIconBorderRadius:50% !default;
     --surface-overlay:#282936;
     --surface-border:#3e4053;
     --surface-hover:rgba(255,255,255,.03);
+    --maskbg: #{$maskBg};
+    --focus-ring: #{$focusShadow};
 }
