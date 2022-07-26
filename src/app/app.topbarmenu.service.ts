@@ -15,6 +15,6 @@ export class TopbarMenuService {
     }
 
     reset() {
-        this.resetSource.next();
+        this.resetSource.next(null);
     }
 }
