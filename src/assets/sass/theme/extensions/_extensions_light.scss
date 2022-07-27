@@ -10,6 +10,15 @@
                 background-color: rgba(255,255,255,.2);
             }
         }
+
+        .p-datepicker-title {
+            .p-datepicker-month,
+            .p-datepicker-year{
+                &:enabled:hover {
+                    color: var(--primary-200);
+                }
+            }
+        }
     }
 
     &.p-datepicker-multiple-month {

@@ -351,7 +351,7 @@
                 border-right-color: transparent;
             }
 
-            button {
+            button:not(.p-datepicker-month):not(.p-datepicker-year):not(.p-link) {
                 background: $cardBg;
                 color: $textSecondaryColor;
                 border-color: $dividerColor;
