@@ -63,7 +63,7 @@
 ## 11.0.0
 **Migration Guide**
 - Update your project to Angular 11.
-- Update app.main.component.ts, app.main.component.html and app.component.ts
+- Update app.main.component.ts, app.layout.component.html and app.component.ts
 - Update app.menuitem.component.ts.
 - Update theme files and layout files.
 

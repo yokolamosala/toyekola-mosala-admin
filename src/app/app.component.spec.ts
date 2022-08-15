@@ -1,11 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { AppTopBarComponent } from './app.topbar.component';
-import { AppFooterComponent } from './app.footer.component';
-import { AppMenuComponent } from './app.menu.component';
-import { MenuService } from './app.menu.service';
-import { TopbarMenuService } from './app.topbarmenu.service';
+import { AppTopBarComponent } from './layout/app.topbar.component';
+import { AppFooterComponent } from './layout/app.footer.component';
+import { AppMenuComponent } from './layout/app.menu.component';
+import { MenuService } from './layout/app.menu.service';
+import { TopbarMenuService } from './layout/app.topbarmenu.service';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
