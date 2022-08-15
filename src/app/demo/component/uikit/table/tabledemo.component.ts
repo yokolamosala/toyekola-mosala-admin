@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { Table } from 'primeng/table';
 import { MessageService, ConfirmationService } from 'primeng/api';
-import { Customer, Representative } from 'src/app/demo/domain/customer';
-import { Product } from 'src/app/demo/domain/product';
+import { Customer, Representative } from 'src/app/demo/api/customer';
+import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/productservice';
 import { CustomerService } from 'src/app/demo/service/customerservice';
 

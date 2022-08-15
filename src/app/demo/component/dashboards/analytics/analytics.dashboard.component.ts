@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {SelectItem} from 'primeng/api';
 import { AppComponent } from 'src/app/app.component';
-import { Product } from 'src/app/demo/domain/product';
+import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/productservice';
 
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
-import { Product } from 'src/app/demo/domain/product';
+import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/productservice';
 
 @Component({
