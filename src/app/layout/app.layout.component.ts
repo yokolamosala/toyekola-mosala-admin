@@ -178,11 +178,6 @@ export class AppLayoutComponent implements OnDestroy {
         event.preventDefault();
     }
 
-    onRippleChange(event) {
-        this.app.ripple = event.checked;
-        this.primengConfig = event.checked;
-    }
-
     onConfigClick(event) {
         this.configClick = true;
     }

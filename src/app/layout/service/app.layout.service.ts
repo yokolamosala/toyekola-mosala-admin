@@ -7,7 +7,6 @@ export interface AppConfig {
     theme: string;
     ripple: boolean;
     menuMode: string;
-    scale: number,
     layoutColor: string;
 }
 
@@ -31,7 +30,6 @@ export class LayoutService {
         menuMode: 'slim',
         colorScheme: 'light',
         theme: 'lara-light-indigo',
-        scale: 14,
         layoutColor: 'white'
     };
 
