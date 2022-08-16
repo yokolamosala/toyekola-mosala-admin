@@ -68,7 +68,8 @@ export class AppLayoutComponent implements OnDestroy {
             'layout-static': this.layoutService.config.menuMode === 'static',
             'layout-mobile-active': this.layoutService.state.overlayMenuActive,
             'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
-            'p-input-filled': this.layoutService.config.inputStyle === 'filled'
+            'p-ripple-disabled': !this.layoutService.config.ripple,
+            'p-input-filled': this.layoutService.config.inputStyle === 'filled',
         }
     }
 
