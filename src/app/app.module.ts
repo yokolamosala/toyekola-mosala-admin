@@ -34,11 +34,9 @@ FullCalendarModule.registerPlugins([
     imports: [
         AppLayoutModule,
         AppRoutingModule,
-
     ],
     declarations: [
         AppComponent,
-
     ],
     providers: [
         {provide: LocationStrategy, useClass: HashLocationStrategy},
