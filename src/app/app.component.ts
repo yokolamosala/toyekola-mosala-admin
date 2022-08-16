@@ -5,25 +5,7 @@ import { PrimeNGConfig } from 'primeng/api';
     selector: 'app-root',
     templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
 
-    inputStyle = 'outlined';
 
-    ripple: boolean;
-
-    theme = 'indigo';
-
-    layoutColor = 'white';
-
-    colorScheme = 'light';
-
-    menuMode = 'slim';
-
-    constructor(private primengConfig: PrimeNGConfig) {
-    }
-
-    ngOnInit() {
-        this.primengConfig.ripple = true;
-        this.ripple = true;
-    }
 }

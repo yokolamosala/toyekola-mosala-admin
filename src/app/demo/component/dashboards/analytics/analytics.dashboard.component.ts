@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import {SelectItem} from 'primeng/api';
-import { AppComponent } from 'src/app/app.component';
 import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/productservice';
+import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 
 @Component({
@@ -41,7 +41,7 @@ export class AnalyticsDashboardComponent implements OnInit {
 
     @ViewChild('chatcontainer') chatContainerViewChild: ElementRef;
 
-    constructor(private productService: ProductService, public app: AppComponent) {}
+    constructor(private productService: ProductService, public layoutService: LayoutService) {}
 
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data.slice(0, 5));
@@ -110,7 +110,7 @@ export class AnalyticsDashboardComponent implements OnInit {
 
             if (lastMessage.from) {
                 this.chatMessages.push({ nth: false, from: 'Verona',
-                    url: 'assets/layout/images/logo-' + (this.app.colorScheme === 'light' ? 'dark' : 'white') + '.png',
+                    url: 'assets/layout/images/logo-' + (this.layoutService.config.colorScheme === 'light' ? 'dark' : 'white') + '.png',
                     messages: [message] });
             }
             else {
