@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AppComponent} from '../app.component';
 import {AppLayoutComponent} from './app.layout.component';
+import {LayoutService} from "./service/app.layout.service";
 
 @Component({
     selector: 'app-topbar',
@@ -14,7 +15,7 @@ export class AppTopBarComponent implements OnInit {
 
     @ViewChild('input2') inputElement2: ElementRef;
 
-    constructor(public app: AppComponent, public appLayout: AppLayoutComponent) {
+    constructor(public layoutService: LayoutService, public appLayout: AppLayoutComponent) {
 
     }
 
@@ -59,5 +60,13 @@ export class AppTopBarComponent implements OnInit {
                 this.inputElement2.nativeElement.focus();
             }, 100);
         }
+    }
+
+    get layoutColor(): string {
+        return this.layoutService.config.layoutColor
+    }
+
+    set layoutColor(_val: string) {
+        this.layoutService.config.layoutColor = _val;
     }
 }

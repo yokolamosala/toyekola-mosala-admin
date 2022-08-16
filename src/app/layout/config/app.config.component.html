@@ -15,44 +15,44 @@
 
     <h5>Layout</h5>
     <div class="field-radiobutton">
-        <p-radioButton name="colorScheme" value="light" [(ngModel)]="app.colorScheme" inputId="scheme1" (onClick)="changeColorScheme('light')"></p-radioButton>
+        <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="scheme1" (onClick)="changeColorScheme('light')"></p-radioButton>
         <label for="scheme1">Light</label>
     </div>
     <div class="field-radiobutton">
-        <p-radioButton name="colorScheme" value="dark" [(ngModel)]="app.colorScheme" inputId="scheme2" (onClick)="changeColorScheme('dark')"></p-radioButton>
+        <p-radioButton name="colorScheme" value="dark" [(ngModel)]="colorScheme" inputId="scheme2" (onClick)="changeColorScheme('dark')"></p-radioButton>
         <label for="scheme2">Dark</label>
     </div>
 
     <h5>Layout Colors</h5>
-    <div class="layout-themes" *ngIf="app.colorScheme === 'light'">
-        <div *ngFor="let l of layoutColor">
+    <div class="layout-themes" *ngIf="colorScheme === 'light'">
+        <div *ngFor="let l of layoutColorAll">
             <a style="cursor: pointer" (click)="changeLayoutColor(l.name)" [ngStyle]="{'background': l.color}">
-                <i class="pi pi-check" *ngIf="app.layoutColor === l.name"></i>
+                <i class="pi pi-check" *ngIf="layoutColor === l.name"></i>
             </a>
         </div>
     </div>
-    <div *ngIf="app.colorScheme !== 'light'">
+    <div *ngIf="colorScheme !== 'light'">
         <p>Layout themes are only available in light mode by design as large surfaces can emit too much brightness in dark mode.</p>
     </div>
 
     <h5>Input Style</h5>
     <div class="field-radiobutton">
-        <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="app.inputStyle" inputId="inputStyle1"></p-radioButton>
+        <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="inputStyle" inputId="inputStyle1"></p-radioButton>
         <label for="inputStyle1">Outlined</label>
     </div>
     <div class="field-radiobutton">
-        <p-radioButton name="inputStyle" value="filled" [(ngModel)]="app.inputStyle" inputId="inputStyle2"></p-radioButton>
+        <p-radioButton name="inputStyle" value="filled" [(ngModel)]="inputStyle" inputId="inputStyle2"></p-radioButton>
         <label for="inputStyle2">Filled</label>
     </div>
 
     <h5>Ripple Effect</h5>
-    <p-inputSwitch [ngModel]="app.ripple" (onChange)="appLayout.onRippleChange($event)"></p-inputSwitch>
+    <p-inputSwitch [ngModel]="ripple" (onChange)="appLayout.onRippleChange($event)"></p-inputSwitch>
 
     <h5>Themes</h5>
     <div class="layout-themes">
         <div *ngFor="let t of themes">
-            <a style="cursor: pointer" (click)="changeTheme(t.name)" [ngStyle]="{'background-color': app.colorScheme === 'light' ? t.color1 :t.color2}">
-                <i class="pi pi-check" *ngIf="app.theme === t.name"></i>
+            <a style="cursor: pointer" (click)="changeTheme(t.name)" [ngStyle]="{'background-color': colorScheme === 'light' ? t.color1 :t.color2}">
+                <i class="pi pi-check" *ngIf="theme === t.name"></i>
             </a>
         </div>
     </div>

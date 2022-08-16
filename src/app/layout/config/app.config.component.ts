@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { AppComponent } from '../../app.component';
-import { AppLayoutComponent } from '../app.layout.component';
+import {AppLayoutComponent} from '../app.layout.component';
 import {LayoutService} from "../service/app.layout.service";
 import {MenuService} from "../app.menu.service";
 
@@ -10,16 +9,16 @@ import {MenuService} from "../app.menu.service";
 })
 export class AppConfigComponent implements OnInit {
 
-    layoutColor: any[];
+    layoutColorAll: any[];
 
     themes: any[];
 
     tempLayoutColor = 'white';
 
-    constructor(public appLayout: AppLayoutComponent, public app: AppComponent, public layoutService: LayoutService, public menuService: MenuService) {}
+    constructor(public appLayout: AppLayoutComponent, public layoutService: LayoutService, public menuService: MenuService) {}
 
     ngOnInit() {
-        this.layoutColor = [
+        this.layoutColorAll = [
             {name: 'white', color: '#ffffff'},
             {name: 'blue', color: 'linear-gradient(147.38deg, #4C96B6 0%, #19496C 100%)'},
             {name: 'cyan', color: 'linear-gradient(147.38deg, #4CB6A3 0%, #19536C 100%)'},
@@ -50,30 +49,30 @@ export class AppConfigComponent implements OnInit {
     }
 
     changeTheme(theme) {
-        this.app.theme = theme;
+        this.layoutService.config.theme = theme;
         const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
-        const href = 'assets/theme/' + theme + '/theme-' + this.app.colorScheme + '.css';
+        const href = 'assets/theme/' + theme + '/theme-' + this.layoutService.config.colorScheme + '.css';
 
         this.replaceLink(themeLink, href);
     }
 
     changeColorScheme(scheme) {
-        this.app.colorScheme = scheme;
-        this.app.layoutColor = scheme === 'dark' ? scheme : this.tempLayoutColor;
+        this.layoutService.config.colorScheme = scheme;
+        this.layoutService.config.layoutColor = scheme === 'dark' ? scheme : this.tempLayoutColor;
 
         const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
         const layoutHref = 'assets/layout/css/layout-' + (scheme === 'dark' ? scheme : this.tempLayoutColor) + '.css';
         this.replaceLink(layoutLink, layoutHref);
 
         const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
-        const themeHref = 'assets/theme/' + this.app.theme + '/theme-' + scheme + '.css';
+        const themeHref = 'assets/theme/' + this.layoutService.config.theme + '/theme-' + scheme + '.css';
         this.replaceLink(themeLink, themeHref, this.appLayout['refreshChart']);
     }
 
 
     changeLayoutColor(name) {
         this.tempLayoutColor = name;
-        this.app.layoutColor = name;
+        this.layoutService.config.layoutColor = name;
 
         const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
         const layoutHref = 'assets/layout/css/layout-' + name + '.css';
@@ -116,6 +115,21 @@ export class AppConfigComponent implements OnInit {
         this.appLayout.configClick = true;
     }
 
+    get layoutColor(): string {
+        return this.layoutService.config.layoutColor
+    }
+
+    set layoutColor(_val: string) {
+        this.layoutService.config.layoutColor = _val;
+    }
+
+    get colorScheme(): string {
+        return this.layoutService.config.colorScheme
+    }
+
+    set colorScheme(_val: string) {
+        this.layoutService.config.colorScheme = _val;
+    }
 
     get visible(): boolean {
         return this.layoutService.state.configSidebarVisible;
@@ -158,6 +172,14 @@ export class AppConfigComponent implements OnInit {
 
     set ripple(_val: boolean) {
         this.layoutService.config.ripple = _val;
+    }
+
+    get theme(): string {
+        return this.layoutService.config.theme;
+    }
+
+    set theme(_val: string) {
+        this.layoutService.config.theme = _val;
     }
 
     replaceThemeLink(href: string, onComplete: Function) {
