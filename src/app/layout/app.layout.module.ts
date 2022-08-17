@@ -16,7 +16,9 @@ import { AppTopBarComponent } from './app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppConfigModule } from './config/config.module';
 
-import { AppLayoutComponent } from "./app.layout.component";
+
+import {AppTopbarMenuComponent} from './app.topbarmenu.component';
+import {AppLayoutComponent} from './app.layout.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +27,7 @@ import { AppLayoutComponent } from "./app.layout.component";
         AppFooterComponent,
         AppMenuComponent,
         AppLayoutComponent,
+        AppTopbarMenuComponent
     ],
     imports: [
         BrowserModule,
