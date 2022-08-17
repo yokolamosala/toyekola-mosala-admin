@@ -7,4 +7,5 @@ $primaryTextColor: #3E4C59;
 $highlightBg: $primaryColor;
 $highlightTextColor: $primaryTextColor;
 
-@import '../../layout/styles/theme/_theme_light';
+@import 'src/assets/layout/styles/theme/theme_light';
+@import 'src/assets/layout/styles/theme/designer/designer/components';

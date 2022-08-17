@@ -1,5 +1,5 @@
-@import '../variables/theme/theme_light';
-@import '../overrides/theme_variables';
-@import 'designer/components';
-@import 'extensions/extensions_light';
-@import '../overrides/theme_styles';
+@import 'src/assets/layout/styles/variables/theme/theme_light';
+@import 'src/assets/layout/styles/overrides/theme_variables';
+@import 'src/assets/layout/styles/theme/designer/designer/components';
+@import 'src/assets/layout/styles/theme/extensions/extensions_light';
+@import 'src/assets/layout/styles/overrides/theme_styles';
