@@ -63,10 +63,6 @@ export class LayoutService {
         }
         else {
             this.state.staticMenuMobileActive = !this.state.staticMenuMobileActive;
-
-            if (this.state.staticMenuMobileActive) {
-                this.overlayOpen.next(null);
-            }
         }
     }
 

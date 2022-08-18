@@ -66,10 +66,10 @@ export class AppLayoutComponent implements OnDestroy {
         return {
             'layout-slim': this.layoutService.config.menuMode === 'slim',
             'layout-static': this.layoutService.config.menuMode === 'static',
-            'layout-mobile-active': this.layoutService.state.overlayMenuActive,
+            'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
             'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
-            'p-ripple-disabled': !this.layoutService.config.ripple,
             'p-input-filled': this.layoutService.config.inputStyle === 'filled',
+            'p-ripple-disabled': !this.layoutService.config.ripple
         }
     }
 
@@ -177,6 +177,11 @@ export class AppLayoutComponent implements OnDestroy {
 
     onTopbarSubItemClick(event) {
         event.preventDefault();
+    }
+
+    onRippleChange(event) {
+        this.layoutService.config.ripple = event.checked;
+        this.primengConfig = event.checked;
     }
 
     onConfigClick(event) {
