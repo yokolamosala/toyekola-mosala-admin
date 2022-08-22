@@ -6,10 +6,10 @@
 }
 
 .card {
-    background: $cardBg;
+    background: var(--card-bg);
     padding: 1.5rem 1rem;
     margin-bottom: 16px;
-    box-shadow: $cardShadow;
+    box-shadow: var(--card-shadow);
     border-radius: 14px;
 
     &:last-child {
@@ -23,7 +23,7 @@
     }
 
     .card-subtitle {
-        color: $textSecondaryColor;
+        color: var(--text-secondry-color);
         font-weight: 600;
         margin: -1rem 0 1rem 0;
     }

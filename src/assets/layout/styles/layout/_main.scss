@@ -1,25 +1,25 @@
 html {
     height: 100%;
-    font-size: $fontSize;
+    font-size: var(--font-size);
 }
 
 body {
-    font-family: $fontFamily;
-    font-size: $fontSize;
-    color: $textColor;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding:0;
     margin:0;
     min-height: 100%;
-    background-image: $bodyBg;;
+    background-image: var(--body-bg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
     a {
         text-decoration: none;
-        color: $linkColor;
+        color: var(--link-color);
     }
 }
 
@@ -34,12 +34,12 @@ body {
         width: calc(100% - 14rem);
         margin-top: 7rem;
         border-top-left-radius: 30px;
-        transition: all $transitionDuration;
+        transition: var(--transition-duration);
 
         .layout-content {
             padding: 2rem;
             flex: 1 1 auto;
-            background-color: $contentBg;
+            background-color: var(--content-bg);
             border-bottom-left-radius: 30px;
             border-top-left-radius: 30px;
         }

@@ -1,0 +1,17 @@
+.layout-dark {
+    --sidebar-shadow: none;
+    --sidebar-border: 1px solid var(--surface-border);
+    --card-shadow: none;
+    --content-bg: #162a41;
+    --text-color: #DBE2EB;
+    --text-secondry-color: #A3B3C6 ;
+    --divider-color: #4E657F;
+    --link-color: #90CAF9;
+    --overlay-bg: rgba(228, 231, 235, 0.3);
+
+//card
+    --card-bg: #293B51;
+    --card-border: 0 none;
+    --card-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
+
+}

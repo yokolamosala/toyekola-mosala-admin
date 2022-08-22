@@ -7,7 +7,7 @@
     top: 7rem;
     overflow: hidden;
     user-select: none;
-    transition: transform $transitionDuration;
+    transition: transform var(--transition-duration);
 
     .layout-menu-container {
         overflow: auto;
