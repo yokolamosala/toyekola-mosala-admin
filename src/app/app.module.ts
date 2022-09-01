@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
-import {FullCalendarModule} from '@fullcalendar/angular';
 
 // Application Components
 
@@ -19,16 +18,7 @@ import {ProductService} from './demo/service/productservice';
 // Application services
 import {MenuService} from './layout/app.menu.service';
 import {TopbarMenuService} from './layout/app.topbarmenu.service';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
 import { AppLayoutModule } from './layout/app.layout.module';
-
-FullCalendarModule.registerPlugins([
-    dayGridPlugin,
-    timeGridPlugin,
-    interactionPlugin
-]);
 
 @NgModule({
     imports: [

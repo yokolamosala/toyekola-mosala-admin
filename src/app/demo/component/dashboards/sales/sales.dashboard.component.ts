@@ -3,8 +3,7 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 
 @Component({
-    templateUrl: './sales.dashboard.component.html',
-    styleUrls: ['../../../../../assets/demo/badges.scss']
+    templateUrl: './sales.dashboard.component.html'
 })
 export class SalesDashboardComponent implements OnInit {
 
