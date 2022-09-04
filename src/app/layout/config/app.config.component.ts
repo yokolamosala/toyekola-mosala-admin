@@ -111,8 +111,7 @@ export class AppConfigComponent implements OnInit {
     }
 
     onConfigButtonClick() {
-        this.appLayout.configActive = true;
-        this.appLayout.configClick = true;
+        this.layoutService.showConfigSidebar();
     }
 
     get layoutColor(): string {

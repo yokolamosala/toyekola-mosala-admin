@@ -1,7 +1,7 @@
-<a style="cursor: pointer" id="layout-config-button" class="layout-config-button" (click)="onConfigButtonClick()">
+<button class="layout-config-button p-link" type="button" (click)="onConfigButtonClick()">
     <i class="pi pi-cog"></i>
-</a>
-<div class="layout-config" [ngClass]="{'layout-config-active': appLayout.configActive}" (click)="appLayout.onConfigClick($event)">
+</button>
+<p-sidebar [(visible)]="visible" position="right" [transitionOptions]="'.3s cubic-bezier(0, 0, 0.2, 1)'" styleClass="layout-config-sidebar w-18rem">
     <h5>Menu Type</h5>
     <div class="field-radiobutton">
         <p-radioButton name="menuMode" value="static" [(ngModel)]="menuMode" inputId="mode1"></p-radioButton>
@@ -56,5 +56,4 @@
             </a>
         </div>
     </div>
-</div>
-`
+</p-sidebar>
