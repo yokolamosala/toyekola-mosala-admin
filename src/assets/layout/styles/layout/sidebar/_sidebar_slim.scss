@@ -1,3 +1,5 @@
+@import '../variables_layout';
+
 @media screen and (min-width: $tabletBreakpoint + 1) {
     .layout-wrapper {
         &.layout-slim {
