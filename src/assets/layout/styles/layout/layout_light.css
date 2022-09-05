@@ -1,13 +1,1 @@
-.layout-light {
-  --sidebar-shadow: none;
-  --sidebar-border: 1px solid var(--surface-border);
-  --card-shadow: none;
-  --card-bg: #F5F7FA;
-  --text-color: #495057;
-  --divider-color: #E4E7EB;
-  --link-color: #1976D2;
-  --overlay-bg: #F4F5F7;
-  --cardBg: #ffffff;
-  --card-border: 0 none;
-  --card-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
-}
+

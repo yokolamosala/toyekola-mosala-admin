@@ -145,6 +145,63 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
+                label: 'E-Commerce',
+                icon: 'pi pi-fw pi-wallet',
+                items: [
+                    {
+                        label: 'Product Overview',
+                        icon: 'pi pi-fw pi-image',
+                        routerLink: ['ecommerce/product-overview']
+                    },
+                    {
+                        label: 'Product List',
+                        icon: 'pi pi-fw pi-list',
+                        routerLink: ['ecommerce/product-list']
+                    },
+                    {
+                        label: 'New Product',
+                        icon: 'pi pi-fw pi-plus',
+                        routerLink: ['ecommerce/new-product']
+                    },
+                    {
+                        label: 'Shopping Cart',
+                        icon: 'pi pi-fw pi-shopping-cart',
+                        routerLink: ['ecommerce/shopping-cart']
+                    },
+                    {
+                        label: 'Checkout Form',
+                        icon: 'pi pi-fw pi-check-square',
+                        routerLink: ['ecommerce/checkout-form']
+                    },
+                    {
+                        label: 'Order History',
+                        icon: 'pi pi-fw pi-history',
+                        routerLink: ['ecommerce/order-history']
+                    },
+                    {
+                        label: 'Order Summary',
+                        icon: 'pi pi-fw pi-file',
+                        routerLink: ['ecommerce/order-summary']
+                    }
+                ]
+            },
+            {
+                label: 'User Management',
+                icon: 'pi pi-fw pi-user',
+                items: [
+                    {
+                        label: 'List',
+                        icon: 'pi pi-fw pi-list',
+                        routerLink: ['profile/list']
+                    },
+                    {
+                        label: 'Create',
+                        icon: 'pi pi-fw pi-plus',
+                        routerLink: ['profile/create']
+                    }
+                ]
+            },
+            {
                 label: 'Hierarchy', icon: 'pi pi-align-left',
                 items: [
                     {
