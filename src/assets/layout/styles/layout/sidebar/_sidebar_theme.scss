@@ -1,6 +1,5 @@
 @import './_sidebar_vertical';
 @import './_sidebar_slim';
-@import '../variables_layout';
 
 .layout-sidebar {
     background: transparent;
@@ -8,45 +7,45 @@
     .layout-menu {
         li {
             a {
-                color: $menuitemTextColor;
+                color: var(--v-menuitem-text-color);
 
                 &:hover {
-                    background: $menuitemHoverBg;
+                    background: var(--v-menuitem-hover-bg);
                 }
 
                 &:focus {
-                    box-shadow: $menuitemFocusShadow;
+                    box-shadow: var(--v-menuitem-focus-shadow);
                 }
             }
         }
 
         .layout-root-menuitem {
             .layout-menuitem-root-text {
-                color: $menuitemRootTextColor;
+                color: var(--v-menuitem-mobile-bg);
             }
 
             &.active-menuitem {
-                background: $menuitemSubmenuBg;
-                color: $menuitemTextColor;
+                background: var(--v-menuitem-submenu-bg);
+                color: var(--v-menuitem-text-color);
                 box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
             }
 
             .active-menuitem-routerlink {
-                background: $menuitemActiveBg;
-                color: $menuitemTextActiveColor;
+                background: var(--v-menuitem-active-bg);
+                color: var(--v-menuitem-text-active-color);
                 box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
             }
 
             > ul {
                 > li.active-menuitem {
-                    background: $menuitemSubmenuBg;
-                    color: $menuitemTextColor;
+                    background: var(--v-menuitem-submenu-bg);
+                    color: var(--v-menuitem-text-color);
                     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
                 }
 
                 > li .active-menuitem-routerlink {
-                    background: $menuitemActiveBg;
-                    color: $menuitemTextActiveColor;
+                    background: var(--v-menuitem-active-bg);
+                    color: var(--v-menuitem-text-active-color);
                     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
                 }
             }
@@ -57,8 +56,8 @@
 .layout-tooltip {
     &.p-tooltip {
         .p-tooltip-text {
-            background: $slimSubMenuBg;
-            color: $menuitemTextColor;
+            background: var(--v-slim-submenu-bg);
+            color: var(--v-menuitem-text-color);
         }
 
         &.p-tooltip-right {
@@ -69,9 +68,9 @@
     }
 }
 
-@media screen and (max-width: $tabletBreakpoint + 1) {
+@media screen and (max-width: $breakpoint - 1) {
     .layout-sidebar {
-        background: $bodyBg;
+        background: var(--v-body-bg);
 
         .layout-menu {
             .layout-root-menuitem {
@@ -83,19 +82,19 @@
     }
 }
 
-@media (min-width: $tabletBreakpoint + 1) {
+@media (min-width: $breakpoint) {
     .layout-wrapper {
         &.layout-slim {
             .layout-menu {
                 .layout-root-menuitem {
                     &.active-menuitem {
                         > a {
-                            background: $menuitemActiveBg;
-                            color: $menuitemTextActiveColor;
+                            background: var(--v-menuitem-active-bg);
+                            color: var(--v-menuitem-text-active-color);
                         }
 
                         > ul {
-                            background: $slimSubMenuBg;
+                            background: var(--v-slim-submenu-bg);
 
                             li.active-menuitem {
                                 > a {
@@ -105,15 +104,15 @@
 
                             li .active-menuitem-routerlink {
                                 background: transparent;
-                                color: $menuitemTextColor;
+                                color: var(--v-menuitem-text-color);
                                 font-weight: 700;
 
                                 &:hover {
-                                    background: $menuitemHoverBg;
+                                    background: var(--v-menuitem-hover-bg);
                                 }
 
                                 &:focus {
-                                    box-shadow: $menuitemFocusShadow;
+                                    box-shadow: var(--v-menuitem-focus-shadow);
                                 }
                             }
                         }

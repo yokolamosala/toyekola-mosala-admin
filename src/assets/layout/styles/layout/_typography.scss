@@ -37,7 +37,7 @@ h6 {
 mark {
     background: #FFF8E1;
     padding: .25rem .4rem;
-    border-radius: $borderRadius;
+    border-radius: var(--border-radius);
     font-family: monospace;
 }
 
@@ -48,7 +48,7 @@ blockquote {
 }
 
 hr {
-    border-top: solid $dividerColor;
+    border-top: solid var(--surface-border);
     border-width: 1px 0 0 0;
     margin: 1rem 0; 
 }

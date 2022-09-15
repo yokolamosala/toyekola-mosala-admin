@@ -1,29 +1,30 @@
 html {
     height: 100%;
-    font-size: var(--font-size);
+    font-size: $scale;
 }
 
 body {
     font-family: var(--font-family);
-    font-size: var(--font-size);
     color: var(--text-color);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     padding:0;
     margin:0;
     min-height: 100%;
-    background-image: var(--body-bg);
+    background-image: var(--v-body-bg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
     a {
         text-decoration: none;
-        color: var(--link-color);
     }
 }
 
 .layout-wrapper {
+    background-image: var(--v-body-bg);
+    min-height: 100vh;
+
     .layout-content-wrapper {
         display: flex;
         flex-direction: column;
@@ -39,7 +40,7 @@ body {
         .layout-content {
             padding: 2rem;
             flex: 1 1 auto;
-            background-color: var(--content-bg);
+            background-color: var(--surface-ground);
             border-bottom-left-radius: 30px;
             border-top-left-radius: 30px;
         }

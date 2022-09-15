@@ -26,7 +26,7 @@
             }
 
             i {
-                color: $textColor;
+                color: var(--text-color);
                 width: 2rem;
                 position: absolute;
                 margin-left: 1rem;
@@ -46,7 +46,7 @@
             background: #8BC34A;
             height: 50px;
             margin-right: .25rem;
-            transition: transform $transitionDuration;
+            transition: transform var(--transition-duration);
 
             &:last-child {
                 margin-right: 0;
@@ -117,7 +117,7 @@
             }
         }
 
-        &:nth-child(1) {
+        /*&:nth-child(1) {
             background-image: url("../../layout/images/pages/help/blog1.jpg");
         }
 
@@ -127,7 +127,7 @@
 
         &:nth-child(3) {
             background-image: url("../../layout/images/pages/help/blog3.jpg");
-        }
+        }*/
     }
 }
 

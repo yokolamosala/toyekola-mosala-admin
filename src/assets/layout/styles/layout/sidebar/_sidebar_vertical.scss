@@ -1,8 +1,6 @@
-@import '../variables_layout';
-
 .layout-sidebar {
     display: flex;
-    width: $sidebarWidth;
+    width: 14rem;
     height: calc(100% - 7rem);
     position: fixed;
     left: 0;
@@ -52,7 +50,7 @@
                         border-radius: 7px;
                         outline: 0 none;
                         cursor: pointer;
-                        transition: background-color $transitionDuration, box-shadow $transitionDuration;
+                        transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
 
                         .layout-menuitem-icon {
                             font-size: 1.5rem;
@@ -62,7 +60,7 @@
                         .layout-submenu-toggler {
                             font-size: 75%;
                             margin-left: auto;
-                            transition: transform $transitionDuration;
+                            transition: transform var(--transition-duration);
                         }
 
                         &.rotated-icon {
@@ -89,7 +87,7 @@
 
                 ul {
                     overflow: hidden;
-                    border-radius: $borderRadius;
+                    border-radius: var(--border-radius);
 
                     li {
                         a {

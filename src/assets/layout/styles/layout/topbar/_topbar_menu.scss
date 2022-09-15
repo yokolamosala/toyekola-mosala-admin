@@ -9,7 +9,7 @@
 
                     .layout-topbar-submenu-toggler {
                         margin-left: .5rem;
-                        transition: transform $transitionDuration;
+                        transition: transform var(--transition-duration);
                     }
                 }
 
@@ -34,7 +34,7 @@
                             border-radius: 7px;
                             outline: 0 none;
                             cursor: pointer;
-                            transition: background-color $transitionDuration, box-shadow $transitionDuration;
+                            transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
 
                             .layout-topbar-menuitem-icon {
                                 font-size: 1rem;
@@ -44,7 +44,7 @@
                             .layout-topbar-submenu-toggler {
                                 font-size: 75%;
                                 margin-left: auto;
-                                transition: transform $transitionDuration;
+                                transition: transform var(--transition-duration);
                             }
                         }
                     }

@@ -867,4 +867,6 @@ $imagePreviewActionIconBorderRadius:50% !default;
     --surface-hover:rgba(255,255,255,.03);
     --maskbg: #{$maskBg};
     --focus-ring: #{$focusShadow};
+    color-scheme: dark;
+    --transition-duration: #{$transitionDuration};
 }

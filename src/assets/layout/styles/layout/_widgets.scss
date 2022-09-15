@@ -91,11 +91,11 @@
 
 .widget-people {
     .name {
-        color: $textColor;
+        color: var(--text-color);
     }
 
     .position {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 
     .footer {
@@ -108,7 +108,7 @@
 
 .widget-profile-completion {
     .label {
-        color: $textColor;
+        color: var(--text-color);
     }
 
     .action {
@@ -124,7 +124,7 @@
             border-spacing: 0;
 
             td {
-                border: 1px solid $dividerColor;
+                border: 1px solid var(--surface-border);
                 padding: 0.5rem;
 
                 &:first-child {
@@ -167,10 +167,10 @@
     }
 
     .clock {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
 
         span {
-            color: $textColor;
+            color: var(--text-color);
         }
     }
 }
@@ -186,7 +186,7 @@
         .p-tabview-nav {
             li {
                 .p-tabview-nav-link {
-                    color: $textColor;
+                    color: var(--text-color);
                     background: transparent;
 
                     &:not(.p-disabled):focus {
@@ -198,8 +198,8 @@
                 &.p-highlight {
                     .p-tabview-nav-link {
                         background: transparent;
-                        color: $textColor;
-                        border-color: $textColor;
+                        color: var(--text-color);
+                        border-color: var(--text-color);
                     }
                 }
             }
@@ -252,7 +252,7 @@
 
 .widget-timeline {
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 
     .timeline-icon {
@@ -315,7 +315,7 @@
 //Dashboard Analytics
 .widget-header {
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 
     .header-left-section {
@@ -329,7 +329,7 @@
             right: 0;
             padding: 4px;
             border-radius: 50%;
-            background: $contentBg;
+            background: var(--surface-ground);
 
             .dot {
                 width: 8px;
@@ -342,19 +342,19 @@
 
     .header-right-section {
         .p-dropdown {
-            border-color: $dividerColor;
+            border-color: var(--surface-border);
         }
 
         .p-calendar {
             input {
-                border-color: $dividerColor;
+                border-color: var(--surface-border);
                 border-right-color: transparent;
             }
 
             button:not(.p-datepicker-month):not(.p-datepicker-year):not(.p-link) {
-                background: $cardBg;
-                color: $textSecondaryColor;
-                border-color: $dividerColor;
+                background: var(--surface-card);
+                color: var(--text-color-secondary);
+                border-color: var(--surface-border);
                 border-left-color: transparent;
             }
         }
@@ -363,7 +363,7 @@
 
 .widget-tabbedchart {
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 
     .tab-content {
@@ -409,7 +409,7 @@
     .tabs {
         background: rgba(228, 231, 235, 0.2);
         border-radius: 6px;
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
 
         >div:hover {
             background: rgba(228, 231, 235, .3);
@@ -419,14 +419,14 @@
         .active-tab {
             background: rgba(228, 231, 235, .3);
             border-radius: 3px;
-            color: $textColor;
+            color: var(--text-color);
         }
     }
 }
 
 .widget-boxes {
     .border-solid {
-        border-color: $dividerColor;
+        border-color: var(--surface-border);
     }
 
     .p-progressbar {
@@ -440,17 +440,17 @@
 
 .widget-chat {
     .message-nth {
-        background: $overlayBg;
+        background: var(--surface-overlay);
         border-radius: 3px 14px 14px 14px;
     }
 
     .message-2nth {
-        background: $overlayBg;
+        background: var(--surface-overlay);
         border-radius: 14px 3px 14px 14px;;
     }
 
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 }
 
@@ -465,17 +465,17 @@
     }
 
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 }
 
 .widget-list-type1 {
     .border-bottom-1 {
-        border-color: $dividerColor;
+        border-color: var(--surface-border);
     }
 
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 }
 
@@ -578,7 +578,7 @@
     }
 
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 }
 
@@ -591,24 +591,24 @@
     }
 
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 }
 
 .widget-teamstatus {
 
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 
     .new-button {
         width: 4.571rem;
         height: 4.571rem;
-        background: $dividerColor;
+        background: var(--surface-border);
 
         i {
             font-size: 1.5rem;
-            color: $textColor;
+            color: var(--text-color);
         }
     }
     .member {
@@ -616,12 +616,12 @@
         height: 4.571rem;
         background: transparent;
         border-width: .4rem;
-        border-color: $dividerColor;
+        border-color: var(--surface-border);
         border-right-color: transparent;
 
         i {
             font-size: 1.5rem;
-            color: $textColor;
+            color: var(--text-color);
         }
     }
 
@@ -630,13 +630,13 @@
         right: -12px;
 
         i {
-            color: $textColor;
-            background: $dividerColor;
+            color: var(--text-color);
+            background: var(--surface-border);
             width: 24px;
             height: 24px;
             padding: 2.5px;
             border-radius: 50%;
-            border: 3px solid $cardBg;
+            border: 3px solid var(--surface-card);
         }
     }
 }
@@ -648,12 +648,12 @@
 
     .card-content {
         .border-solid {
-            border-color: $dividerColor;
+            border-color: var(--surface-border);
         }
     }
 
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 }
 .widget-info-neutral {
@@ -661,12 +661,12 @@
 
     .card-content {
         .border-solid {
-            border-color: $dividerColor;
+            border-color: var(--surface-border);
         }
     }
 
     .subtext {
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 }
 

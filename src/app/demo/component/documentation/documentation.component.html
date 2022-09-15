@@ -305,36 +305,36 @@ sass --watch src/:src/ --no-source-map
                 relative path of the sass folder in your application.</p>
 
 <app-code ngPreserveWhitespaces ngNonBindable lang="css">
-$bodyBg: linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
+var(--v-body-bg): linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
 
 //menu
-$menuButtonMobileBg: linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
+var(--v-menubutton-mobile-bg): linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
 
-$menuitemRootTextColor: #6c757d;
-$menuitemTextColor: #495057;
-$menuitemHoverBg: #e9ecef;
-$menuitemSubmenuBg: #e9ecef;
-$menuitemActiveBg: #D9E2EC;
-$menuitemTextActiveColor: #3E4C59;
-$menuitemFocusShadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
+var(--v-menuitem-mobile-bg): #6c757d;
+var(--v-menuitem-text-color): #495057;
+--v-menuitem-hover-bg: #e9ecef;
+var(--v-menuitem-submenu-bg): #e9ecef;
+var(--v-menuitem-active-bg): #D9E2EC;
+$--v-menuitem-text-active-color: #3E4C59;
+$--v-menuitem-focus-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
 
-$slimSubMenuBg: linear-gradient(0deg, rgba(255,255,255, 0.5), rgba(255,255,255, 0.5)), linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
+var(--v-slim-submenu-bg): linear-gradient(0deg, rgba(255,255,255, 0.5), rgba(255,255,255, 0.5)), linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
 
 //topbar
-$topbarMenuTextColor: rgba(123, 135, 148, 1);
-$topbarMenuTextActiveColor: rgba(62, 76, 89, 1);
-$topbarTextColor: rgba(62, 76, 89, 1);
-$topbarSecondaryTextColor: #7B8794;
+var(--v-topbar-menu-text-color): rgba(123, 135, 148, 1);
+var(--v-topbar-menu-text-active-color): rgba(62, 76, 89, 1);
+var(--v-topbar-text-color): rgba(62, 76, 89, 1);
+--v-topbar-secondary-text-color: #7B8794;
 $topbarArrowButtonBg: rgba(62, 76, 89, 1);
 $topbarArrowButtonTextColor: #FFFFFF;
-$topbarItemsBg: rgba(220, 230, 237, 0.1);
-$topbarItemsBorder: 2px solid #829AB1;
-$topbarAvatarBg: rgba(188, 204, 220, 1);
-$topbarAvatarTextColor: #3E4C59;
-$topbarIconHoverBg: #e9ecef !default;
+--v-topbar-items-bg: rgba(220, 230, 237, 0.1);
+--v-topbar-items-border: 2px solid #829AB1;
+var(--v-topbar-avatar-bg): rgba(188, 204, 220, 1);
+$--v-topbar-avatar-text-color: #3E4C59;
+var(--v-topbar-icon-hover-bg): #e9ecef !default;
 
 //footer
-$footerTextColor: rgba(62, 76, 89, 1) !default;
+var(--v-footer-text-color): rgba(62, 76, 89, 1) !default;
 
 @import '../../sass/layout/_layout_light';
 </app-code>
@@ -347,17 +347,17 @@ $footerTextColor: rgba(62, 76, 89, 1) !default;
 //general
 $fontSize:14px !default;
 $fontFamily:'Lato', Helvetica, sans-serif !default;
-$transitionDuration:.2s !default;
-$animationDuration:.4s !default;
-$animationTimingFunction:cubic-bezier(.05,.74,.2,.99) !default;
+var(--transition-duration):.2s !default;
+.4s:.4s !default;
+cubic-bezier(.05,.74,.2,.99):cubic-bezier(.05,.74,.2,.99) !default;
 $letterSpacing:normal !default;
-$borderRadius:4px !default;
-$tabletBreakpoint:991px !default;
+var(--border-radius):4px !default;
+$breakpoint:991px !default;
 $phoneBreakpoint:576px !default;
 
 //sidebar
-$sidebarWidth: 14rem !default;
-$slimSidebarWidth: 7rem !default;
+14rem: 14rem !default;
+7rem: 7rem !default;
 </app-code>
 
 <h5>sass/variables/theme/_theme_light.scss</h5>
@@ -393,13 +393,13 @@ $shade900:#212529 !default;    //unused
 $fontFamily:Lato, Helvetica, sans-serif !default;
 $fontSize:1rem !default;
 $fontWeight:normal !default;
-$textColor:$shade700 !default;
-$textSecondaryColor:$shade600 !default;
-$borderRadius:6px !default;
-$transitionDuration:.2s !default;
-$formElementTransition:background-color $transitionDuration, color $transitionDuration, border-color $transitionDuration, box-shadow $transitionDuration !default;
-$actionIconTransition:background-color $transitionDuration, color $transitionDuration, box-shadow $transitionDuration !default;
-$listItemTransition:box-shadow $transitionDuration !default;
+var(--text-color):$shade700 !default;
+var(--text-color-secondary):$shade600 !default;
+var(--border-radius):6px !default;
+var(--transition-duration):.2s !default;
+$formElementTransition:background-color var(--transition-duration), color var(--transition-duration), border-color var(--transition-duration), box-shadow var(--transition-duration) !default;
+$actionIconTransition:background-color var(--transition-duration), color var(--transition-duration), box-shadow var(--transition-duration) !default;
+$listItemTransition:box-shadow var(--transition-duration) !default;
 $primeIconFontSize:1rem !default;
 $divider:1px solid $shade300 !default;
 $inlineSpacing:.5rem !default;
@@ -501,7 +501,7 @@ $roundedButtonBorderRadius:2rem !default;
 $textButtonHoverBgOpacity:.04 !default;
 $textButtonActiveBgOpacity:.16 !default;
 $outlinedButtonBorder:1px solid !default;
-$plainButtonTextColor:$textSecondaryColor !default;
+$plainButtonTextColor:var(--text-color-secondary) !default;
 $plainButtonHoverBgColor:$shade200 !default;
 $plainButtonActiveBgColor:$shade300 !default;
 
@@ -723,7 +723,7 @@ $panelContentPadding:1.25rem !default;
 
 $panelFooterBorder:1px solid $shade300 !default;
 $panelFooterBg:$shade000 !default;
-$panelFooterTextColor:$shade700 !default;
+$panel--v-footer-text-color:$shade700 !default;
 $panelFooterPadding:0.75rem 1.25rem !default;
 
 //accordion
@@ -801,8 +801,8 @@ $cardShadow:0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3p
 $editorToolbarBg:$panelHeaderBg !default;
 $editorToolbarBorder:$panelHeaderBorder !default;
 $editorToolbarPadding:$panelHeaderPadding !default;
-$editorToolbarIconColor:$textSecondaryColor !default;
-$editorToolbarIconHoverColor:$textColor !default;
+$editorToolbarIconColor:var(--text-color-secondary) !default;
+$editorToolbarIconHoverColor:var(--text-color) !default;
 $editorIconActiveColor:$primaryColor !default;
 $editorContentBorder:$panelContentBorder !default;
 $editorContentBg:$panelContentBg !default;
@@ -869,7 +869,7 @@ $tableResizerHelperBg:$primaryColor !default;
 $tableFooterBorder:1px solid $shade300 !default;
 $tableFooterBorderWidth:0 0 1px 0 !default;
 $tableFooterBg:$shade100 !default;
-$tableFooterTextColor:$shade600 !default;
+$table--v-footer-text-color:$shade600 !default;
 $tableFooterFontWeight:700 !default;
 $tableFooterPadding:1rem 1rem !default;
 
@@ -1006,14 +1006,14 @@ $menuBorder:1px solid $shade300 !default;
 $menuTextColor:$shade700 !default;
 $menuitemPadding:.75rem 1.25rem !default;
 $menuitemBorderRadius:0 !default;
-$menuitemTextColor:$shade700 !default;
+var(--v-menuitem-text-color):$shade700 !default;
 $menuitemIconColor:$shade600 !default;
 $menuitemTextHoverColor:$shade700 !default;
 $menuitemIconHoverColor:$shade600 !default;
-$menuitemHoverBg:$shade200 !default;
-$menuitemTextActiveColor:$highlightTextColor !default;
+--v-menuitem-hover-bg:$shade200 !default;
+$--v-menuitem-text-active-color:$highlightTextColor !default;
 $menuitemIconActiveColor:$highlightTextColor !default;
-$menuitemActiveBg:$highlightBg !default;
+var(--v-menuitem-active-bg):$highlightBg !default;
 $menuitemSubmenuIconFontSize:.875rem !default;
 $submenuHeaderMargin:0 !default;
 $submenuHeaderPadding:.75rem 1.25rem !default;
@@ -1031,26 +1031,26 @@ $menuSeparatorMargin:.25rem 0 !default;
 $breadcrumbPadding:1rem !default;
 $breadcrumbBg:$menuBg !default;
 $breadcrumbBorder:$menuBorder !default;
-$breadcrumbItemTextColor:$menuitemTextColor !default;
+$breadcrumbItemTextColor:var(--v-menuitem-text-color) !default;
 $breadcrumbItemIconColor:$menuitemIconColor !default;
-$breadcrumbLastItemTextColor:$menuitemTextColor !default;
+$breadcrumbLastItemTextColor:var(--v-menuitem-text-color) !default;
 $breadcrumbLastItemIconColor:$menuitemIconColor !default;
-$breadcrumbSeparatorColor:$menuitemTextColor !default;
+$breadcrumbSeparatorColor:var(--v-menuitem-text-color) !default;
 
 $horizontalMenuPadding:.5rem !default;
 $horizontalMenuBg:$shade100 !default;
 $horizontalMenuBorder:$menuBorder !default;
 $horizontalMenuTextColor:$menuTextColor !default;
 $horizontalMenuRootMenuitemPadding:$menuitemPadding !default;
-$horizontalMenuRootMenuitemBorderRadius:$borderRadius !default;
-$horizontalMenuRootMenuitemTextColor:$menuitemTextColor !default;
+$horizontalMenuRootMenuitemBorderRadius:var(--border-radius) !default;
+$horizontalMenuRootMenuitemTextColor:var(--v-menuitem-text-color) !default;
 $horizontalMenuRootMenuitemIconColor:$menuitemIconColor !default;
 $horizontalMenuRootMenuitemTextHoverColor:$menuitemTextHoverColor !default;
 $horizontalMenuRootMenuitemIconHoverColor:$menuitemIconHoverColor !default;
-$horizontalMenuRootMenuitemHoverBg:$menuitemHoverBg !default;
-$horizontalMenuRootMenuitemTextActiveColor:$menuitemTextActiveColor !default;
+$horizontalMenuRootMenuitemHoverBg:--v-menuitem-hover-bg !default;
+$horizontalMenuRoot--v-menuitem-text-active-color:$--v-menuitem-text-active-color !default;
 $horizontalMenuRootMenuitemIconActiveColor:$menuitemIconActiveColor !default;
-$horizontalMenuRootMenuitemActiveBg:$menuitemActiveBg !default;
+$horizontalMenuRootMenuitemActiveBg:var(--v-menuitem-active-bg) !default;
 
 //badge and tag
 $badgeBg:$primaryColor !default;
@@ -1090,7 +1090,7 @@ $galleriaItemNavigatorHoverBg:rgba(255,255,255,0.1) !default;
 $galleriaItemNavigatorHoverColor:$shade100 !default;
 $galleriaItemNavigatorWidth:4rem !default;
 $galleriaItemNavigatorHeight:4rem !default;
-$galleriaItemNavigatorBorderRadius:$borderRadius !default;
+$galleriaItemNavigatorBorderRadius:var(--border-radius) !default;
 
 $galleriaCaptionBg:rgba(0,0,0,.5) !default;
 $galleriaCaptionTextColor:$shade100 !default;
@@ -1122,15 +1122,15 @@ $dividerHorizontalPadding:0 1.25rem !default;
 $dividerVerticalMargin:0 1.25rem !default;
 $dividerVerticalPadding:1.25rem 0 !default;
 $dividerSize:1px !default;
-$dividerColor:$shade300 !default;
+var(--surface-border):$shade300 !default;
 
 //avatar
 $avatarBg:$shade300 !default;
-$avatarTextColor:$textColor !default;
+$avatarTextColor:var(--text-color) !default;
 
 //chip
 $chipBg:$shade300 !default;
-$chipTextColor:$textColor !default;
+$chipTextColor:var(--text-color) !default;
 $chipBorderRadius: 16px !default;
 
 //scrollTop
@@ -1222,7 +1222,7 @@ $imagePreviewActionIconBorderRadius:50% !default;
 --gray-900: #161c22;
 --content-padding:#&#123;$panelContentPadding&#125;;
 --inline-spacing:#&#123;$inlineSpacing&#125;;
---border-radius:#&#123;$borderRadius&#125;;
+--border-radius:#&#123;var(--border-radius)&#125;;
 --surface-ground:#eff3f8;
 --surface-section:#ffffff;
 --surface-card:#ffffff;

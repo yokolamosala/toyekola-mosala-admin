@@ -4,11 +4,11 @@
     background-color: transparent;
 
     .footer-left {
-        color: $footerTextColor;
+        color: var(--v-footer-text-color);
     }
 
     .footer-right {
-        color: $footerTextColor;
+        color: var(--v-footer-text-color);
     }
 }
 

@@ -6,7 +6,7 @@
     top: 0;
     padding: 1rem;
     overflow: auto;
-    background: $contentBg;
+    background: var(--surface-ground);
     z-index: 1001;
     border-left: 0 none;
     transform: translateX(100%);
@@ -27,7 +27,7 @@
 
     p {
         line-height: 1.5rem;
-        color: $textSecondaryColor;
+        color: var(--text-color-secondary);
     }
 
     .layout-themes {
@@ -42,12 +42,12 @@
         a {
             width: 2rem;
             height: 2rem;
-            border-radius: $borderRadius;
+            border-radius: var(--border-radius);
             display: block;
             position: relative;
             @include flex-align-center();
             @include flex-justify-center();
-            transition: transform $transitionDuration;
+            transition: transform var(--transition-duration);
             box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
 
             i {
@@ -77,9 +77,9 @@
     top: 50%;
     right: 0;
     margin-top: -1.5rem;
-    border-top-left-radius: $borderRadius;
-    border-bottom-left-radius: $borderRadius;
-    transition: background-color $transitionDuration;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    transition: background-color var(--transition-duration);
     overflow: hidden;
     cursor: pointer;
     z-index: 999;

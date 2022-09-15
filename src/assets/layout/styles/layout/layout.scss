@@ -1,8 +1,10 @@
+$scale:14px !default;
 $breakpoint:992px !default;
 
+@import './theme/_white';
 @import './_fonts';
 @import './_mixins';
-@import './utils';
+@import './_utils';
 @import './_dashboard';
 @import './_login';
 @import './_exception';
@@ -17,4 +19,3 @@ $breakpoint:992px !default;
 @import './_invoice';
 @import './_typography';
 @import './_widgets';
-@import './_variables_layout';

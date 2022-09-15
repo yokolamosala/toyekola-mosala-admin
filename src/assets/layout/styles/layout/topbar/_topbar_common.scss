@@ -112,12 +112,12 @@
     .layout-topbar-right {
         display: flex;
         align-items: center;
-        justify-content: end;
+        justify-content: flex-end;
 
         .layout-topbar-actions {
             display: flex;
             align-items: center;
-            justify-content: end;
+            justify-content: flex-end;
             flex-grow: 1;
             list-style-type: none;
             margin: 0;
@@ -141,7 +141,7 @@
                     @include border-radius-bottom(2px);
                     min-width: 250px;
                     border-radius: 8px;
-                    animation-duration: $transitionDuration;
+                    animation-duration: var(--transition-duration);
                     box-shadow: 0 2px 8px 0 rgb(25 26 28 / 12%);
                 }
 
@@ -219,7 +219,7 @@
                         i {
                             font-size: 1.5rem;
                             padding: 1rem;
-                            transition: transform $transitionDuration;
+                            transition: transform var(--transition-duration);
                         }
                     }
 

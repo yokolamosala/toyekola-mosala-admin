@@ -1,8 +1,8 @@
-@media screen and (min-width: $tabletBreakpoint + 1) {
+@media screen and (min-width: $breakpoint) {
     .layout-wrapper {
         &.layout-static {
             .layout-content-wrapper {
-                margin-left: $sidebarWidth;
+                margin-left: 14rem;
             }
         }
 
@@ -27,7 +27,7 @@
     }
 }
 
-@media screen and (max-width: $tabletBreakpoint) {
+@media screen and (max-width: $breakpoint - 1) {
     .blocked-scroll {
         overflow: hidden;
     }

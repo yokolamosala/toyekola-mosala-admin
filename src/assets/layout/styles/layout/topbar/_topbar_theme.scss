@@ -7,40 +7,40 @@
     .layout-topbar-left {
         .app-name {
             span {
-                color: $topbarTextColor;
+                color: var(--v-topbar-text-color);
             }
         }
 
         .menu-button {
-            color: $topbarTextColor;
+            color: var(--v-topbar-text-color);
 
             .menu-button-icon {
-                background-color: $topbarTextColor;
+                background-color: var(--v-topbar-text-color);
 
                 &:before, &:after {
-                    background-color: $topbarTextColor;
+                    background-color: var(--v-topbar-text-color);
                 }
             }
 
             &:hover {
-                background: $topbarIconHoverBg;
+                background: var(--v-topbar-icon-hover-bg);
             }
         }
 
         .layout-topbar-main-menu {
             li {
                 a {
-                    color: $topbarMenuTextColor;
+                    color: var(--v-topbar-menu-text-color);
 
                     .active-bottom {
                         background: transparent;
                     }
 
                     &.topbar-active-menuitem-routerlink {
-                        color: $topbarMenuTextActiveColor;
+                        color: var(--v-topbar-menu-text-active-color);
 
                         .active-bottom {
-                            background: $topbarMenuTextActiveColor;
+                            background: var(--v-topbar-menu-text-active-color);
                         }
                     }
                 }
@@ -49,21 +49,21 @@
             .layout-topbar-menu {
                 li {
                     a {
-                        color: $menuitemTextColor;
+                        color: var(--v-menuitem-text-color);
 
                         &:hover {
-                            background: $menuitemHoverBg;
+                            background: var(--v-menuitem-hover-bg);
                         }
 
                         &:focus {
-                            box-shadow: $menuitemFocusShadow;
+                            box-shadow: var(--v-menuitem-focus-shadow);
                         }
                     }
                 }
 
                 &.topbar-active-menuitem {
                     > ul {
-                        background: $slimSubMenuBg;
+                        background: var(--v-slim-submenu-bg);
 
                         li.topbar-active-menuitem {
                             > a {
@@ -72,8 +72,8 @@
                         }
 
                         > li.topbar-active-menuitem {
-                            background: $menuitemSubmenuBg;
-                            color: $menuitemTextColor;
+                            background: var(--v-menuitem-submenu-bg);
+                            color: var(--v-menuitem-text-color);
                             box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
                         }
                     }
@@ -86,73 +86,73 @@
         .layout-topbar-actions {
             li {
                 > ul {
-                    background: $contentBg;
+                    background: var(--surface-ground);
                 }
 
                 &.search-item {
                     a {
-                        background: $topbarItemsBg;
-                        border: $topbarItemsBorder;
+                        background: var(--v-topbar-items-bg);
+                        border: var(--v-topbar-items-border);
 
                         i {
-                            color: $topbarSecondaryTextColor;
+                            color: var(--v-topbar-secondary-text-color);
                         }
                     }
 
                     .search-input-wrapper {
                         .p-inputtext {
-                            background: $topbarItemsBg;
-                            color: $topbarMenuTextColor;
-                            border: $topbarItemsBorder;
+                            background: var(--v-topbar-items-bg);
+                            color: var(--v-topbar-menu-text-color);
+                            border: var(--v-topbar-items-border);
 
                             &::placeholder {
-                                color: $topbarSecondaryTextColor;
+                                color: var(--v-topbar-secondary-text-color);
                             }
                         }
 
                         i {
-                            color: $topbarSecondaryTextColor;
+                            color: var(--v-topbar-secondary-text-color);
                         }
                     }
                 }
 
                 &.profile-item {
-                    background: $topbarItemsBg;
-                    border: $topbarItemsBorder;
+                    background: var(--v-topbar-items-bg);
+                    border: var(--v-topbar-items-border);
 
                     .profile-container {
                         a {
-                            background: $topbarAvatarBg;
-                            color: $topbarAvatarTextColor;
+                            background: var(--v-topbar-avatar-bg);
+                            color: var(--v-topbar-avatar-text-color);
                         }
 
                         .name-container {
                             span {
                                 &.name {
-                                    color: $topbarTextColor;
+                                    color: var(--v-topbar-text-color);
                                 }
                                 &.job {
-                                    color: $topbarSecondaryTextColor;
+                                    color: var(--v-topbar-secondary-text-color);
                                 }
                             }
                         }
 
                         i {
-                            color: $topbarTextColor;
+                            color: var(--v-topbar-text-color);
                         }
                     }
 
                     .profile-menu {
                         li {
                             a {
-                                color: $textColor;
+                                color: var(--text-color);
 
                                 &:hover {
-                                    background: $menuitemHoverBg;
+                                    background: var(--v-menuitem-hover-bg);
                                 }
 
                                 &:focus {
-                                    box-shadow: $menuitemFocusShadow;
+                                    box-shadow: var(--v-menuitem-focus-shadow);
                                 }
                             }
                         }
@@ -164,12 +164,12 @@
     }
 }
 
-@media screen and (max-width: $tabletBreakpoint) {
+@media screen and (max-width: $breakpoint - 1) {
     .layout-wrapper {
         .layout-topbar {
             .layout-topbar-left {
                 .menu-button {
-                    background: $menuButtonMobileBg;
+                    background: var(--v-menubutton-mobile-bg);
                     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
                     border-radius: 30px 0px 0px 0px;
                 }
@@ -181,15 +181,15 @@
                         &.search-item {
                             .search-input-wrapper {
                                 .p-inputtext {
-                                    color: $textColor;
+                                    color: var(--text-color);
 
                                     &::placeholder {
-                                        color: $textColor;
+                                        color: var(--text-color);
                                     }
                                 }
 
                                 i {
-                                    color: $textColor;
+                                    color: var(--text-color);
                                 }
                             }
                         }
