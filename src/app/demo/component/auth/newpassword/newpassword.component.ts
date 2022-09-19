@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
-	templateUrl: './login.component.html'
+	templateUrl: './newpassword.component.html'
 })
-export class LoginComponent {
+export class NewPasswordComponent {
 
 	rememberMe: boolean = false;
 

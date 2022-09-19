@@ -19,7 +19,7 @@ import { AppLayoutComponent } from './layout/app.layout.component';
                     { path: 'apps', loadChildren: () => import('./demo/component/apps/apps.module').then(m => m.AppsModule) }
                 ]
             },
-            { path: 'auth', loadChildren: () => import('./demo/component/auth/auth.module').then(m => m.AuthModule) },
+            { path: 'auth', data: { breadcrumb: 'Auth' }, loadChildren: () => import('./demo/component/auth/auth.module').then(m => m.AuthModule) },
             { path: 'landing', loadChildren: () => import('./demo/component/landing/landing.module').then(m => m.LandingModule) },
             { path: 'notfound', loadChildren: () => import('./demo/component/notfound/notfound.module').then(m => m.NotfoundModule) },
             {path: '**', redirectTo: '/notfound'},
