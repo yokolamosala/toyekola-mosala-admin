@@ -1,6 +1,7 @@
 <button class="layout-config-button p-link" type="button" (click)="onConfigButtonClick()">
     <i class="pi pi-cog"></i>
 </button>
+
 <p-sidebar [(visible)]="visible" position="right" [transitionOptions]="'.3s cubic-bezier(0, 0, 0.2, 1)'" styleClass="layout-config-sidebar w-18rem">
     <h5>Menu Type</h5>
     <div class="field-radiobutton">
@@ -15,11 +16,11 @@
 
     <h5>Layout</h5>
     <div class="field-radiobutton">
-        <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="scheme1" (onClick)="changeColorScheme('light')"></p-radioButton>
+        <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="scheme1"></p-radioButton>
         <label for="scheme1">Light</label>
     </div>
     <div class="field-radiobutton">
-        <p-radioButton name="colorScheme" value="dark" [(ngModel)]="colorScheme" inputId="scheme2" (onClick)="changeColorScheme('dark')"></p-radioButton>
+        <p-radioButton name="colorScheme" value="dark" [(ngModel)]="colorScheme" inputId="scheme2"></p-radioButton>
         <label for="scheme2">Dark</label>
     </div>
 
@@ -49,9 +50,9 @@
     <p-inputSwitch [(ngModel)]="ripple"></p-inputSwitch>
 
     <h5>Themes</h5>
-    <div class="layout-themes">
+    <div class="flex flex-wrap gap-3">
         <div *ngFor="let t of themes">
-            <a style="cursor: pointer" (click)="changeTheme(t.name)" [ngStyle]="{'background-color': colorScheme === 'light' ? t.color1 :t.color2}">
+            <a style="cursor: pointer" (click)="changeComponentTheme(t.name)" class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-round" [ngStyle]="{'background-color': colorScheme === 'light' ? t.color1 :t.color2}">
                 <i class="pi pi-check" *ngIf="theme === t.name"></i>
             </a>
         </div>

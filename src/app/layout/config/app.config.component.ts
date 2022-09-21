@@ -56,20 +56,47 @@ export class AppConfigComponent implements OnInit {
         this.replaceLink(themeLink, href);
     }
 
-    changeColorScheme(scheme) {
-        this.layoutService.config.colorScheme = scheme;
-        this.layoutService.config.layoutColor = scheme === 'dark' ? scheme : this.tempLayoutColor;
+    changeColorScheme(colorScheme: string) {
+        const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
+        const themeLinkHref = themeLink.getAttribute('href');
+        const currentColorScheme = 'theme-' + this.layoutService.config.colorScheme;
+        const newColorScheme = 'theme-' + colorScheme;
+        const newHref = themeLinkHref!.replace(currentColorScheme, newColorScheme);
 
-        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
-        const layoutHref = 'assets/layout/css/layout-' + (scheme === 'dark' ? scheme : this.tempLayoutColor) + '.css';
-        this.replaceLink(layoutLink, layoutHref);
-
-        const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
-        const themeHref = 'assets/theme/' + this.layoutService.config.theme + '/theme-' + scheme + '.css';
-        this.replaceLink(themeLink, themeHref, this.appLayout['refreshChart']);
+        this.replaceThemeLink(newHref, 'theme-link', () => {
+            this.layoutService.config.colorScheme = colorScheme;
+            this.layoutService.onConfigUpdate();
+        });
     }
 
+    changeComponentTheme(theme: string) {
+        const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
+        const newHref = themeLink.getAttribute('href')!.replace(this.layoutService.config.theme, theme);
 
+
+        this.replaceThemeLink(newHref, 'theme-link', () => {
+            this.layoutService.config.theme = theme;
+            this.layoutService.onConfigUpdate();
+        });
+    }
+
+    replaceThemeLink(href: string, targetId: string, onComplete?: Function) {
+        const id = targetId;
+        const targetLink = <HTMLLinkElement>document.getElementById(id);
+        const cloneLinkElement = <HTMLLinkElement>targetLink.cloneNode(true);
+
+        cloneLinkElement.setAttribute('href', href);
+        cloneLinkElement.setAttribute('id', id + '-clone');
+
+        targetLink.parentNode!.insertBefore(cloneLinkElement, targetLink.nextSibling);
+
+        cloneLinkElement.addEventListener('load', () => {
+            targetLink.remove();
+            cloneLinkElement.setAttribute('id', id);
+            onComplete && onComplete();
+        });
+    }
+    
     changeLayoutColor(name) {
         this.tempLayoutColor = name;
         this.layoutService.config.layoutColor = name;
@@ -123,11 +150,11 @@ export class AppConfigComponent implements OnInit {
     }
 
     get colorScheme(): string {
-        return this.layoutService.config.colorScheme
+        return this.layoutService.config.colorScheme;
     }
 
     set colorScheme(_val: string) {
-        this.layoutService.config.colorScheme = _val;
+        this.changeColorScheme(_val);
     }
 
     get visible(): boolean {
@@ -163,31 +190,6 @@ export class AppConfigComponent implements OnInit {
 
     set ripple(_val: boolean) {
         this.layoutService.config.ripple = _val;
-    }
-
-    get theme(): string {
-        return this.layoutService.config.theme;
-    }
-
-    set theme(_val: string) {
-        this.layoutService.config.theme = _val;
-    }
-
-    replaceThemeLink(href: string, onComplete: Function) {
-        const id = 'theme-css';
-        const themeLink = <HTMLLinkElement>document.getElementById('theme-css');
-        const cloneLinkElement = <HTMLLinkElement>themeLink.cloneNode(true);
-
-        cloneLinkElement.setAttribute('href', href);
-        cloneLinkElement.setAttribute('id', id + '-clone');
-
-        themeLink.parentNode!.insertBefore(cloneLinkElement, themeLink.nextSibling);
-
-        cloneLinkElement.addEventListener('load', () => {
-            themeLink.remove();
-            cloneLinkElement.setAttribute('id', id);
-            onComplete();
-        });
     }
 
 }
