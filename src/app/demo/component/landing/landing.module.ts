@@ -5,10 +5,7 @@ import { LandingComponent } from './landing.component';
 import { ButtonModule } from 'primeng/button';
 import { RouterModule } from '@angular/router';
 import { StyleClassModule } from 'primeng/styleclass';
-
-import { InputTextModule } from 'primeng/inputtext';
-import { InputTextareaModule } from 'primeng/inputtextarea';
-import { AppConfigModule } from 'src/app/layout/config/config.module';
+import { AnimateEnter } from './animateenter.directive';
 
 @NgModule({
     imports: [
@@ -17,10 +14,9 @@ import { AppConfigModule } from 'src/app/layout/config/config.module';
         ButtonModule,
         RouterModule,
         StyleClassModule,
-        InputTextModule,
-        InputTextareaModule,
-        AppConfigModule,
+
+
     ],
-    declarations: [LandingComponent]
+    declarations: [LandingComponent, AnimateEnter]
 })
 export class LandingModule { }

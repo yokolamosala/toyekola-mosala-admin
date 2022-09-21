@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { LayoutService } from 'src/app/layout/service/app.layout.service';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+    templateUrl: './landing.component.html',
+    styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnDestroy {
 
-  constructor() { }
+    subscription: Subscription;
 
-  ngOnInit() {
-  }
+    darkMode: boolean = false;
 
+    constructor(public router: Router, private layoutService: LayoutService) {
+        this.subscription = this.layoutService.configUpdate$.subscribe(config => {
+            this.darkMode = config.colorScheme === 'dark' || config.colorScheme === 'dim' ? true : false;
+        });
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
 }
