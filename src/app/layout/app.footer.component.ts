@@ -10,9 +10,5 @@ export class AppFooterComponent {
 
     get layoutColor(): string {
         return this.layoutService.config.layoutColor;
-    }/*
-
-    set layoutColor(_val) {
-        this.layoutService.config.layoutColor = _val;
-    }*/
+    }
 }

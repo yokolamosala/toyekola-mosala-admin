@@ -19,6 +19,9 @@ import { AppConfigModule } from './config/config.module';
 
 import {AppTopbarMenuComponent} from './app.topbarmenu.component';
 import {AppLayoutComponent} from './app.layout.component';
+import { StyleClassModule } from 'primeng/styleclass';
+import { DropdownModule } from 'primeng/dropdown';
+import { MenuModule } from 'primeng/menu';
 
 @NgModule({
     declarations: [
@@ -35,7 +38,12 @@ import {AppLayoutComponent} from './app.layout.component';
         HttpClientModule,
         BrowserAnimationsModule,
         InputTextModule,
+        InputSwitchModule,
+        MenuModule,
+        RouterModule,
+        DropdownModule,
         SidebarModule,
+        StyleClassModule,
         BadgeModule,
         RadioButtonModule,
         InputSwitchModule,
