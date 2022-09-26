@@ -1,22 +1,45 @@
-<div class="px-5 min-h-screen flex justify-content-center align-items-center">
-    <div class="border-1 surface-border surface-card border-round py-7 px-4 md:px-7">
-        <div class="mb-4">
-            <div class="text-900 text-xl font-bold mb-2">VERONA</div>
-            <span class="mb-4 line-height-3">Welcome to the <span class="font-bold">Verona Community</span>,<br/> where the magic happens, sign in to continue</span>
-        </div>
-        <div class="flex flex-column">
-            <span class="p-input-icon-left w-full mb-4">
-                <i class="pi pi-user"></i>
-                <input type="text" pInputText class="w-full md:w-25rem" placeholder="Email Address">
-            </span>
-            <span class="p-input-icon-left w-full mb-4">
-                <i class="pi pi-key"></i>
-                <input type="text" pInputText class="w-full md:w-25rem" placeholder="Password">
-            </span>
-            <div class="flex flex-wrap gap-2 justify-content-between">
-                <button pButton pRipple label="Sign In" class="flex-auto" [routerLink]="['/']"></button>
+<div class="px-4 py-8 md:px-6 lg:px-8 flex align-items-center justify-content-center"
+    style="background: linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);">
+    <div class="px-5 min-h-screen flex justify-content-center align-items-center">
+        <div class="border-1 surface-border surface-card py-7 px-4 md:px-7" style="border-radius: 14px;">
+            <div class="mb-4">
+                <div class="text-900 text-xl font-bold mb-2">VERONA</div>
+                <span class="mb-4 line-height-3">Welcome to the <span class="font-bold">Verona Community</span>,<br />
+                    where the magic happens, sign in to continue</span>
+            </div>
+            <div class="flex flex-column">
+                <span class="p-input-icon-left w-full mb-4">
+                    <i class="pi pi-user"></i>
+                    <input type="text" pInputText class="w-full md:w-25rem" placeholder="Email Address">
+                </span>
+                <span class="p-input-icon-left w-full mb-4">
+                    <i class="pi pi-key"></i>
+                    <input type="text" pInputText class="w-full md:w-25rem" placeholder="Password">
+                </span>
+                <div class="flex flex-wrap gap-2 justify-content-between">
+                    <button pButton pRipple label="Sign In" class="flex-auto" [routerLink]="['/']"></button>
+                </div>
+
+                <a class="cursor-pointer font-medium block text-center mt-4">or sign in with below</a>
+            </div>
+            <div class="flex justify-content-center flex-wrap gap-3 mt-3 cursor-pointer">
+                <span class="inline-flex justify-content-center align-items-center surface-ground border-circle ml-3"
+                    style="width:49px; height: 49px">
+                    <i class="pi pi-facebook text-xl text-secondry"></i>
+                </span>
+                <span class="inline-flex justify-content-center align-items-center surface-ground border-circle ml-3"
+                    style="width:49px; height: 49px">
+                    <i class="pi pi-twitter text-xl text-secondry"></i>
+                </span>
+                <span class="inline-flex justify-content-center align-items-center surface-ground border-circle ml-3"
+                    style="width:49px; height: 49px">
+                    <i class="pi pi-google text-xl text-secondry"></i>
+                </span>
+                <span class="inline-flex justify-content-center align-items-center surface-ground border-circle ml-3"
+                    style="width:49px; height: 49px">
+                    <i class="pi pi-github text-xl text-secondry"></i>
+                </span>
             </div>
         </div>
     </div>
 </div>
-
