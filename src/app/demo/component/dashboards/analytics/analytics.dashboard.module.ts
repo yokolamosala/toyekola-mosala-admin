@@ -15,6 +15,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
         CommonModule,
         ButtonModule,
         RippleModule,
+        InputTextModule,
         TagModule,
         TooltipModule,
         TableModule,
