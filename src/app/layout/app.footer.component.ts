@@ -6,9 +6,10 @@ import {LayoutService} from "./service/app.layout.service";
   templateUrl: './app.footer.component.html'
 })
 export class AppFooterComponent {
+
     constructor(public layoutService: LayoutService) {}
 
-    get layoutColor(): string {
-        return this.layoutService.config.layoutColor;
+    get colorScheme(): string {
+        return this.layoutService.config.colorScheme;
     }
 }
