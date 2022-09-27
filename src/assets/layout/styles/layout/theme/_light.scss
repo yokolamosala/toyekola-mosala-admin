@@ -1,22 +1,6 @@
 .layout-light {
-    --v-body-bg: linear-gradient(147.38deg, #FFFFFF 0%, #FFFFFF 100%);
-    --v-menubutton-mobile-bg: linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
-    --v-menuitem-root-text-color: #6c757d;
-    --v-menuitem-text-color: #495057;
-    --v-menuitem-hover-bg: #ffffff;
-    --v-menuitem-submenu-bg: #e9ecef;
-    --v-menuitem-active-bg: #D9E2EC;
-    --v-menuitem-text-active-color:#3E4C59;
-    --v-menuitem-focus-shadow: 0 0 0 0.2rem rgba(255,255,255,0.1);
-    --v-slim-submenu-bg: linear-gradient(0deg, rgba(255,255,255, 0.5), rgba(255,255,255, 0.5)), linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);
-    --v-topbar-menu-text-color: rgba(123, 135, 148, 1);
-    --v-topbar-menu-text-active-color: rgba(62, 76, 89, 1);
-    --v-topbar-text-color: rgba(62, 76, 89, 1);
-    --v-topbar-secondary-text-color: #7B8794;
-    --v-topbar-items-bg: rgba(220, 230, 237, 0.1);
-    --v-topbar-items-border: 2px solid #829AB1;
-    --v-topbar-avatar-bg: rgba(188, 204, 220, 1);
-    --v-topbar-avatar-text-color: #3E4C59;
-    --v-topbar-icon-hover-bg: #e9ecef;
-    --v-footer-text-color: rgba(62, 76, 89, 1);
+    --v-body-bg: #ffffff;
+    --v-menuitem-text-color-secondary: var(--text-color-secondary);
+    --v-menuitem-text-color: var(--text-color);
+    --v-menuitem-hover-bg: var(--surface-hover);
 }

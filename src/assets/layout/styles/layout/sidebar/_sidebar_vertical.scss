@@ -41,8 +41,8 @@
                     border-radius: 7px;
 
                     a {
-                        @include flex();
-                        @include flex-align-center();
+                        display: flex;
+                        align-items: center;
                         position: relative;
                         padding: .5rem;
                         margin-bottom: .25rem;
@@ -50,10 +50,10 @@
                         border-radius: 7px;
                         outline: 0 none;
                         cursor: pointer;
+                        line-height: 1;
                         transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
 
                         .layout-menuitem-icon {
-                            font-size: 1.5rem;
                             margin-right: .5rem;
                         }
 

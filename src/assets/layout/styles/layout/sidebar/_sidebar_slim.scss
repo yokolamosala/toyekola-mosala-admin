@@ -1,6 +1,16 @@
 @media screen and (min-width: $breakpoint) {
     .layout-wrapper {
         &.layout-slim {
+            .layout-topbar {
+                padding-left: 2rem;
+
+                .app-name {
+                    span {
+                        display: none;
+                    }
+                }
+            }
+            
             .layout-topbar-left {
                 .menu-button {
                     display: none;
@@ -73,6 +83,7 @@
                             }
 
                             > ul {
+                                background-color: var(--surface-overlay);
                                 position: absolute;
                                 min-width: 15rem;
                                 left: 6rem;

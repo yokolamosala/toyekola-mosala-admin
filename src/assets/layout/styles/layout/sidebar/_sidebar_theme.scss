@@ -12,42 +12,16 @@
                 &:hover {
                     background: var(--v-menuitem-hover-bg);
                 }
-
-                &:focus {
-                    box-shadow: var(--v-menuitem-focus-shadow);
-                }
             }
         }
 
         .layout-root-menuitem {
             .layout-menuitem-root-text {
-                color: var(--v-menuitem-root-text-color);
-            }
-
-            &.active-menuitem {
-                background: var(--v-menuitem-submenu-bg);
-                color: var(--v-menuitem-text-color);
-                box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
+                color: var(--v-menuitem-text-color-secondary);
             }
 
             .active-menuitem-routerlink {
-                background: var(--v-menuitem-active-bg);
-                color: var(--v-menuitem-text-active-color);
-                box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
-            }
-
-            > ul {
-                > li.active-menuitem {
-                    background: var(--v-menuitem-submenu-bg);
-                    color: var(--v-menuitem-text-color);
-                    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
-                }
-
-                > li .active-menuitem-routerlink {
-                    background: var(--v-menuitem-active-bg);
-                    color: var(--v-menuitem-text-active-color);
-                    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
-                }
+                font-weight: 700;
             }
         }
     }
@@ -55,11 +29,6 @@
 
 .layout-tooltip {
     &.p-tooltip {
-        .p-tooltip-text {
-            background: var(--v-slim-submenu-bg);
-            color: var(--v-menuitem-text-color);
-        }
-
         &.p-tooltip-right {
             .p-tooltip-arrow {
                 display: none;
@@ -88,11 +57,6 @@
             .layout-menu {
                 .layout-root-menuitem {
                     &.active-menuitem {
-                        > a {
-                            background: var(--v-menuitem-active-bg);
-                            color: var(--v-menuitem-text-active-color);
-                        }
-
                         > ul {
                             background: var(--v-slim-submenu-bg);
 
@@ -109,10 +73,6 @@
 
                                 &:hover {
                                     background: var(--v-menuitem-hover-bg);
-                                }
-
-                                &:focus {
-                                    box-shadow: var(--v-menuitem-focus-shadow);
                                 }
                             }
                         }

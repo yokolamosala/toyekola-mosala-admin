@@ -60,6 +60,10 @@ export class AppTopBarComponent implements OnInit {
         }
     }
 
+    get layoutTheme(): string {
+        return this.layoutService.config.layoutTheme;
+    }
+
     get colorScheme(): string {
         return this.layoutService.config.colorScheme;
     }

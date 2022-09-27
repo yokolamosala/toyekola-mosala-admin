@@ -1,46 +1,44 @@
 @import './_topbar_common';
 @import './_topbar_menu';
 
-.layout-topbar{
+.layout-topbar {
     background: transparent;
 
     .layout-topbar-left {
         .app-name {
             span {
-                color: var(--v-topbar-text-color);
+                color: var(--v-menuitem-text-color);
             }
         }
 
         .menu-button {
-            color: var(--v-topbar-text-color);
-
             .menu-button-icon {
-                background-color: var(--v-topbar-text-color);
+                background-color: var(--v-menuitem-text-color-secondary);
 
                 &:before, &:after {
-                    background-color: var(--v-topbar-text-color);
+                    background-color: var(--v-menuitem-text-color-secondary);
                 }
             }
 
             &:hover {
-                background: var(--v-topbar-icon-hover-bg);
+                background: var(--surface-hover);
             }
         }
 
         .layout-topbar-main-menu {
             li {
                 a {
-                    color: var(--v-topbar-menu-text-color);
+                    color: var(--v-menuitem-text-color);
 
                     .active-bottom {
                         background: transparent;
                     }
 
                     &.topbar-active-menuitem-routerlink {
-                        color: var(--v-topbar-menu-text-active-color);
+                        color: var(-v-menuitem-text-color);
 
                         .active-bottom {
-                            background: var(--v-topbar-menu-text-active-color);
+                            background: var(--v-menuitem-text-color);
                         }
                     }
                 }
@@ -52,30 +50,14 @@
                         color: var(--v-menuitem-text-color);
 
                         &:hover {
-                            background: var(--v-menuitem-hover-bg);
-                        }
-
-                        &:focus {
-                            box-shadow: var(--v-menuitem-focus-shadow);
+                            background: var(--surface-hover);
                         }
                     }
                 }
 
                 &.topbar-active-menuitem {
                     > ul {
-                        background: var(--v-slim-submenu-bg);
-
-                        li.topbar-active-menuitem {
-                            > a {
-                                font-weight: 700;
-                            }
-                        }
-
-                        > li.topbar-active-menuitem {
-                            background: var(--v-menuitem-submenu-bg);
-                            color: var(--v-menuitem-text-color);
-                            box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
-                        }
+                        background: var(--surface-overlay);
                     }
                 }
             }
@@ -91,19 +73,14 @@
 
                 &.search-item {
                     a {
-                        background: var(--v-topbar-items-bg);
-                        border: var(--v-topbar-items-border);
-
                         i {
-                            color: var(--v-topbar-secondary-text-color);
+                            color: var(--v-menuitem-text-color-secondary);
                         }
                     }
 
                     .search-input-wrapper {
                         .p-inputtext {
                             background: var(--v-topbar-items-bg);
-                            color: var(--v-topbar-menu-text-color);
-                            border: var(--v-topbar-items-border);
 
                             &::placeholder {
                                 color: var(--v-topbar-secondary-text-color);
@@ -117,28 +94,25 @@
                 }
 
                 &.profile-item {
-                    background: var(--v-topbar-items-bg);
-                    border: var(--v-topbar-items-border);
-
+                    border: 2px solid var(--v-menuitem-text-color-secondary);
                     .profile-container {
-                        a {
-                            background: var(--v-topbar-avatar-bg);
-                            color: var(--v-topbar-avatar-text-color);
+                        > a {
+                            color: var(--v-menuitem-text-color);
                         }
 
                         .name-container {
                             span {
                                 &.name {
-                                    color: var(--v-topbar-text-color);
+                                    color: var(--v-menuitem-text-color);
                                 }
                                 &.job {
-                                    color: var(--v-topbar-secondary-text-color);
+                                    color: var(--v-menuitem-text-color-secondary);
                                 }
                             }
                         }
 
                         i {
-                            color: var(--v-topbar-text-color);
+                            color: var(--v-menuitem-text-color-secondary);
                         }
                     }
 
@@ -149,10 +123,6 @@
 
                                 &:hover {
                                     background: var(--v-menuitem-hover-bg);
-                                }
-
-                                &:focus {
-                                    box-shadow: var(--v-menuitem-focus-shadow);
                                 }
                             }
                         }
@@ -169,9 +139,20 @@
         .layout-topbar {
             .layout-topbar-left {
                 .menu-button {
-                    background: var(--v-menubutton-mobile-bg);
-                    box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
+                    background: var(--primary-color);
                     border-radius: 30px 0px 0px 0px;
+
+                    .menu-button-icon {
+                        background-color: var(--primary-color-text);
+        
+                        &:before, &:after {
+                            background-color: var(--primary-color-text);
+                        }
+                    }
+        
+                    &:hover {
+                        background: var(--primary-600);
+                    }
                 }
             }
 
