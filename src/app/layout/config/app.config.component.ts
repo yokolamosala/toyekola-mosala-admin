@@ -9,31 +9,11 @@ import {MenuService} from "../app.menu.service";
 })
 export class AppConfigComponent implements OnInit {
 
-    layoutColorAll: any[];
-
     themes: any[];
-
-    tempLayoutColor = 'white';
 
     constructor(public appLayout: AppLayoutComponent, public layoutService: LayoutService, public menuService: MenuService) {}
 
     ngOnInit() {
-        this.layoutColorAll = [
-            {name: 'white', color: '#ffffff'},
-            {name: 'blue', color: 'linear-gradient(147.38deg, #4C96B6 0%, #19496C 100%)'},
-            {name: 'cyan', color: 'linear-gradient(147.38deg, #4CB6A3 0%, #19536C 100%)'},
-            {name: 'deepblue', color: 'linear-gradient(147.38deg, #4C63B6 0%, #19216C 100%)'},
-            {name: 'purple', color: 'linear-gradient(147.38deg, #9E768F 0%, #656C98 100%)'},
-            {name: 'yellow', color: 'linear-gradient(147.38deg, #C57F6A 0%, #DABE67 100%)'},
-            {name: 'deeppurple', color: 'linear-gradient(147.38deg, #684789 0%, #647DEE 100%)'},
-            {name: 'orange', color: 'linear-gradient(147.38deg, #BD9279 0%, #BE5757 100%)'},
-            {name: 'green', color: 'linear-gradient(147.38deg, #45947A 0%, #A6BF5D 100%)'},
-            {name: 'mauve', color: 'linear-gradient(147.38deg, #455B94 0%, #BFAA5D 100%)'},
-            {name: 'dusk', color: 'linear-gradient(147.38deg, #7B3F81 0%, #5DB3BF 100%)'},
-            {name: 'ocean', color: 'linear-gradient(147.38deg, #455B94 0%, #90B967 100%)'},
-            {name: 'deepgreen', color: 'linear-gradient(147.38deg, #767C50 0%, #344B6F 100%)'},
-        ];
-
         this.themes = [
             {name: 'indigo', color1: '#4C63B6', color2 : '#6A7EC2'},
             {name: 'blue', color1: '#1992D4', color2 : '#3BABE8'},
@@ -96,15 +76,6 @@ export class AppConfigComponent implements OnInit {
             onComplete && onComplete();
         });
     }
-    
-    changeLayoutColor(name) {
-        this.tempLayoutColor = name;
-        this.layoutService.config.layoutColor = name;
-
-        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
-        const layoutHref = 'assets/layout/css/layout-' + name + '.css';
-        this.replaceLink(layoutLink, layoutHref);
-    }
 
     isIE() {
         return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
@@ -141,14 +112,6 @@ export class AppConfigComponent implements OnInit {
         this.layoutService.showConfigSidebar();
     }
 
-    get layoutColor(): string {
-        return this.layoutService.config.layoutColor
-    }
-
-    set layoutColor(_val: string) {
-        this.layoutService.config.layoutColor = _val;
-    }
-
     get colorScheme(): string {
         return this.layoutService.config.colorScheme;
     }
@@ -163,6 +126,14 @@ export class AppConfigComponent implements OnInit {
 
     set visible(_val: boolean) {
         this.layoutService.state.configSidebarVisible = _val;
+    }
+
+    get menuTheme(): string {
+        return this.layoutService.config.layoutTheme;
+    }
+
+    set menuTheme(_val: string) {
+        this.layoutService.config.layoutTheme = _val;
     }
 
     get menuMode(): string {

@@ -14,7 +14,7 @@
     </div>
     <hr class="surface-border"/>
 
-    <h5>Layout</h5>
+    <h5>Color Scheme</h5>
     <div class="field-radiobutton">
         <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="scheme1"></p-radioButton>
         <label for="scheme1">Light</label>
@@ -24,16 +24,23 @@
         <label for="scheme2">Dark</label>
     </div>
 
-    <h5>Layout Colors</h5>
-    <div class="layout-themes" *ngIf="colorScheme === 'light'">
-        <div *ngFor="let l of layoutColorAll">
-            <a style="cursor: pointer" (click)="changeLayoutColor(l.name)" [ngStyle]="{'background': l.color}">
-                <i class="pi pi-check" *ngIf="layoutColor === l.name"></i>
+    <h5>Layout Theme</h5>
+    <div class="field-radiobutton">
+        <p-radioButton name="menuTheme" value="colorScheme" [(ngModel)]="menuTheme" inputId="menutheme-colorscheme"></p-radioButton>
+        <label for="menutheme-colorscheme">Color Scheme</label>
+    </div>
+    <div class="field-radiobutton">
+        <p-radioButton name="menuTheme" value="primaryColor" [(ngModel)]="menuTheme" inputId="menutheme-primarycolor"></p-radioButton>
+        <label for="menutheme-primarycolor">Primary Color</label>
+    </div>
+
+    <h5>Themes</h5>
+    <div class="flex flex-wrap gap-3">
+        <div *ngFor="let t of themes">
+            <a style="cursor: pointer" (click)="changeComponentTheme(t.name)" class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-round" [ngStyle]="{'background-color': colorScheme === 'light' ? t.color1 :t.color2}">
+                <i class="pi pi-check" *ngIf="theme === t.name"></i>
             </a>
         </div>
-    </div>
-    <div *ngIf="colorScheme !== 'light'">
-        <p>Layout themes are only available in light mode by design as large surfaces can emit too much brightness in dark mode.</p>
     </div>
 
     <h5>Input Style</h5>
@@ -48,13 +55,4 @@
 
     <h5>Ripple Effect</h5>
     <p-inputSwitch [(ngModel)]="ripple"></p-inputSwitch>
-
-    <h5>Themes</h5>
-    <div class="flex flex-wrap gap-3">
-        <div *ngFor="let t of themes">
-            <a style="cursor: pointer" (click)="changeComponentTheme(t.name)" class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-round" [ngStyle]="{'background-color': colorScheme === 'light' ? t.color1 :t.color2}">
-                <i class="pi pi-check" *ngIf="theme === t.name"></i>
-            </a>
-        </div>
-    </div>
 </p-sidebar>

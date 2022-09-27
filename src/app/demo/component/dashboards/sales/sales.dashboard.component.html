@@ -6,11 +6,11 @@
                     <i class="pi pi-users text-6xl"></i>
                     <div class="pl-3 overflow-hidden">
                         <span class="header block white-space-nowrap overflow-hidden">USERS SIGNED UP</span>
-                        <span class="block text-4xl font-bold" [style]="{'color': (layoutColor === 'light' ? '#035388' : '#1992D4')}">3882</span>
+                        <span class="block text-4xl font-bold" [style]="{'color': (colorScheme === 'light' ? '#035388' : '#1992D4')}">3882</span>
                     </div>
                 </div>
                 <img
-                    [src]="'assets/layout/images/dashboard/users' + (layoutColor === 'light' ? '' : '-dark') + '.svg'"
+                    [src]="'assets/layout/images/dashboard/users' + (colorScheme === 'light' ? '' : '-dark') + '.svg'"
                     class="w-full" alt="users">
             </div>
         </div>
@@ -20,11 +20,11 @@
                     <i class="pi pi-map text-6xl"></i>
                     <div class="pl-3 overflow-hidden">
                         <span class="header block white-space-nowrap overflow-hidden">REACHED LOCATIONS</span>
-                        <span class="block text-4xl font-bold" [style]="{'color': (layoutColor === 'light' ? '#CB6E17' : '#DE911D')}">532</span>
+                        <span class="block text-4xl font-bold" [style]="{'color': (colorScheme === 'light' ? '#CB6E17' : '#DE911D')}">532</span>
                     </div>
                 </div>
                 <img
-                    [src]="'assets/layout/images/dashboard/locations' + (layoutColor === 'light' ? '' : '-dark') + '.svg'"
+                    [src]="'assets/layout/images/dashboard/locations' + (colorScheme === 'light' ? '' : '-dark') + '.svg'"
                     class="w-full" alt="users">
             </div>
         </div>
@@ -34,11 +34,11 @@
                     <i class="pi pi-directions text-6xl"></i>
                     <div class="pl-3 overflow-hidden">
                         <span class="header block white-space-nowrap overflow-hidden">CONVERSION RATE</span>
-                        <span class="block text-4xl font-bold" [style]="{'color': (layoutColor === 'light' ? '#147D64' : '#27AB83')}">12.6%</span>
+                        <span class="block text-4xl font-bold" [style]="{'color': (colorScheme === 'light' ? '#147D64' : '#27AB83')}">12.6%</span>
                     </div>
                 </div>
                 <img
-                    [src]="'assets/layout/images/dashboard/rate' + (layoutColor === 'light' ? '' : '-dark') + '.svg'"
+                    [src]="'assets/layout/images/dashboard/rate' + (colorScheme === 'light' ? '' : '-dark') + '.svg'"
                     class="w-full" alt="users">
             </div>
         </div>
@@ -48,10 +48,10 @@
                     <i class="pi pi-comments text-6xl"></i>
                     <div class="pl-3 overflow-hidden">
                         <span class="header block white-space-nowrap overflow-hidden">INTERACTIONS</span>
-                        <span class="block text-4xl font-bold" [style]="{'color': (layoutColor === 'light' ? '#6551B7' : '#A896FF')}">440</span>
+                        <span class="block text-4xl font-bold" [style]="{'color': (colorScheme === 'light' ? '#6551B7' : '#A896FF')}">440</span>
                     </div>
                 </div>
-                <img [src]="'assets/layout/images/dashboard/interactions' + (layoutColor === 'light' ? '' : '-dark') + '.svg'"
+                <img [src]="'assets/layout/images/dashboard/interactions' + (colorScheme === 'light' ? '' : '-dark') + '.svg'"
                     class="w-full md:absolute md:bottom-0" alt="users">
             </div>
         </div>
@@ -141,7 +141,7 @@
             <div class="card widget-profile-completion">
                 <div class="flex justify-content-center">
                     <img
-                        [src]="'assets/layout/images/dashboard/completion-graph-' + (layoutColor === 'light' ? 'light' : 'dark') + '.svg'"
+                        [src]="'assets/layout/images/dashboard/completion-graph-' + (colorScheme === 'light' ? 'light' : 'dark') + '.svg'"
                         alt="graph" class="w-auto md:w-full mb-5">
                 </div>
 
@@ -443,7 +443,7 @@
                             <span class="font-bold subtext">46m</span>
                         </div>
                         <div class="p-3"
-                             [style]="{'background-color':layoutColor === 'dark'? 'rgba(227, 248, 255, 0.1)' :'rgba(227, 248, 255, 0.5)', 'border-radius': '6px'}">
+                             [style]="{'background-color':colorScheme === 'dark'? 'rgba(227, 248, 255, 0.1)' :'rgba(227, 248, 255, 0.5)', 'border-radius': '6px'}">
                             <div class="flex align-items-center justify-content-between mb-2">
                                 <img src="assets/demo/images/avatar/xuxuefeng.png" alt="avatar" class="w-2rem">
                                 <p-avatarGroup styleClass="w-6rem justify-content-evenly">

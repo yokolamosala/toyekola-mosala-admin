@@ -15,9 +15,7 @@ export class AppTopBarComponent implements OnInit {
 
     @ViewChild('input2') inputElement2: ElementRef;
 
-    constructor(public layoutService: LayoutService, public appLayout: AppLayoutComponent) {
-
-    }
+    constructor(public layoutService: LayoutService, public appLayout: AppLayoutComponent) {}
 
     ngOnInit() {
         this.menu = [{
@@ -62,11 +60,7 @@ export class AppTopBarComponent implements OnInit {
         }
     }
 
-    get layoutColor(): string {
-        return this.layoutService.config.layoutColor
-    }
-
-    set layoutColor(_val: string) {
-        this.layoutService.config.layoutColor = _val;
+    get colorScheme(): string {
+        return this.layoutService.config.colorScheme;
     }
 }

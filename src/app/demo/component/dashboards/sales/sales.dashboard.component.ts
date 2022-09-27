@@ -21,7 +21,6 @@ export class SalesDashboardComponent implements OnInit {
 
     chart: any;
 
-
     constructor(public layoutService: LayoutService) { }
 
     ngOnInit() {
@@ -40,7 +39,7 @@ export class SalesDashboardComponent implements OnInit {
                 },
                 {
                     data: [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1],
-                    backgroundColor: [this.layoutService.config.layoutColor === 'dark' ? '#879AAF' : '#E4E7EB'] ,
+                    backgroundColor: [this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB'] ,
                     fill: true,
                     borderRadius: 10,
                     borderSkipped: 'top bottom',
@@ -117,7 +116,7 @@ export class SalesDashboardComponent implements OnInit {
 
         this.layoutService['refreshChart'] = () => {
             this.overviewChartOptions = this.getOrdersOptions();
-            this.overviewChart.datasets[1].backgroundColor[0] = this.layoutService.config.layoutColor === 'dark' ? '#879AAF' : '#E4E7EB';
+            this.overviewChart.datasets[1].backgroundColor[0] = this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB';
         };
 
     }
@@ -165,11 +164,11 @@ export class SalesDashboardComponent implements OnInit {
                                 return value + 'k';
                             }
                         },
-                        color: this.layoutService.config.layoutColor === 'dark' ? '#DBE2EB' : '#3E4C59'
+                        color: this.layoutService.config.colorScheme === 'dark' ? '#DBE2EB' : '#3E4C59'
                     },
                     grid: {
                         borderDash: [2, 2],
-                        color: this.layoutService.config.layoutColor === 'dark' ? '#4E657F' : '#E4E7EB',
+                        color: this.layoutService.config.colorScheme === 'dark' ? '#4E657F' : '#E4E7EB',
                         drawBorder: false,
                     },
                 },
@@ -179,7 +178,7 @@ export class SalesDashboardComponent implements OnInit {
                     },
                     ticks: {
                         beginAtZero: true,
-                        color: this.layoutService.config.layoutColor === 'dark' ? '#DBE2EB' : '#3E4C59'
+                        color: this.layoutService.config.colorScheme === 'dark' ? '#DBE2EB' : '#3E4C59'
                     }
                 }
             }
@@ -204,11 +203,8 @@ export class SalesDashboardComponent implements OnInit {
             this.overviewChart.datasets[1].data = dataSet1[parseInt('1')];
         }
     }
-    get layoutColor(): string {
-        return this.layoutService.config.layoutColor
-    }
 
-    set layoutColor(_val: string) {
-        this.layoutService.config.layoutColor = _val;
+    get colorScheme(): string {
+        return this.layoutService.config.colorScheme;
     }
 }

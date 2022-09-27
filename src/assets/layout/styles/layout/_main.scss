@@ -18,7 +18,7 @@ body {
 }
 
 .layout-wrapper {
-    background-image: var(--v-body-bg);
+    background: var(--v-body-bg);
     min-height: 100vh;
 
     .layout-content-wrapper {

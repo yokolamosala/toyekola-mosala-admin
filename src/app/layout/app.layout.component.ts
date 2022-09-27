@@ -70,7 +70,9 @@ export class AppLayoutComponent implements OnDestroy {
             'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
             'p-input-filled': this.layoutService.config.inputStyle === 'filled',
             'p-ripple-disabled': !this.layoutService.config.ripple,
-            'layout-white': this.layoutService.config.layoutColor === 'white'
+            'layout-light': this.layoutService.config.layoutTheme === 'colorScheme' && this.layoutService.config.colorScheme === 'light',
+            'layout-dark': this.layoutService.config.layoutTheme === 'colorScheme' && this.layoutService.config.colorScheme === 'dark',
+            'layout-primary': this.layoutService.config.layoutTheme === 'primaryColor'
         }
     }
 
