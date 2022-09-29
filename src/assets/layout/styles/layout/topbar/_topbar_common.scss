@@ -34,7 +34,7 @@
             height: 40px;
             margin-left: 1.5rem;
             border-radius: 6px;
-            @include transition(background-color .3s);
+            transition: background-color .3s;
 
             .menu-button-icon {
                 width: 2rem;
@@ -134,7 +134,8 @@
                     margin: 0;
                     padding: .5rem 1rem;
                     z-index: 1000;
-                    @include border-radius-bottom(2px);
+                    border-bottom-right-radius: 2px;
+                    border-bottom-left-radius: 2px;
                     min-width: 250px;
                     border-radius: 8px;
                     animation-duration: var(--transition-duration);

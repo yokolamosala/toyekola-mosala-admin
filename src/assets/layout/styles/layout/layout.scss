@@ -1,11 +1,8 @@
 $scale:14px !default;
 $breakpoint:992px !default;
 
-@import './theme/_light';
-@import './theme/_dark';
-@import './theme/_primary';
 @import './_fonts';
-@import './_mixins';
+@import './theme/_themes';
 @import './_utils';
 @import './_dashboard';
 @import './_main';

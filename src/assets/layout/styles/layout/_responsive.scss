@@ -35,7 +35,7 @@
     .layout-wrapper {
         .layout-topbar {
             height: 9rem;
-            @include flex-wrap(wrap);
+            flex-wrap: wrap;
             position: fixed;
             padding: 1rem;
             left: 0;

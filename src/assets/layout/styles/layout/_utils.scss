@@ -17,9 +17,9 @@
     }
 
     .card-header {
-        @include flex();
-        @include flex-align-center();
-        @include flex-justify-between();
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .card-subtitle {
