@@ -1,5 +1,5 @@
 @media screen and (min-width: $breakpoint) {
-    .layout-wrapper {
+    .layout-container {
         &.layout-static {
             .layout-content-wrapper {
                 margin-left: 14rem;
@@ -32,7 +32,7 @@
         overflow: hidden;
     }
 
-    .layout-wrapper {
+    .layout-container {
         .layout-topbar {
             height: 9rem;
             flex-wrap: wrap;
