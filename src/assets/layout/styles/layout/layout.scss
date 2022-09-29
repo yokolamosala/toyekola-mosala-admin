@@ -3,13 +3,14 @@ $breakpoint:992px !default;
 
 @import './_fonts';
 @import './theme/_themes';
-@import './_utils';
-@import './_dashboard';
+/*@import './_dashboard';*/
 @import './_main';
 @import './sidebar/_sidebar_theme';
 @import './topbar/_topbar_theme';
 @import './footer/_footer_theme';
 @import './_responsive';
 @import './_config';
+@import './_content';
 @import './_typography';
-@import './_widgets';
+/*@import './_widgets';*/
+@import './_utils';

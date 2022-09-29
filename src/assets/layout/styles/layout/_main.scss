@@ -20,25 +20,4 @@ body {
 .layout-wrapper {
     background: var(--v-body-bg);
     min-height: 100vh;
-
-    .layout-content-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        position: absolute;
-        overflow: auto;
-        height: calc(100% - 7rem);
-        width: calc(100% - 14rem);
-        margin-top: 7rem;
-        border-top-left-radius: 30px;
-        transition: var(--transition-duration);
-
-        .layout-content {
-            padding: 2rem;
-            flex: 1 1 auto;
-            background-color: var(--surface-ground);
-            border-bottom-left-radius: 30px;
-            border-top-left-radius: 30px;
-        }
-    }
 }
