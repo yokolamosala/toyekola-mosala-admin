@@ -5,42 +5,41 @@
             <span>Verona</span>
         </a>
 
-        <a href="#" class="menu-button" (click)="appLayout.onMenuButtonClick($event)">
+        <a href="#" class="menu-button">
             <div class="menu-button-icon"></div>
         </a>
 
         <ul class="layout-topbar-main-menu">
             <li>
                 <a [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}"
-                    routerLinkActive="topbar-active-menuitem-routerlink">Sales
+                    routerLinkActive="topbar-active-route">Sales
                     <span class="active-bottom"></span>
                 </a>
             </li>
             <li>
-                <a [routerLink]="['/analytics']" routerLinkActive="topbar-active-menuitem-routerlink">Analytics
+                <a [routerLink]="['/analytics']" routerLinkActive="topbar-active-route">Analytics
                     <span class="active-bottom"></span>
                 </a>
             </li>
             <li>
-                <a [routerLink]="['/blocks']" routerLinkActive="topbar-active-menuitem-routerlink">Prime Blocks
+                <a [routerLink]="['/blocks']" routerLinkActive="topbar-active-route">Prime Blocks
                     <span class="active-bottom"></span>
                 </a>
             </li>
             <li app-topmenu *ngFor="let item of menu; let i = index;" [item]="item" [index]="i" [root]="true"
-                class="layout-topbar-menu" (click)="appLayout.onTopbarMenuClick()"></li>
+                class="layout-topbar-menu"></li>
         </ul>
     </div>
     <div class="layout-topbar-right">
         <ul class="layout-topbar-actions">
-            <li #searchItem class="search-item" [ngClass]="{'active-topmenuitem': appLayout.search}">
-                <a href="#" tabindex="0" (click)="appLayout.onTopbarItemClick($event,searchItem); searchFocus($event)">
+            <li #searchItem class="search-item">
+                <a href="#" tabindex="0" (click)="searchFocus($event)">
                     <i class="pi pi-search"></i>
                 </a>
 
                 <div class="search-input-wrapper">
                     <span class="p-input-icon-right">
-                        <input #input1 type="text" pInputText placeholder="Type your keywords"
-                            (click)="appLayout.searchClick = true;" autofocus />
+                        <input #input1 type="text" pInputText placeholder="Type your keywords" autofocus />
                         <i class="pi pi-search"></i>
                     </span>
                 </div>
@@ -48,8 +47,7 @@
                 <ul class="fadeindown">
                     <div class="search-input-wrapper p-fluid" style="width: 100%">
                         <span class="p-input-icon-right">
-                            <input #input2 type="text" pInputText placeholder="Type your keywords"
-                                (click)="appLayout.searchClick = true;" autofocus />
+                            <input #input2 type="text" pInputText placeholder="Type your keywords" autofocus />
                             <i class="pi pi-search"></i>
                         </span>
                     </div>

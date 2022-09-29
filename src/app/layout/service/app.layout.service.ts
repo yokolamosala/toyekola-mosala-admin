@@ -71,10 +71,7 @@ export class LayoutService {
     }
 
     showProfileSidebar() {
-        this.state.profileSidebarVisible = !this.state.profileSidebarVisible;
-        if (this.state.profileSidebarVisible) {
-            this.overlayOpen.next(null);
-        }
+        this.state.profileSidebarVisible = true;
     }
 
     showConfigSidebar() {

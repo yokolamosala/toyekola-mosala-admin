@@ -52,12 +52,12 @@ export class AppTopBarComponent implements OnInit {
     }
 
     searchFocus(event) {
-        if (this.appLayout.search) {
+        /*if (this.appLayout.search) {
             setTimeout(() => {
                 this.inputElement1.nativeElement.focus();
                 this.inputElement2.nativeElement.focus();
             }, 100);
-        }
+        }*/
     }
 
     get layoutTheme(): string {

@@ -21,7 +21,7 @@ import {AppComponent} from '../app.component';
                 <i class="pi pi-fw pi-angle-down layout-topbar-submenu-toggler" *ngIf="item.items"></i>
             </a>
             <a (click)="itemClick($event)" *ngIf="item.routerLink && !item.items"
-               [routerLink]="item.routerLink" routerLinkActive="topbar-active-menuitem-routerlink"
+               [routerLink]="item.routerLink" routerLinkActive="topbar-active-route"
                [routerLinkActiveOptions]="{exact: true}" [attr.target]="item.target" [attr.tabindex]="0"
                [ngClass]="item.class" pRipple>
                 <i [ngClass]="item.icon" class="layout-topbar-menuitem-icon"></i>

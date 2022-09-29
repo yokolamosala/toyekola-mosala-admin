@@ -26,82 +26,103 @@
                     overflow: visible;
                     display: flex;
                     justify-content: center;
-                    padding: 0;
-
-                    .layout-menu {
-                        ul {
-                            display: none;
-
-                            li {
-                                border-radius: 7px;
-
-                                a {
-                                    .layout-menuitem-icon {
-                                        font-size: 1rem;
-                                    }
-                                }
-                            }
-                        }
-
-                        li.active-menuitem {
-                            > ul {
-                                display: block;
-                            }
-                        }
-
-                        .layout-root-menuitem {
-                            position: relative;
-                            border-radius: 14px;
-
-                            > .layout-menuitem-root-text {
-                                display: none;
-                            }
-
-                            > a {
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                width: 4.286rem;
-                                height: 4.286rem;
-                                margin-bottom: 1rem;
-                                border-radius: 14px;
-                                cursor: pointer;
-                                outline: none;
-                                transition: background-color var(--transition-duration);
-
-                                .layout-submenu-toggler {
-                                    display: none;
-                                }
-
-                                .layout-menuitem-icon {
-                                    font-size: 2rem;
-                                }
-
-                                .layout-menuitem-text {
-                                    display: none;
-                                }
-                            }
-
-                            > ul {
-                                background-color: var(--surface-overlay);
-                                position: absolute;
-                                min-width: 15rem;
-                                left: 6rem;
-                                top: 0;
-                                padding: .5rem;
-                                border-radius: 7px;
-                                animation-duration: .4s;
-                                animation-timing-function: cubic-bezier(.05,.74,.2,.99);
-                                box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
-                            }
-                        }
-                    }
+                    padding: 0;   
                 }
             }
 
             .layout-content-wrapper {
                 margin-left: 7rem;
                 width: calc(100% - 7rem);
+            }
+
+            .layout-menu {
+                .layout-root-menuitem {
+                    position: relative;
+
+                    > .layout-menuitem-root-text {
+                        display: none;
+                    }
+
+                    > a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        outline: none;
+                        transition: background-color var(--transition-duration);
+                        width: 4rem;
+                        height: 4rem;
+                        margin: 0 auto 1rem auto;
+                        color: var(--v-menuitem-text-color);
+
+                        &:hover {
+                            background: var(--v-menuitem-hover-bg);
+                        }
+
+                        .layout-submenu-toggler {
+                            display: none;
+                        }
+
+                        .layout-menuitem-icon {
+                            font-size: 2rem;
+                        }
+
+                        .layout-menuitem-text {
+                            display: none;
+                        }
+                    }
+
+                    > ul {
+                        position: absolute;
+                        left: 5rem;
+                        top: 0;
+                        min-width: 15rem;
+                        background-color: var(--surface-overlay);
+                        border-radius: var(--border-radius);
+                        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.1), 0px 24px 36px rgba(0, 0, 0, 0.04);
+                        padding: 1rem;
+                        max-height: 20rem;
+                        overflow: auto;
+                        z-index: 999;
+
+                        li {
+                            a {
+                                padding-left: 0.5rem;
+                            }
+            
+                            li {
+                                a {
+                                    padding-left: 1.5rem;
+                                }
+            
+                                li {
+                                    a {
+                                        padding-left: 2.5rem;
+                                    }
+            
+                                    li {
+                                        a {
+                                            padding-left: 3.5rem;
+                                        }
+            
+                                        li {
+                                            a {
+                                                padding-left: 4.5rem;
+                                            }
+            
+                                            li {
+                                                a {
+                                                    padding-left: 5.5rem;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

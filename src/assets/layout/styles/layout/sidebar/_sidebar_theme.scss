@@ -1,33 +1,4 @@
-@import './_sidebar_vertical';
-@import './_sidebar_slim';
-
-.layout-sidebar {
-    background: transparent;
-
-    .layout-menu {
-        li {
-            a {
-                color: var(--v-menuitem-text-color);
-
-                &:hover {
-                    background: var(--v-menuitem-hover-bg);
-                }
-            }
-        }
-
-        .layout-root-menuitem {
-            .layout-menuitem-root-text {
-                color: var(--v-menuitem-text-color-secondary);
-            }
-
-            .active-menuitem-routerlink {
-                font-weight: 700;
-            }
-        }
-    }
-}
-
-.layout-tooltip {
+/*.layout-tooltip {
     &.p-tooltip {
         &.p-tooltip-right {
             .p-tooltip-arrow {
@@ -36,6 +7,7 @@
         }
     }
 }
+
 
 @media screen and (max-width: $breakpoint - 1) {
     .layout-sidebar {
@@ -66,7 +38,7 @@
                                 }
                             }
 
-                            li .active-menuitem-routerlink {
+                            li .active-route {
                                 background: transparent;
                                 color: var(--v-menuitem-text-color);
                                 font-weight: 700;
@@ -82,3 +54,4 @@
         }
     }
 }
+*/

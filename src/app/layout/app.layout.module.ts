@@ -13,6 +13,7 @@ import { AppMenuComponent } from './app.menu.component';
 import { AppMenuitemComponent } from './app.menuitem.component';
 import { RouterModule } from '@angular/router';
 import { AppTopBarComponent } from './app.topbar.component';
+import { AppSidebarComponent } from './app.sidebar.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppConfigModule } from './config/config.module';
 
@@ -27,6 +28,7 @@ import { MenuModule } from 'primeng/menu';
     declarations: [
         AppMenuitemComponent,
         AppTopBarComponent,
+        AppSidebarComponent,
         AppFooterComponent,
         AppMenuComponent,
         AppLayoutComponent,

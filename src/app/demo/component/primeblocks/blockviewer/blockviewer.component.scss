@@ -109,7 +109,7 @@
 @media screen and (max-width: 575px) {
     .block-header {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
 
         .block-actions {
             margin-top: 1rem;
