@@ -51,18 +51,15 @@ export class LayoutService {
     overlayOpen$ = this.overlayOpen.asObservable();
 
     onMenuToggle() {
-        if (this.isOverlay()) {
-            this.state.overlayMenuActive = !this.state.overlayMenuActive;
-            if (this.state.overlayMenuActive) {
-                this.overlayOpen.next(null);
-            }
-        }
-
         if (this.isDesktop()) {
             this.state.staticMenuDesktopInactive = !this.state.staticMenuDesktopInactive;
         }
         else {
             this.state.staticMenuMobileActive = !this.state.staticMenuMobileActive;
+
+            if (this.state.staticMenuMobileActive) {
+                this.overlayOpen.next(null);
+            }
         }
     }
 
@@ -76,10 +73,6 @@ export class LayoutService {
 
     showConfigSidebar() {
         this.state.configSidebarVisible = true;
-    }
-
-    isOverlay() {
-        return this.config.menuMode === 'overlay';
     }
 
     isDesktop() {

@@ -4,8 +4,8 @@
             <img alt="main logo" [src]="'assets/layout/images/logo-' + (layoutTheme === 'primaryColor' ? 'light.png' : (colorScheme === 'light' ? 'dark.png' : 'light.png'))" class="app-logo">
             <span>Verona</span>
         </a>
-
-        <a href="#" class="menu-button">
+        
+        <a href="#" #menubutton class="menu-button" (click)="onMenuButtonClick()">
             <div class="menu-button-icon"></div>
         </a>
 

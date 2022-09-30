@@ -15,7 +15,9 @@ export class AppTopBarComponent implements OnInit {
 
     @ViewChild('input2') inputElement2: ElementRef;
 
-    constructor(public layoutService: LayoutService, public appLayout: AppLayoutComponent) {}
+    @ViewChild('menubutton') menuButton!: ElementRef;
+
+    constructor(public layoutService: LayoutService) {}
 
     ngOnInit() {
         this.menu = [{
@@ -49,6 +51,10 @@ export class AppTopBarComponent implements OnInit {
             ]
         }
         ];
+    }
+
+    onMenuButtonClick() {
+        this.layoutService.onMenuToggle();
     }
 
     searchFocus(event) {
