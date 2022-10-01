@@ -8,7 +8,7 @@
 
         &.layout-static-inactive {
             .layout-topbar {
-                .menu-button {
+                .topbar-menubutton {
                     i:before {
                         content: "\e901";
                     }
@@ -44,7 +44,7 @@
             z-index: 998;
             align-items: flex-start;
 
-            .layout-topbar-left {
+            .topbar-start {
                 z-index: 1;
 
                 .app-name {
@@ -57,7 +57,7 @@
                     }
                 }
 
-                .menu-button {
+                .topbar-menubutton {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -68,7 +68,7 @@
                     height: 4.5rem;
                     margin: 0;
 
-                    .menu-button-icon {
+                    span {
                         top: 30px;
                         left: 20px;
                     }
@@ -106,7 +106,7 @@
                 }
             }
 
-            .layout-topbar-right {
+            .topbar-end {
                 z-index: 0;
 
                 .layout-topbar-actions {
@@ -188,9 +188,9 @@
 
         &.layout-mobile-active {
             .layout-topbar {
-                .layout-topbar-left {
-                    .menu-button {
-                        .menu-button-icon {
+                .topbar-start {
+                    .topbar-menubutton {
+                        span {
                             width: 0;
 
                             &:before {

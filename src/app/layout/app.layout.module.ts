@@ -16,10 +16,7 @@ import { AppTopBarComponent } from './app.topbar.component';
 import { AppSidebarComponent } from './app.sidebar.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppConfigModule } from './config/config.module';
-
-
-import {AppTopbarMenuComponent} from './app.topbarmenu.component';
-import {AppLayoutComponent} from './app.layout.component';
+import { AppLayoutComponent } from './app.layout.component';
 import { StyleClassModule } from 'primeng/styleclass';
 import { DropdownModule } from 'primeng/dropdown';
 import { MenuModule } from 'primeng/menu';
@@ -31,8 +28,7 @@ import { MenuModule } from 'primeng/menu';
         AppSidebarComponent,
         AppFooterComponent,
         AppMenuComponent,
-        AppLayoutComponent,
-        AppTopbarMenuComponent
+        AppLayoutComponent
     ],
     imports: [
         BrowserModule,

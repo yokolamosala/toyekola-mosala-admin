@@ -1,7 +1,6 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AppComponent} from '../app.component';
-import {AppLayoutComponent} from './app.layout.component';
-import {LayoutService} from "./service/app.layout.service";
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MenuItem } from 'primeng/api';
+import { LayoutService } from "./service/app.layout.service";
 
 @Component({
     selector: 'app-topbar',
@@ -9,47 +8,34 @@ import {LayoutService} from "./service/app.layout.service";
 })
 export class AppTopBarComponent implements OnInit {
 
-    menu: any[];
+    menu: MenuItem[];
 
-    @ViewChild('input1') inputElement1: ElementRef;
-
-    @ViewChild('input2') inputElement2: ElementRef;
+    @ViewChild('searchinput') searchInput: ElementRef;
 
     @ViewChild('menubutton') menuButton!: ElementRef;
+
+    searchActive: boolean;
 
     constructor(public layoutService: LayoutService) {}
 
     ngOnInit() {
-        this.menu = [{
-            label: 'Menu',
-            items: [
-                {
-                    label: 'UI Kit', icon: 'pi pi-align-left',
-                    items: [
-                        {label: 'Form Layout', icon: 'pi pi-id-card', routerLink: ['/uikit/formlayout']},
-                        {label: 'Input', icon: 'pi pi-check-square', routerLink: ['/uikit/input']},
-                    ]
-                },
-                {
-                    label: 'Hierarchy', icon: 'pi pi-align-left',
-                    items: [
-                        {
-                            label: 'Submenu 1', icon: 'pi pi-align-left',
-                            items: [
-                                {label: 'Submenu 1.1', icon: 'pi pi-align-left'},
-                                {label: 'Submenu 1.2', icon: 'pi pi-align-left'},
-                            ]
-                        },
-                        {
-                            label: 'Submenu 2', icon: 'pi pi-align-left',
-                            items: [
-                                {label: 'Submenu 2.1', icon: 'pi pi-align-left'},
-                            ]
-                        },
-                    ]
-                }
-            ]
-        }
+        this.menu = [
+            {
+                label: 'Sales',
+                routerLink: ['/']
+            },
+            {
+                label: 'Analytics',
+                routerLink: ['/analytics']
+            },
+            {
+                label: 'Blocks',
+                routerLink: ['/blocks']
+            },
+            {
+                label: 'Mail',
+                routerLink: ['/apps/mail']
+            }
         ];
     }
 
@@ -57,13 +43,15 @@ export class AppTopBarComponent implements OnInit {
         this.layoutService.onMenuToggle();
     }
 
-    searchFocus(event) {
-        /*if (this.appLayout.search) {
-            setTimeout(() => {
-                this.inputElement1.nativeElement.focus();
-                this.inputElement2.nativeElement.focus();
-            }, 100);
-        }*/
+    activateSearch() {
+        this.searchActive = true;
+        setTimeout(() => {
+            this.searchInput.nativeElement.focus();
+        }, 100);
+    }
+
+    deactivateSearch() {
+        this.searchActive = false;
     }
 
     get layoutTheme(): string {
@@ -72,5 +60,11 @@ export class AppTopBarComponent implements OnInit {
 
     get colorScheme(): string {
         return this.layoutService.config.colorScheme;
+    }
+
+    get logo(): string {
+        const path = 'assets/layout/images/logo-';
+        const logo = this.layoutTheme === 'primaryColor' ? 'light.png' : (this.colorScheme === 'light' ? 'dark.png' : 'light.png');
+        return path + logo;
     }
 }

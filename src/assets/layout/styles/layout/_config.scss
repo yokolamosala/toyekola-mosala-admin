@@ -2,14 +2,15 @@
     position: fixed;
     width: 4rem;
     height: 4rem;
-    line-height: 3rem;
     background: var(--primary-color);
     color: var(--primary-color-text);
     top: 50%;
     right: 0;
-    margin-top: -1.5rem;
+    margin-top: -2rem;
     border-top-left-radius: var(--border-radius);
     border-bottom-left-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     transition: background-color var(--transition-duration);
     overflow: hidden;
     cursor: pointer;
@@ -27,6 +28,6 @@
     }
 
     &:hover {
-        opacity: .9;
+        background-color: var(--primary-400);
     }
 }
