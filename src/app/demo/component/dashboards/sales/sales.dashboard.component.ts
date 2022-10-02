@@ -28,6 +28,7 @@ export class SalesDashboardComponent implements OnInit {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
             datasets: [
                 {
+                    label: 'Organic',
                     data: [2, 1, 0.5, 0.6, 0.5, 1.3, 1],
                     borderColor: [
                         '#FADB5F',
@@ -38,6 +39,7 @@ export class SalesDashboardComponent implements OnInit {
                     fill: false,
                 },
                 {
+                    label: 'Referral',
                     data: [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1],
                     backgroundColor: [this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB'] ,
                     fill: true,
@@ -143,7 +145,8 @@ export class SalesDashboardComponent implements OnInit {
         return {
             plugins: {
                 legend: {
-                    display: false
+                    position: 'bottom',
+                    align: 'end'
                 }
             },
             responsive: true,
@@ -185,7 +188,7 @@ export class SalesDashboardComponent implements OnInit {
         };
     }
 
-    changeOverviewWeek(event) {
+    changeOverviewWeek() {
         const dataSet1 = [
             [2, 1, 0.5, 0.6, 0.5, 1.3, 1],
             [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1]
@@ -195,13 +198,16 @@ export class SalesDashboardComponent implements OnInit {
             [3.2, 4.1, 2.2, 5.5, 4.1, 3.6, 3.5],
         ];
 
-        if (event.value.code === '1') {
+        if (this.selectedOverviewWeek === '1') {
             this.overviewChart.datasets[0].data = dataSet2[parseInt('0')];
             this.overviewChart.datasets[1].data = dataSet2[parseInt('1')];
-        } else {
+        } 
+        else {
             this.overviewChart.datasets[0].data = dataSet1[parseInt('0')];
             this.overviewChart.datasets[1].data = dataSet1[parseInt('1')];
         }
+
+        this.overviewChart = {...this.overviewChart};
     }
 
     get colorScheme(): string {
