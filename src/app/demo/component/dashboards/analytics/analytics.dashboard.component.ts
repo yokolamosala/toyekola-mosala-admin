@@ -57,16 +57,21 @@ export class AnalyticsDashboardComponent implements OnInit {
             {label: 'Customers', value: 3},
         ];
 
+        const documentStyle = getComputedStyle(document.documentElement);
         this.revenueChart = {
             labels: [
                 'Online',
                 'Retail',
-                'N/A'
+                'Partner'
             ],
             datasets: [{
-                data:  [12, 32, 56],
-                backgroundColor: [  '#1992D4', '#3E4C59', '#E4E7EB'],
-                borderWidth: 0,
+                data: [12, 32, 56],
+                backgroundColor: [
+                    documentStyle.getPropertyValue('--indigo-500'), 
+                    documentStyle.getPropertyValue('--teal-500'), 
+                    documentStyle.getPropertyValue('--purple-500')
+                ],
+                borderWidth: 0
             }]
         };
 
@@ -107,8 +112,8 @@ export class AnalyticsDashboardComponent implements OnInit {
             const lastMessage = this.chatMessages[this.chatMessages.length - 1];
 
             if (lastMessage.from) {
-                this.chatMessages.push({ nth: false, from: 'Verona',
-                    url: 'assets/layout/images/logo-' + (this.layoutService.config.colorScheme === 'light' ? 'dark' : 'white') + '.png',
+                this.chatMessages.push({ nth: false, from: 'Jerome Bell',
+                    url: 'assets/demo/images/avatar/ivanmagalhaes.png',
                     messages: [message] });
             }
             else {

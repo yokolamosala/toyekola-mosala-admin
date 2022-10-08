@@ -6,6 +6,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { ChartModule } from 'primeng/chart';
 import { RippleModule } from 'primeng/ripple';
 import { TagModule } from 'primeng/tag';
+import { BadgeModule } from 'primeng/badge';
 import { TooltipModule } from 'primeng/tooltip';
 import { AnalyticsDashboarRoutingModule } from './analytics.dashboard-routing.module';
 import { AnalyticsDashboardComponent } from './analytics.dashboard.component';
@@ -15,6 +16,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { KnobModule } from 'primeng/knob';
 import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
@@ -24,6 +26,7 @@ import { InputTextModule } from 'primeng/inputtext';
         RippleModule,
         InputTextModule,
         TagModule,
+        BadgeModule,
         TooltipModule,
         TableModule,
         InputNumberModule,
@@ -34,6 +37,7 @@ import { InputTextModule } from 'primeng/inputtext';
         AvatarModule,
         AvatarGroupModule,
         ProgressBarModule,
+        KnobModule,
         AnalyticsDashboarRoutingModule
     ],
     declarations: [AnalyticsDashboardComponent]
