@@ -5,7 +5,6 @@ import { TableModule } from 'primeng/table';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ChartModule } from 'primeng/chart';
 import { RippleModule } from 'primeng/ripple';
-import { TagModule } from 'primeng/tag';
 import { TooltipModule } from 'primeng/tooltip';
 import { SalesDashboardComponent } from './sales.dashboard.component';
 import { SalesDashboardRoutingModule } from './sales.dashboard-routing.module';
@@ -16,6 +15,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { PanelModule } from 'primeng/panel';
 import { TabViewModule } from 'primeng/tabview';
+import { TagModule } from 'primeng/tag';
 
 
 @NgModule({
@@ -35,6 +35,7 @@ import { TabViewModule } from 'primeng/tabview';
         ProgressBarModule,
         PanelModule,
         TabViewModule,
+        TagModule,
         SalesDashboardRoutingModule
 
     ],
