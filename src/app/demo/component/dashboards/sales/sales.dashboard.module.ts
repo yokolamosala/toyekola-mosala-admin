@@ -17,7 +17,6 @@ import { PanelModule } from 'primeng/panel';
 import { TabViewModule } from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
 
-
 @NgModule({
     imports: [
         CommonModule,
@@ -37,7 +36,6 @@ import { TagModule } from 'primeng/tag';
         TabViewModule,
         TagModule,
         SalesDashboardRoutingModule
-
     ],
     declarations: [SalesDashboardComponent]
 })

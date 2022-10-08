@@ -17,7 +17,6 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { InputTextModule } from 'primeng/inputtext';
 
-
 @NgModule({
     imports: [
         CommonModule,
@@ -35,8 +34,7 @@ import { InputTextModule } from 'primeng/inputtext';
         AvatarModule,
         AvatarGroupModule,
         ProgressBarModule,
-        AnalyticsDashboarRoutingModule,
-
+        AnalyticsDashboarRoutingModule
     ],
     declarations: [AnalyticsDashboardComponent]
 })

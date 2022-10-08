@@ -4,11 +4,9 @@ import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/productservice';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
-
 @Component({
     templateUrl: './analytics.dashboard.component.html'
 })
-
 export class AnalyticsDashboardComponent implements OnInit {
 
     orderWeek: any;

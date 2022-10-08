@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
-
 @Component({
     templateUrl: './sales.dashboard.component.html'
 })
