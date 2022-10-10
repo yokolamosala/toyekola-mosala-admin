@@ -15,16 +15,16 @@ export class AppConfigComponent implements OnInit {
 
     ngOnInit() {
         this.themes = [
-            {name: 'indigo', color1: '#4C63B6', color2 : '#6A7EC2'},
-            {name: 'blue', color1: '#1992D4', color2 : '#3BABE8'},
-            {name: 'green', color1: '#27AB83', color2 : '#44D4A9'},
-            {name: 'deeppurple', color1: '#896FF4', color2 : '#B1A0F8'},
-            {name: 'orange', color1: '#DE911D', color2 : '#E8AB4F'},
-            {name: 'cyan', color1: '#00B9C6', color2 : '#58CDD5'},
-            {name: 'yellow', color1: '#F9C404', color2 : '#FDDD68'},
-            {name: 'pink', color1: '#C74B95', color2 : '#D77FB4'},
-            {name: 'purple', color1: '#BA6FF4', color2 : '#D1A0F8'},
-            {name: 'lime', color1: '#84BD20', color2 : '#A3D44E'},
+            {name: 'indigo', lightColor: '#4C63B6', darkColor : '#6A7EC2'},
+            {name: 'blue', lightColor: '#1992D4', darkColor : '#3BABE8'},
+            {name: 'green', lightColor: '#27AB83', darkColor : '#44D4A9'},
+            {name: 'deeppurple', lightColor: '#896FF4', darkColor : '#B1A0F8'},
+            {name: 'orange', lightColor: '#DE911D', darkColor : '#E8AB4F'},
+            {name: 'cyan', lightColor: '#00B9C6', darkColor : '#58CDD5'},
+            {name: 'yellow', lightColor: '#F9C404', darkColor : '#FDDD68'},
+            {name: 'pink', lightColor: '#C74B95', darkColor : '#D77FB4'},
+            {name: 'purple', lightColor: '#BA6FF4', darkColor : '#D1A0F8'},
+            {name: 'lime', lightColor: '#84BD20', darkColor : '#A3D44E'},
         ];
     }
 
