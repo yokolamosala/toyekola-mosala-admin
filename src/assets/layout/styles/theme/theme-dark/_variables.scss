@@ -17,10 +17,10 @@ $colors: (
 $shade000:rgba(255,255,255,.87) !default;  //text color
 $shade100:rgba(255,255,255,.60) !default;  //text secondary color
 $shade500:#233752 !default;
-$shade600:#0b213f !default;  //input bg, border, divider
-$shade700:#091a32 !default;  //menu bg
-$shade800:#071426 !default;  //elevated surface
-$shade900:#040d19 !default;  //ground surface
+$shade600:#3e4f62 !default;  //input bg, border, divider
+$shade700:#34455a !default;  //menu bg
+$shade800:#293B51 !default;  //elevated surface
+$shade900:#162a41 !default;  //ground surface
 
 $hoverBg:rgba(255,255,255,.03) !default;
 
@@ -330,7 +330,7 @@ $inputSwitchHandleWidth:1.250rem !default;
 $inputSwitchHandleHeight:1.250rem !default;
 $inputSwitchHandleBorderRadius:50% !default;
 $inputSwitchSliderPadding:.25rem !default;
-$inputSwitchSliderOffBg:$shade500 !default;
+$inputSwitchSliderOffBg:$shade600 !default;
 $inputSwitchHandleOffBg:$shade100 !default;
 $inputSwitchSliderOffHoverBg:$shade600 !default;
 $inputSwitchSliderOnBg:$primaryColor !default;
@@ -854,11 +854,11 @@ $imagePreviewActionIconBorderRadius:50% !default;
     --content-padding:#{$panelContentPadding};
     --inline-spacing:#{$inlineSpacing};
     --border-radius:#{$borderRadius};
-    --surface-ground:#040d19;
-    --surface-section:#040d19;
-    --surface-card:#071426;
-    --surface-overlay:#071426;
-    --surface-border:#0b213f;
+    --surface-ground:#{$shade900};
+    --surface-section:#{$shade900};
+    --surface-card:#{$shade800};
+    --surface-overlay:#{$shade800};
+    --surface-border:#{$shade600};
     --surface-hover:rgba(255,255,255,.03);
     --focus-ring: #{$focusShadow};
     --maskbg: #{$maskBg};
