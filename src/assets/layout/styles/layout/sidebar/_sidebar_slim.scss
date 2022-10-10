@@ -16,7 +16,7 @@
             }
 
             .layout-sidebar {
-                width: 7rem;
+                width: 5rem;
                 overflow: visible;
                 z-index: 999;
 
@@ -29,8 +29,8 @@
             }
 
             .layout-content-wrapper {
-                margin-left: 7rem;
-                width: calc(100% - 7rem);
+                margin-left: 5rem;
+                width: calc(100% - 5rem);
             }
 
             .layout-menu {
@@ -49,8 +49,8 @@
                         cursor: pointer;
                         outline: none;
                         transition: background-color var(--transition-duration);
-                        width: 4rem;
-                        height: 4rem;
+                        width: 3.5rem;
+                        height: 3.5rem;
                         margin: 0 auto 1rem auto;
                         color: var(--v-menuitem-text-color);
 
@@ -63,7 +63,7 @@
                         }
 
                         .layout-menuitem-icon {
-                            font-size: 2rem;
+                            font-size: 1.75rem;
                         }
 
                         .layout-menuitem-text {

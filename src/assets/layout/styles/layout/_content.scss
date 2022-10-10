@@ -4,9 +4,9 @@
     justify-content: space-between;
     position: absolute;
     overflow: auto;
-    height: calc(100% - 7rem);
-    width: calc(100% - 14rem);
-    margin-top: 7rem;
+    height: calc(100% - 5rem);
+    width: calc(100% - 12rem);
+    margin-top: 5rem;
     border-top-left-radius: 30px;
     transition: var(--transition-duration);
 
@@ -16,5 +16,6 @@
         background-color: var(--surface-ground);
         border-bottom-left-radius: 30px;
         border-top-left-radius: 30px;
+        box-shadow: inset 0px 3px 4px rgb(0 0 0 / 10%), 0px 24px 36px rgb(0 0 0 / 4%);
     }
 }
