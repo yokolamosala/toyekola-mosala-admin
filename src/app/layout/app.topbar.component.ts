@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { LayoutService } from "./service/app.layout.service";
 
@@ -6,7 +6,7 @@ import { LayoutService } from "./service/app.layout.service";
     selector: 'app-topbar',
     templateUrl: './app.topbar.component.html'
 })
-export class AppTopBarComponent implements OnInit {
+export class AppTopBarComponent {
 
     menu: MenuItem[];
 
@@ -17,27 +17,6 @@ export class AppTopBarComponent implements OnInit {
     searchActive: boolean;
 
     constructor(public layoutService: LayoutService) {}
-
-    ngOnInit() {
-        this.menu = [
-            {
-                label: 'SaaS',
-                routerLink: ['/']
-            },
-            {
-                label: 'Sales',
-                routerLink: ['/sales']
-            },
-            {
-                label: 'Blocks',
-                routerLink: ['/blocks']
-            },
-            {
-                label: 'Mail',
-                routerLink: ['/apps/mail']
-            }
-        ];
-    }
 
     onMenuButtonClick() {
         this.layoutService.onMenuToggle();
@@ -54,6 +33,11 @@ export class AppTopBarComponent implements OnInit {
         this.searchActive = false;
     }
 
+    removeTab(event: MouseEvent, item: MenuItem) {
+        this.layoutService.onTabClose(item);
+        event.preventDefault();
+    }
+
     get layoutTheme(): string {
         return this.layoutService.config.layoutTheme;
     }
@@ -66,5 +50,9 @@ export class AppTopBarComponent implements OnInit {
         const path = 'assets/layout/images/logo-';
         const logo = this.layoutTheme === 'primaryColor' ? 'light.png' : (this.colorScheme === 'light' ? 'dark.png' : 'light.png');
         return path + logo;
+    }
+
+    get tabs(): MenuItem[] {
+        return this.layoutService.tabs;
     }
 }

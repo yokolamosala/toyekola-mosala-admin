@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 import { Subject } from 'rxjs';
 
 export interface AppConfig {
@@ -42,13 +43,40 @@ export class LayoutService {
         menuHoverActive: false
     };
 
+    tabs: MenuItem[] = [
+        {
+            label: 'SaaS',
+            routerLink: ['/']
+        },
+        {
+            label: 'Sales',
+            routerLink: ['/sales']
+        },
+        {
+            label: 'Blocks',
+            routerLink: ['/blocks']
+        },
+        {
+            label: 'Mail',
+            routerLink: ['/apps/mail']
+        }
+    ];
+
     private configUpdate = new Subject<AppConfig>();
 
     private overlayOpen = new Subject<any>();
 
+    private tabOpen = new Subject<MenuItem>();
+
+    private tabClose = new Subject<MenuItem>();
+
     configUpdate$ = this.configUpdate.asObservable();
 
     overlayOpen$ = this.overlayOpen.asObservable();
+
+    tabOpen$ = this.tabOpen.asObservable();
+
+    tabClose$ = this.tabClose.asObservable();
 
     onMenuToggle() {
         if (this.isDesktop()) {
@@ -89,6 +117,22 @@ export class LayoutService {
 
     onConfigUpdate() {
         this.configUpdate.next(this.config);
+    }
+
+    onTabOpen(value: MenuItem) {
+        this.tabOpen.next(value);
+    }
+
+    openTab(value: MenuItem) {
+        this.tabs = [...this.tabs, value];
+    }
+
+    onTabClose(value: MenuItem) {
+        this.tabClose.next(value);
+    }
+
+    closeTab(value: MenuItem) {
+        this.tabs = this.tabs.filter(item => item !== value);
     }
 
 }

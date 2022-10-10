@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AppLayoutComponent} from './app.layout.component';
+import { LayoutService } from './service/app.layout.service';
 
 @Component({
     selector: 'app-menu',
@@ -9,7 +10,7 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public app: AppLayoutComponent) {}
+    constructor(public layoutService: LayoutService) {}
 
     ngOnInit() {
         this.model = [

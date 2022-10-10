@@ -14,6 +14,10 @@ export class AppLayoutComponent implements OnDestroy {
 
     overlayMenuOpenSubscription: Subscription;
 
+    tabOpenSubscription: Subscription;
+
+    tabCloseSubscription: Subscription;
+
     menuOutsideClickListener: any;
 
     @ViewChild(AppSidebarComponent) appSidebar!: AppSidebarComponent;
@@ -41,6 +45,31 @@ export class AppLayoutComponent implements OnDestroy {
             .subscribe(() => {
                 this.hideMenu();
             });
+
+        this.tabOpenSubscription = this.layoutService.tabOpen$.subscribe(tab => {
+            console.log(tab.routerLink[0]);
+            this.router.navigate(tab.routerLink);
+            this.layoutService.openTab(tab);
+        });
+
+        this.tabCloseSubscription = this.layoutService.tabClose$.subscribe(tab => {
+            if (this.router.isActive(tab.routerLink[0], { paths: 'subset', queryParams: 'subset', fragment: 'ignored', matrixParams: 'ignored'})) {
+                const tabs = this.layoutService.tabs;
+                const index = tabs.indexOf(tab);
+
+                if (tabs.length > 1) { 
+                    if (index === (tabs.length - 1))
+                        this.router.navigate(tabs[tabs.length - 2].routerLink);
+                    else
+                        this.router.navigate(tabs[index + 1].routerLink);
+                }
+                else {
+                    this.router.navigate(['/']);
+                }
+            }
+
+            this.layoutService.closeTab(tab);
+        });
     }
 
     blockBodyScroll(): void {
@@ -95,6 +124,14 @@ export class AppLayoutComponent implements OnDestroy {
 
         if (this.menuOutsideClickListener) {
             this.menuOutsideClickListener();
+        }
+
+        if (this.tabOpenSubscription) {
+            this.tabOpenSubscription.unsubscribe();
+        }
+
+        if (this.tabCloseSubscription) {
+            this.tabCloseSubscription.unsubscribe();
         }
     }
 

@@ -123,7 +123,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         }
     }
 
-    itemClick(event: Event) {
+    itemClick(event: MouseEvent) {
         // avoid processing disabled items
         if (this.item.disabled) {
             event.preventDefault();
@@ -138,6 +138,12 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         // execute command
         if (this.item.command) {
             this.item.command({ originalEvent: event, item: this.item });
+        }
+
+        // add tab
+        if (event.metaKey) {
+            this.layoutService.onTabOpen(this.item);
+            event.preventDefault();
         }
 
         // toggle active state

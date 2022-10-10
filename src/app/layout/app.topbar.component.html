@@ -10,12 +10,13 @@
         </button>
 
         <ul class="topbar-menu">
-            <li *ngFor="let item of menu">
-                <a [routerLink]="item.routerLink" routerLinkActive="active-route" [routerLinkActiveOptions]="item.routerLinkOptions||{exact: true}"
+            <li *ngFor="let item of tabs">
+                <a [routerLink]="item.routerLink" routerLinkActive="active-route" [routerLinkActiveOptions]="item.routerLinkOptions||{paths: 'subset', queryParams: 'subset', fragment: 'ignored', matrixParams: 'ignored'}"
                     [fragment]="item.fragment" [queryParamsHandling]="item.queryParamsHandling" [preserveFragment]="item.preserveFragment" 
                     [skipLocationChange]="item.skipLocationChange" [replaceUrl]="item.replaceUrl" [state]="item.state" [queryParams]="item.queryParams">
                     <span>{{item.label}}</span>
                 </a>
+                <i class="pi pi-times" (click)="removeTab($event, item)"></i>
             </li>
         </ul>
     </div>
