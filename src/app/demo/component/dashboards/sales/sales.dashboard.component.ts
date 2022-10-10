@@ -1,4 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
+import {SelectItem} from 'primeng/api';
+import { Product } from 'src/app/demo/api/product';
+import { ProductService } from 'src/app/demo/service/productservice';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
@@ -6,211 +9,156 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 })
 export class SalesDashboardComponent implements OnInit {
 
-    overviewChart: any;
+    orderWeek: any;
 
-    overviewChartOptions: any;
+    selectedOrderWeek: any;
 
-    overviewWeek: any;
+    products: Product[];
 
-    selectedOverviewWeek: any;
+    productsThisWeek: Product[];
 
-    chartData: any;
+    productsLastWeek: Product[];
 
-    chartOptions: any;
+    analytics: SelectItem[];
 
-    chart: any;
+    selectedDrop: SelectItem;
 
-    constructor(public layoutService: LayoutService) { }
+    revenueChart: any;
+
+    revenueOptions: any;
+
+    chatMessages: any[];
+
+    activeTab = 0;
+
+    activeListItemIndex = 1;
+
+    activeListItem = {image: 'assets/layout/images/dashboard/headphones.svg', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'};
+
+    listItems: any[];
+
+    @ViewChild('chatcontainer') chatContainerViewChild: ElementRef;
+
+    constructor(private productService: ProductService, public layoutService: LayoutService) {}
 
     ngOnInit() {
-        this.overviewChart = {
-            labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-            datasets: [
-                {
-                    label: 'Organic',
-                    data: [2, 1, 0.5, 0.6, 0.5, 1.3, 1],
-                    borderColor: [
-                        '#FADB5F',
-                    ],
-                    pointBorderColor: 'transparent',
-                    pointBackgroundColor: 'transparent',
-                    type: 'line',
-                    fill: false,
-                },
-                {
-                    label: 'Referral',
-                    data: [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1],
-                    backgroundColor: [this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB'] ,
-                    hoverBackgroundColor: ['#3EBD93'],
-                    fill: true,
-                    borderRadius: 10,
-                    borderSkipped: 'top bottom',
-                    barPercentage: 0.3
-                }
-            ]
-        };
+        this.productService.getProducts().then(data => this.products = data.slice(0, 5));
+        this.productService.getProducts().then(data => this.productsThisWeek = data.slice(0, 5));
+        this.productService.getProductsMixed().then(data => this.productsLastWeek = data.slice(0, 5));
 
-        this.overviewChartOptions = this.getOrdersOptions();
-
-        this.overviewWeek = [
-            {name: 'Last Week', code: '0'},
-            {name: 'This Week', code: '1'}
+        this.orderWeek = [
+            {name: 'This Week', code: '0'},
+            {name: 'Last Week', code: '1'}
         ];
 
-        this.chartData = {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [
-                {
-                    data: [11, 17, 30, 60, 88, 92],
-                    borderColor: 'rgba(25, 146, 212, 0.5)',
-                    pointBorderColor: 'transparent',
-                    pointBackgroundColor: 'transparent',
-                    fill: false,
-                    tension: .4
-                },
-                {
-                    data: [11, 19, 39, 59, 69, 71],
-                    borderColor: 'rgba(25, 146, 212, 0.5)',
-                    pointBorderColor: 'transparent',
-                    pointBackgroundColor: 'transparent',
-                    fill: false,
-                    tension: .4
-                },
-                {
-                    data: [11, 17, 21, 30, 47, 83],
-                    backgroundColor: 'rgba(25, 146, 212, 0.2)',
-                    borderColor: 'rgba(25, 146, 212, 0.5)',
-                    pointBorderColor: 'transparent',
-                    pointBackgroundColor: 'transparent',
-                    fill: true,
-                    tension: .4
-                }
-            ]
+        this.analytics = [
+            {label: 'Products', value: 1},
+            {label: 'Sales', value: 2},
+            {label: 'Customers', value: 3},
+        ];
+
+        const documentStyle = getComputedStyle(document.documentElement);
+        this.revenueChart = {
+            labels: [
+                'Online',
+                'Retail',
+                'Partner'
+            ],
+            datasets: [{
+                data: [12, 32, 56],
+                backgroundColor: [
+                    documentStyle.getPropertyValue('--indigo-500'), 
+                    documentStyle.getPropertyValue('--teal-500'), 
+                    documentStyle.getPropertyValue('--purple-500')
+                ],
+                borderWidth: 0
+            }]
         };
 
-        this.chartOptions = {
+        this.revenueOptions = {
             plugins: {
                 legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    max: 100,
-                    min: 0,
-                    ticks: {
-                        color: '#A0A7B5'
-                    }
-                },
-                x: {
-                    grid: {
-                        display: true,
-                    },
-                    ticks: {
-                        color: '#A0A7B5',
-                        beginAtZero: true,
-                    }
-                }
-            }
-        };
-
-        this.getGradient();
-
-        this.layoutService['refreshChart'] = () => {
-            this.overviewChartOptions = this.getOrdersOptions();
-            this.overviewChart.datasets[1].backgroundColor[0] = this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB';
-        };
-
-    }
-
-    getGradient() {
-        this.chart = document.getElementsByTagName('canvas')[1].getContext('2d');
-        const gradientStroke = this.chart.createLinearGradient(100, 0, 1150, 100);
-        gradientStroke.addColorStop(0, 'rgba(21, 184, 194, 0)');
-        gradientStroke.addColorStop(0.5, 'rgba(25, 146, 212, 1)');
-        gradientStroke.addColorStop(1, 'rgba(23, 88, 124, 1)');
-
-        const gradientFill = this.chart.createLinearGradient(0, 0, 1150, 0);
-        gradientFill.addColorStop(1, 'rgba(25, 146, 212, 0.34)');
-        gradientFill.addColorStop(0, 'rgba(232, 247, 255, 0.34)');
-
-        this.chartData.datasets[0].borderColor = gradientStroke;
-        this.chartData.datasets[1].borderColor = gradientStroke;
-        this.chartData.datasets[2].borderColor = gradientStroke;
-
-        this.chartData.datasets[2].backgroundColor = gradientFill;
-    }
-
-    getOrdersOptions() {
-        return {
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    align: 'end'
+                    display: false,
                 }
             },
             responsive: true,
-            hover: {
-                mode: 'index'
-            },
-            scales: {
-                y: {
-                    max: 7,
-                    min: 0,
-                    ticks: {
-                        stepSize: 0,
-                        callback: function(value, index) {
-                            if (index === 0) {
-                                return value;
-                            }
-                            else {
-                                return value + 'k';
-                            }
-                        },
-                        color: this.layoutService.config.colorScheme === 'dark' ? '#DBE2EB' : '#3E4C59'
-                    },
-                    grid: {
-                        borderDash: [2, 2],
-                        color: this.layoutService.config.colorScheme === 'dark' ? '#4E657F' : '#E4E7EB',
-                        drawBorder: false,
-                    },
-                },
-                x: {
-                    grid: {
-                        display: false,
-                    },
-                    ticks: {
-                        beginAtZero: true,
-                        color: this.layoutService.config.colorScheme === 'dark' ? '#DBE2EB' : '#3E4C59'
-                    }
-                }
-            }
+            cutout: 60
         };
+
+        this.chatMessages = [
+            { nth: true, from: 'Jane Cooper', url: 'assets/demo/images/avatar/stephenshaw.png', messages: ['Hey M. hope you are well. Our idea is accepted by the board. '] },
+            { nth: false, from: 'Jerome Bell', url: 'assets/demo/images/avatar/ivanmagalhaes.png', messages: ['we did it! 🤠'] },
+            { nth: true, from: 'Darlene Robertson', url: 'assets/demo/images/avatar/amyelsner.png', messages: ['I’ll be looking at the process then, just to be sure 🤓 '] },
+        ];
+
+        this.listItems = [
+            {image: 'assets/layout/images/dashboard/sneaker.png', text: 'Red Sneakers', subtext: 'RX Series', ratio: '+40%'},
+            {image: 'assets/layout/images/dashboard/headphones.png', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
+            {image: 'assets/layout/images/dashboard/sunglasses.png', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
+        ];
     }
 
-    changeOverviewWeek() {
-        const dataSet1 = [
-            [2, 1, 0.5, 0.6, 0.5, 1.3, 1],
-            [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1]
-        ];
-        const dataSet2 = [
-            [3, 2.4, 1.5, 0.6, 4.5, 3.3, 2],
-            [3.2, 4.1, 2.2, 5.5, 4.1, 3.6, 3.5],
-        ];
+    recentSales(event) {
+        if (event.value.code === '0') {
+            this.products = this.productsThisWeek;
+        } else {
+            this.products = this.productsLastWeek;
+        }
+    }
 
-        if (this.selectedOverviewWeek === '1') {
-            this.overviewChart.datasets[0].data = dataSet2[parseInt('0')];
-            this.overviewChart.datasets[1].data = dataSet2[parseInt('1')];
-        } 
-        else {
-            this.overviewChart.datasets[0].data = dataSet1[parseInt('0')];
-            this.overviewChart.datasets[1].data = dataSet1[parseInt('1')];
+    onChatKeydown(event) {
+        if (event.key === 'Enter') {
+            const message = event.currentTarget.value;
+            const lastMessage = this.chatMessages[this.chatMessages.length - 1];
+
+            if (lastMessage.from) {
+                this.chatMessages.push({ nth: false, from: 'Jerome Bell',
+                    url: 'assets/demo/images/avatar/ivanmagalhaes.png',
+                    messages: [message] });
+            }
+            else {
+                lastMessage.messages.push(message);
+            }
+
+            if (message.match(/primeng|primereact|primefaces|primevue/i)) {
+                this.chatMessages.push({ nth: true, from: 'Ioni Bowcher', url: 'assets/demo/images/avatar/ionibowcher.png', messages: ['Always bet on Prime!'] });
+            }
+
+            event.currentTarget.value = '';
+
+            const el = this.chatContainerViewChild.nativeElement;
+            setTimeout(() => {
+                el.scroll({
+                    top: el.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }, 1);
+        }
+    }
+
+    onTabClick(event, index) {
+        this.activeTab = index;
+
+        if (index === 0) {
+            this.listItems = [
+                {image: 'assets/layout/images/dashboard/sneaker.png', text: 'Red Sneakers', subtext: 'RX Series', ratio: '+40%'},
+                {image: 'assets/layout/images/dashboard/headphones.png', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'},
+                {image: 'assets/layout/images/dashboard/sunglasses.png', text: 'Sunglasses', subtext: 'UV Protection', ratio: '+17%'}
+            ];
+        } else if (index === 1) {
+            this.listItems = [
+                {image: 'assets/layout/images/dashboard/camera.png', text: 'Instant Camera', subtext: 'II-Mark', ratio: '+27%'},
+                {image: 'assets/layout/images/dashboard/cupcake.png', text: 'Cupcake', subtext: 'Cinnamon', ratio: '+41%'},
+                {image: 'assets/layout/images/dashboard/drink.png', text: 'Cold Drink', subtext: 'Lime', ratio: '+56%'}
+            ];
+        } else if (index === 2) {
+            this.listItems = [
+                {image: 'assets/layout/images/dashboard/tripod.png', text: 'Tripod', subtext: 'Stabilizer', ratio: '+34%'},
+                {image: 'assets/layout/images/dashboard/headphone2.png', text: 'Headphone', subtext: 'Wireless', ratio: '+67%'},
+                {image: 'assets/layout/images/dashboard/spoon.png', text: 'Spoon Set', subtext: 'Colorful', ratio: '+8%'}
+            ];
         }
 
-        this.overviewChart = {...this.overviewChart};
-    }
-
-    get colorScheme(): string {
-        return this.layoutService.config.colorScheme;
+        this.activeListItem = this.listItems[this.activeListItemIndex];
     }
 }

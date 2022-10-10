@@ -5,37 +5,40 @@ import { TableModule } from 'primeng/table';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ChartModule } from 'primeng/chart';
 import { RippleModule } from 'primeng/ripple';
-import { TooltipModule } from 'primeng/tooltip';
-import { SalesDashboardComponent } from './sales.dashboard.component';
-import { SalesDashboardRoutingModule } from './sales.dashboard-routing.module';
-import { FormsModule } from '@angular/forms';
-import { DropdownModule } from 'primeng/dropdown';
-import { AvatarGroupModule } from 'primeng/avatargroup';
-import { AvatarModule } from 'primeng/avatar';
-import { ProgressBarModule } from 'primeng/progressbar';
-import { PanelModule } from 'primeng/panel';
-import { TabViewModule } from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
+import { BadgeModule } from 'primeng/badge';
+import { TooltipModule } from 'primeng/tooltip';
+import { SalesDashboarRoutingModule } from './sales.dashboard-routing.module';
+import { SalesDashboardComponent } from './sales.dashboard.component';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'primeng/calendar';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { KnobModule } from 'primeng/knob';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
     imports: [
         CommonModule,
         ButtonModule,
         RippleModule,
+        InputTextModule,
         TagModule,
+        BadgeModule,
         TooltipModule,
         TableModule,
         InputNumberModule,
         ChartModule,
-        FormsModule,
         DropdownModule,
-        AvatarGroupModule,
+        FormsModule,
+        CalendarModule,
         AvatarModule,
+        AvatarGroupModule,
         ProgressBarModule,
-        PanelModule,
-        TabViewModule,
-        TagModule,
-        SalesDashboardRoutingModule
+        KnobModule,
+        SalesDashboarRoutingModule
     ],
     declarations: [SalesDashboardComponent]
 })

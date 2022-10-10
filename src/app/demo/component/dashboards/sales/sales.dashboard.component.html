@@ -1,550 +1,510 @@
 <div class="grid">
-    <div class="col-12 md:col-6 lg:col-3">
-        <div class="card p-0 overflow-hidden flex flex-column">
-            <div class="flex align-items-center p-3">
-                <i class="pi pi-users text-6xl text-blue-500"></i>
+    <div class="col-12">
+        <div class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-3 gap-3">
+            <div class="flex align-items-center">
+                <img src="assets/demo/images/avatar/profile.jpg" width="64" alt="profile" class="border-circle border-3 border-primary border-right-none flex-shrink-0"/>
                 <div class="ml-3">
-                    <span class="text-blue-500 block white-space-nowrap">USERS SIGNED UP</span>
-                    <span class="text-blue-500 block text-4xl font-bold">3882</span>
+                    <span class="text-4xl font-light">Bonjour, <span class="font-normal">Hermione</span></span>
+                    <div class="text-color-secondary">26 January 2023, Thu</div>
                 </div>
             </div>
-            <img [src]="'assets/layout/images/dashboard/users' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
+            <div class="flex align-items-center justify-content-between gap-3">
+                <p-dropdown [options]="analytics" [(ngModel)]="selectedDrop" placeholder="Category" styleClass="w-full sm:w-10rem"></p-dropdown>
+                <p-calendar [showIcon]="true" selectionMode="range" styleClass="w-full sm:w-14rem" placeholder="Select Range"></p-calendar>
+            </div>
         </div>
     </div>
-    <div class="col-12 md:col-6 lg:col-3">
-        <div class="card p-0 overflow-hidden flex flex-column">
-            <div class="flex align-items-center p-3">
-                <i class="pi pi-map text-6xl text-orange-500"></i>
-                <div class="ml-3">
-                    <span class="text-orange-500 block white-space-nowrap">LIFETIME VALUE</span>
-                    <span class="text-orange-500 block text-4xl font-bold">532</span>
+
+    <div class="col-12">
+        <div class="card p-0 grid grid-nogutter">
+            <div class="col-12 md:col-6 lg:col-3 py-5 px-6 border-none md:border-right-1 surface-border">
+                <div class="flex align-items-center mb-3">
+                    <p-avatar icon="pi pi-shopping-cart" size="large" shape="circle" styleClass="text-base bg-indigo-100 text-indigo-700"></p-avatar>
+                    <span class="text-xl ml-2">Orders</span>
+                </div>
+                <div class="flex align-items-center justify-content-between mb-3">
+                    <span class="block font-bold text-6xl mb-3">1420</span>
+                    <div class="flex align-items-center justify-content-between h-2rem px-2 py-1 bg-green-100 text-green-900 border-round">
+                        <i class="pi pi-arrow-up-right"></i>
+                        <span class="font-bold ml-1">551</span>
+                    </div>
+                </div>
+                <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                    <div class="h-full bg-indigo-500" style="width:40%"></div>
                 </div>
             </div>
-            <img [src]="'assets/layout/images/dashboard/locations' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="locations">
-        </div>
-    </div>
-    <div class="col-12 md:col-6 lg:col-3">
-        <div class="card p-0 overflow-hidden flex flex-column">
-            <div class="flex align-items-center p-3">
-                <i class="pi pi-directions text-6xl text-green-500"></i>
-                <div class="ml-3">
-                    <span class="text-green-500 block white-space-nowrap">CONVERSION RATE</span>
-                    <span class="text-green-500 block text-4xl font-bold">12.6%</span>
+            <div class="col-12 md:col-6 lg:col-3 py-5 px-6 border-none md:border-right-1 surface-border">
+                <div class="flex align-items-center mb-3">
+                    <p-avatar icon="pi pi-money-bill" size="large" shape="circle" styleClass="text-base bg-green-100 text-green-700"></p-avatar>
+                    <span class="text-xl ml-2">Revenue</span>
+                </div>
+                <div class="flex align-items-center justify-content-between mb-3">
+                    <span class="block font-bold text-6xl mb-3">1420</span>
+                    <div class="flex align-items-center justify-content-between h-2rem px-2 py-1 bg-green-100 text-green-900 border-round">
+                        <i class="pi pi-arrow-up-right"></i>
+                        <span class="font-bold ml-1">2.7K</span>
+                    </div>
+                </div>
+                <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                    <div class="h-full bg-green-500" style="width:60%"></div>
                 </div>
             </div>
-            <img [src]="'assets/layout/images/dashboard/rate' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="conversion">
-        </div>
-    </div>
-    <div class="col-12 md:col-6 lg:col-3">
-        <div class="card p-0 overflow-hidden flex flex-column">
-            <div class="flex align-items-center p-3">
-                <i class="pi pi-comments text-6xl text-purple-500"></i>
-                <div class="ml-3">
-                    <span class="text-purple-500 block white-space-nowrap">ACTIVE TRIALS</span>
-                    <span class="text-purple-500 block text-4xl font-bold">440</span>
+            <div class="col-12 md:col-6 lg:col-3 py-5 px-6 border-none md:border-right-1 surface-border">
+                <div class="flex align-items-center mb-3">
+                    <p-avatar icon="pi pi-users" size="large" shape="circle" styleClass="text-base bg-yellow-100 text-yellow-700"></p-avatar>
+                    <span class="text-xl ml-2">Customers</span>
+                </div>
+                <div class="flex align-items-center justify-content-between mb-3">
+                    <span class="block font-bold text-6xl mb-3">1420</span>
+                    <div class="flex align-items-center justify-content-between h-2rem px-2 py-1 bg-green-100 text-green-900 border-round">
+                        <i class="pi pi-arrow-up-right"></i>
+                        <span class="font-bold ml-1">254</span>
+                    </div>
+                </div>
+                <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                    <div class="h-full bg-yellow-500" style="width:80%"></div>
                 </div>
             </div>
-            <img [src]="'assets/layout/images/dashboard/interactions' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="interactions">
+            <div class="col-12 md:col-6 lg:col-3 py-5 px-6">
+                <div class="flex align-items-center mb-3">
+                    <p-avatar icon="pi pi-comments" size="large" shape="circle" styleClass="text-base bg-purple-100 text-purple-700"></p-avatar>
+                    <span class="text-xl ml-2">Comments</span>
+                </div>
+                <div class="flex align-items-center justify-content-between mb-3">
+                    <span class="block font-bold text-6xl mb-3">1420</span>
+                    <div class="flex align-items-center justify-content-between h-2rem px-2 py-1 bg-green-100 text-green-900 border-round">
+                        <i class="pi pi-arrow-up-right"></i>
+                        <span class="font-bold ml-1">85</span>
+                    </div>
+                </div>
+                <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                    <div class="h-full bg-purple-500" style="width:30%"></div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="col-12 lg:col-6">
         <div class="card h-full">
-            <div class="flex justify-content-between align-items-center mb-3">
-                <h5>Acquisition Overview</h5>
-                <p-dropdown [options]="overviewWeek" [(ngModel)]="selectedOverviewWeek" optionLabel="name" (onChange)="changeOverviewWeek()"></p-dropdown>
-            </div>
-
-            <div class="graph mb-3">
-                <p-chart #overview type="bar" [data]="overviewChart" [options]="overviewChartOptions"></p-chart>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-12 md:col-6 lg:col-3">
-        <div class="card h-full">
-            <h5>Latest Customers</h5>
-            <ul class="list-none p-0 m-0">
-                <li class="mb-4 flex align-items-center">
-                    <p-avatar label="BS" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(101, 214, 173, 0.1)', 'color': '#27AB83', 'border': '1px solid #65D6AD'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Brooklyn Simmons</span>
-                        <span class="text-color-secondary block">Manager at Mitsubishi</span>
-                    </div>
-                </li>
-                <li class="mb-4 flex align-items-center">
-                    <p-avatar label="LA" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Leslie Alexander</span>
-                        <span class="text-color-secondary  block">Customer Success at General Electric</span>
-                    </div>
-                </li>
-                <li class="mb-4 flex align-items-center">
-                    <p-avatar label="JB" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(94, 208, 250, 0.1)', 'color': '#1992D4', 'border': '1px solid #5ED0FA'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Jerome Bell</span>
-                        <span class="text-color-secondary  block">Mario Carrier at Nintendo</span>
-                    </div>
-                </li>
-                <li class="mb-4 flex align-items-center">
-                    <p-avatar label="JJ" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(43, 176, 237, 0.1)', 'color': '#127FBF', 'border': '1px solid #2BB0ED'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Jim Jones</span>
-                        <span class="text-color-secondary  block">Reliability Engineer at eBay</span>
-                    </div>
-                </li>
-                <li class="mb-4 flex align-items-center">
-                    <p-avatar label="AB" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(255, 155, 155, 0.1)', 'color': '#CF1124', 'border': '1px solid #FF9B9B'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Annette Black</span>
-                        <span class="text-color-secondary  block">Delivery Woman at Pizza Hut</span>
-                    </div>
-                </li>
-                <li class="mb-4 flex align-items-center">
-                    <p-avatar label="AF" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Albert Flores</span>
-                        <span class="text-color-secondary  block">Team Leader at Insomniac Games</span>
-                    </div>
-                </li>
-            </ul>
-            <button type="button" pButton pRipple class="w-full mt-3 " label="View All" icon="pi pi-arrow-right" iconPos="right"></button>
-        </div>
-    </div>
-
-    <div class="col-12 md:col-6 lg:col-3">
-        <div class="card">
-            <div class="text-center mb-5">
-                <img [src]="'assets/layout/images/dashboard/completion-graph-' + (colorScheme === 'light' ? 'light' : 'dark') + '.svg'" alt="graph" class="w-full">
-            </div>
-
-            <ul class="list-none p-0 m-0">
-                <li class="mb-4 flex align-items-center justify-content-start">
-                    <p-avatar icon="pi pi-user-edit" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Add your personal information</span>
-                        <span class="text-blue-500 hover:underline cursor-pointer block font-bold">Go Profile Edit</span>
-                    </div>
-                </li>
-    
-                <li class="mb-4 flex align-items-center justify-content-start">
-                    <p-avatar icon="pi pi-send" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Verify your phone</span>
-                        <span class="text-blue-500 hover:underline cursor-pointer block font-bold">Send Verification SMS</span>
-                    </div>
-                </li>
-    
-                <li class="mb-4 flex align-items-center justify-content-start">
-                    <p-avatar icon="pi pi-video" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Verify your Face ID</span>
-                        <span class="text-blue-500 hover:underline cursor-pointer block font-bold">Upload Pictures</span>
-                    </div>
-                </li>
-    
-                <li class="mb-4 flex align-items-center justify-content-start">
-                    <p-avatar icon="pi pi-briefcase" size="large" shape="circle" styleClass="text-base font-bold"
-                              [style]="{'background-color':'rgba(250, 219, 95, 0.1)', 'color': '#DE911D', 'border': '1px solid #FADB5F'}"></p-avatar>
-                    <div class="ml-3">
-                        <span class="block">Give permissions for personal data</span>
-                        <span class="text-blue-500 hover:underline cursor-pointer block font-bold">View Agreement</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="col-12 md:col-6 xl:col-4">
-        <div class="card h-full">
-            <h5>Trials Leads By Role</h5>
-            <div class="flex align-items-center justify-content-between pb-2 mb-1 border-bottom-1 surface-border">
-                <span class="font-bold">Role</span>
-                <span class="font-bold">Leads</span>
-            </div>
-            <ul class="list-none p-0 m-0">
-                <li class="flex flex-wrap align-items-center justify-content-between py-1">
-                    <span>Finance</span>
-                    <p-avatarGroup styleClass="w-8rem justify-content-evenly">
-                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/ionibowcher.png" shape="circle"></p-avatar>
-                    </p-avatarGroup>
-                </li>
-                <li class="flex flex-wrap align-items-center justify-content-between py-1">
-                    <span>Management</span>
-                    <p-avatarGroup styleClass="w-6rem justify-content-evenly">
-                        <p-avatar image="assets/demo/images/avatar/annafali.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/bernardodominic.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/elwinsharvill.png" shape="circle"></p-avatar>
-                    </p-avatarGroup>
-                </li>
-                <li class="flex flex-wrap align-items-center justify-content-between py-1">
-                    <span>Human Resources</span>
-                    <p-avatarGroup styleClass="w-4rem justify-content-evenly">
-                        <p-avatar image="assets/demo/images/avatar/ivanmagalhaes.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
-                    </p-avatarGroup>
-                </li>
-                <li class="flex flex-wrap align-items-center justify-content-between py-2">
-                    <span>Development</span>
-                    <p-avatarGroup styleClass="w-8rem justify-content-evenly">
-                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/ionibowcher.png" shape="circle"></p-avatar>
-                    </p-avatarGroup>
-                </li>
-                <li class="flex flex-wrap align-items-center justify-content-between py-2">
-                    <span>Design</span>
-                    <p-avatarGroup styleClass="w-4rem justify-content-evenly">
-                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                    </p-avatarGroup>
-                </li>
-                <li class="flex flex-wrap align-items-center justify-content-between py-2">
-                    <span>R&D</span>
-                    <p-avatarGroup styleClass="w-6rem justify-content-evenly">
-                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
-                    </p-avatarGroup>
-                </li>
-                <li class="flex flex-wrap align-items-center justify-content-between py-2">
-                    <span>Reliability</span>
-                    <p-avatarGroup styleClass="w-4rem justify-content-evenly">
-                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                    </p-avatarGroup>
-                </li>
-                <li class="flex flex-wrap align-items-center justify-content-between py-2">
-                    <span>Social Media</span>
-                    <p-avatarGroup styleClass="w-8rem justify-content-evenly">
-                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
-                        <p-avatar image="assets/demo/images/avatar/ionibowcher.png" shape="circle"></p-avatar>
-                    </p-avatarGroup>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="col-12 md:col-6 lg:col-4">
-        <div class="card h-full">
-            <h5>Leads By Region</h5>
-            <p-tabView>
-                <p-tabPanel header="Europe">
-                    <table class="w-full">
-                        <tbody>
-                            <tr>
-                                <td class="w-4 p-2">🇮🇹 Italy</td>
-                                <td class="w-2 p-2"><span class="font-bold">90</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">12</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
-                                        <span class="font-bold">LOW</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">🇫🇷 France</td>
-                                <td class="w-2 p-2"><span class="font-bold">61</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">8</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">🇩🇪 Germany</td>
-                                <td class="w-2 p-2"><span class="font-bold">46</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-green-100 text-green-900 border-round">
-                                        <i class="pi pi-arrow-up"></i>
-                                        <span class="font-bold ml-1">5</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">🇳🇱Netherlands</td>
-                                <td class="w-2 p-2"><span class="font-bold">28</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-red-100 text-red-900 border-round">
-                                        <i class="pi pi-arrow-down"></i>
-                                        <span class="font-bold ml-1">19</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
-                                        <span class="font-bold">LOW</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">🇪🇸 Spain</td>
-                                <td class="w-2 p-2"><span class="font-bold">17</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">7</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </p-tabPanel>
-                <p-tabPanel header="United States">
-                    <table class="w-full">
-                        <tbody>
-                            <tr>
-                                <td class="w-4 p-2">California</td>
-                                <td class="w-2 p-2"><span class="font-bold">79</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">11</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Texas</td>
-                                <td class="w-2 p-2"><span class="font-bold">71</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-red-100 text-red-900 border-round">
-                                        <i class="pi pi-arrow-down"></i>
-                                        <span class="font-bold ml-1">9</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
-                                        <span class="font-bold">LOW</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Florida</td>
-                                <td class="w-2 p-2"><span class="font-bold">55</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">15</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
-                                        <span class="font-bold">LOW</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">New York</td>
-                                <td class="w-2 p-2"><span class="font-bold">48</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-green-100 text-green-900 border-round">
-                                        <i class="pi pi-arrow-up"></i>
-                                        <span class="font-bold ml-1">6</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Ohio</td>
-                                <td class="w-2 p-2"><span class="font-bold">26</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">10</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </p-tabPanel>
-            </p-tabView>
-        </div>
-    </div>
-    
-    <div class="col-12 md:col-6 lg:col-4">
-        <div class="card h-full">
-            <h5>Recent Blog Posts</h5>
-            <div class="flex flex-column mb-3">
-                <span class="text-lg mb-3">What is the Customer Journey?</span>
-                <p-tag value="Conversion" styleClass="mb-3"></p-tag>
-                
-                <span class="inline-flex align-items-center">
-                    <i class="pi pi-clock mr-1 text-color-secondary"></i>
-                    <span class="text-color-secondary">Jan 15.</span> 
-                    <span class="font-bold ml-2">4 days 36 mins</span>
-                </span>
-            </div>
-            <p class="line-height-3 mt-0 mb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-            <p class="line-height-3 mt-0 mb-5">Sit amet nulla facilisi morbi tempus iaculis. Dolor magna eget est lorem ipsum
-                dolor sit. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus.</p>
-
-            <div class="flex flex-wrap align-items-center justify-content-between">
-                <div class="flex align-items-center">
-                    <button pButton type="button" icon="pi pi-angle-left"  class="p-button-outlined p-button-rounded p-button-plain p-button-sm mr-2 p-2 w-2rem h-2rem"></button>
-                    <button pButton type="button" icon="pi pi-angle-right" class="p-button-outlined p-button-rounded p-button-plain p-button-sm p-2 w-2rem h-2rem"></button>
-                    <span class="font-bold ml-3">4</span>
-                    <span>/8</span>
-                </div>
-                <p-avatarGroup>
-                    <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                    <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                    <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
-                    <p-avatar image="assets/demo/images/avatar/ionibowcher.png" shape="circle"></p-avatar>
-                    <p-avatar image="assets/demo/images/avatar/xuxuefeng.png" shape="circle"></p-avatar>
-                </p-avatarGroup>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-12 md:col-6 lg:col-6">
-        <div class="card widget-timeline">
-            <h5>Timeline</h5>
-            <ul class="list-none p-0 m-0">
-                <li class="flex mb-3">
-                    <div class="flex flex-column align-items-center">
-                        <span
-                            class="flex align-items-center justify-content-center border-circle p-2 timeline-icon bg-blue-100 text-blue-500">
-                            <i class="pi pi-twitter"></i>
-                        </span>
-                        <div class="h-full bg-blue-100" style="width: 2px; min-height: 4rem"></div>
-                    </div>
-    
-                    <div class="ml-3 flex-1">
-                        <div class="flex align-items-center justify-content-between mb-3">
-                            <span>
-                                <strong>Tom Mathias</strong> retweeted a tweet about your following keyword.
-                            </span>
-                            <span class="font-bold text-color-secondary">46m</span>
-                        </div>
-                        <div class="p-3 border-round" [style]="{'background-color':colorScheme === 'dark' ? 'rgba(227, 248, 255, 0.1)' :'rgba(227, 248, 255, 0.5)'}">
-                            <div class="flex align-items-center justify-content-between mb-2">
-                                <img src="assets/demo/images/avatar/xuxuefeng.png" alt="avatar" class="w-2rem">
-                                <p-avatarGroup>
-                                    <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
-                                    <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
-                                    <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
-                                </p-avatarGroup>
+            <h5>Store Overview</h5>
+            <div class="flex flex-wrap gap-5">
+                <ul class="flex-1 list-none p-0 m-0">
+                    <li *ngFor="let item of listItems; let i = index" (click)="activeListItemIndex = i; activeListItem = item"
+                        class="border-round p-3 flex cursor-pointer border-1 border-transparent" [ngClass]="{'border-primary-500': activeListItemIndex === i, 'hover:surface-hover': activeListItemIndex !== i}">
+                        <img [src]="item.image" width="64" class="mr-3 border-round">
+                        <div class="flex-1 flex align-items-center justify-content-between">
+                            <div class="flex flex-column">
+                                <span class="font-bold">{{item.text}}</span>
+                                <span class="text-primary-700 mb-1">{{item.subtext}}</span>
+                                <p-badge [value]="item.ratio"></p-badge>
                             </div>
-                            <div class="font-bold mb-2">Jeff Atwood</div>
-                            <p class="text-color-secondary text-sm line-height-3 mb-3" style="max-width: 28rem">Hooray! I suck at
-                                hardware but I was able to get the pi zero W, plus usb case, plus two color e-ink hat,
-                                to work!</p>
-    
-                            <p-progressBar [value]="50" [showValue]="false" styleClass="w-full md:w-6" [style]="{height:'.5rem'}"></p-progressBar>
+                            <i class="pi pi-chevron-right text-color-secondary ml-3"></i>
                         </div>
+                    </li>
+                </ul>
+                <div class="flex-1 flex flex-column align-items-center justify-content-center">
+                    <div class="bars flex align-items-end mb-4">
+                        <div class="w-1rem h-2rem mr-2 surface-200 border-round" [ngClass]="{'h-3rem bg-primary-500': activeListItemIndex === 2 && activeTab === 0}"></div>
+                        <div class="w-1rem h-3rem mr-2 surface-200 border-round" [ngClass]="{'h-5rem bg-primary-500': activeListItemIndex === 1 && activeTab !== 2}"></div>
+                        <div class="w-1rem h-4rem mr-2 surface-200 border-round"></div>
+                        <div class="w-1rem h-6rem mr-2 surface-200 border-round" [ngClass]="{'h-4rem bg-primary-500': activeListItemIndex === 2 && activeTab !== 0}"></div>
+                        <div class="w-1rem h-2rem mr-2 surface-200 border-round" [ngClass]="{'h-4rem bg-primary-500': activeListItemIndex === 1 && activeTab === 2}"></div>
+                        <div class="w-1rem h-5rem mr-2 surface-200 border-round" [ngClass]="{'h-4rem bg-primary-500': activeListItemIndex === 0 && activeTab === 1}"></div>
+                        <div class="w-1rem h-3rem mr-2 surface-200 border-round" [ngClass]="{'h-4rem bg-primary-500': activeListItemIndex === 0 && activeTab !== 1}"></div>
+                        <div class="w-1rem h-1rem mr-2 surface-200 border-round"></div>
                     </div>
-                </li>
-                <li class="flex mb-3">
-                    <div class="flex flex-column align-items-center">
-                        <span
-                            class="flex align-items-center justify-content-center border-circle p-2 timeline-icon bg-yellow-100 text-yellow-500">
-                            <i class="pi pi-star"></i>
-                        </span>
-                        <div class="h-full bg-yellow-100" style="width: 2px; min-height: 4rem"></div>
-                    </div>
+                    <span class="font-bold">{{activeListItem.text}}</span>
+                    <span class="text-color-secondary">{{activeListItem.subtext}}</span>
+                </div>
+            </div>
+            <div class="flex align-items-center mt-7 border-round">
+                <div class="flex flex-column align-items-center flex-1 py-3 cursor-pointer border-top-1 hover:surface-hover" [ngClass]="{'border-primary-500': activeTab === 0, 'surface-border': activeTab !== 0}" (click)="onTabClick($event, 0)">
+                    <i class="pi pi-sort-amount-down text-2xl mb-2"></i>
+                    <span class="font-bold">Latest</span>
+                </div>
+                <div class="flex flex-column align-items-center flex-1 py-3 cursor-pointer border-top-1 hover:surface-hover" [ngClass]="{'border-primary-500': activeTab === 1, 'surface-border': activeTab !== 1}" (click)="onTabClick($event, 1)">
+                    <i class="pi pi-chart-line text-2xl mb-2"></i>
+                    <span class="font-bold">Trending</span>
+                </div>
+                <div class="flex flex-column align-items-center flex-1 py-3 cursor-pointer border-top-1 hover:surface-hover" [ngClass]="{'border-primary-500': activeTab === 2, 'surface-border': activeTab !== 2}" (click)="onTabClick($event, 2)">
+                    <i class="pi pi-star text-2xl mb-2"></i>
+                    <span class="font-bold">Starred</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <div class="ml-3 flex-1">
-                        <div class="flex align-items-center justify-content-between">
-                            <span><strong>Scott Wesley</strong> starred NS0021 on customer list.</span>
-                            <span class="font-bold text-color-secondary">1h 51m</span>
-                        </div>
-                    </div>
-                </li>
-                <li class="flex mb-3">
-                    <div class="flex flex-column align-items-center">
-                        <span
-                            class="flex align-items-center justify-content-center border-circle p-2 timeline-icon bg-green-100 text-green-500">
-                            <i class="pi pi-link"></i>
-                        </span>
-                        <div class="h-full bg-green-100" style="width: 2px; min-height: 4rem"></div>
-                    </div>
+    <div class="col-12 lg:col-6">
+        <div class="card h-full">
+            <div class="flex flex-wrap align-items-center justify-content-between mb-3 gap-3">
+                <h5 class="m-0">Recent Sales</h5>
+                <p-dropdown [options]="orderWeek" [(ngModel)]="selectedOrderWeek" optionLabel="name" (onChange)="recentSales($event)" styleClass="w-10rem"></p-dropdown>
+            </div>
 
-                    <div class="ml-3 flex-1">
-                        <div class="flex align-items-center justify-content-between mb-3">
-                            <span>
-                                <strong>Jorge Gomez</strong> shared design files on cloud.
-                            </span>
-                            <span class="font-bold text-color-secondary">12h</span>
+            <p-table [value]="products" [rows]="5">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>
+                            Image
+                        </th>
+                        <th pSortableColumn="name">Name
+                            <p-sortIcon field="name"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="category">Category
+                            <p-sortIcon field="category"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="price">Price
+                            <p-sortIcon field="price"></p-sortIcon>
+                        </th>
+                        <th style="width: 5rem"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>
+                            <span class="p-column-title">Image</span>
+                            <img src="assets/demo/images/product/{{product.image}}" width="50px" [alt]="product.image" /></td>
+                        <td>
+                            <span class="p-column-title">Name</span>
+                            {{product.name}}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Category</span>
+                            {{product.category}}
+                        </td>
+                        <td>
+                            <span class="p-column-title">Price</span>
+                            {{product.price | currency:'USD'}}
+                        </td>
+                        <td class="text-center">
+                            <button pButton type="button" icon="pi pi-search" class="p-button-text"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+
+    <div class="col-12 md:col-6 xl:col-6">
+        <div class="card h-full">
+            <h5>Live Support</h5>
+            <div>
+                <ul #chatcontainer class="list-none p-0 px-3 mt-4 mb-6 h-21rem overflow-y-auto">
+                    <li *ngFor="let chartMessage of chatMessages; let last = last;" class="flex align-items-start mb-3" [ngClass]="{'justify-content-start': chartMessage.nth, 'justify-content-end': !chartMessage.nth}">
+                        <img *ngIf="chartMessage.nth" [src]="chartMessage.url" width="36" height="36" class="border-circle">
+                        <div class="ml-2" *ngIf="chartMessage.nth">
+                            <span class="font-bold mr-3">{{chartMessage.from}}</span><span class="text-color-secondary">2m ago</span>
+                            <div class="surface-100 border-round px-5 py-3 mt-3" *ngFor="let message of chartMessage.messages; let first = first">{{message}}</div>
                         </div>
-                        <ul class="list-none p-0 m-0">
-                            <li class="flex align-items-center justify-content-start mb-2">
-                                <img src="assets/layout/images/dashboard/bg-detail.svg" alt="bg" class="w-2rem">
-                                <span class="font-bold ml-2">01.Verona-Remastered.fig</span>
-                            </li>
-                            <li class="flex align-items-center justify-content-start">
-                                <img src="assets/layout/images/dashboard/bg-detail.svg" alt="bg" class="w-2rem">
-                                <span class="font-bold ml-2">02.Verona-Marketing.fig</span>
-                            </li>
-                        </ul>
+                        <div class="mr-3" *ngIf="!chartMessage.nth">
+                            <span class="text-color-secondary">2m ago</span><span class="font-bold ml-3">{{chartMessage.from}}</span>
+                            <div class="bg-primary-500 text-primary-50 border-round px-5 py-3 mt-3" *ngFor="let message of chartMessage.messages; let first = first">{{message}}</div>
+                        </div>
+                        <img *ngIf="!chartMessage.nth" [src]="chartMessage.url" width="36" height="36" class="border-circle">
+                    </li>
+                </ul>
+                <div class="p-inputgroup mt-3">
+                    <input type="text" pInputText placeholder="Write your message (Hint: 'PrimeNG')" (keydown)="onChatKeydown($event)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 md:col-6 xl:col-3">
+        <div class="card h-full">
+            <div class="flex align-items-center justify-content-between mb-3">
+                <h5 class="m-0">Revenue Stream</h5>
+                <div class="flex align-items-center gap-2">
+                    <button pButton type="button" icon="pi pi-angle-left" class="p-button-outlined p-button-rounded p-button-plain h-2rem w-2rem p-0"></button>
+                    <button pButton type="button" icon="pi pi-angle-right" class="p-button-outlined p-button-rounded p-button-plain h-2rem w-2rem p-0"></button>
+                </div>
+            </div>
+            <div class="flex flex-column align-items-center justify-content-center">
+                <p-chart type="doughnut" [data]="revenueChart" [options]="revenueOptions" width="180px" height="180px" class="mb-5"></p-chart>
+                <span class="font-bold mb-2">Total Revenue This Week</span>
+                <span class="font-bold text-6xl mb-2">88k</span>
+                <span class="font-bold mb-4 text-green-500">+21%<span class="text-color-secondary"> higher than last week</span></span>
+                <div class="flex align-items-center justify-content-center gap-3">
+                    <div class="flex align-items-center">
+                        <i class="pi pi-circle-on text-indigo-500"></i>
+                        <span class="text-color-secondary ml-2">Online</span>
+                    </div>
+                    <div class="flex align-items-center">
+                        <i class="pi pi-circle-on text-teal-500"></i>
+                        <span class="text-color-secondary ml-2">Retail</span>
+                    </div>
+                    <div class="flex align-items-center">
+                        <i class="pi pi-circle-on text-purple-500"></i>
+                        <span class="text-color-secondary ml-2">Partner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-3">
+        <div class="card h-full">
+            <h5>Sales Channels</h5>
+            
+            <ul class="list-none m-0 p-0">
+                <li class="mb-4">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="font-bold">Online Marketplaces</span>
+                        <span>%40</span>
+                    </div>
+                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                        <div class="h-full bg-orange-500" style="width:40%"></div>
                     </div>
                 </li>
-                <li class="text-center">
-                    <p-button pRipple styleClass="p-button-text" icon="pi pi-chevron-down" label="View More"></p-button>
+                <li class="mb-4">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="font-bold">Resellers</span>
+                        <span>%60</span>
+                    </div>
+                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                        <div class="h-full bg-indigo-500" style="width:60%"></div>
+                    </div>
+                </li>
+                <li class="mb-4">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="font-bold">Affiliate</span>
+                        <span>%90</span>
+                    </div>
+                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                        <div class="h-full bg-blue-500" style="width:90%"></div>
+                    </div>
+                </li>
+                <li class="mb-4">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="font-bold">Organic</span>
+                        <span>%50</span>
+                    </div>
+                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                        <div class="h-full bg-green-500" style="width:50%"></div>
+                    </div>
+                </li>
+                <li class="mb-4">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="font-bold">Referral</span>
+                        <span>%30</span>
+                    </div>
+                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                        <div class="h-full bg-purple-500" style="width:30%"></div>
+                    </div>
+                </li>
+                <li class="mb-4">
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="font-bold">Ads</span>
+                        <span>%30</span>
+                    </div>
+                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                        <div class="h-full bg-yellow-500" style="width:45%"></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex align-items-center justify-content-between mb-2">
+                        <span class="font-bold">Partners</span>
+                        <span>%30</span>
+                    </div>
+                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                        <div class="h-full bg-teal-500" style="width:70%"></div>
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="col-12 lg:col-6">
-        <div class="card">
-            <h5>Monthly Recurring Revenue Growth</h5>
+    
+    <div class="col-12 md:col-6 xl:col-3">
+        <div class="card p-0">
+            <img src="assets/layout/images/dashboard/bg-product.jpg" alt="blog-bg" class="w-full border-round-top-2xl">
+            <div class="p-4">
+                <div class="flex align-items-center justify-content-between mb-3">
+                    <div class="inline-flex align-items-center">
+                        <span class="font-bold">Optimizing Logistics with AI</span>
+                        <i class="pi pi-check-circle ml-3 text-xl text-green-500"></i>
+                    </div>
+                    <i class="pi pi-bookmark ml-3 text-xl text-color-secondary"></i>
+                </div>
+                <p class="mb-5 line-height-3">Sit amet nulla facilisi morbi tempus iaculis. Dolor magna eget est lorem ipsum dolor sit. Turpis egestas pretium aenean pharetra magna ac placerat vestibulum lectus.</p>
+                <div class="flex align-items-center justify-content-between">
+                    <img src="assets/demo/images/avatar/amyelsner.png" alt="avatar" class="flex-shrink-0 w-2rem h-2rem">
+                    <div class="text-color-secondary flex align-items-center">
+                        <i class="pi pi-heart mr-1"></i>
+                        <span>888</span>
+                        <i class="pi pi-eye ml-4 mr-1"></i>
+                        <span>8888</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <p-chart type="line" [data]="chartData" [options]="chartOptions" id="nasdaq-chart"></p-chart>
+    <div class="col-12 md:col-6 xl:col-3">
+        <div class="card h-full">
+            <h5>Best Sellers</h5>
+            <ul class="list-none p-0 m-0">
+                <li class="flex align-items-center justify-content-between pb-2">
+                    <div class="flex align-items-center justify-content-between">
+                        <img src="assets/demo/images/product/bamboo-watch.png" alt="verona-layout" class="w-3rem h-3rem border-round"/>
+                        <div class="ml-2 flex flex-column">
+                            <span class="font-bold">Bamboo Watch</span>
+                            <span class="text-color-secondary text-sm">Accessories</span>
+                        </div>
+                    </div>
+                    <p-knob [ngModel]="75" [size]="40" styleClass="ml-auto" [showValue]="false"></p-knob>
+                </li>
+                <li class="flex align-items-center justify-content-between py-2">
+                    <div class="flex align-items-center justify-content-between">
+                        <img src="assets/demo/images/product/black-watch.png" alt="verona-layout" width="42" height="42" class="border-round"/>
+                        <div class="ml-2 flex flex-column">
+                            <span class="font-bold">Black Watch</span>
+                            <span class="text-color-secondary text-sm">Accessories</span>
+                        </div>
+                    </div>
+                    <p-knob [ngModel]="20" [size]="40" styleClass="ml-auto" [showValue]="false"></p-knob>
+                </li>
+                <li class="flex align-items-center justify-content-between py-2">
+                    <div class="flex align-items-center justify-content-between">
+                        <img src="assets/demo/images/product/blue-band.png" alt="verona-layout" width="42" height="42" class="border-round"/>
+                        <div class="ml-2 flex flex-column">
+                            <span class="font-bold">Blue Band</span>
+                            <span class="text-color-secondary text-sm">Fitness</span>
+                        </div>
+                    </div>
+                    <p-knob [ngModel]="42" [size]="40" styleClass="ml-auto" [showValue]="false"></p-knob>
+                </li>
+                <li class="flex align-items-center justify-content-between py-2">
+                    <div class="flex align-items-center justify-content-between">
+                        <img src="assets/demo/images/product/blue-t-shirt.png" alt="verona-layout" width="42" height="42" class="border-round"/>
+                        <div class="ml-2 flex flex-column">
+                            <span class="font-bold">Blue T-Shirt</span>
+                            <span class="text-color-secondary text-sm">Clothing</span>
+                        </div>
+                    </div>
+                    <p-knob [ngModel]="26" [size]="40" styleClass="ml-auto" [showValue]="false"></p-knob>
+                </li>
+                <li class="flex align-items-center justify-content-between py-2">
+                    <div class="flex align-items-center justify-content-between">
+                        <img src="assets/demo/images/product/black-watch.png" alt="verona-layout" width="42" height="42" class="border-round"/>
+                        <div class="ml-2 flex flex-column">
+                            <span class="font-bold">Black Watch</span>
+                            <span class="text-color-secondary text-sm">Accessories</span>
+                        </div>
+                    </div>
+                    <p-knob [ngModel]="10" [size]="40" styleClass="ml-auto" [showValue]="false"></p-knob>
+                </li>
+                <li class="flex align-items-center justify-content-between py-2">
+                    <div class="flex align-items-center justify-content-between">
+                        <img src="assets/demo/images/product/sneakers.jpg" alt="verona-layout" width="42" height="42" class="border-round"/>
+                        <div class="ml-2 flex flex-column">
+                            <span class="font-bold">Sneakers</span>
+                            <span class="text-color-secondary text-sm">Clothing</span>
+                        </div>
+                    </div>
+                    <p-knob [ngModel]="60" [size]="40" styleClass="ml-auto" [showValue]="false"></p-knob>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6">
+        <div class="card">
+            <h5>Segment X</h5>
+            <div class="flex flex-wrap align-items-center justify-content-around gap-2">
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <button pButton pRipple href="#" icon="pi pi-plus text-2xl" class="w-4rem h-4rem p-button-outlined p-button-rounded mb-2"></button>
+                    <span class="font-bold text-sm">Add New</span>
+                </div>
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-transparent border-3 surface-border border-circle relative">
+                        <img src="assets/demo/images/avatar/amyelsner.png" class="border-circle h-3rem w-3rem">
+                        <span class="absolute top-0 surface-card border-circle flex align-items-center justify-content-center" style="right: -.75rem; width: 1.5rem; height: 1.5rem">
+                            <i class="pi pi-globe text-sm"></i>
+                        </span>
+                    </div>
+                    <span class="font-bold">Darlene Robertson</span>
+                    <span class="text-color-secondary text-sm">2m ago</span>
+                </div>
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-transparent border-3 surface-border border-circle relative">
+                        <img src="assets/demo/images/avatar/annafali.png" class="border-circle h-3rem w-3rem">
+                        <span class="absolute top-0 surface-card border-circle flex align-items-center justify-content-center" style="right: -.75rem; width: 1.5rem; height: 1.5rem">
+                            <i class="pi pi-globe text-sm"></i>
+                        </span>
+                    </div>
+                    <span class="font-bold">Albert Flores</span>
+                    <span class="text-color-secondary text-sm">1h ago</span>
+                </div>
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-transparent border-3 surface-border border-circle relative">
+                        <img src="assets/demo/images/avatar/asiyajavayant.png" class="border-circle h-3rem w-3rem">
+                        <span class="absolute top-0 surface-card border-circle flex align-items-center justify-content-center" style="right: -.75rem; width: 1.5rem; height: 1.5rem">
+                            <i class="pi pi-globe text-sm"></i>
+                        </span>
+                    </div>
+                    <span class="font-bold">Annette Black</span>
+                    <span class="text-color-secondary text-sm">6m ago</span>
+                </div>
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-transparent border-3 surface-border border-circle relative">
+                        <img src="assets/demo/images/avatar/bernardodominic.png" class="border-circle h-3rem w-3rem">
+                        <span class="absolute top-0 surface-card border-circle flex align-items-center justify-content-center" style="right: -.75rem; width: 1.5rem; height: 1.5rem">
+                            <i class="pi pi-globe text-sm"></i>
+                        </span>
+                    </div>
+                    <span class="font-bold">Ralph Edwards</span>
+                    <span class="text-color-secondary text-sm">4m ago</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h5>Segment X</h5>
+            <div class="flex flex-wrap align-items-center justify-content-around gap-2">
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <button pButton pRipple href="#" icon="pi pi-plus text-2xl" class="w-4rem h-4rem p-button-outlined p-button-rounded mb-2"></button>
+                    <span class="font-bold text-sm">Add New</span>
+                </div>
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-transparent border-3 surface-border border-circle relative">
+                        <img src="assets/demo/images/avatar/ionibowcher.png" class="border-circle h-3rem w-3rem">
+                        <span class="absolute top-0 surface-card border-circle flex align-items-center justify-content-center" style="right: -.75rem; width: 1.5rem; height: 1.5rem">
+                            <i class="pi pi-globe text-sm"></i>
+                        </span>
+                    </div>
+                    <span class="font-bold">Jenna Watson</span>
+                    <span class="text-color-secondary text-sm">2m ago</span>
+                </div>
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-transparent border-3 surface-border border-circle relative">
+                        <img src="assets/demo/images/avatar/onyamalimba.png" class="border-circle h-3rem w-3rem">
+                        <span class="absolute top-0 surface-card border-circle flex align-items-center justify-content-center" style="right: -.75rem; width: 1.5rem; height: 1.5rem">
+                            <i class="pi pi-globe text-sm"></i>
+                        </span>
+                    </div>
+                    <span class="font-bold">Dan Cooper</span>
+                    <span class="text-color-secondary text-sm">10m ago</span>
+                </div>
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-transparent border-3 surface-border border-circle relative">
+                        <img src="assets/demo/images/avatar/elwinsharvill.png" class="border-circle h-3rem w-3rem">
+                        <span class="absolute top-0 surface-card border-circle flex align-items-center justify-content-center" style="right: -.75rem; width: 1.5rem; height: 1.5rem">
+                            <i class="pi pi-globe text-sm"></i>
+                        </span>
+                    </div>
+                    <span class="font-bold">Kathryn Murphy</span>
+                    <span class="text-color-secondary text-sm">50m ago</span>
+                </div>
+                <div class="flex flex-column align-items-center justify-content-center">
+                    <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-transparent border-3 surface-border border-circle relative">
+                        <img src="assets/demo/images/avatar/stephenshaw.png" class="border-circle h-3rem w-3rem">
+                        <span class="absolute top-0 surface-card border-circle flex align-items-center justify-content-center" style="right: -.75rem; width: 1.5rem; height: 1.5rem">
+                            <i class="pi pi-globe text-sm"></i>
+                        </span>
+                    </div>
+                    <span class="font-bold">Smith Wilson</span>
+                    <span class="text-color-secondary text-sm">40m ago</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -5,41 +5,38 @@ import { TableModule } from 'primeng/table';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { ChartModule } from 'primeng/chart';
 import { RippleModule } from 'primeng/ripple';
-import { TagModule } from 'primeng/tag';
-import { BadgeModule } from 'primeng/badge';
 import { TooltipModule } from 'primeng/tooltip';
-import { AnalyticsDashboarRoutingModule } from './analytics.dashboard-routing.module';
-import { AnalyticsDashboardComponent } from './analytics.dashboard.component';
-import { DropdownModule } from 'primeng/dropdown';
+import { SaaSDashboardComponent } from './saas.dashboard.component';
+import { SaaSDashboardRoutingModule } from './saas.dashboard-routing.module';
 import { FormsModule } from '@angular/forms';
-import { CalendarModule } from 'primeng/calendar';
-import { AvatarModule } from 'primeng/avatar';
+import { DropdownModule } from 'primeng/dropdown';
 import { AvatarGroupModule } from 'primeng/avatargroup';
+import { AvatarModule } from 'primeng/avatar';
 import { ProgressBarModule } from 'primeng/progressbar';
-import { KnobModule } from 'primeng/knob';
-import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
+import { TabViewModule } from 'primeng/tabview';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
     imports: [
         CommonModule,
         ButtonModule,
         RippleModule,
-        InputTextModule,
         TagModule,
-        BadgeModule,
         TooltipModule,
         TableModule,
         InputNumberModule,
         ChartModule,
-        DropdownModule,
         FormsModule,
-        CalendarModule,
-        AvatarModule,
+        DropdownModule,
         AvatarGroupModule,
+        AvatarModule,
         ProgressBarModule,
-        KnobModule,
-        AnalyticsDashboarRoutingModule
+        PanelModule,
+        TabViewModule,
+        TagModule,
+        SaaSDashboardRoutingModule
     ],
-    declarations: [AnalyticsDashboardComponent]
+    declarations: [SaaSDashboardComponent]
 })
-export class AnalyticsDashboardModule { }
+export class SaaSDashboardModule { }

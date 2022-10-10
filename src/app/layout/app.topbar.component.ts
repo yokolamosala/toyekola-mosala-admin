@@ -21,12 +21,12 @@ export class AppTopBarComponent implements OnInit {
     ngOnInit() {
         this.menu = [
             {
-                label: 'Sales',
+                label: 'SaaS',
                 routerLink: ['/']
             },
             {
-                label: 'Analytics',
-                routerLink: ['/analytics']
+                label: 'Sales',
+                routerLink: ['/sales']
             },
             {
                 label: 'Blocks',
