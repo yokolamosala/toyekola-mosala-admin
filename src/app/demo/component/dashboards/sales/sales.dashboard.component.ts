@@ -41,6 +41,7 @@ export class SalesDashboardComponent implements OnInit {
                     label: 'Referral',
                     data: [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1],
                     backgroundColor: [this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB'] ,
+                    hoverBackgroundColor: ['#3EBD93'],
                     fill: true,
                     borderRadius: 10,
                     borderSkipped: 'top bottom',

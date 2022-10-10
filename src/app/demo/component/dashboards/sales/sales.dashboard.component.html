@@ -16,7 +16,7 @@
             <div class="flex align-items-center p-3">
                 <i class="pi pi-map text-6xl text-orange-500"></i>
                 <div class="ml-3">
-                    <span class="text-orange-500 block white-space-nowrap">REACHED LOCATIONS</span>
+                    <span class="text-orange-500 block white-space-nowrap">LIFETIME VALUE</span>
                     <span class="text-orange-500 block text-4xl font-bold">532</span>
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <div class="flex align-items-center p-3">
                 <i class="pi pi-comments text-6xl text-purple-500"></i>
                 <div class="ml-3">
-                    <span class="text-purple-500 block white-space-nowrap">INTERACTIONS</span>
+                    <span class="text-purple-500 block white-space-nowrap">ACTIVE TRIALS</span>
                     <span class="text-purple-500 block text-4xl font-bold">440</span>
                 </div>
             </div>
@@ -63,7 +63,7 @@
 
     <div class="col-12 md:col-6 lg:col-3">
         <div class="card h-full">
-            <h5>People</h5>
+            <h5>Latest Customers</h5>
             <ul class="list-none p-0 m-0">
                 <li class="mb-4 flex align-items-center">
                     <p-avatar label="BS" size="large" shape="circle" styleClass="text-base font-bold"
@@ -114,7 +114,7 @@
                     </div>
                 </li>
             </ul>
-            <button type="button" pButton pRipple class="w-full mt-3 " label="View All" icon="pi pi-angle-right"></button>
+            <button type="button" pButton pRipple class="w-full mt-3 " label="View All" icon="pi pi-arrow-right" iconPos="right"></button>
         </div>
     </div>
 
@@ -164,83 +164,263 @@
         </div>
     </div>
 
-    <div class="col-12 md:col-6 lg:col-4">
+    <div class="col-12 md:col-6 xl:col-4">
         <div class="card h-full">
-            <h5>Sales Channels</h5>
-            
-            <ul class="list-none m-0 p-0">
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Online Marketplaces</span>
-                        <span>%40</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-orange-500" style="width:40%"></div>
-                    </div>
+            <h5>Trials Leads By Role</h5>
+            <div class="flex align-items-center justify-content-between pb-2 mb-1 border-bottom-1 surface-border">
+                <span class="font-bold">Role</span>
+                <span class="font-bold">Leads</span>
+            </div>
+            <ul class="list-none p-0 m-0">
+                <li class="flex flex-wrap align-items-center justify-content-between py-1">
+                    <span>Finance</span>
+                    <p-avatarGroup styleClass="w-8rem justify-content-evenly">
+                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/ionibowcher.png" shape="circle"></p-avatar>
+                    </p-avatarGroup>
                 </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Resellers</span>
-                        <span>%60</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-indigo-500" style="width:60%"></div>
-                    </div>
+                <li class="flex flex-wrap align-items-center justify-content-between py-1">
+                    <span>Management</span>
+                    <p-avatarGroup styleClass="w-6rem justify-content-evenly">
+                        <p-avatar image="assets/demo/images/avatar/annafali.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/bernardodominic.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/elwinsharvill.png" shape="circle"></p-avatar>
+                    </p-avatarGroup>
                 </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Affiliate</span>
-                        <span>%90</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-blue-500" style="width:90%"></div>
-                    </div>
+                <li class="flex flex-wrap align-items-center justify-content-between py-1">
+                    <span>Human Resources</span>
+                    <p-avatarGroup styleClass="w-4rem justify-content-evenly">
+                        <p-avatar image="assets/demo/images/avatar/ivanmagalhaes.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
+                    </p-avatarGroup>
                 </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Organic</span>
-                        <span>%50</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-green-500" style="width:50%"></div>
-                    </div>
+                <li class="flex flex-wrap align-items-center justify-content-between py-2">
+                    <span>Development</span>
+                    <p-avatarGroup styleClass="w-8rem justify-content-evenly">
+                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/ionibowcher.png" shape="circle"></p-avatar>
+                    </p-avatarGroup>
                 </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Referral</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-purple-500" style="width:30%"></div>
-                    </div>
+                <li class="flex flex-wrap align-items-center justify-content-between py-2">
+                    <span>Design</span>
+                    <p-avatarGroup styleClass="w-4rem justify-content-evenly">
+                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                    </p-avatarGroup>
                 </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Ads</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-yellow-500" style="width:45%"></div>
-                    </div>
+                <li class="flex flex-wrap align-items-center justify-content-between py-2">
+                    <span>R&D</span>
+                    <p-avatarGroup styleClass="w-6rem justify-content-evenly">
+                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
+                    </p-avatarGroup>
                 </li>
-                <li>
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Partners</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-teal-500" style="width:70%"></div>
-                    </div>
+                <li class="flex flex-wrap align-items-center justify-content-between py-2">
+                    <span>Reliability</span>
+                    <p-avatarGroup styleClass="w-4rem justify-content-evenly">
+                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                    </p-avatarGroup>
+                </li>
+                <li class="flex flex-wrap align-items-center justify-content-between py-2">
+                    <span>Social Media</span>
+                    <p-avatarGroup styleClass="w-8rem justify-content-evenly">
+                        <p-avatar image="assets/demo/images/avatar/amyelsner.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/onyamalimba.png" shape="circle"></p-avatar>
+                        <p-avatar image="assets/demo/images/avatar/ionibowcher.png" shape="circle"></p-avatar>
+                    </p-avatarGroup>
                 </li>
             </ul>
         </div>
     </div>
+
     <div class="col-12 md:col-6 lg:col-4">
         <div class="card h-full">
-            <h5>Upcoming Tasks</h5>
+            <h5>Leads By Region</h5>
+            <p-tabView>
+                <p-tabPanel header="Europe">
+                    <table class="w-full">
+                        <tbody>
+                            <tr>
+                                <td class="w-4 p-2">🇮🇹 Italy</td>
+                                <td class="w-2 p-2"><span class="font-bold">90</span></td>
+                                <td class="w-2 p-2">
+                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">12</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
+                                        <span class="font-bold">LOW</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4 p-2">🇫🇷 France</td>
+                                <td class="w-2 p-2"><span class="font-bold">61</span></td>
+                                <td class="w-2 p-2">
+                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">8</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
+                                        <span class="font-bold">HIGH</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4 p-2">🇩🇪 Germany</td>
+                                <td class="w-2 p-2"><span class="font-bold">46</span></td>
+                                <td class="w-2 p-2">
+                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-green-100 text-green-900 border-round">
+                                        <i class="pi pi-arrow-up"></i>
+                                        <span class="font-bold ml-1">5</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
+                                        <span class="font-bold">HIGH</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4 p-2">🇳🇱Netherlands</td>
+                                <td class="w-2 p-2"><span class="font-bold">28</span></td>
+                                <td class="w-2 p-2">
+                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-red-100 text-red-900 border-round">
+                                        <i class="pi pi-arrow-down"></i>
+                                        <span class="font-bold ml-1">19</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
+                                        <span class="font-bold">LOW</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4 p-2">🇪🇸 Spain</td>
+                                <td class="w-2 p-2"><span class="font-bold">17</span></td>
+                                <td class="w-2 p-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">7</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
+                                        <span class="font-bold">HIGH</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </p-tabPanel>
+                <p-tabPanel header="United States">
+                    <table class="w-full">
+                        <tbody>
+                            <tr>
+                                <td class="w-4 p-2">California</td>
+                                <td class="w-2 p-2"><span class="font-bold">79</span></td>
+                                <td class="w-2 p-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">11</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
+                                        <span class="font-bold">HIGH</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4 p-2">Texas</td>
+                                <td class="w-2 p-2"><span class="font-bold">71</span></td>
+                                <td class="w-2 p-2">
+                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-red-100 text-red-900 border-round">
+                                        <i class="pi pi-arrow-down"></i>
+                                        <span class="font-bold ml-1">9</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
+                                        <span class="font-bold">LOW</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4 p-2">Florida</td>
+                                <td class="w-2 p-2"><span class="font-bold">55</span></td>
+                                <td class="w-2 p-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">15</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
+                                        <span class="font-bold">LOW</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4 p-2">New York</td>
+                                <td class="w-2 p-2"><span class="font-bold">48</span></td>
+                                <td class="w-2 p-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 bg-green-100 text-green-900 border-round">
+                                        <i class="pi pi-arrow-up"></i>
+                                        <span class="font-bold ml-1">6</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
+                                        <span class="font-bold">HIGH</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="w-4 p-2">Ohio</td>
+                                <td class="w-2 p-2"><span class="font-bold">26</span></td>
+                                <td class="w-2 p-2">
+                                    <div
+                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
+                                        <i class="pi pi-circle-off"></i>
+                                        <span class="font-bold ml-1">10</span>
+                                    </div>
+                                </td>
+                                <td class="w-4 p-2">
+                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
+                                        <span class="font-bold">HIGH</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+    
+    <div class="col-12 md:col-6 lg:col-4">
+        <div class="card h-full">
+            <h5>Recent Blog Posts</h5>
             <div class="flex flex-column mb-3">
-                <span class="text-lg mb-3">Design Promo Artwork</span>
-                <p-tag value="Design" styleClass="mb-3"></p-tag>
+                <span class="text-lg mb-3">What is the Customer Journey?</span>
+                <p-tag value="Conversion" styleClass="mb-3"></p-tag>
                 
                 <span class="inline-flex align-items-center">
                     <i class="pi pi-clock mr-1 text-color-secondary"></i>
@@ -271,182 +451,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 md:col-6 lg:col-4">
-        <div class="card h-full">
-            <h5>Ratings</h5>
-            <p-tabView>
-                <p-tabPanel header="Tab Title I">
-                    <table class="w-full">
-                        <tbody>
-                            <tr>
-                                <td class="w-4 p-2">Icarus</td>
-                                <td class="w-2 p-2"><span class="font-bold">3.9</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">0.2</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
-                                        <span class="font-bold">LOW PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Omega</td>
-                                <td class="w-2 p-2"><span class="font-bold">2.8</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">0.9</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Woofer</td>
-                                <td class="w-2 p-2"><span class="font-bold">4.6</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-green-100 text-green-900 border-round">
-                                        <i class="pi pi-arrow-up"></i>
-                                        <span class="font-bold ml-1">1.7</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Alphine</td>
-                                <td class="w-2 p-2"><span class="font-bold">9.0</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-red-100 text-red-900 border-round">
-                                        <i class="pi pi-arrow-down"></i>
-                                        <span class="font-bold ml-1">4.5</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
-                                        <span class="font-bold">LOW PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Doctrine</td>
-                                <td class="w-2 p-2"><span class="font-bold">6.1</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">7.0</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </p-tabPanel>
-                <p-tabPanel header="Tab Title II">
-                    <table class="w-full">
-                        <tbody>
-                            <tr>
-                                <td class="w-4 p-2">Omega</td>
-                                <td class="w-2 p-2"><span class="font-bold">2.8</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">0.9</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Alphine</td>
-                                <td class="w-2 p-2"><span class="font-bold">9.0</span></td>
-                                <td class="w-2 p-2">
-                                    <div class="flex align-items-center justify-content-between px-2 py-1 bg-red-100 text-red-900 border-round">
-                                        <i class="pi pi-arrow-down"></i>
-                                        <span class="font-bold ml-1">4.5</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
-                                        <span class="font-bold">LOW PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Icarus</td>
-                                <td class="w-2 p-2"><span class="font-bold">3.9</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">0.2</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-100 text-700 p-1 border-round">
-                                        <span class="font-bold">LOW PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Woofer</td>
-                                <td class="w-2 p-2"><span class="font-bold">4.6</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-green-100 text-green-900 border-round">
-                                        <i class="pi pi-arrow-up"></i>
-                                        <span class="font-bold ml-1">1.7</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-4 p-2">Doctrine</td>
-                                <td class="w-2 p-2"><span class="font-bold">6.1</span></td>
-                                <td class="w-2 p-2">
-                                    <div
-                                        class="flex align-items-center justify-content-between px-2 py-1 bg-yellow-100 text-yellow-900 border-round">
-                                        <i class="pi pi-circle-off"></i>
-                                        <span class="font-bold ml-1">7.0</span>
-                                    </div>
-                                </td>
-                                <td class="w-4 p-2">
-                                    <div class="flex align-items-center justify-content-center surface-700 text-100 p-1 border-round">
-                                        <span class="font-bold">HIGH PRIORITY</span>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </p-tabPanel>
-            </p-tabView>
-        </div>
-    </div>
-
+    
     <div class="col-12 md:col-6 lg:col-6">
         <div class="card widget-timeline">
             <h5>Timeline</h5>
@@ -496,7 +501,7 @@
 
                     <div class="ml-3 flex-1">
                         <div class="flex align-items-center justify-content-between">
-                            <span><strong>Scott Wesley</strong> starred NS0021 on product list.</span>
+                            <span><strong>Scott Wesley</strong> starred NS0021 on customer list.</span>
                             <span class="font-bold text-color-secondary">1h 51m</span>
                         </div>
                     </div>
@@ -537,7 +542,7 @@
     </div>
     <div class="col-12 lg:col-6">
         <div class="card">
-            <h5>NASDAQ 100</h5>
+            <h5>Monthly Recurring Revenue Growth</h5>
 
             <p-chart type="line" [data]="chartData" [options]="chartOptions" id="nasdaq-chart"></p-chart>
         </div>
