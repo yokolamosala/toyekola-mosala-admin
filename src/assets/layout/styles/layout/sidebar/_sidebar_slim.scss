@@ -18,7 +18,6 @@
             .layout-sidebar {
                 width: 5rem;
                 overflow: visible;
-                z-index: 999;
 
                 .layout-menu-container {
                     overflow: visible;
@@ -30,7 +29,6 @@
 
             .layout-content-wrapper {
                 margin-left: 5rem;
-                width: calc(100% - 5rem);
             }
 
             .layout-menu {
@@ -73,7 +71,7 @@
 
                     > ul {
                         position: absolute;
-                        left: 5rem;
+                        left: 4rem;
                         top: 0;
                         min-width: 15rem;
                         background-color: var(--surface-overlay);

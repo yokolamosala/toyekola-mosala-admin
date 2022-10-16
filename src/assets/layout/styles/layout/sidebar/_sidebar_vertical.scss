@@ -1,16 +1,19 @@
 .layout-sidebar {
     position: fixed;
-    display: flex;
     width: 14rem;
+    display: flex;
+    flex-direction: column;
     height: calc(100% - 5rem);
     left: 0;
     top: 5rem;
     user-select: none;
-    transition: transform var(--transition-duration);
+    background-color: var(--v-body-bg);
+    z-index: 999;
 
     .layout-menu-container {
         overflow: auto;
         flex: 1;
+        height: 100%;
         padding: 1rem 1.5rem;
     }
 
@@ -37,7 +40,7 @@
             }
         }
 
-        li {        
+        li {
             &.active-menuitem {
                 > a {
                     .layout-submenu-toggler {

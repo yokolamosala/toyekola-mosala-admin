@@ -1,40 +1,39 @@
 .layout-topbar {
     height: 5rem;
-    padding: 0 2rem;
+    padding: 0 2rem 0 1rem;
     position: fixed;
+    left: 0;
+    top: 0;
     width: 100%;
     z-index: 1000;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-
-    .topbar-start {
-        display: flex;
-        align-items: center;
-    }
+    background-color: var(--v-body-bg);
 
     .app-logo {
         display: flex;
         align-items: center;
+        flex-shrink: 0;
 
         img {
-            width: 40px;
+            width: 3rem;
         }
 
         span {
             font-size: 2rem;
             font-weight: 700;
             margin-left: .5rem;
+            color: var(--v-menuitem-text-color);
         }
     }
 
     .topbar-menubutton {
         position: relative;
-        width: 40px;
-        height: 40px;
-        margin-left: 1.5rem;
-        border-radius: 6px;
-        transition: background-color var(--transition-duration);
+        width: 3rem;
+        height: 3rem;
+        margin-left: 3rem;
+        border-radius: var(--border-radius);
+        flex-shrink: 0;
 
         span {
             width: 2rem;
@@ -47,6 +46,7 @@
             -webkit-transition-duration: 0.5s;
             transition-duration: 0.5s;
             transition-timing-function: swing;
+            background-color: var(--v-menuitem-text-color-secondary);
 
             &:before {
                 width: 1rem;
@@ -59,6 +59,7 @@
                 -webkit-transition-duration: 0.5s;
                 transition-duration: 0.5s;
                 transition-timing-function: swing;
+                background-color: var(--v-menuitem-text-color-secondary);
             }
 
             &:after {
@@ -72,17 +73,24 @@
                 -webkit-transition-duration: 0.5s;
                 transition-duration: 0.5s;
                 transition-timing-function: swing;
+                background-color: var(--v-menuitem-text-color-secondary);
             }
+        }
+
+        &:hover {
+            background-color: var(--v-menuitem-hover-bg);
         }
     }
 
     .topbar-menu {
         list-style-type: none;
-        padding: 0;
+        padding: 1.25rem 0;
         margin: 0;
-        margin-left: 3rem;
+        margin: 0 3rem;
         display: flex;
         gap: .5rem;
+        flex: 1 1 auto;
+        overflow: auto;
 
         > li {
             display: flex;
@@ -90,7 +98,6 @@
             transition: background-color var(--transition-duration);
             border-radius: var(--border-radius);
             padding: .5rem;
-            border-bottom: 1px solid transparent;
             cursor: pointer;
 
             a {
@@ -123,19 +130,13 @@
                     display: block;
                 }
             }
-
-            
         }
-    }
-
-    .topbar-end {
-        display: flex;
-        align-items: center;
     }
 
     .topbar-search {
         display: flex;
         align-items: center;
+        flex-shrink: 0;
 
         .topbar-searchbutton {
             background-color: var(--surface-ground);
@@ -188,7 +189,7 @@
                 transition-delay: .1s;
             }
             
-            .search-input-wrapper{
+            .search-input-wrapper {
                 width: 190px;
                 opacity: 1;
                 visibility: visible;
@@ -197,10 +198,6 @@
                     display: block;
                 }
             }
-
-            > ul {
-                display: none;
-            };
         }
     }
 
@@ -208,12 +205,13 @@
         border-radius: var(--border-radius);
         margin-left: 2rem;
         position: relative;
+        flex-shrink: 0;
 
-        .topbar-profile-container {
+        .topbar-profile-button {
             display: flex;
             align-items: center;
-            cursor: pointer;
             padding: .5rem;
+            cursor: pointer;
 
             > img {
                 width: 36px;
