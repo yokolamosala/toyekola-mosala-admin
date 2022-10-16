@@ -30,8 +30,8 @@
         <label for="menutheme-colorscheme">Color Scheme</label>
     </div>
     <div class="field-radiobutton">
-        <p-radioButton name="menuTheme" value="primaryColor" [(ngModel)]="menuTheme" inputId="menutheme-primarycolor"></p-radioButton>
-        <label for="menutheme-primarycolor">Primary Color</label>
+        <p-radioButton name="menuTheme" value="primaryColor" [(ngModel)]="menuTheme" inputId="menutheme-primarycolor" [disabled]="colorScheme === 'dark'"></p-radioButton>
+        <label for="menutheme-primarycolor">Primary Color (Light Only)</label>
     </div>
 
     <h5>Themes</h5>

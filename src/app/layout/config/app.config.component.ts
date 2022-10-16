@@ -45,6 +45,9 @@ export class AppConfigComponent implements OnInit {
 
         this.replaceThemeLink(newHref, 'theme-link', () => {
             this.layoutService.config.colorScheme = colorScheme;
+            if (this.layoutService.config.colorScheme === 'dark') {
+                this.layoutService.config.layoutTheme = 'colorScheme';
+            }
             this.layoutService.onConfigUpdate();
         });
     }

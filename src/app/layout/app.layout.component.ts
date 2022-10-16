@@ -113,7 +113,7 @@ export class AppLayoutComponent implements OnDestroy {
             'p-ripple-disabled': !this.layoutService.config.ripple,
             'layout-light': this.layoutService.config.layoutTheme === 'colorScheme' && this.layoutService.config.colorScheme === 'light',
             'layout-dark': this.layoutService.config.layoutTheme === 'colorScheme' && this.layoutService.config.colorScheme === 'dark',
-            'layout-primary': this.layoutService.config.layoutTheme === 'primaryColor'
+            'layout-primary': this.layoutService.config.colorScheme !== 'dark' && this.layoutService.config.layoutTheme === 'primaryColor'
         }
     }
 
