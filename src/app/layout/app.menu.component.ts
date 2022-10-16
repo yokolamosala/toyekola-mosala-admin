@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {AppLayoutComponent} from './app.layout.component';
+import { Component, OnInit } from '@angular/core';
+import { AppLayoutComponent } from './app.layout.component';
 import { LayoutService } from './service/app.layout.service';
 
 @Component({
@@ -10,36 +10,36 @@ export class AppMenuComponent implements OnInit {
 
     model: any[];
 
-    constructor(public layoutService: LayoutService) {}
+    constructor(public layoutService: LayoutService) { }
 
     ngOnInit() {
         this.model = [
             {
                 label: 'Dashboard', icon: 'pi pi-home',
                 items: [
-                    {label: 'SaaS', icon: 'pi pi-desktop', routerLink: ['/']},
-                    {label: 'Sales', icon: 'pi pi-chart-bar', routerLink: ['/sales']}
+                    { label: 'SaaS', icon: 'pi pi-desktop', routerLink: ['/'] },
+                    { label: 'Sales', icon: 'pi pi-chart-bar', routerLink: ['/sales'] }
                 ]
             },
             {
                 label: 'UI Kit', icon: 'pi pi-star', routerLink: ['/uikit'],
                 items: [
-                    {label: 'Form Layout', icon: 'pi pi-id-card', routerLink: ['/uikit/formlayout']},
-                    {label: 'Input', icon: 'pi pi-check-square', routerLink: ['/uikit/input']},
-                    {label: 'Float Label', icon: 'pi pi-bookmark', routerLink: ['/uikit/floatlabel']},
-                    {label: 'Invalid State', icon: 'pi pi-exclamation-circle', routerLink: ['/uikit/invalidstate']},
-                    {label: 'Button', icon: 'pi pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon'},
-                    {label: 'Table', icon: 'pi pi-table', routerLink: ['/uikit/table']},
-                    {label: 'List', icon: 'pi pi-list', routerLink: ['/uikit/list']},
-                    {label: 'Tree', icon: 'pi pi-share-alt', routerLink: ['/uikit/tree']},
-                    {label: 'Panel', icon: 'pi pi-tablet', routerLink: ['/uikit/panel']},
-                    {label: 'Overlay', icon: 'pi pi-clone', routerLink: ['/uikit/overlay']},
-                    {label: 'Media', icon: 'pi pi-image', routerLink: ['/uikit/media']},
-                    {label: 'Menu', icon: 'pi pi-bars', routerLink: ['/uikit/menu'], preventExact: true},
-                    {label: 'Message', icon: 'pi pi-comment', routerLink: ['/uikit/message']},
-                    {label: 'File', icon: 'pi pi-file', routerLink: ['/uikit/file']},
-                    {label: 'Chart', icon: 'pi pi-chart-bar', routerLink: ['/uikit/charts']},
-                    {label: 'Misc', icon: 'pi pi-circle-off', routerLink: ['/uikit/misc']}
+                    { label: 'Form Layout', icon: 'pi pi-id-card', routerLink: ['/uikit/formlayout'] },
+                    { label: 'Input', icon: 'pi pi-check-square', routerLink: ['/uikit/input'] },
+                    { label: 'Float Label', icon: 'pi pi-bookmark', routerLink: ['/uikit/floatlabel'] },
+                    { label: 'Invalid State', icon: 'pi pi-exclamation-circle', routerLink: ['/uikit/invalidstate'] },
+                    { label: 'Button', icon: 'pi pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon' },
+                    { label: 'Table', icon: 'pi pi-table', routerLink: ['/uikit/table'] },
+                    { label: 'List', icon: 'pi pi-list', routerLink: ['/uikit/list'] },
+                    { label: 'Tree', icon: 'pi pi-share-alt', routerLink: ['/uikit/tree'] },
+                    { label: 'Panel', icon: 'pi pi-tablet', routerLink: ['/uikit/panel'] },
+                    { label: 'Overlay', icon: 'pi pi-clone', routerLink: ['/uikit/overlay'] },
+                    { label: 'Media', icon: 'pi pi-image', routerLink: ['/uikit/media'] },
+                    { label: 'Menu', icon: 'pi pi-bars', routerLink: ['/uikit/menu'], preventExact: true },
+                    { label: 'Message', icon: 'pi pi-comment', routerLink: ['/uikit/message'] },
+                    { label: 'File', icon: 'pi pi-file', routerLink: ['/uikit/file'] },
+                    { label: 'Chart', icon: 'pi pi-chart-bar', routerLink: ['/uikit/charts'] },
+                    { label: 'Misc', icon: 'pi pi-circle-off', routerLink: ['/uikit/misc'] }
                 ]
             },
             {
@@ -116,24 +116,23 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label:'Prime Blocks', icon:'pi pi-fw pi-prime', routerLink: ['/blocks'],
-                items:[
-                    {label: 'Free Blocks', icon: 'pi pi-fw pi-eye', routerLink: ['/blocks']},
-                    {label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: ['https://www.primefaces.org/primeblocks-ng'], target: '_blank'},
+                label: 'Prime Blocks', icon: 'pi pi-fw pi-prime', routerLink: ['/blocks'],
+                items: [
+                    { label: 'Free Blocks', icon: 'pi pi-fw pi-eye', routerLink: ['/blocks'] },
+                    { label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: ['https://www.primefaces.org/primeblocks-ng'], target: '_blank' },
                 ]
             },
             {
                 label: 'Utilities', icon: 'pi pi-fw pi-compass', routerLink: ['/utilities'],
                 items: [
-                    {label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', routerLink: ['utilities/icons']},
-                    {label: 'Colors', icon: 'pi pi-fw pi-palette', routerLink: ['utilities/colors']},
-                    {label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: ['https://www.primefaces.org/primeflex/'], target: '_blank'},
+                    { label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', routerLink: ['utilities/icons'] },
+                    { label: 'Colors', icon: 'pi pi-fw pi-palette', routerLink: ['utilities/colors'] },
+                    { label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: ['https://www.primefaces.org/primeflex/'], target: '_blank' },
                 ]
             },
             {
                 label: 'Pages',
                 icon: 'pi pi-fw pi-briefcase',
-                routerLink: ['/pages'],
                 items: [
                     {
                         label: 'Landing',
@@ -299,15 +298,15 @@ export class AppMenuComponent implements OnInit {
                             {
                                 label: 'Submenu 1.1', icon: 'pi pi-align-left',
                                 items: [
-                                    {label: 'Submenu 1.1.1', icon: 'pi pi-align-left'},
-                                    {label: 'Submenu 1.1.2', icon: 'pi pi-align-left'},
-                                    {label: 'Submenu 1.1.3', icon: 'pi pi-align-left'},
+                                    { label: 'Submenu 1.1.1', icon: 'pi pi-align-left' },
+                                    { label: 'Submenu 1.1.2', icon: 'pi pi-align-left' },
+                                    { label: 'Submenu 1.1.3', icon: 'pi pi-align-left' },
                                 ]
                             },
                             {
                                 label: 'Submenu 1.2', icon: 'pi pi-align-left',
                                 items: [
-                                    {label: 'Submenu 1.2.1', icon: 'pi pi-align-left'}
+                                    { label: 'Submenu 1.2.1', icon: 'pi pi-align-left' }
                                 ]
                             },
                         ]
@@ -318,14 +317,14 @@ export class AppMenuComponent implements OnInit {
                             {
                                 label: 'Submenu 2.1', icon: 'pi pi-align-left',
                                 items: [
-                                    {label: 'Submenu 2.1.1', icon: 'pi pi-align-left'},
-                                    {label: 'Submenu 2.1.2', icon: 'pi pi-align-left'},
+                                    { label: 'Submenu 2.1.1', icon: 'pi pi-align-left' },
+                                    { label: 'Submenu 2.1.2', icon: 'pi pi-align-left' },
                                 ]
                             },
                             {
                                 label: 'Submenu 2.2', icon: 'pi pi-align-left',
                                 items: [
-                                    {label: 'Submenu 2.2.1', icon: 'pi pi-align-left'},
+                                    { label: 'Submenu 2.2.1', icon: 'pi pi-align-left' },
                                 ]
                             },
                         ]
