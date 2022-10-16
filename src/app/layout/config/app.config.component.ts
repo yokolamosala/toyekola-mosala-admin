@@ -115,6 +115,10 @@ export class AppConfigComponent implements OnInit {
         this.layoutService.showConfigSidebar();
     }
 
+    get theme(): string {
+        return this.layoutService.config.theme;
+    }
+
     get colorScheme(): string {
         return this.layoutService.config.colorScheme;
     }

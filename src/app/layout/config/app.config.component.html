@@ -37,7 +37,8 @@
     <h5>Themes</h5>
     <div class="flex flex-wrap gap-3">
         <div *ngFor="let t of themes">
-            <a style="cursor: pointer" (click)="changeComponentTheme(t.name)" class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-round" [ngStyle]="{'background-color': colorScheme === 'light' ? t.lightColor :t.darkColor}">
+            <a style="cursor: pointer" (click)="changeComponentTheme(t.name)" class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-round" 
+                [ngStyle]="{'background-color': colorScheme === 'light' ? t.lightColor :t.darkColor, 'color': colorScheme === 'light' ? '#ffffff' : '#000000'}">
                 <i class="pi pi-check" *ngIf="theme === t.name"></i>
             </a>
         </div>
