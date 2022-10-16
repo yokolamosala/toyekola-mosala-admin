@@ -126,6 +126,7 @@ export class AppMenuComponent implements OnInit {
                 label: 'Utilities', icon: 'pi pi-fw pi-compass', routerLink: ['/utilities'],
                 items: [
                     {label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', routerLink: ['utilities/icons']},
+                    {label: 'Colors', icon: 'pi pi-fw pi-palette', routerLink: ['utilities/colors']},
                     {label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: ['https://www.primefaces.org/primeflex/'], target: '_blank'},
                 ]
             },
