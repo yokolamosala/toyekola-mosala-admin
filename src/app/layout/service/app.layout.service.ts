@@ -50,7 +50,7 @@ export class LayoutService {
         },
         {
             label: 'Sales',
-            routerLink: ['/sales']
+            routerLink: ['/dashboard-sales']
         },
         {
             label: 'Blocks',
