@@ -4,12 +4,10 @@ import { EmptyDemoRoutingModule } from './emptydemo-routing.module';
 import { EmptyDemoComponent } from './emptydemo.component';
 
 @NgModule({
-    declarations: [
-        EmptyDemoComponent
-    ],
-    imports: [
-        CommonModule,
-        EmptyDemoRoutingModule
-    ]
+	imports: [
+		CommonModule,
+		EmptyDemoRoutingModule
+	],
+	declarations: [EmptyDemoComponent]
 })
 export class EmptyDemoModule { }

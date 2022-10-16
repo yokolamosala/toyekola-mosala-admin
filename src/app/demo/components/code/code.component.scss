@@ -8,11 +8,11 @@ pre[class*="language-"] {
     code {
         border-left: .5rem solid transparent !important;
         box-shadow: none !important;
-        background: var(--surface-ground) !important;
+        background: var(--surface-card) !important;
         margin: 0 !important;
         color: var(--surface-900);
         font-size: 14px;
-        border-radius: var(--border-radius) !important;
+        border-radius: 10px !important;
 
         .token {
             &.tag,
