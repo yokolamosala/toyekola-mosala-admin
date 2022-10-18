@@ -1,18 +1,21 @@
-<div class="grid grid-nogutter surface-section text-800">
-    <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
-        <div class="py-4 px-4 mx-0 md:mx-6 lg:mx-8 lg:px-8 z-2">
-            <div id="home"
-                class="grid grid-nogutter justify-content-between align-items-center mb-6 py-6 md:mb-8 md:py-8">
+<div class="grid grid-nogutter text-800 ml-8 ml-8">
+    <div class="col-12 md:col-5 text-center md:text-left flex align-items-center">
+
+            <div class="ml-8 mt-8 z-2 bg-left-top bg-no-repeat" style="background-image: url('assets/demo/images/landing/effect-2.png'); background-size: 15rem;">
+
+            <div id="home" class="grid grid-nogutter justify-content-between align-items-center mt-8 ml-8">
                 <div class="col-12 md:col-6 flex flex-column gap-2 flex-order-1 md:flex-order-0 align-items-center md:align-items-start text-center md:text-left">
-                    <p class="mt-0 mb-3 line-height-3 text-left mx-auto text-900 font-bold text-6xl" style="max-width:500px">PrimeTek Presents Verona</p>
-                    <span class="block text-700 text-xl mb-4">Minimal layout inspired by a beautiful city.</span>
+                    <p class="mt-0 mb-3 pl-3 line-height-3 text-900 font-bold text-6xl" style="max-width:500px">PrimeTek Presents Verona</p>
+
+                    <p class="block text-700 text-xl mb-4 pl-3">Minimal layout inspired by a beautiful city.</p>
                     <button pButton type="button" label="Try Free Now" class="p-button-secondary"></button>
+
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-12 md:col-6 md:mb-0 bg-no-repeat bg-cover" [style]="{'background-image':'url(assets/demo/images/landing/effect-1.png)'}">
+</div>
+    <div class="col-12 md:col-7 md:mb-0 bg-no-repeat bg-cover" [style]="{'background-image':'url(assets/demo/images/landing/effect-1.png)'}">
         <div class="relative overflow-hidden flex flex-column justify-content-center">
             <div class="landing-wrapper">
                 <div class="flex align-items-center justify-content-between relative lg:static py-6 px-4 mx-0 md:px-7 lg:px-8 lg:py-6 lg:mx-8">
@@ -21,7 +24,7 @@
                     </a>
                     <div class="align-items-center flex-grow-1 hidden md:flex absolute md:static w-full md:px-0 z-3 shadow-2 md:shadow-none fadein" style="top:80px; right: 0%;">
                         <ul
-                            class="list-none p-3 md:p-0 m-0 ml-auto flex md:align-items-center select-none flex-column md:flex-row cursor-pointer surface-card md:surface-ground">
+                            class="list-none p-3 md:p-0 m-0 mb-8 ml-auto flex md:align-items-center select-none flex-column md:flex-row cursor-pointer">
                             <li>
                                 <a (click)="router.navigate(['/landing'], {fragment: 'home'})" pRipple
                                     class="flex m-0 md:ml-5 px-0 py-3 text-500 font-bold line-height-3">
@@ -29,15 +32,15 @@
                                 </a>
                             </li>
                             <li>
-                                <a (click)="router.navigate(['/landing'], {fragment: 'apps'})" pRipple
-                                    class="flex m-0 md:ml-5 px-0 py-3 text-500 font-bold line-height-3">
-                                    <span>APPS</span>
-                                </a>
-                            </li>
-                            <li>
                                 <a (click)="router.navigate(['/landing'], {fragment: 'features'})" pRipple
                                     class="flex m-0 md:ml-5 px-0 py-3 text-500 font-bold line-height-3">
                                     <span>FEATURES</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a (click)="router.navigate(['/landing'], {fragment: 'apps'})" pRipple
+                                    class="flex m-0 md:ml-5 px-0 py-3 text-500 font-bold line-height-3">
+                                    <span>STATİCS</span>
                                 </a>
                             </li>
                             <li>
@@ -50,7 +53,7 @@
                     </div>
                 </div>
 
-                <img animateEnter="moveinright" src="assets/demo/images/landing/screen.png" alt="" height="300px" class=" border-round animation-duration-1000 animation-ease-out">
+                <img animateEnter="moveinright" src="assets/demo/images/landing/landing-asset.png" height="550px" class="border-round text-left mt-8 ml-8 animation-duration-1000 animation-ease-out">
             </div>
         </div>
     </div>
@@ -60,17 +63,17 @@
     <div class="relative overflow-hidden flex flex-column justify-content-center">
         <div class="text-center mt-4 relative">
             <div class="text-xl text-500 font-bold mb-1">Ecosystem</div>
-            <div class="text-6xl text-primary font-bold mb-4">All You Need Is Here</div>
+            <div class="text-6xl text-900 font-bold mb-4">All You Need Is Here</div>
     </div>
 
 <div class="px-4 py-4 md:px-6 lg:px-8">
-    <div class="grid grid-nogutter -ml-3 -mr-3">
+    <div class="grid grid-nogutter ml-8 mr-8">
         <div class="col-12 lg:col-3 p-3">
-            <div class="flex flex-column justify-content-between h-full w-full surface-card border-round p-3 shadow-2">
+            <div class="flex flex-column justify-content-between h-full w-full surface-card p-3 shadow-2" style="border-radius:14px">
                 <div class="text-center my-6">
                     <div class="text-xl text-500 font-medium mb-1">Easy to use</div>
-                    <span class="text-4xl text-primary font-bold mb-4">such as play a toy</span>
-                    <p class="mt-2 mb-4 line-height-3 text-center mx-auto text-700" style="max-width:500px">Have 80+ UI Components</p>
+                    <span class="text-3xl text-600 font-semibold mb-4">Play like a toy</span>
+                    <p class="mt-2 mb-4 line-height-3 text-center mx-auto text-700" style="max-width:500px">More than 80 UI components.</p>
                     <div class="text-xl cursor-pointer text-primary text-center">Let’s Get Started<i class="pi pi-fw pi-arrow-right text-2xl ml-2"></i></div>
                     <img src="assets/demo/images/landing/undraw_toy_car_-7-umw 1.png" height="165" class="mx-auto block mt-4">
                 </div>
@@ -80,42 +83,40 @@
         <div class="col-12 lg:col-6">
             <div class="grid grid-nogutter lg:flex-column">
                 <div class="col-12 p-3">
-                    <div class="flex flex-column justify-content-between h-full w-full  surface-card border-round p-3 shadow-2">
+                    <div class="shadow-2 surface-card p-3" style="border-radius:14px">
                         <div class="flex align-items-center justify-content-between">
+                            <img src="assets/demo/images/landing/undraw_building_blocks_re_5ahy 1.png" height="165" class="mx-auto block mb-4">
                             <div>
-                                <div class="text-xl text-500 font-medium mb-1">Prime Icons</div>
-                                <span class="flex text-4xl text-primary font-bold mb-4">have 200+ Icons</span>
-                                <p class="mt-0 mb-4 line-height-3 text-left mx-auto text-700" style="max-width:500px">What you need in your app, you find any icon in Prime Icons</p>
-                                <div class="text-xl cursor-pointer text-primary">Explore PrimeIcons<i class="pi pi-fw pi-arrow-right text-2xl ml-2"></i></div>
+                                <div class="p-4">
+                                <div class="text-xl text-500 text-right font-medium mb-1">Prime Blocks</div>
+                                <span class="flex text-3xl text-900 text-right font-semibold mb-4">Save your time</span>
+                                <p class="mt-2 mb-4 line-height-3 text-left mx-auto text-700" style="max-width:500px">Prime Blocks have 370+ Blocks Heroes, Pricings, Footers and more... </p>
+                                <div class="text-xl cursor-pointer text-primary">Browse Blocks<i class="pi pi-fw pi-arrow-right text-2xl ml-2"></i></div>
                             </div>
-                            <div>
-                            <img src="assets/demo/images/landing/undraw_appreciation_vmef 1.png" height="165" class="mx-auto block mb-4">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 p-3">
-                    <div class="shadow-2 surface-card p-3" style="border-radius: 12px">
+                    <div class="flex flex-column justify-content-between h-full w-full  surface-card p-3 shadow-2" style="border-radius:14px">
                         <div class="flex align-items-center justify-content-between">
-                            <img src="assets/demo/images/landing/undraw_building_blocks_re_5ahy 1.png" height="165" class="mx-auto block mb-4">
-                            <div>
-                            <div>
-                                <div class="text-xl text-500 text-right font-medium mb-1">Prime Blocks</div>
-                                <span class="flex text-4xl text-primary text-right font-bold mb-4">save your time</span>
-                                <p class="mt-2 mb-4 line-height-3 text-left mx-auto text-700" style="max-width:500px">Prime Blocks have 370+ Blocks Heroes, Pricings, Footers and more... </p>
-                                <div class="text-xl cursor-pointer text-primary">buhuh<i class="pi pi-fw pi-arrow-right text-2xl ml-2"></i></div>
+                            <div class="p-4">
+                                <div class="text-xl text-500 font-medium mb-1">Prime Icons</div>
+                                <span class="flex text-3xl text-900 font-semibold mb-4">Enjoy 300+ icons</span>
+                                <p class="mt-0 mb-4 line-height-3 text-left mx-auto text-700" style="max-width:500px">What you need in your app, you find any icon in Prime Icons</p>
+                                <div class="text-xl cursor-pointer text-primary">Explore PrimeIcons<i class="pi pi-fw pi-arrow-right text-2xl ml-2"></i></div>
                             </div>
-                            </div>
+                            <img src="assets/demo/images/landing/undraw_appreciation_vmef 1.png" height="165" class="mx-auto block mb-4">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-12 lg:col-3 p-3">
-            <div class="surface-card border-round p-3 shadow-2">
+            <div class="surface-card p-3 shadow-2" style="border-radius:14px">
                 <div class="text-center my-6">
                     <div class="text-xl text-500 font-medium mb-1">Theme Designer</div>
-                    <span class="text-4xl text-primary font-bold mb-4">give a life your app</span>
+                    <span class="text-3xl text-900 font-semibold mb-4">Give a life your app</span>
                     <p class="mt-2 mb-4 line-height-3 mx-auto text-700" style="max-width:200px">Limitless Personalization Theme Design</p>
                     <div class="text-xl cursor-pointer text-primary text-center">Go to Theme Designer<i class="pi pi-fw pi-arrow-right text-2xl ml-2"></i></div>
                     <img src="assets/demo/images/landing/undraw_color_palette_re_dwy7 1.png" height="165" class="mx-auto block mt-4">
@@ -126,13 +127,43 @@
 </div>
 </div>
 
-</div>
+<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+    <div class="grid nogutter">
+        <div class="col-12 lg:col-4 p-3">
+            <div class="border-round bg-yellow-50 text-center p-6">
+                <img src="assets/demo/images/landing/icon-modern-responsive.svg" alt="Image" height="160px" weight="130px"  class="border-round-top">
+            </div>
+                <div class="p-4">
+                    <div class="text-xl text-900 font-medium mb-3 line-height-3">Responsive Design</div>
+                    <div class="text-lg line-height-3 mb-3 text-700">Nam non ligula sed urna malesuada lacinia. Aliquam sed viverra ipsum.</div>
+                </div>
+            </div>
+        <div class="col-12 lg:col-4 p-3">
+            <div class="border-round bg-green-50 surface-card text-center p-6">
+                <img src="assets/demo/images/landing/icon-modern-design.svg" alt="Image" height="160px" weight="130px"  class="border-round-top">
+            </div>
+                <div class="p-4">
+                    <div class="text-xl text-900 font-medium mb-3 line-height-3">Modern Design</div>
+                    <div class="text-lg line-height-3 mb-3 text-700">Nam non ligula sed urna malesuada lacinia. Aliquam sed viverra ipsum.</div>
+                </div>
+            </div>
+        <div class="col-12 lg:col-4 p-3">
+            <div class="border-round bg-pink-50 text-center p-6">
+                <img src="assets/demo/images/landing/icon-clean-code.svg" alt="Image" height="160px" weight="130px"  class="border-round-top">
+            </div>
+                <div class="p-4">
+                    <div class="text-xl text-900 font-medium mb-3 line-height-3">Clean Code</div>
+                    <div class="text-lg line-height-3 mb-3 text-700">Nam non ligula sed urna malesuada lacinia. Aliquam sed viverra ipsum.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <div class="surface-ground px-4 md:px-6 lg:px-8">
     <div class="py-6 flex flex-column sm:flex-row sm:align-items-center justify-content-between">
         <div class="text text-700 text-4xl">Join the people of Verona now…</div>
         <div class="mt-3 sm:mt-0">
-            <button pButton pRipple type="button" label="TRY FREE NOW"
-                class="p-button-raised p-button-secondary p-button-text"></button>
+            <button pButton pRipple type="button" label="TRY FREE NOW" class="p-button-secondary"></button>
         </div>
     </div>
 </div>
@@ -242,6 +273,7 @@
                 </div>
             </div>
         </div>
+
         <div class="col-12 lg:col-4 p-3">
             <div class="shadow-2 surface-card p-3" style="border-radius: 12px">
                 <div class="flex flex-column align-items-center justify-content-center px-5 lg:px-7">
@@ -293,17 +325,14 @@
                 </div>
             </div>
         </div>
-
+   </div>
 </div>
 
-</div>
-
-
-<div class="px-4 py-8 md:px-6 lg:px-8" style="background: linear-gradient(97.96deg, #4C96B6 0%, #19496C 100%);">
+<div class="px-4 py-8 md:px-6 lg:px-8 border-round-top" style="background: #212121;" >
     <div class="grid">
-        <div class="col-12 md:col-3 flex flex-wrap justify-content-start md:mb-0 mb-3">
-            <img src="assets/demo/images/logo-dark.png" alt="footer sections" width="50" height="50" class="mr-3">
-            <div class="text-gray-300 font-bold text-5xl">Verona</div>
+        <div class="col-12 md:col-3 flex flex-wrap justify-content-start md:mb-0 mb-3 " >
+            <img src="assets/demo/images/landing/logo-v.png" alt="footer sections" width="100" height="100" class="mr-3">
+            <div class="text-white font-bold text-5xl">Verona</div>
         </div>
         <div class="col-12 md:col-3 text-gray-200">
             <div class="text-white text-2xl font-bold line-height-3 mb-3">LATEST</div>
@@ -319,15 +348,15 @@
             <a class="line-height-3 block cursor-pointer mb-2">PrimeReact</a>
             <a class="line-height-3 block cursor-pointer">PrimeVue</a>
         </div>
-        <div class="col-12 md:col-2 text-gray-200">
+        <div class="col-12 md:col-2">
             <a class="cursor-pointer text-500 transition-colors transition-duration-150 hover:text-700">
-                <i class="pi pi-github text-4xl"></i>
+                <i class="pi pi-github text-white text-4xl"></i>
             </a>
             <a class="cursor-pointer text-500 ml-5 transition-colors transition-duration-150 hover:text-700">
-                <i class="pi pi-discord text-4xl"></i>
+                <i class="pi pi-discord text-white text-4xl"></i>
             </a>
             <a class="cursor-pointer text-500 ml-5 transition-colors transition-duration-150 hover:text-700">
-                <i class="pi pi-twitter text-4xl"></i>
+                <i class="pi pi-twitter text-white text-4xl"></i>
             </a>
         </div>
     </div>
