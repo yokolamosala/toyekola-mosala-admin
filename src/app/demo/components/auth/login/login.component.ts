@@ -11,7 +11,7 @@ export class LoginComponent {
 	constructor(private layoutService: LayoutService) {}
 
 	get dark(): boolean {
-		return this.layoutService.config.colorScheme !== 'light';
+		return this.layoutService.config.colorScheme === 'dark';
 	}
 
 }
