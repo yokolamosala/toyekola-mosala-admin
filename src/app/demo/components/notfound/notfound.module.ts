@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { NotfoundRoutingModule } from './notfound-routing.module';
 import { NotfoundComponent } from './notfound.component';
 import { ButtonModule } from 'primeng/button';
-import { FormsModule } from '@angular/forms';
+import { AppConfigModule } from 'src/app/layout/config/config.module';
 
 @NgModule({
     imports: [
         CommonModule,
         NotfoundRoutingModule,
         ButtonModule,
-        FormsModule
+        AppConfigModule
     ],
     declarations: [NotfoundComponent]
 })
