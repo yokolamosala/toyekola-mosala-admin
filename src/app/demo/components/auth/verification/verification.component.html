@@ -1,27 +1,18 @@
-<div class="px-4 py-8 md:px-6 lg:px-8 flex align-items-center justify-content-center" style="background: linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);">
-<div class="px-5 min-h-screen flex justify-content-center align-items-center">
-    <div class="border-1 surface-border surface-card py-7 px-4 md:px-7 z-1 shadow-2" style="border-radius: 14px">
-        <div class="mb-4">
-            <div class="text-900 text-xl font-bold mb-2">Verification Code</div>
-            <div class="text-600 font-medium">Enter code we sent in your mail!</div>
-            <div class="flex align-items-center mt-1">
-            </div>
-        </div>
-        <div class="flex flex-column">
-            <div class="flex justify-content-between w-full align-items-center mb-4 gap-3">
-                <p-inputNumber [(ngModel)]="val1" inputStyleClass="w-4rem text-center" [maxlength]="1"></p-inputNumber>
-                <p-inputNumber [(ngModel)]="val2" inputStyleClass="w-4rem text-center" [maxlength]="1"></p-inputNumber>
-                <p-inputNumber [(ngModel)]="val3" inputStyleClass="w-4rem text-center" [maxlength]="1"></p-inputNumber>
-                <p-inputNumber [(ngModel)]="val4" inputStyleClass="w-4rem text-center" [maxlength]="1"></p-inputNumber>
-            </div>
+<div class="surface-ground h-screen w-screen flex align-items-center justify-content-center"
+    [ngClass]="{'p-input-filled': filledInput}">
+    <div class="surface-card py-7 px-5 sm:px-7 shadow-2 flex flex-column w-11 sm:w-30rem" style="border-radius:14px">
+        <h1 class="font-bold text-2xl mt-0 mb-2">Verification Code</h1>
+        <p class="text-color-secondary mb-4">Enter code we sent in your mail!</p>
 
-            <div class="flex flex-wrap gap-2 justify-content-between">
-                <button pButton pRipple label="Verify" class="flex-auto" [routerLink]="['/']"></button>
-            </div>
-            <div class="mt-2">
-                <span class="text-600 font-medium line-height-3">If you didn’t get the mail?</span>
-            <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Send again code</a>
-            </div>
+        <div class="flex align-items-center mb-4 gap-3">
+            <p-inputNumber inputStyleClass="w-full text-center" [maxlength]="1"></p-inputNumber>
+            <p-inputNumber inputStyleClass="w-full text-center" [maxlength]="1"></p-inputNumber>
+            <p-inputNumber inputStyleClass="w-full text-center" [maxlength]="1"></p-inputNumber>
+            <p-inputNumber inputStyleClass="w-full text-center" [maxlength]="1"></p-inputNumber>
         </div>
+        <button [routerLink]="['/']" pButton pRipple label="Verify" class="mb-4"></button>
+        <span class="text-color-secondary text-center mb-4">If you didn’t get the mail? <strong class="text-blue-500">Send code again</strong></span>
     </div>
 </div>
+
+<app-config [minimal]="true"></app-config>
