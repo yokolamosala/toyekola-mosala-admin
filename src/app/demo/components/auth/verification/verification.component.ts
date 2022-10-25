@@ -6,18 +6,10 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 })
 export class VerificationComponent {
 
-    val1!: number;
-    
-    val2!: number;
-    
-    val3!: number;
-    
-    val4!: number;
+    constructor(private layoutService: LayoutService) {}
 
-	constructor(private layoutService: LayoutService) {}
+    get filledInput(): boolean {
+        return this.layoutService.config.inputStyle === 'filled';
+    }
 
-	get dark(): boolean {
-		return this.layoutService.config.colorScheme !== 'light';
-	}
-    
 }

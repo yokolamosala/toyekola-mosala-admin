@@ -6,12 +6,10 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 })
 export class RegisterComponent {
 
-	confirmed: boolean = false;
-
 	constructor(private layoutService: LayoutService) {}
 
-	get dark(): boolean {
-		return this.layoutService.config.colorScheme !== 'light';
+	get filledInput(): boolean {
+		return this.layoutService.config.inputStyle === 'filled';
 	}
 
 }

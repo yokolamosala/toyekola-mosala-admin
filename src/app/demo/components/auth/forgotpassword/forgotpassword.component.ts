@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
-    templateUrl: './forgotpassword.component.html'
+	templateUrl: './forgotpassword.component.html'
 })
-export class ForgotPasswordComponent { 
+export class ForgotPasswordComponent {
 
-    constructor(private layoutService: LayoutService) {}
+	constructor(private layoutService: LayoutService) { }
 
-	get dark(): boolean {
-		return this.layoutService.config.colorScheme !== 'light';
+	get filledInput(): boolean {
+		return this.layoutService.config.inputStyle === 'filled';
 	}
 
 }
