@@ -6,13 +6,7 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 })
 export class LoginComponent {
 
-	rememberMe: boolean = false;
-
 	constructor(private layoutService: LayoutService) {}
-
-	get dark(): boolean {
-		return this.layoutService.config.colorScheme === 'dark';
-	}
 
 	get filledInput(): boolean {
 		return this.layoutService.config.inputStyle === 'filled';
