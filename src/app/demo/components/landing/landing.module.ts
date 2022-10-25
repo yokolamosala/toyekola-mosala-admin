@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
 import { ButtonModule } from 'primeng/button';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { StyleClassModule } from 'primeng/styleclass';
-import { AnimateEnter } from './animateenter.directive';
 import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
@@ -16,8 +15,10 @@ import { RippleModule } from 'primeng/ripple';
         RouterModule,
         StyleClassModule,
         RippleModule
-
     ],
-    declarations: [LandingComponent, AnimateEnter]
+    declarations: [LandingComponent]
 })
-export class LandingModule { }
+export class LandingModule { 
+
+    constructor(private router: Router) {}
+}
