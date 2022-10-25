@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { AccessdeniedRoutingModule } from './accessdenied-routing.module';
 import { AccessdeniedComponent } from './accessdenied.component'
 import { ButtonModule } from 'primeng/button';
+import { AppConfigModule } from 'src/app/layout/config/config.module';
 
 @NgModule({
     imports: [
         CommonModule,
         AccessdeniedRoutingModule,
-        ButtonModule
+        ButtonModule,
+        AppConfigModule
     ],
     declarations: [AccessdeniedComponent]
 })

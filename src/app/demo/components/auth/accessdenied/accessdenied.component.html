@@ -1,11 +1,10 @@
-<div class="px-4 py-8 md:px-6 lg:px-8 flex align-items-center justify-content-center" style="background: linear-gradient(147.38deg, #FFFFFF 0%, #86A8C0 100%);">
-    <div class="px-5 min-h-screen flex justify-content-center align-items-center">
-    <div class="border-1 surface-border surface-card shadow-2" style="border-radius: 14px">
-        <div class="p-5 flex flex-column justify-content-center">
-            <div class="text-900 text-2xl font-bold mb-2">ACCESS DENIED</div>
-            <span class="line-height-2 font-medium text-500">You are not authorized to access this resource.</span>
-            <img src="assets/demo/images/pages/access-denied.svg" alt="access-denied" class="mx-8 my-5" height="140">
-            <button type="button" pButton label="Go to Dashboard" [routerLink]="['/']"></button>
-        </div>
+<div class="surface-ground h-screen w-screen flex align-items-center justify-content-center">
+    <div class="surface-card py-7 px-5 sm:px-7 shadow-2 flex flex-column w-11 sm:w-30rem" style="border-radius:14px">
+        <h1 class="font-bold text-2xl mt-0 mb-2">ACCESS DENIED</h1>
+        <p class="text-color-secondary mb-4">You are not authorized to access this resource..</p>
+        <img src="assets/demo/images/auth/access-denied.svg" alt="access-denied" class="mb-4 align-self-center">
+        <button [routerLink]="['/']" pButton pRipple label="Go to Dashboard" ></button>
     </div>
 </div>
+
+<app-config [minimal]="true"></app-config>
