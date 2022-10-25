@@ -4,8 +4,8 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
+import { AppConfigModule } from 'src/app/layout/config/config.module';
 
 @NgModule({
     imports: [
@@ -13,9 +13,8 @@ import { FormsModule } from '@angular/forms';
         LoginRoutingModule,
         ButtonModule,
         InputTextModule,
-        CheckboxModule,
         FormsModule,
-
+        AppConfigModule
     ],
     declarations: [LoginComponent]
 })

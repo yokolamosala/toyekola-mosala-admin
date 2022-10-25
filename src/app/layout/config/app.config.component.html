@@ -3,16 +3,18 @@
 </button>
 
 <p-sidebar [(visible)]="visible" position="right" [transitionOptions]="'.3s cubic-bezier(0, 0, 0.2, 1)'" styleClass="layout-config-sidebar w-18rem">
-    <h5>Menu Type</h5>
-    <div class="field-radiobutton">
-        <p-radioButton name="menuMode" value="static" [(ngModel)]="menuMode" inputId="mode1"></p-radioButton>
-        <label for="mode1">Static</label>
-    </div>
-    <div class="field-radiobutton">
-        <p-radioButton name="menuMode" value="slim" [(ngModel)]="menuMode" inputId="mode2"></p-radioButton>
-        <label for="mode2">Slim</label>
-    </div>
-    <hr class="surface-border"/>
+    <ng-container *ngIf="!minimal">
+        <h5>Menu Type</h5>
+        <div class="field-radiobutton">
+            <p-radioButton name="menuMode" value="static" [(ngModel)]="menuMode" inputId="mode1"></p-radioButton>
+            <label for="mode1">Static</label>
+        </div>
+        <div class="field-radiobutton">
+            <p-radioButton name="menuMode" value="slim" [(ngModel)]="menuMode" inputId="mode2"></p-radioButton>
+            <label for="mode2">Slim</label>
+        </div>
+        <hr class="surface-border"/>
+    </ng-container>
 
     <h5>Color Scheme</h5>
     <div class="field-radiobutton">
@@ -24,15 +26,17 @@
         <label for="scheme2">Dark</label>
     </div>
 
-    <h5>Layout Theme</h5>
-    <div class="field-radiobutton">
-        <p-radioButton name="menuTheme" value="colorScheme" [(ngModel)]="menuTheme" inputId="menutheme-colorscheme"></p-radioButton>
-        <label for="menutheme-colorscheme">Color Scheme</label>
-    </div>
-    <div class="field-radiobutton">
-        <p-radioButton name="menuTheme" value="primaryColor" [(ngModel)]="menuTheme" inputId="menutheme-primarycolor" [disabled]="colorScheme === 'dark'"></p-radioButton>
-        <label for="menutheme-primarycolor">Primary Color (Light Only)</label>
-    </div>
+    <ng-container *ngIf="!minimal">
+        <h5>Layout Theme</h5>
+        <div class="field-radiobutton">
+            <p-radioButton name="menuTheme" value="colorScheme" [(ngModel)]="menuTheme" inputId="menutheme-colorscheme"></p-radioButton>
+            <label for="menutheme-colorscheme">Color Scheme</label>
+        </div>
+        <div class="field-radiobutton">
+            <p-radioButton name="menuTheme" value="primaryColor" [(ngModel)]="menuTheme" inputId="menutheme-primarycolor" [disabled]="colorScheme === 'dark'"></p-radioButton>
+            <label for="menutheme-primarycolor">Primary Color (Light Only)</label>
+        </div>
+    </ng-container>
 
     <h5>Themes</h5>
     <div class="flex flex-wrap gap-3">

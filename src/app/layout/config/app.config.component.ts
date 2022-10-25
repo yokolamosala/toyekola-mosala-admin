@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AppLayoutComponent} from '../app.layout.component';
 import {LayoutService} from "../service/app.layout.service";
 import {MenuService} from "../app.menu.service";
@@ -9,9 +9,11 @@ import {MenuService} from "../app.menu.service";
 })
 export class AppConfigComponent implements OnInit {
 
+    @Input() minimal: boolean = false;
+
     themes: any[];
 
-    constructor(public appLayout: AppLayoutComponent, public layoutService: LayoutService, public menuService: MenuService) {}
+    constructor(public layoutService: LayoutService, public menuService: MenuService) {}
 
     ngOnInit() {
         this.themes = [

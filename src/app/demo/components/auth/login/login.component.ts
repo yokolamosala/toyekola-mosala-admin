@@ -14,4 +14,8 @@ export class LoginComponent {
 		return this.layoutService.config.colorScheme === 'dark';
 	}
 
+	get filledInput(): boolean {
+		return this.layoutService.config.inputStyle === 'filled';
+	}
+
 }
