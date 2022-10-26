@@ -13,6 +13,8 @@ export class AppConfigComponent implements OnInit {
 
     themes: any[];
 
+    scales: number[] = [12, 13, 14, 15, 16];
+
     constructor(public layoutService: LayoutService, public menuService: MenuService) {}
 
     ngOnInit() {
@@ -137,6 +139,14 @@ export class AppConfigComponent implements OnInit {
         this.layoutService.state.configSidebarVisible = _val;
     }
 
+    get scale(): number {
+        return this.layoutService.config.scale;
+    }
+
+    set scale(_val: number) {
+        this.layoutService.config.scale = _val;
+    }
+    
     get menuTheme(): string {
         return this.layoutService.config.layoutTheme;
     }
@@ -170,6 +180,20 @@ export class AppConfigComponent implements OnInit {
 
     set ripple(_val: boolean) {
         this.layoutService.config.ripple = _val;
+    }
+
+    decrementScale(){
+        this.scale --;    
+        this.applyScale()
+    }    
+
+    incrementScale() {
+        this.scale ++;
+        this.applyScale();
+    }
+
+    applyScale() {
+        document.documentElement.style.fontSize = this.scale + 'px';
     }
 
 }
