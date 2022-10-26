@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { Router, RouterModule } from '@angular/router';
 import { StyleClassModule } from 'primeng/styleclass';
 import { RippleModule } from 'primeng/ripple';
+import { AppConfigModule } from 'src/app/layout/config/config.module';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { RippleModule } from 'primeng/ripple';
         ButtonModule,
         RouterModule,
         StyleClassModule,
-        RippleModule
+        RippleModule,
+        AppConfigModule
     ],
     declarations: [LandingComponent]
 })
