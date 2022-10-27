@@ -19,6 +19,7 @@ import { AppConfigModule } from './config/config.module';
 import { AppLayoutComponent } from './app.layout.component';
 import { AppBreadcrumbComponent } from './app.breadcrumb.component';
 import { StyleClassModule } from 'primeng/styleclass';
+import { TooltipModule } from 'primeng/tooltip';
 import { DropdownModule } from 'primeng/dropdown';
 import { MenuModule } from 'primeng/menu';
 
@@ -49,6 +50,7 @@ import { MenuModule } from 'primeng/menu';
         InputSwitchModule,
         RippleModule,
         RouterModule,
+        TooltipModule,
         AppConfigModule
     ],
     exports: [AppLayoutComponent]
