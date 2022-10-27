@@ -142,12 +142,12 @@ export class AppConfigComponent implements OnInit {
     }
 
     decrementScale(){
-        this.scale --;    
-        this.applyScale()
+        this.scale--;    
+        this.applyScale();
     }    
 
     incrementScale() {
-        this.scale ++;
+        this.scale++;
         this.applyScale();
     }
 

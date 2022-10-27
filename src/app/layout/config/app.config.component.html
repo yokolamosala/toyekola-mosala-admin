@@ -5,25 +5,29 @@
 <p-sidebar [(visible)]="visible" position="right" [transitionOptions]="'.3s cubic-bezier(0, 0, 0.2, 1)'" styleClass="layout-config-sidebar w-18rem">
     <ng-container *ngIf="!minimal">
         <h5>Menu Type</h5>
-        <div class="field-radiobutton">
-            <p-radioButton name="menuMode" value="static" [(ngModel)]="menuMode" inputId="mode1"></p-radioButton>
-            <label for="mode1">Static</label>
-        </div>
-        <div class="field-radiobutton">
-            <p-radioButton name="menuMode" value="slim" [(ngModel)]="menuMode" inputId="mode2"></p-radioButton>
-            <label for="mode2">Slim</label>
+        <div class="flex">
+            <div class="field-radiobutton flex-1">
+                <p-radioButton name="menuMode" value="static" [(ngModel)]="menuMode" inputId="mode1"></p-radioButton>
+                <label for="mode1">Static</label>
+            </div>
+            <div class="field-radiobutton flex-1">
+                <p-radioButton name="menuMode" value="slim" [(ngModel)]="menuMode" inputId="mode2"></p-radioButton>
+                <label for="mode2">Slim</label>
+            </div>
         </div>
         <hr class="surface-border"/>
     </ng-container>
 
     <h5>Color Scheme</h5>
-    <div class="field-radiobutton">
-        <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="scheme1"></p-radioButton>
-        <label for="scheme1">Light</label>
-    </div>
-    <div class="field-radiobutton">
-        <p-radioButton name="colorScheme" value="dark" [(ngModel)]="colorScheme" inputId="scheme2"></p-radioButton>
-        <label for="scheme2">Dark</label>
+    <div class="flex">
+        <div class="field-radiobutton flex-1">
+            <p-radioButton name="colorScheme" value="light" [(ngModel)]="colorScheme" inputId="scheme1"></p-radioButton>
+            <label for="scheme1">Light</label>
+        </div>
+        <div class="field-radiobutton flex-1">
+            <p-radioButton name="colorScheme" value="dark" [(ngModel)]="colorScheme" inputId="scheme2"></p-radioButton>
+            <label for="scheme2">Dark</label>
+        </div>
     </div>
 
     <ng-container *ngIf="!minimal">
@@ -48,16 +52,6 @@
         </div>
     </div>
 
-    <h5>Input Style</h5>
-    <div class="field-radiobutton">
-        <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="inputStyle" inputId="inputStyle1"></p-radioButton>
-        <label for="inputStyle1">Outlined</label>
-    </div>
-    <div class="field-radiobutton">
-        <p-radioButton name="inputStyle" value="filled" [(ngModel)]="inputStyle" inputId="inputStyle2"></p-radioButton>
-        <label for="inputStyle2">Filled</label>
-    </div>
-
     <h5>Scale</h5>
     <div class="flex align-items-center">
         <button icon="pi pi-minus" type="button" pButton (click)="decrementScale()" class="p-button-text p-button-rounded w-2rem h-2rem mr-2" [disabled]="scale === scales[0]"></button>
@@ -65,6 +59,18 @@
             <i class="pi pi-circle-fill text-300" *ngFor="let s of scales" [ngClass]="{'text-primary-500': s === scale}"></i>
         </div>
         <button icon="pi pi-plus"  type="button" pButton (click)="incrementScale()" class="p-button-text p-button-rounded w-2rem h-2rem ml-2" [disabled]="scale === scales[scales.length - 1]"></button>
+    </div>
+
+    <h5>Input Style</h5>
+    <div class="flex">
+        <div class="field-radiobutton flex-1">
+            <p-radioButton name="inputStyle" value="outlined" [(ngModel)]="inputStyle" inputId="inputStyle1"></p-radioButton>
+            <label for="inputStyle1">Outlined</label>
+        </div>
+        <div class="field-radiobutton flex-1">
+            <p-radioButton name="inputStyle" value="filled" [(ngModel)]="inputStyle" inputId="inputStyle2"></p-radioButton>
+            <label for="inputStyle2">Filled</label>
+        </div>
     </div>
 
     <h5>Ripple Effect</h5>
