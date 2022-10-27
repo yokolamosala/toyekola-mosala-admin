@@ -33,8 +33,8 @@ export class AppTopBarComponent {
         this.searchActive = false;
     }
 
-    removeTab(event: MouseEvent, item: MenuItem) {
-        this.layoutService.onTabClose(item);
+    removeTab(event: MouseEvent, item: MenuItem, index: number) {
+        this.layoutService.onTabClose(item, index);
         event.preventDefault();
     }
 

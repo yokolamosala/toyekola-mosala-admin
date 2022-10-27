@@ -1,6 +1,7 @@
 import { Component, OnDestroy, Renderer2, ViewChild } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
+import { TabCloseEvent } from './api/tabcloseevent';
 import { MenuService } from './app.menu.service';
 import { AppSidebarComponent } from './app.sidebar.component';
 import { AppTopBarComponent } from './app.topbar.component';
@@ -51,23 +52,22 @@ export class AppLayoutComponent implements OnDestroy {
             this.layoutService.openTab(tab);
         });
 
-        this.tabCloseSubscription = this.layoutService.tabClose$.subscribe(tab => {
-            if (this.router.isActive(tab.routerLink[0], { paths: 'subset', queryParams: 'subset', fragment: 'ignored', matrixParams: 'ignored'})) {
+        this.tabCloseSubscription = this.layoutService.tabClose$.subscribe((event: TabCloseEvent) => {
+            if (this.router.isActive(event.tab.routerLink[0], { paths: 'subset', queryParams: 'subset', fragment: 'ignored', matrixParams: 'ignored'})) {
                 const tabs = this.layoutService.tabs;
-                const index = tabs.indexOf(tab);
 
                 if (tabs.length > 1) { 
-                    if (index === (tabs.length - 1))
+                    if (event.index === (tabs.length - 1))
                         this.router.navigate(tabs[tabs.length - 2].routerLink);
                     else
-                        this.router.navigate(tabs[index + 1].routerLink);
+                        this.router.navigate(tabs[event.index + 1].routerLink);
                 }
                 else {
                     this.router.navigate(['/']);
                 }
             }
 
-            this.layoutService.closeTab(tab);
+            this.layoutService.closeTab(event.index);
         });
     }
 

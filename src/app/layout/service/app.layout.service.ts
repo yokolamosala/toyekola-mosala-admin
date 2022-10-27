@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Subject } from 'rxjs';
+import { TabCloseEvent } from '../api/tabcloseevent';
 
 export interface AppConfig {
     inputStyle: string;
@@ -53,7 +54,7 @@ export class LayoutService {
 
     private tabOpen = new Subject<MenuItem>();
 
-    private tabClose = new Subject<MenuItem>();
+    private tabClose = new Subject<TabCloseEvent>();
 
     configUpdate$ = this.configUpdate.asObservable();
 
@@ -112,12 +113,13 @@ export class LayoutService {
         this.tabs = [...this.tabs, value];
     }
 
-    onTabClose(value: MenuItem) {
-        this.tabClose.next(value);
+    onTabClose(value: MenuItem, index: number) {
+        this.tabClose.next({tab: value, index: index});
     }
 
-    closeTab(value: MenuItem) {
-        this.tabs = this.tabs.filter(item => item !== value);
+    closeTab(index: number) {
+        this.tabs.splice(index, 1);
+        this.tabs = [...this.tabs];
     }
 
 }
