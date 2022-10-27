@@ -52,11 +52,10 @@
         <div class="card h-full">
             <div class="flex justify-content-between align-items-center mb-3">
                 <h5>Acquisition Overview</h5>
-                <p-dropdown [options]="overviewWeek" [(ngModel)]="selectedOverviewWeek" optionLabel="name" (onChange)="changeOverviewWeek()"></p-dropdown>
+                <p-dropdown [options]="overviewWeeks" [(ngModel)]="selectedOverviewWeek" optionLabel="name" (onChange)="changeOverviewWeek()"></p-dropdown>
             </div>
-
-            <div class="graph mb-3">
-                <p-chart #overview type="bar" [data]="overviewChart" [options]="overviewChartOptions"></p-chart>
+            <div class="graph">
+                <p-chart #overviewchart type="bar" [data]="overviewChartData" [options]="overviewChartOptions" height="400px"></p-chart>
             </div>
         </div>
     </div>
@@ -599,7 +598,7 @@
         <div class="card">
             <h5>Monthly Recurring Revenue Growth</h5>
 
-            <p-chart type="line" [data]="chartData" [options]="chartOptions" id="nasdaq-chart"></p-chart>
+            <p-chart type="line" [data]="revenueChartData" [options]="revenueChartOptions" id="nasdaq-chart"></p-chart>
         </div>
     </div>
 </div>

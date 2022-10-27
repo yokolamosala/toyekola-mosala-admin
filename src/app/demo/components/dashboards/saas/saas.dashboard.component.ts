@@ -1,36 +1,54 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
     templateUrl: './saas.dashboard.component.html'
 })
-export class SaaSDashboardComponent implements OnInit {
+export class SaaSDashboardComponent implements OnInit, OnDestroy {
 
-    overviewChart: any;
+    overviewChartData: any;
 
     overviewChartOptions: any;
 
-    overviewWeek: any;
+    overviewWeeks: any;
 
     selectedOverviewWeek: any;
 
-    chartData: any;
+    revenueChartData: any;
 
-    chartOptions: any;
+    revenueChartOptions: any;
 
-    chart: any;
+    subscription: Subscription;
 
-    constructor(public layoutService: LayoutService) { }
+    constructor(public layoutService: LayoutService) { 
+        this.subscription = this.layoutService.configUpdate$.subscribe(config => {
+            this.initCharts();
+        });
+    }
 
     ngOnInit() {
-        this.overviewChart = {
+        this.initCharts();
+
+        this.overviewWeeks = [
+            {name: 'Last Week', code: '0'},
+            {name: 'This Week', code: '1'}
+        ];
+    }
+
+    initCharts() {
+        const documentStyle = getComputedStyle(document.documentElement);
+        const primaryColor = documentStyle.getPropertyValue('--primary-color');
+        const primaryColor300 = documentStyle.getPropertyValue('--primary-200');
+
+        this.overviewChartData = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
             datasets: [
                 {
                     label: 'Organic',
                     data: [2, 1, 0.5, 0.6, 0.5, 1.3, 1],
                     borderColor: [
-                        '#FADB5F',
+                        primaryColor
                     ],
                     pointBorderColor: 'transparent',
                     pointBackgroundColor: 'transparent',
@@ -41,7 +59,7 @@ export class SaaSDashboardComponent implements OnInit {
                     label: 'Referral',
                     data: [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1],
                     backgroundColor: [this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB'] ,
-                    hoverBackgroundColor: ['#3EBD93'],
+                    hoverBackgroundColor: [primaryColor300],
                     fill: true,
                     borderRadius: 10,
                     borderSkipped: 'top bottom',
@@ -50,99 +68,7 @@ export class SaaSDashboardComponent implements OnInit {
             ]
         };
 
-        this.overviewChartOptions = this.getOrdersOptions();
-
-        this.overviewWeek = [
-            {name: 'Last Week', code: '0'},
-            {name: 'This Week', code: '1'}
-        ];
-
-        this.chartData = {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-            datasets: [
-                {
-                    data: [11, 17, 30, 60, 88, 92],
-                    borderColor: 'rgba(25, 146, 212, 0.5)',
-                    pointBorderColor: 'transparent',
-                    pointBackgroundColor: 'transparent',
-                    fill: false,
-                    tension: .4
-                },
-                {
-                    data: [11, 19, 39, 59, 69, 71],
-                    borderColor: 'rgba(25, 146, 212, 0.5)',
-                    pointBorderColor: 'transparent',
-                    pointBackgroundColor: 'transparent',
-                    fill: false,
-                    tension: .4
-                },
-                {
-                    data: [11, 17, 21, 30, 47, 83],
-                    backgroundColor: 'rgba(25, 146, 212, 0.2)',
-                    borderColor: 'rgba(25, 146, 212, 0.5)',
-                    pointBorderColor: 'transparent',
-                    pointBackgroundColor: 'transparent',
-                    fill: true,
-                    tension: .4
-                }
-            ]
-        };
-
-        this.chartOptions = {
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    max: 100,
-                    min: 0,
-                    ticks: {
-                        color: '#A0A7B5'
-                    }
-                },
-                x: {
-                    grid: {
-                        display: true,
-                    },
-                    ticks: {
-                        color: '#A0A7B5',
-                        beginAtZero: true,
-                    }
-                }
-            }
-        };
-
-        this.getGradient();
-
-        /*this.layoutService['refreshChart'] = () => {
-            this.overviewChartOptions = this.getOrdersOptions();
-            this.overviewChart.datasets[1].backgroundColor[0] = this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB';
-        };*/
-
-    }
-
-    getGradient() {
-        this.chart = document.getElementsByTagName('canvas')[1].getContext('2d');
-        const gradientStroke = this.chart.createLinearGradient(100, 0, 1150, 100);
-        gradientStroke.addColorStop(0, 'rgba(21, 184, 194, 0)');
-        gradientStroke.addColorStop(0.5, 'rgba(25, 146, 212, 1)');
-        gradientStroke.addColorStop(1, 'rgba(23, 88, 124, 1)');
-
-        const gradientFill = this.chart.createLinearGradient(0, 0, 1150, 0);
-        gradientFill.addColorStop(1, 'rgba(25, 146, 212, 0.34)');
-        gradientFill.addColorStop(0, 'rgba(232, 247, 255, 0.34)');
-
-        this.chartData.datasets[0].borderColor = gradientStroke;
-        this.chartData.datasets[1].borderColor = gradientStroke;
-        this.chartData.datasets[2].borderColor = gradientStroke;
-
-        this.chartData.datasets[2].backgroundColor = gradientFill;
-    }
-
-    getOrdersOptions() {
-        return {
+        this.overviewChartOptions = {
             plugins: {
                 legend: {
                     position: 'bottom',
@@ -186,6 +112,63 @@ export class SaaSDashboardComponent implements OnInit {
                 }
             }
         };
+
+        this.revenueChartData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [
+                {
+                    data: [11, 17, 30, 60, 88, 92],
+                    borderColor: 'rgba(25, 146, 212, 0.5)',
+                    pointBorderColor: 'transparent',
+                    pointBackgroundColor: 'transparent',
+                    fill: false,
+                    tension: .4
+                },
+                {
+                    data: [11, 19, 39, 59, 69, 71],
+                    borderColor: 'rgba(25, 146, 212, 0.5)',
+                    pointBorderColor: 'transparent',
+                    pointBackgroundColor: 'transparent',
+                    fill: false,
+                    tension: .4
+                },
+                {
+                    data: [11, 17, 21, 30, 47, 83],
+                    backgroundColor: 'rgba(25, 146, 212, 0.2)',
+                    borderColor: 'rgba(25, 146, 212, 0.5)',
+                    pointBorderColor: 'transparent',
+                    pointBackgroundColor: 'transparent',
+                    fill: true,
+                    tension: .4
+                }
+            ]
+        };
+
+        this.revenueChartOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    max: 100,
+                    min: 0,
+                    ticks: {
+                        color: '#A0A7B5'
+                    }
+                },
+                x: {
+                    grid: {
+                        display: true,
+                    },
+                    ticks: {
+                        color: '#A0A7B5',
+                        beginAtZero: true,
+                    }
+                }
+            }
+        };
     }
 
     changeOverviewWeek() {
@@ -199,18 +182,24 @@ export class SaaSDashboardComponent implements OnInit {
         ];
 
         if (this.selectedOverviewWeek === '1') {
-            this.overviewChart.datasets[0].data = dataSet2[parseInt('0')];
-            this.overviewChart.datasets[1].data = dataSet2[parseInt('1')];
+            this.overviewChartData.datasets[0].data = dataSet2[parseInt('0')];
+            this.overviewChartData.datasets[1].data = dataSet2[parseInt('1')];
         } 
         else {
-            this.overviewChart.datasets[0].data = dataSet1[parseInt('0')];
-            this.overviewChart.datasets[1].data = dataSet1[parseInt('1')];
+            this.overviewChartData.datasets[0].data = dataSet1[parseInt('0')];
+            this.overviewChartData.datasets[1].data = dataSet1[parseInt('1')];
         }
 
-        this.overviewChart = {...this.overviewChart};
+        this.overviewChartData = {...this.overviewChartData};
     }
 
     get colorScheme(): string {
         return this.layoutService.config.colorScheme;
+    }
+
+    ngOnDestroy(): void {
+        if (this.subscription) {
+            this.subscription.unsubscribe();
+        }
     }
 }
