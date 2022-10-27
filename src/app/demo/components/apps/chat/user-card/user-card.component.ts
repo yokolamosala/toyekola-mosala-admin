@@ -4,7 +4,7 @@ import { User } from 'src/app/demo/api/user';
 import { ChatService } from '../service/chat.service';
 
 @Component({
-    selector: 'user-card',
+    selector: 'app-user-card',
     templateUrl: './user-card.component.html'
 })
 export class UserCardComponent implements OnInit {

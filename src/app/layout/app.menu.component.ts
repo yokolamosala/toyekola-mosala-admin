@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppLayoutComponent } from './app.layout.component';
+import { MenuItem } from 'primeng/api';
 import { LayoutService } from './service/app.layout.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { LayoutService } from './service/app.layout.service';
 })
 export class AppMenuComponent implements OnInit {
 
-    model: any[];
+    model: MenuItem[] = [];
 
     constructor(public layoutService: LayoutService) { }
 
@@ -28,14 +28,14 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Input', icon: 'pi pi-check-square', routerLink: ['/uikit/input'] },
                     { label: 'Float Label', icon: 'pi pi-bookmark', routerLink: ['/uikit/floatlabel'] },
                     { label: 'Invalid State', icon: 'pi pi-exclamation-circle', routerLink: ['/uikit/invalidstate'] },
-                    { label: 'Button', icon: 'pi pi-mobile', routerLink: ['/uikit/button'], class: 'rotated-icon' },
+                    { label: 'Button', icon: 'pi pi-box', routerLink: ['/uikit/button'] },
                     { label: 'Table', icon: 'pi pi-table', routerLink: ['/uikit/table'] },
                     { label: 'List', icon: 'pi pi-list', routerLink: ['/uikit/list'] },
                     { label: 'Tree', icon: 'pi pi-share-alt', routerLink: ['/uikit/tree'] },
                     { label: 'Panel', icon: 'pi pi-tablet', routerLink: ['/uikit/panel'] },
                     { label: 'Overlay', icon: 'pi pi-clone', routerLink: ['/uikit/overlay'] },
                     { label: 'Media', icon: 'pi pi-image', routerLink: ['/uikit/media'] },
-                    { label: 'Menu', icon: 'pi pi-bars', routerLink: ['/uikit/menu'], preventExact: true },
+                    { label: 'Menu', icon: 'pi pi-bars', routerLink: ['/uikit/menu'], routerLinkActiveOptions: { paths: 'subset', queryParams: 'ignored', matrixParams: 'ignored', fragment: 'ignored' }},
                     { label: 'Message', icon: 'pi pi-comment', routerLink: ['/uikit/message'] },
                     { label: 'File', icon: 'pi pi-file', routerLink: ['/uikit/file'] },
                     { label: 'Chart', icon: 'pi pi-chart-bar', routerLink: ['/uikit/charts'] },
@@ -119,7 +119,7 @@ export class AppMenuComponent implements OnInit {
                 label: 'Prime Blocks', icon: 'pi pi-fw pi-prime', routerLink: ['/blocks'],
                 items: [
                     { label: 'Free Blocks', icon: 'pi pi-fw pi-eye', routerLink: ['/blocks'] },
-                    { label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: ['https://www.primefaces.org/primeblocks-ng'], target: '_blank' },
+                    { label: 'All Blocks', icon: 'pi pi-fw pi-globe', url: 'https://www.primefaces.org/primeblocks-ng', target: '_blank' },
                 ]
             },
             {
@@ -127,7 +127,7 @@ export class AppMenuComponent implements OnInit {
                 items: [
                     { label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', routerLink: ['utilities/icons'] },
                     { label: 'Colors', icon: 'pi pi-fw pi-palette', routerLink: ['utilities/colors'] },
-                    { label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: ['https://www.primefaces.org/primeflex/'], target: '_blank' },
+                    { label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: 'https://www.primefaces.org/primeflex/', target: '_blank' },
                 ]
             },
             {
@@ -335,7 +335,7 @@ export class AppMenuComponent implements OnInit {
                 label: 'Start', icon: 'pi pi-download',
                 items: [
                     {
-                        label: 'Buy Now', icon: 'pi pi-shopping-cart', url: ['https://www.primefaces.org/store']
+                        label: 'Buy Now', icon: 'pi pi-shopping-cart', url: 'https://www.primefaces.org/store'
                     },
                     {
                         label: 'Documentation', icon: 'pi pi-info-circle', routerLink: ['/documentation']

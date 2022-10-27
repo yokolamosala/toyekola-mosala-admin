@@ -6,12 +6,9 @@ import { KanbanService } from '../service/kanban.service';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
-    selector: 'kanban-list',
+    selector: 'app-kanban-list',
     templateUrl: './kanban-list.component.html',
-    styleUrls: ['./kanban-list.component.scss'],
-    host: {
-        'class': 'p-kanban-list'
-    }
+    styleUrls: ['./kanban-list.component.scss']
 })
 export class KanbanListComponent implements OnInit {
 

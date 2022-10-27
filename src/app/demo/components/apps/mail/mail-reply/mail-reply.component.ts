@@ -4,7 +4,7 @@ import { Mail } from 'src/app/demo/api/mail';
 import { MailService } from '../service/mail.service';
 
 @Component({
-    selector: 'mail-reply',
+    selector: 'app-mail-reply',
     templateUrl: './mail-reply.component.html',
 })
 export class MailReplyComponent {

@@ -5,7 +5,7 @@ import { KanbanService } from '../service/kanban.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'kanban-card',
+    selector: 'app-kanban-card',
     templateUrl: './kanban-card.component.html'
 })
 export class KanbanCardComponent implements OnDestroy {

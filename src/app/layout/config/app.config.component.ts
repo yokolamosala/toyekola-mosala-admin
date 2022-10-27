@@ -11,14 +11,14 @@ export class AppConfigComponent implements OnInit {
 
     @Input() minimal: boolean = false;
 
-    themes: any[];
+    componentThemes: any[] = [];
 
     scales: number[] = [12, 13, 14, 15, 16];
 
     constructor(public layoutService: LayoutService, public menuService: MenuService) {}
 
     ngOnInit() {
-        this.themes = [
+        this.componentThemes = [
             {name: 'indigo', lightColor: '#4C63B6', darkColor : '#6A7EC2'},
             {name: 'blue', lightColor: '#1992D4', darkColor : '#3BABE8'},
             {name: 'green', lightColor: '#27AB83', darkColor : '#44D4A9'},
@@ -32,55 +32,41 @@ export class AppConfigComponent implements OnInit {
         ];
     }
 
-    changeTheme(theme) {
-        this.layoutService.config.theme = theme;
-        const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
-        const href = 'assets/theme/' + theme + '/theme-' + this.layoutService.config.colorScheme + '.css';
-
-        this.replaceLink(themeLink, href);
-    }
-
     changeColorScheme(colorScheme: string) {
         const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
         const themeLinkHref = themeLink.getAttribute('href');
         const currentColorScheme = 'theme-' + this.layoutService.config.colorScheme;
         const newColorScheme = 'theme-' + colorScheme;
         const newHref = themeLinkHref!.replace(currentColorScheme, newColorScheme);
-
-        this.replaceThemeLink(newHref, 'theme-link', () => {
+        this.replaceThemeLink(newHref, () => {
             this.layoutService.config.colorScheme = colorScheme;
-            if (this.layoutService.config.colorScheme === 'dark') {
-                this.layoutService.config.layoutTheme = 'colorScheme';
-            }
             this.layoutService.onConfigUpdate();
         });
     }
 
-    changeComponentTheme(theme: string) {
+    changeTheme(theme: string) {
         const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
         const newHref = themeLink.getAttribute('href')!.replace(this.layoutService.config.theme, theme);
-
-
-        this.replaceThemeLink(newHref, 'theme-link', () => {
+        this.replaceThemeLink(newHref, () => {
             this.layoutService.config.theme = theme;
             this.layoutService.onConfigUpdate();
         });
     }
 
-    replaceThemeLink(href: string, targetId: string, onComplete?: Function) {
-        const id = targetId;
-        const targetLink = <HTMLLinkElement>document.getElementById(id);
-        const cloneLinkElement = <HTMLLinkElement>targetLink.cloneNode(true);
+    replaceThemeLink(href: string, onComplete: Function) {
+        const id = 'theme-link';
+        const themeLink = <HTMLLinkElement>document.getElementById(id);
+        const cloneLinkElement = <HTMLLinkElement>themeLink.cloneNode(true);
 
         cloneLinkElement.setAttribute('href', href);
         cloneLinkElement.setAttribute('id', id + '-clone');
 
-        targetLink.parentNode!.insertBefore(cloneLinkElement, targetLink.nextSibling);
+        themeLink.parentNode!.insertBefore(cloneLinkElement, themeLink.nextSibling);
 
         cloneLinkElement.addEventListener('load', () => {
-            targetLink.remove();
+            themeLink.remove();
             cloneLinkElement.setAttribute('id', id);
-            onComplete && onComplete();
+            onComplete();
         });
     }
 
@@ -88,38 +74,11 @@ export class AppConfigComponent implements OnInit {
         return /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
     }
 
-    replaceLink(linkElement, href, callback?) {
-        if (this.isIE()) {
-            linkElement.setAttribute('href', href);
-
-            if (callback) {
-                callback();
-            }
-        } else {
-            const id = linkElement.getAttribute('id');
-            const cloneLinkElement = linkElement.cloneNode(true);
-
-            cloneLinkElement.setAttribute('href', href);
-            cloneLinkElement.setAttribute('id', id + '-clone');
-
-            linkElement.parentNode.insertBefore(cloneLinkElement, linkElement.nextSibling);
-
-            cloneLinkElement.addEventListener('load', () => {
-                linkElement.remove();
-                cloneLinkElement.setAttribute('id', id);
-
-                if (callback) {
-                    callback();
-                }
-            });
-        }
-    }
-
     onConfigButtonClick() {
         this.layoutService.showConfigSidebar();
     }
 
-    get theme(): string {
+    get currentTheme(): string {
         return this.layoutService.config.theme;
     }
 

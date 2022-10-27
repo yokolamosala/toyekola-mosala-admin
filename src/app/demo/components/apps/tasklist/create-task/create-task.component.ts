@@ -7,7 +7,7 @@ import { MemberService } from 'src/app/demo/service/member.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-    selector: 'create-task',
+    selector: 'app-create-task',
     templateUrl: './create-task.component.html',
     providers: [MessageService]
 })

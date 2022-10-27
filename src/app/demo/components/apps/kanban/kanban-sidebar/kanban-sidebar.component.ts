@@ -8,7 +8,7 @@ import { MenuItem } from 'primeng/api';
 import { KanbanService } from '../service/kanban.service';
 
 @Component({
-    selector: 'kanban-sidebar',
+    selector: 'app-kanban-sidebar',
     templateUrl: './kanban-sidebar.component.html',
     styleUrls: ['./kanban-sidebar.component.scss']
 })

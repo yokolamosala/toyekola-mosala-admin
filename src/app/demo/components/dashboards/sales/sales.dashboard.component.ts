@@ -4,6 +4,13 @@ import { Product } from 'src/app/demo/api/product';
 import { ProductService } from 'src/app/demo/service/product.service';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
+interface ListItem {
+    image: string;
+    text: string;
+    subtext: string;
+    ratio: string;
+}
+
 @Component({
     templateUrl: './sales.dashboard.component.html'
 })
@@ -13,21 +20,21 @@ export class SalesDashboardComponent implements OnInit {
 
     selectedOrderWeek: any;
 
-    products: Product[];
+    products: Product[] = [];
 
-    productsThisWeek: Product[];
+    productsThisWeek: Product[] = [];
 
-    productsLastWeek: Product[];
+    productsLastWeek: Product[] = [];
 
-    analytics: SelectItem[];
+    analytics: SelectItem[] = [];
 
-    selectedDrop: SelectItem;
+    selectedDrop!: number;
 
     revenueChart: any;
 
     revenueOptions: any;
 
-    chatMessages: any[];
+    chatMessages: any[] = [];
 
     activeTab = 0;
 
@@ -35,9 +42,9 @@ export class SalesDashboardComponent implements OnInit {
 
     activeListItem = {image: 'assets/demo/images/dashboard/headphones.svg', text: 'HF Headphones', subtext: 'Wireless', ratio: '+24%'};
 
-    listItems: any[];
+    listItems: ListItem[] = [];
 
-    @ViewChild('chatcontainer') chatContainerViewChild: ElementRef;
+    @ViewChild('chatcontainer') chatContainerViewChild!: ElementRef;
 
     constructor(private productService: ProductService, public layoutService: LayoutService) {}
 
@@ -54,7 +61,7 @@ export class SalesDashboardComponent implements OnInit {
         this.analytics = [
             {label: 'Products', value: 1},
             {label: 'Sales', value: 2},
-            {label: 'Customers', value: 3},
+            {label: 'Customers', value: 3}
         ];
 
         const documentStyle = getComputedStyle(document.documentElement);
@@ -98,17 +105,16 @@ export class SalesDashboardComponent implements OnInit {
         ];
     }
 
-    recentSales(event) {
-        if (event.value.code === '0') {
+    recentSales(code: string) {
+        if (code === '0')
             this.products = this.productsThisWeek;
-        } else {
+        else
             this.products = this.productsLastWeek;
-        }
     }
 
-    onChatKeydown(event) {
+    onChatKeydown(event: KeyboardEvent) {
         if (event.key === 'Enter') {
-            const message = event.currentTarget.value;
+            const message = (<HTMLInputElement> event.currentTarget).value;
             const lastMessage = this.chatMessages[this.chatMessages.length - 1];
 
             if (lastMessage.from) {
@@ -124,7 +130,7 @@ export class SalesDashboardComponent implements OnInit {
                 this.chatMessages.push({ nth: true, from: 'Ioni Bowcher', url: 'assets/demo/images/avatar/ionibowcher.png', messages: ['Always bet on Prime!'] });
             }
 
-            event.currentTarget.value = '';
+            (<HTMLInputElement> event.currentTarget).value = '';
 
             const el = this.chatContainerViewChild.nativeElement;
             setTimeout(() => {
@@ -136,7 +142,7 @@ export class SalesDashboardComponent implements OnInit {
         }
     }
 
-    onTabClick(event, index) {
+    onTabClick(index: number) {
         this.activeTab = index;
 
         if (index === 0) {

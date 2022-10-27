@@ -8,13 +8,13 @@ import { LayoutService } from "./service/app.layout.service";
 })
 export class AppTopBarComponent {
 
-    menu: MenuItem[];
+    menu: MenuItem[] = [];
 
-    @ViewChild('searchinput') searchInput: ElementRef;
+    @ViewChild('searchinput') searchInput!: ElementRef;
 
     @ViewChild('menubutton') menuButton!: ElementRef;
 
-    searchActive: boolean;
+    searchActive: boolean = false;
 
     constructor(public layoutService: LayoutService) {}
 

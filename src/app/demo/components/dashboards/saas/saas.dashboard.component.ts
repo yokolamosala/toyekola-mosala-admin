@@ -116,10 +116,10 @@ export class SaaSDashboardComponent implements OnInit {
 
         this.getGradient();
 
-        this.layoutService['refreshChart'] = () => {
+        /*this.layoutService['refreshChart'] = () => {
             this.overviewChartOptions = this.getOrdersOptions();
             this.overviewChart.datasets[1].backgroundColor[0] = this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB';
-        };
+        };*/
 
     }
 
@@ -159,7 +159,7 @@ export class SaaSDashboardComponent implements OnInit {
                     min: 0,
                     ticks: {
                         stepSize: 0,
-                        callback: function(value, index) {
+                        callback: function(value: number, index: number) {
                             if (index === 0) {
                                 return value;
                             }
