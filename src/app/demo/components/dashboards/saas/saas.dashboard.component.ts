@@ -181,7 +181,7 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
             [3.2, 4.1, 2.2, 5.5, 4.1, 3.6, 3.5],
         ];
 
-        if (this.selectedOverviewWeek === '1') {
+        if (this.selectedOverviewWeek.code === '1') {
             this.overviewChartData.datasets[0].data = dataSet2[parseInt('0')];
             this.overviewChartData.datasets[1].data = dataSet2[parseInt('1')];
         } 
