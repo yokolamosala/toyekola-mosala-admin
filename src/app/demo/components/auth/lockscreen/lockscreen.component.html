@@ -12,10 +12,7 @@
                     <span class="text-color-secondary">Designer</span>
                 </div>
             </div>
-            <div class="flex gap-2 align-items-center cursor-pointer">
-                <span class="text-indigo-500 font-semibold">Log out</span>
-                <i class="pi pi-sign-out text-indigo-500 font-semibold"></i>
-            </div>
+            <button pButton pRipple icon="pi pi-sign-out" label="Log out" class="p-button-text" iconPos="right"></button>
         </div>
 
         <span class="p-input-icon-left mb-4">
@@ -23,7 +20,7 @@
             <input type="password" pInputText placeholder="Password" class="w-full">
         </span>
 
-        <button [routerLink]="['/']" pButton pRipple label="Unlock" class="mb-4"></button>
+        <button [routerLink]="['/']" pButton pRipple label="Unlock"></button>
 
     </div>
 </div>

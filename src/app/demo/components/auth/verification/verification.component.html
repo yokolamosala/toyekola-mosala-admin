@@ -10,8 +10,9 @@
             <p-inputNumber #input3 inputStyleClass="w-full text-center" [maxlength]="1" (onInput)="focusOnNext(input4)"></p-inputNumber>
             <p-inputNumber #input4 inputStyleClass="w-full text-center" [maxlength]="1"></p-inputNumber>
         </div>
+        
         <button [routerLink]="['/']" pButton pRipple label="Verify" class="mb-4"></button>
-        <span class="text-color-secondary text-center mb-4">If you didn’t get the mail? <strong class="text-blue-500">Send code again</strong></span>
+        <span class="text-color-secondary text-center">If you didn't get the mail? <span class="font-bold text-primary-500">Send code again</span></span>
     </div>
 </div>
 
