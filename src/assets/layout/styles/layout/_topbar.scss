@@ -129,6 +129,13 @@
                     display: block;
                 }
             }
+
+            &.topbar-menu-empty {
+                cursor: auto;
+                &:hover {
+                    background-color: transparent;
+                }
+            }
         }
     }
 

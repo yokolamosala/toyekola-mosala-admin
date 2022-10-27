@@ -45,24 +45,7 @@ export class LayoutService {
         menuHoverActive: false
     };
 
-    tabs: MenuItem[] = [
-        {
-            label: 'SaaS',
-            routerLink: ['/']
-        },
-        {
-            label: 'Sales',
-            routerLink: ['/dashboard-sales']
-        },
-        {
-            label: 'Blocks',
-            routerLink: ['/blocks']
-        },
-        {
-            label: 'Inbox',
-            routerLink: ['/apps/mail/inbox']
-        }
-    ];
+    tabs: MenuItem[] = [];
 
     private configUpdate = new Subject<AppConfig>();
 
