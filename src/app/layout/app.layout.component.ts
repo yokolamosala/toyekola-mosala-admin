@@ -47,7 +47,6 @@ export class AppLayoutComponent implements OnDestroy {
             });
 
         this.tabOpenSubscription = this.layoutService.tabOpen$.subscribe(tab => {
-            console.log(tab.routerLink[0]);
             this.router.navigate(tab.routerLink);
             this.layoutService.openTab(tab);
         });

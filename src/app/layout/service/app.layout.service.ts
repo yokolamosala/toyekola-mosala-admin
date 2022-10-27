@@ -59,8 +59,8 @@ export class LayoutService {
             routerLink: ['/blocks']
         },
         {
-            label: 'Mail',
-            routerLink: ['/apps/mail']
+            label: 'Inbox',
+            routerLink: ['/apps/mail/inbox']
         }
     ];
 
