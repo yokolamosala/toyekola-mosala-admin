@@ -1,7 +1,23 @@
-<svg width="301" height="35" viewBox="0 0 301 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0L18.8125 10L37.625 20L56.4375 10L75.25 0L94.0625 20L112.875 10L131.688 0L150.5 10L169.312 0L188.125 20H206.938L225.75 10L244.562 0L263.375 10L282.188 20H301V35H0V0Z" fill="url(#paint0_linear)"/>
+<svg width="308" height="47" viewBox="0 0 308 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_dd_1305_5048)">
+<path d="M0.5 12L19.7187 22L38.9375 32L58.1562 22L77.375 12L96.5937 32L115.812 22L135.031 12L154.25 22L173.469 12L192.687 32H211.906L231.125 22L250.344 12L269.562 22L288.781 32H308V47H0.5V12Z" fill="url(#paint0_linear_1305_5048)"/>
+</g>
 <defs>
-<linearGradient id="paint0_linear" x1="301" y1="8.00011" x2="-27" y2="8.00011" gradientUnits="userSpaceOnUse">
+<filter id="filter0_dd_1305_5048" x="-35.5" y="0" width="379.5" height="107" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="24"/>
+<feGaussianBlur stdDeviation="18"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1305_5048"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="3"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_1305_5048" result="effect2_dropShadow_1305_5048"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_1305_5048" result="shape"/>
+</filter>
+<linearGradient id="paint0_linear_1305_5048" x1="308" y1="20.0001" x2="-27.0831" y2="20.0001" gradientUnits="userSpaceOnUse">
 <stop stop-color="#896FF4"/>
 <stop offset="1" stop-color="white"/>
 </linearGradient>
