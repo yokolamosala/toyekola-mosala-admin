@@ -30,8 +30,7 @@ enum BlockView {
                 <ng-content></ng-content>
             </div>
             <div *ngIf="blockView === BlockView.CODE">
-                <app-code lang="markup" ngPreserveWhitespaces>{{code}}
-                </app-code>
+                <app-code lang="markup" ngPreserveWhitespaces>{{code}}</app-code>
             </div>
         </div>
     </div>

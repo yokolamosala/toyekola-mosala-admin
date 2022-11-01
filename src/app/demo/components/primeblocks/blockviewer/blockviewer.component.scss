@@ -82,13 +82,11 @@
     border:1px solid var(--surface-border);
     border-top: 0 none;
 
-    pre[class*=language-] {
-        margin: 0 !important; 
-        border-radius: 0 !important;
-
-        code {
-            border-radius: 0 !important;
-        }
+    pre {
+        margin: 0;
+        background-color: var(--surface-card) !important;
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
     }
 }
 
