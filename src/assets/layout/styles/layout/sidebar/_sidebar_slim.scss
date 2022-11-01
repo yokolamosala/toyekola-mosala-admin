@@ -80,6 +80,14 @@
                         overflow: auto;
                         z-index: 999;
 
+                        a {
+                            color: var(--v-overlay-menuitem-text-color);
+
+                            &:hover {
+                                background: var(--v-overlay-menuitem-hover-bg);
+                            }
+                        }
+
                         li {
                             a {
                                 padding-left: 0.5rem;
