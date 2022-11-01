@@ -38,8 +38,10 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
 
     initCharts() {
         const documentStyle = getComputedStyle(document.documentElement);
+        const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
         const primaryColor = documentStyle.getPropertyValue('--primary-color');
         const primaryColor300 = documentStyle.getPropertyValue('--primary-200');
+        const borderColor = documentStyle.getPropertyValue('--surface-border');
 
         this.overviewChartData = {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
@@ -72,7 +74,10 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
             plugins: {
                 legend: {
                     position: 'bottom',
-                    align: 'end'
+                    align: 'end',
+                    labels: {
+                        color: textColorSecondary
+                    }
                 }
             },
             responsive: true,
@@ -93,13 +98,13 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
                                 return value + 'k';
                             }
                         },
-                        color: this.layoutService.config.colorScheme === 'dark' ? '#DBE2EB' : '#3E4C59'
+                        color: textColorSecondary
                     },
                     grid: {
                         borderDash: [2, 2],
-                        color: this.layoutService.config.colorScheme === 'dark' ? '#4E657F' : '#E4E7EB',
-                        drawBorder: false,
-                    },
+                        color: borderColor,
+                        drawBorder: false
+                    }
                 },
                 x: {
                     grid: {
@@ -107,7 +112,7 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
                     },
                     ticks: {
                         beginAtZero: true,
-                        color: this.layoutService.config.colorScheme === 'dark' ? '#DBE2EB' : '#3E4C59'
+                        color: textColorSecondary
                     }
                 }
             }
@@ -152,19 +157,22 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
             },
             scales: {
                 y: {
+                    grid: {
+                        color: borderColor
+                    },
                     max: 100,
                     min: 0,
                     ticks: {
-                        color: '#A0A7B5'
+                        color: textColorSecondary
                     }
                 },
                 x: {
                     grid: {
-                        display: true,
+                        color: borderColor
                     },
                     ticks: {
-                        color: '#A0A7B5',
-                        beginAtZero: true,
+                        color: textColorSecondary,
+                        beginAtZero: true
                     }
                 }
             }
