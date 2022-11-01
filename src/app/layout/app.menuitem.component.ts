@@ -136,7 +136,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         }
 
         // add tab
-        if (event.metaKey) {
+        if (event.metaKey && this.item.routerLink && (!this.item.data || !this.item.data.fullPage)) {
             this.layoutService.onTabOpen(this.item);
             event.preventDefault();
         }

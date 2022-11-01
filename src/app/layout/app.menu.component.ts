@@ -8,7 +8,7 @@ import { LayoutService } from './service/app.layout.service';
 })
 export class AppMenuComponent implements OnInit {
 
-    model: MenuItem[] = [];
+    model: any[] = [];
 
     constructor(public layoutService: LayoutService) { }
 
@@ -137,7 +137,8 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Landing',
                         icon: 'pi pi-fw pi-globe',
-                        routerLink: ['/landing']
+                        routerLink: ['/landing'],
+                        data: {'fullPage': true}
                     },
                     {
                         label: 'Auth',
@@ -146,42 +147,50 @@ export class AppMenuComponent implements OnInit {
                             {
                                 label: 'Login',
                                 icon: 'pi pi-fw pi-sign-in',
-                                routerLink: ['/auth/login']
+                                routerLink: ['/auth/login'],
+                                data: {'fullPage': true}
                             },
                             {
                                 label: 'Error',
                                 icon: 'pi pi-fw pi-times-circle',
-                                routerLink: ['/auth/error']
+                                routerLink: ['/auth/error'],
+                                data: {'fullPage': true}
                             },
                             {
                                 label: 'Access Denied',
                                 icon: 'pi pi-fw pi-lock',
-                                routerLink: ['/auth/access']
+                                routerLink: ['/auth/access'],
+                                data: {'fullPage': true}
                             },
                             {
                                 label: 'Register',
                                 icon: 'pi pi-fw pi-user-plus',
-                                routerLink: ['/auth/register']
+                                routerLink: ['/auth/register'],
+                                data: {'fullPage': true}
                             },
                             {
                                 label: 'Forgot Password',
                                 icon: 'pi pi-fw pi-question',
-                                routerLink: ['/auth/forgotpassword']
+                                routerLink: ['/auth/forgotpassword'],
+                                data: {'fullPage': true}
                             },
                             {
                                 label: 'New Password',
                                 icon: 'pi pi-fw pi-cog',
-                                routerLink: ['/auth/newpassword']
+                                routerLink: ['/auth/newpassword'],
+                                data: {'fullPage': true}
                             },
                             {
                                 label: 'Verification',
                                 icon: 'pi pi-fw pi-envelope',
-                                routerLink: ['/auth/verification']
+                                routerLink: ['/auth/verification'],
+                                data: {'fullPage': true}
                             },
                             {
                                 label: 'Lock Screen',
                                 icon: 'pi pi-fw pi-eye-slash',
-                                routerLink: ['/auth/lockscreen']
+                                routerLink: ['/auth/lockscreen'],
+                                data: {'fullPage': true}
                             }
                         ]
                     },
