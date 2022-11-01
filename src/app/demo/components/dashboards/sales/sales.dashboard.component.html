@@ -190,17 +190,23 @@
             <h5>Live Support</h5>
             <div>
                 <ul #chatcontainer class="list-none p-0 px-3 mt-4 mb-6 h-21rem overflow-y-auto">
-                    <li *ngFor="let chartMessage of chatMessages; let last = last;" class="flex align-items-start mb-3" [ngClass]="{'justify-content-start': chartMessage.nth, 'justify-content-end': !chartMessage.nth}">
-                        <img *ngIf="chartMessage.nth" [src]="chartMessage.url" width="36" height="36" class="border-circle">
-                        <div class="ml-2" *ngIf="chartMessage.nth">
-                            <span class="font-bold mr-3">{{chartMessage.from}}</span><span class="text-color-secondary">2m ago</span>
-                            <div class="surface-100 border-round px-5 py-3 mt-3" *ngFor="let message of chartMessage.messages; let first = first">{{message}}</div>
+                    <li *ngFor="let chartMessage of chatMessages; let last = last;" class="flex align-items-start mb-3" [ngClass]="{'justify-content-start': !chartMessage.self, 'justify-content-end': chartMessage.self}">
+                        <img *ngIf="!chartMessage.self" [src]="chartMessage.url" width="36" height="36" class="border-circle">
+                        <div class="ml-2 flex flex-column align-items-start" *ngIf="!chartMessage.self">
+                            <div>
+                                <span class="font-bold mr-3">{{chartMessage.from}}</span>
+                                <span class="text-color-secondary">2m ago</span>
+                            </div>
+                            <div class="inline-block text-left surface-100 border-round px-5 py-3 mt-3" *ngFor="let message of chartMessage.messages; let first = first">{{message}}</div>
                         </div>
-                        <div class="mr-3" *ngIf="!chartMessage.nth">
-                            <span class="text-color-secondary">2m ago</span><span class="font-bold ml-3">{{chartMessage.from}}</span>
-                            <div class="bg-primary-500 text-primary-50 border-round px-5 py-3 mt-3" *ngFor="let message of chartMessage.messages; let first = first">{{message}}</div>
+                        <div class="mr-3 flex flex-column align-items-end" *ngIf="chartMessage.self">
+                            <div>
+                                <span class="text-color-secondary">2m ago</span>
+                                <span class="font-bold ml-3">{{chartMessage.from}}</span>
+                            </div>
+                            <div class="inline-block text-right bg-primary-500 text-primary-50 border-round px-5 py-3 mt-3" *ngFor="let message of chartMessage.messages; let first = first">{{message}}</div>
                         </div>
-                        <img *ngIf="!chartMessage.nth" [src]="chartMessage.url" width="36" height="36" class="border-circle">
+                        <img *ngIf="chartMessage.self" [src]="chartMessage.url" width="36" height="36" class="border-circle">
                     </li>
                 </ul>
                 <div class="p-inputgroup mt-3">

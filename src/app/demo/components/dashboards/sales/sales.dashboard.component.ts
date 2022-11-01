@@ -93,9 +93,9 @@ export class SalesDashboardComponent implements OnInit {
         };
 
         this.chatMessages = [
-            { nth: true, from: 'Jane Cooper', url: 'assets/demo/images/avatar/stephenshaw.png', messages: ['Hey M. hope you are well. Our idea is accepted by the board. '] },
-            { nth: false, from: 'Jerome Bell', url: 'assets/demo/images/avatar/ivanmagalhaes.png', messages: ['we did it! 🤠'] },
-            { nth: true, from: 'Darlene Robertson', url: 'assets/demo/images/avatar/amyelsner.png', messages: ['I’ll be looking at the process then, just to be sure 🤓 '] },
+            { self: false, from: 'Jane Cooper', url: 'assets/demo/images/avatar/stephenshaw.png', messages: ['Hey M. hope you are well. Our idea is accepted by the board. '] },
+            { self: true, from: 'Jerome Bell', url: 'assets/demo/images/avatar/ivanmagalhaes.png', messages: ['we did it! 🤠'] },
+            { self: false, from: 'Darlene Robertson', url: 'assets/demo/images/avatar/amyelsner.png', messages: ['I will be looking at the process then, just to be sure 🤓 '] },
         ];
 
         this.listItems = [
@@ -118,7 +118,7 @@ export class SalesDashboardComponent implements OnInit {
             const lastMessage = this.chatMessages[this.chatMessages.length - 1];
 
             if (lastMessage.from) {
-                this.chatMessages.push({ nth: false, from: 'Jerome Bell',
+                this.chatMessages.push({ self: true, from: 'Jerome Bell',
                     url: 'assets/demo/images/avatar/ivanmagalhaes.png',
                     messages: [message] });
             }
@@ -127,7 +127,7 @@ export class SalesDashboardComponent implements OnInit {
             }
 
             if (message.match(/primeng|primereact|primefaces|primevue/i)) {
-                this.chatMessages.push({ nth: true, from: 'Ioni Bowcher', url: 'assets/demo/images/avatar/ionibowcher.png', messages: ['Always bet on Prime!'] });
+                this.chatMessages.push({ nth: false, from: 'Ioni Bowcher', url: 'assets/demo/images/avatar/ionibowcher.png', messages: ['Always bet on Prime!'] });
             }
 
             (<HTMLInputElement> event.currentTarget).value = '';
