@@ -1,5 +1,5 @@
 <div class="grid">
-    <div class="col-12 md:col-6 lg:col-3">
+    <div class="col-12 lg:col-6 xl:col-3">
         <div class="card p-0 overflow-hidden flex flex-column">
             <div class="flex align-items-center p-3">
                 <i class="pi pi-users text-6xl text-blue-500"></i>
@@ -11,7 +11,7 @@
             <img [src]="'assets/demo/images/dashboard/users' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
         </div>
     </div>
-    <div class="col-12 md:col-6 lg:col-3">
+    <div class="col-12 lg:col-6 xl:col-3">
         <div class="card p-0 overflow-hidden flex flex-column">
             <div class="flex align-items-center p-3">
                 <i class="pi pi-map text-6xl text-orange-500"></i>
@@ -23,7 +23,7 @@
             <img [src]="'assets/demo/images/dashboard/locations' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="locations">
         </div>
     </div>
-    <div class="col-12 md:col-6 lg:col-3">
+    <div class="col-12 lg:col-6 xl:col-3">
         <div class="card p-0 overflow-hidden flex flex-column">
             <div class="flex align-items-center p-3">
                 <i class="pi pi-directions text-6xl text-green-500"></i>
@@ -35,7 +35,7 @@
             <img [src]="'assets/demo/images/dashboard/rate' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="conversion">
         </div>
     </div>
-    <div class="col-12 md:col-6 lg:col-3">
+    <div class="col-12 lg:col-6 xl:col-3">
         <div class="card h-full p-0 overflow-hidden flex flex-column">
             <div class="flex align-items-center p-3">
                 <i class="pi pi-comments text-6xl text-purple-500"></i>
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="col-12 lg:col-6">
+    <div class="col-12 xl:col-6">
         <div class="card h-full">
             <div class="flex justify-content-between align-items-center mb-3">
                 <h5>Acquisition Overview</h5>
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <div class="col-12 md:col-6 lg:col-3">
+    <div class="col-12 lg:col-6 xl:col-3">
         <div class="card h-full">
             <h5>Latest Customers</h5>
             <ul class="list-none p-0 m-0">
@@ -117,7 +117,7 @@
         </div>
     </div>
 
-    <div class="col-12 md:col-6 lg:col-3">
+    <div class="col-12 lg:col-6 xl:col-3">
         <div class="card">
             <div class="text-center mb-5">
                 <img [src]="'assets/demo/images/dashboard/completion-graph-' + (colorScheme === 'light' ? 'light' : 'dark') + '.svg'" alt="graph" class="w-full">
@@ -163,7 +163,7 @@
         </div>
     </div>
 
-    <div class="col-12 md:col-6 xl:col-4">
+    <div class="col-12 lg:col-6 xl:col-4">
         <div class="card h-full">
             <h5>Trials Leads By Role</h5>
             <div class="flex align-items-center justify-content-between pb-2 mb-1 border-bottom-1 surface-border">
@@ -239,7 +239,7 @@
         </div>
     </div>
 
-    <div class="col-12 md:col-6 lg:col-4">
+    <div class="col-12 lg:col-6 xl:col-4">
         <div class="card h-full">
             <h5>Leads By Region</h5>
             <p-tabView>
@@ -469,7 +469,7 @@
         </div>
     </div>
     
-    <div class="col-12 md:col-6 lg:col-4">
+    <div class="col-12 lg:col-6 xl:col-4">
         <div class="card h-full">
             <h5>Recent Blog Posts</h5>
             <div class="flex flex-column mb-3">
@@ -506,7 +506,7 @@
         </div>
     </div>
     
-    <div class="col-12 md:col-6 lg:col-6">
+    <div class="col-12 lg:col-6">
         <div class="card widget-timeline">
             <h5>Timeline</h5>
             <ul class="list-none p-0 m-0">
@@ -594,11 +594,11 @@
             </ul>
         </div>
     </div>
-    <div class="col-12 lg:col-6">
+    <div class="col-12 xl:col-6">
         <div class="card">
             <h5>Monthly Recurring Revenue Growth</h5>
 
-            <p-chart type="line" [data]="revenueChartData" [options]="revenueChartOptions" id="nasdaq-chart"></p-chart>
+            <p-chart type="line" [data]="revenueChartData" [options]="revenueChartOptions" id="nasdaq-chart" height="348"></p-chart>
         </div>
     </div>
 </div>
