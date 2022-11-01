@@ -1,6 +1,6 @@
 <div class="surface-ground min-h-screen w-screen">
     <div class="landing-wrapper">
-        <div style="background-image:url('assets/demo/images/landing/line-effect.svg')" class="bg-no-repeat bg-cover bg-bottom">
+        <div [ngStyle]="backgroundStyle" class="bg-no-repeat bg-cover bg-bottom">
             <div class="flex align-items-center justify-content-between px-5 sm:px-8 py-6">
                 <a [routerLink]="['/']">
                     <span class="text-2xl font-bold text-color">VERONA</span>
