@@ -128,7 +128,7 @@ export class AppMenuComponent implements OnInit {
                     { label: 'PrimeIcons', icon: 'pi pi-fw pi-prime', routerLink: ['utilities/icons'] },
                     { label: 'Colors', icon: 'pi pi-fw pi-palette', routerLink: ['utilities/colors'] },
                     { label: 'PrimeFlex', icon: 'pi pi-fw pi-desktop', url: 'https://www.primefaces.org/primeflex/', target: '_blank' },
-                    { label: 'Figma', icon: 'pi pi-fw pi-pencil', url: 'https://www.figma.com/file/YAIAU5pHk4tbSNVVgR9RAf/Preview-%7C-Verona-2022?node-id=1303%3A750', target: '_blank' }
+                    { label: 'Figma', icon: 'pi pi-fw pi-pencil', url: 'https://www.figma.com/file/PgQXX4HXMPeCkT74tGajod/Preview-%7C-Verona-2022?node-id=1303%3A750', target: '_blank' }
                 ]
             },
             {
