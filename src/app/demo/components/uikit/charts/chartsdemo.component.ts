@@ -67,7 +67,7 @@ export class ChartsDemoComponent implements OnInit, OnDestroy {
             plugins: {
                 legend: {
                     labels: {
-                        fontColor: textColor
+                        color: textColor
                     }
                 }
             },
@@ -151,7 +151,7 @@ export class ChartsDemoComponent implements OnInit, OnDestroy {
             plugins: {
                 legend: {
                     labels: {
-                        fontColor: textColor
+                        color: textColor
                     }
                 }
             },
@@ -246,14 +246,17 @@ export class ChartsDemoComponent implements OnInit, OnDestroy {
             plugins: {
                 legend: {
                     labels: {
-                        fontColor: textColor
+                        color: textColor
                     }
                 }
             },
             scales: {
                 r: {
+                    pointLabels:{
+                        color: textColorSecondary,
+                    },
                     grid: {
-                        color: textColorSecondary
+                        color: surfaceBorder
                     }
                 }
             }

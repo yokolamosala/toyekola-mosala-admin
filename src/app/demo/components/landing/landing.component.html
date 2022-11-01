@@ -2,7 +2,9 @@
     <div class="landing-wrapper">
         <div style="background-image:url('assets/demo/images/landing/line-effect.svg')" class="bg-no-repeat bg-cover bg-bottom">
             <div class="flex align-items-center justify-content-between px-5 sm:px-8 py-6">
-                <span class="text-2xl font-bold">VERONA</span>
+                <a [routerLink]="['/']">
+                    <span class="text-2xl font-bold text-color">VERONA</span>
+                </a>
                 <div class="relative">
                     <button pRipple class="cursor-pointer block lg:hidden select-none p-link w-3rem h-3rem inline-flex align-items-center justify-content-center border-circle" pStyleClass="@next" enterClass="hidden" enterActiveClass="scalein" leaveActiveClass="fadeout" leaveToClass="hidden" [hideOnOutsideClick]="true">
                         <i class="pi pi-bars text-4xl"></i>
