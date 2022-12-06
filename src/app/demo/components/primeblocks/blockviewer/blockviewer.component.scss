@@ -82,11 +82,14 @@
     border:1px solid var(--surface-border);
     border-top: 0 none;
 
-    pre {
-        margin: 0;
+    pre.app-code {
         background-color: var(--surface-card) !important;
-        border-top-right-radius: 0 !important;
-        border-top-left-radius: 0 !important;
+        padding-bottom: 1rem !important;
+        margin-bottom: 0 !important;
+
+        code {
+            padding: 1rem 2.5rem;
+        }
     }
 }
 
