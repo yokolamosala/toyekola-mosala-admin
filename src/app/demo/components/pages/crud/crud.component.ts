@@ -31,7 +31,7 @@ export class CrudComponent implements OnInit {
     rowsPerPageOptions = [5, 10, 20];
 
     constructor(private productService: ProductService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
-
+    
     ngOnInit() {
         this.productService.getProducts().then(data => this.products = data);
 
