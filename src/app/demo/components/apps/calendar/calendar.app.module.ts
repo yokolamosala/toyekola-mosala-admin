@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {  NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CalendarAppRoutingModule } from './calendar.app-routing.module';
@@ -13,17 +13,16 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ToastModule } from 'primeng/toast'
 import { EventService } from 'src/app/demo/service/event.service';
 import { FullCalendarModule } from '@fullcalendar/angular';
-
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         CalendarAppRoutingModule,
+        FullCalendarModule,
         DialogModule,
         InputTextareaModule,
         ButtonModule,
         CalendarModule,
-        FullCalendarModule,
         InputTextModule,
         DropdownModule,
         ToastModule,
