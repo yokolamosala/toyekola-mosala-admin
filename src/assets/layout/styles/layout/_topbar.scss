@@ -105,8 +105,9 @@
                 white-space: nowrap;
                 padding-right: 1.375rem;
                 color: var(--v-menuitem-text-color-secondary);
-
+                opacity: .7;
                 &.active-route {
+                    opacity: 1;
                     color: var(--v-menuitem-text-color);
                 }
             }
