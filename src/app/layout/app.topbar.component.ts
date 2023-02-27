@@ -48,7 +48,7 @@ export class AppTopBarComponent {
 
     get logo(): string {
         const path = 'assets/layout/images/logo-';
-        const logo = this.layoutTheme === 'primaryColor' ? 'light.png' : (this.colorScheme === 'light' ? 'dark.png' : 'light.png');
+        const logo = (this.layoutTheme === 'primaryColor'  && !(this.layoutService.config.theme  == "yellow")) ? 'light.png' : (this.colorScheme === 'light' ? 'dark.png' : 'light.png');
         return path + logo;
     }
 
