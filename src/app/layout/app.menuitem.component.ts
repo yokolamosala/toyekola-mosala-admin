@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
 import { IsActiveMatchOptions, NavigationEnd, Router } from '@angular/router';
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger,AnimationEvent } from '@angular/animations';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { MenuService } from './app.menu.service';
 import { LayoutService } from './service/app.layout.service';
+import { AppSidebarComponent } from './app.sidebar.component';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
@@ -28,7 +29,7 @@ import { LayoutService } from './service/app.layout.service';
 				<i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
 			</a>
 
-			<ul *ngIf="item.items && item.visible !== false" [@children]="submenuAnimation">
+			<ul *ngIf="item.items && item.visible !== false" [@children]="submenuAnimation" (@children.done)="onSubmenuAnimated($event)">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
 					<li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
 				</ng-template>
@@ -71,7 +72,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     key: string = "";
 
-    constructor(public layoutService: LayoutService, private cd: ChangeDetectorRef, public router: Router, private menuService: MenuService) {
+    constructor(public layoutService: LayoutService, private cd: ChangeDetectorRef,private appSidebar: AppSidebarComponent, public router: Router, private menuService: MenuService) {
         this.menuSourceSubscription = this.menuService.menuSource$.subscribe(value => {
             Promise.resolve(null).then(() => {
                 if (value.routeEvent) {
@@ -109,6 +110,21 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             this.updateActiveStateFromRoute();
         }
     }
+
+    onSubmenuAnimated(event: AnimationEvent) {
+        if (event.toState === 'visible' && this.layoutService.isDesktop() && (this.layoutService.isSlim)) {
+            const el = <HTMLUListElement> event.element;
+            const container = <HTMLDivElement> this.appSidebar.menuContainer.nativeElement;
+
+          if (this.layoutService.isSlim()) {
+                el.style.removeProperty('left');
+                const scrollTop = container.scrollTop;
+                const offsetTop = el.parentElement?.offsetTop || 0;
+                el.style.top = (offsetTop - scrollTop) + 'px';
+            }
+        }
+    }
+
 
     updateActiveStateFromRoute() {
         let activeRoute = this.router.isActive(this.item.routerLink[0], (<IsActiveMatchOptions> this.item.routerLinkActiveOptions || { paths: 'exact', queryParams: 'ignored', matrixParams: 'ignored', fragment: 'ignored' }));

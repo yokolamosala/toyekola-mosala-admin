@@ -18,10 +18,14 @@
                 overflow: visible;
 
                 .layout-menu-container {
-                    overflow: visible;
+                    overflow: auto;
                     display: flex;
                     justify-content: center;
-                    padding: 0;   
+                    padding: 0;  
+
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
                 }
             }
 
@@ -31,8 +35,6 @@
 
             .layout-menu {
                 .layout-root-menuitem {
-                    position: relative;
-
                     > .layout-menuitem-root-text {
                         display: none;
                     }
@@ -69,7 +71,7 @@
 
                     > ul {
                         position: absolute;
-                        left: 4rem;
+                        left: 5rem;
                         top: 0;
                         min-width: 15rem;
                         background-color: var(--surface-overlay);
