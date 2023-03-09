@@ -3,12 +3,16 @@ import { MenuItem } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { TabCloseEvent } from '../api/tabcloseevent';
 
+export type MenuMode = 'static' | 'slim' ;
+
+export type ColorScheme = 'light' | 'dark';
+
 export interface AppConfig {
     inputStyle: string;
-    colorScheme: string;
+    colorScheme: ColorScheme;
     theme: string;
     ripple: boolean;
-    menuMode: string;
+    menuMode: MenuMode;
     layoutTheme: string;
     scale: number;
 }

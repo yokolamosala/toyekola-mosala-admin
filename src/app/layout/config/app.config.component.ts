@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AppLayoutComponent} from '../app.layout.component';
-import {LayoutService} from "../service/app.layout.service";
+import {ColorScheme, LayoutService, MenuMode} from "../service/app.layout.service";
 import {MenuService} from "../app.menu.service";
 
 @Component({
@@ -32,7 +32,7 @@ export class AppConfigComponent implements OnInit {
         ];
     }
 
-    changeColorScheme(colorScheme: string) {
+    changeColorScheme(colorScheme: ColorScheme) {
         const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
         const themeLinkHref = themeLink.getAttribute('href');
         const currentColorScheme = 'theme-' + this.layoutService.config.colorScheme;
@@ -82,11 +82,11 @@ export class AppConfigComponent implements OnInit {
         return this.layoutService.config.theme;
     }
 
-    get colorScheme(): string {
+    get colorScheme(): ColorScheme {
         return this.layoutService.config.colorScheme;
     }
 
-    set colorScheme(_val: string) {
+    set colorScheme(_val: ColorScheme) {
         this.changeColorScheme(_val);
     }
 
@@ -114,11 +114,11 @@ export class AppConfigComponent implements OnInit {
         this.layoutService.config.layoutTheme = _val;
     }
 
-    get menuMode(): string {
+    get menuMode(): MenuMode {
         return this.layoutService.config.menuMode;
     }
 
-    set menuMode(_val: string) {
+    set menuMode(_val: MenuMode) {
         this.layoutService.config.menuMode = _val;
         if (this.layoutService.isSlim()) {
             this.menuService.reset();
