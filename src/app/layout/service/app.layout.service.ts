@@ -3,7 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { TabCloseEvent } from '../api/tabcloseevent';
 
-export type MenuMode = 'static' | 'slim' ;
+export type MenuMode = 'static' | 'slim-plus' |  'slim' ;
 
 export type ColorScheme = 'light' | 'dark';
 
@@ -99,6 +99,10 @@ export class LayoutService {
 
     isSlim() {
         return this.config.menuMode === 'slim';
+    }
+
+    isSlimPlus() {
+        return this.config.menuMode === 'slim-plus';
     }
 
     isMobile() {

@@ -120,7 +120,7 @@ export class AppConfigComponent implements OnInit {
 
     set menuMode(_val: MenuMode) {
         this.layoutService.config.menuMode = _val;
-        if (this.layoutService.isSlim()) {
+        if (this.layoutService.isSlimPlus() || this.layoutService.isSlim()) {
             this.menuService.reset();
         }
     }

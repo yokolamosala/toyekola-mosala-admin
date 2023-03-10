@@ -105,6 +105,7 @@ export class AppLayoutComponent implements OnDestroy {
     get containerClass() {
         return {
             'layout-slim': this.layoutService.config.menuMode === 'slim',
+            'layout-slim-plus': this.layoutService.config.menuMode === 'slim-plus',
             'layout-static': this.layoutService.config.menuMode === 'static',
             'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
             'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',

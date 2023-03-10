@@ -92,7 +92,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
         this.router.events.pipe(filter(event => event instanceof NavigationEnd))
             .subscribe(params => {
-                if (this.isSlim) {
+                if (this.isSlimPlus || this.isSlim) {
                     this.active = false;
                 }
                 else {
@@ -116,7 +116,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             const el = <HTMLUListElement> event.element;
             const container = <HTMLDivElement> this.appSidebar.menuContainer.nativeElement;
 
-          if (this.layoutService.isSlim()) {
+          if (this.layoutService.isSlim()|| this.layoutService.isSlimPlus()) {
                 el.style.removeProperty('left');
                 const scrollTop = container.scrollTop;
                 const offsetTop = el.parentElement?.offsetTop || 0;
@@ -142,7 +142,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         }
 
         // navigate with hover
-        if (this.root && this.isSlim) {
+        if (this.root && this.isSlim || this.isSlimPlus) {
             this.layoutService.state.menuHoverActive = !this.layoutService.state.menuHoverActive;
         }
 
@@ -161,7 +161,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         if (this.item.items) {
             this.active = !this.active;
 
-            if (this.root && this.active && this.isSlim) {
+            if (this.root && this.active && (this.isSlim || this.isSlimPlus)) {
                 this.layoutService.onOverlaySubmenuOpen();
             }
         }
@@ -170,7 +170,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
                 this.layoutService.state.staticMenuMobileActive = false;
             }
 
-            if (this.isSlim) {
+            if (this.isSlim || this.isSlimPlus) {
                 this.menuService.reset();
                 this.layoutService.state.menuHoverActive = false;
             }
@@ -181,7 +181,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     onMouseEnter() {
         // activate item on hover
-        if (this.root && this.isSlim && this.layoutService.isDesktop()) {
+        if (this.root && (this.isSlim  || this.isSlimPlus) && this.layoutService.isDesktop()) {
             if (this.layoutService.state.menuHoverActive) {
                 this.active = true;
                 this.menuService.onMenuStateChange({key: this.key});
@@ -190,7 +190,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     get submenuAnimation() {
-        if (this.layoutService.isDesktop() && this.layoutService.isSlim())
+        if (this.layoutService.isDesktop() && this.layoutService.isSlim()|| this.layoutService.isSlimPlus())
             return this.active ? 'visible' : 'hidden';
         else
             return this.root ? 'expanded' : (this.active ? 'expanded' : 'collapsed');
@@ -198,6 +198,10 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     get isSlim() {
         return this.layoutService.isSlim();
+    }
+
+    get isSlimPlus() {
+        return this.layoutService.isSlimPlus();
     }
 
     get isMobile() {
