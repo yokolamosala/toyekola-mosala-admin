@@ -7,8 +7,9 @@
     left: 0;
     top: 5rem;
     user-select: none;
-    background-color: var(--v-body-bg);
+    background: var(--v-body-bg);
     z-index: 999;
+
 
     .layout-menu-container {
         overflow: auto;

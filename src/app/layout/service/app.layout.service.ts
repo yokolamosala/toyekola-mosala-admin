@@ -3,7 +3,7 @@ import { MenuItem } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { TabCloseEvent } from '../api/tabcloseevent';
 
-export type MenuMode = 'static' | 'slim-plus' |  'slim' ;
+export type MenuMode = 'static' | 'overlay' | 'slim-plus' |  'slim' ;
 
 export type ColorScheme = 'light' | 'dark';
 
@@ -69,6 +69,13 @@ export class LayoutService {
     tabClose$ = this.tabClose.asObservable();
 
     onMenuToggle() {
+        if (this.isOverlay()) {
+            this.state.overlayMenuActive = !this.state.overlayMenuActive;
+
+            if (this.state.overlayMenuActive) {
+                this.overlayOpen.next(null);
+            }
+        }
         if (this.isDesktop()) {
             this.state.staticMenuDesktopInactive = !this.state.staticMenuDesktopInactive;
         }
@@ -95,6 +102,10 @@ export class LayoutService {
 
     isDesktop() {
         return window.innerWidth > 991;
+    }
+
+    isOverlay() {
+        return this.config.menuMode === 'overlay';
     }
 
     isSlim() {

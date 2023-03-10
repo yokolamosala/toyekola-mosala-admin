@@ -87,6 +87,9 @@ export class AppConfigComponent implements OnInit {
     }
 
     set colorScheme(_val: ColorScheme) {
+        if(_val=='dark'){
+            this.layoutService.config.layoutTheme= 'colorScheme';
+        }
         this.changeColorScheme(_val);
     }
 
