@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, HostBinding, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, HostBinding, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IsActiveMatchOptions, NavigationEnd, Router } from '@angular/router';
 import { animate, state, style, transition, trigger,AnimationEvent } from '@angular/animations';
 import { Subscription } from 'rxjs';
@@ -6,6 +6,7 @@ import { filter } from 'rxjs/operators';
 import { MenuService } from './app.menu.service';
 import { LayoutService } from './service/app.layout.service';
 import { AppSidebarComponent } from './app.sidebar.component';
+import {DomHandler} from 'primeng/dom';
 
 @Component({
     // eslint-disable-next-line @angular-eslint/component-selector
@@ -29,7 +30,7 @@ import { AppSidebarComponent } from './app.sidebar.component';
 				<i class="pi pi-fw pi-angle-down layout-submenu-toggler" *ngIf="item.items"></i>
 			</a>
 
-			<ul *ngIf="item.items && item.visible !== false" [@children]="submenuAnimation" (@children.done)="onSubmenuAnimated($event)">
+			<ul #submenu *ngIf="item.items && item.visible !== false" [@children]="submenuAnimation" (@children.done)="onSubmenuAnimated($event)">
 				<ng-template ngFor let-child let-i="index" [ngForOf]="item.items">
 					<li app-menuitem [item]="child" [index]="i" [parentKey]="key" [class]="child.badgeClass"></li>
 				</ng-template>
@@ -64,6 +65,8 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     @Input() parentKey!: string;
 
+    @ViewChild('submenu') submenu!: ElementRef;
+    
     active = false;
 
     menuSourceSubscription: Subscription;
@@ -111,16 +114,37 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
         }
     }
 
-    onSubmenuAnimated(event: AnimationEvent) {
-        if (event.toState === 'visible' && this.layoutService.isDesktop() && (this.layoutService.isSlim)) {
-            const el = <HTMLUListElement> event.element;
-            const container = <HTMLDivElement> this.appSidebar.menuContainer.nativeElement;
+    ngAfterViewChecked() {
+        if (this.root && this.active && this.layoutService.isDesktop() && ( this.layoutService.isSlim()|| this.layoutService.isSlimPlus())) {
+            this.calculatePosition(this.submenu?.nativeElement, this.submenu?.nativeElement.parentElement);
+        }
+    }
 
-          if (this.layoutService.isSlim()|| this.layoutService.isSlimPlus()) {
-                el.style.removeProperty('left');
-                const scrollTop = container.scrollTop;
-                const offsetTop = el.parentElement?.offsetTop || 0;
-                el.style.top = (offsetTop - scrollTop) + 'px';
+
+
+    onSubmenuAnimated(event: AnimationEvent) {
+        if (event.toState === 'visible' && this.layoutService.isDesktop() && ( this.layoutService.isSlim()|| this.layoutService.isSlimPlus())) {
+            const el = <HTMLUListElement> event.element;
+            const elParent = <HTMLUListElement> el.parentElement;
+            this.calculatePosition(el, elParent);
+        }
+    }
+
+    calculatePosition(overlay: HTMLElement, target: HTMLElement) {
+        if (overlay) {
+            const { left, top } = target.getBoundingClientRect();
+            const vHeight = window.innerHeight;
+            const  oHeight = overlay.offsetHeight;
+            const topbarEl = document.querySelector('.layout-topbar') as HTMLElement;
+            const topbarHeight = topbarEl?.offsetHeight || 0;
+            // reset
+            overlay.style.top = '';
+            overlay.style.left = '';
+      
+            if ( this.layoutService.isSlim() || this.layoutService.isSlimPlus()) {
+                const topOffset = top - topbarHeight;
+                const height = topOffset + oHeight + topbarHeight;
+                overlay.style.top = vHeight < height ? `${topOffset - (height - vHeight)}px` : `${topOffset}px`;
             }
         }
     }
