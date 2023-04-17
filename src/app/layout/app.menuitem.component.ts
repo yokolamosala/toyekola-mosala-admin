@@ -214,7 +214,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
     }
 
     get submenuAnimation() {
-        if (this.layoutService.isDesktop() && this.layoutService.isSlim()|| this.layoutService.isSlimPlus())
+        if (this.layoutService.isDesktop() && (this.layoutService.isSlim() || this.layoutService.isSlimPlus()))
             return this.active ? 'visible' : 'hidden';
         else
             return this.root ? 'expanded' : (this.active ? 'expanded' : 'collapsed');
