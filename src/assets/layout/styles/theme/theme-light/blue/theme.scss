@@ -6,6 +6,7 @@ $primaryTextColor: #ffffff;
 
 $highlightBg: #e8f4fb;
 $highlightTextColor: $primaryDarkerColor;
+$highlightFocusBg: rgba($primaryColor, .24) !default;
 
 @import '../_variables';
 @import '../../theme-base/_components';

@@ -18,6 +18,8 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { KnobModule } from 'primeng/knob';
 import { InputTextModule } from 'primeng/inputtext';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 
 @NgModule({
     imports: [
@@ -38,7 +40,9 @@ import { InputTextModule } from 'primeng/inputtext';
         AvatarGroupModule,
         ProgressBarModule,
         KnobModule,
-        SalesDashboarRoutingModule
+        SalesDashboarRoutingModule,
+        InputGroupModule,
+        InputGroupAddonModule
     ],
     declarations: [SalesDashboardComponent]
 })
