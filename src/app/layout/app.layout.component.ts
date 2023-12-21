@@ -120,18 +120,18 @@ export class AppLayoutComponent implements OnDestroy {
 
     get containerClass() {
         return {
-            'layout-slim': this.layoutService.config.menuMode === 'slim',
-            'layout-slim-plus': this.layoutService.config.menuMode === 'slim-plus',
-            'layout-static': this.layoutService.config.menuMode === 'static',
-            'layout-overlay': this.layoutService.config.menuMode === 'overlay',
+            'layout-slim': this.layoutService.config().menuMode === 'slim',
+            'layout-slim-plus': this.layoutService.config().menuMode === 'slim-plus',
+            'layout-static': this.layoutService.config().menuMode === 'static',
+            'layout-overlay': this.layoutService.config().menuMode === 'overlay',
             'layout-overlay-active': this.layoutService.state.overlayMenuActive,
             'layout-mobile-active': this.layoutService.state.staticMenuMobileActive,
-            'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config.menuMode === 'static',
-            'p-input-filled': this.layoutService.config.inputStyle === 'filled',
-            'p-ripple-disabled': !this.layoutService.config.ripple,
-            'layout-light': this.layoutService.config.layoutTheme === 'colorScheme' && this.layoutService.config.colorScheme === 'light',
-            'layout-dark': this.layoutService.config.layoutTheme === 'colorScheme' && this.layoutService.config.colorScheme === 'dark',
-            'layout-primary': this.layoutService.config.colorScheme !== 'dark' && this.layoutService.config.layoutTheme === 'primaryColor'
+            'layout-static-inactive': this.layoutService.state.staticMenuDesktopInactive && this.layoutService.config().menuMode === 'static',
+            'p-input-filled': this.layoutService.config().inputStyle === 'filled',
+            'p-ripple-disabled': !this.layoutService.config().ripple,
+            'layout-light': this.layoutService.config().layoutTheme === 'colorScheme' && this.layoutService.config().colorScheme === 'light',
+            'layout-dark': this.layoutService.config().layoutTheme === 'colorScheme' && this.layoutService.config().colorScheme === 'dark',
+            'layout-primary': this.layoutService.config().colorScheme !== 'dark' && this.layoutService.config().layoutTheme === 'primaryColor'
         }
     }
 

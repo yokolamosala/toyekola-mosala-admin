@@ -9,7 +9,7 @@ export class NewPasswordComponent {
 	constructor(private layoutService: LayoutService) {}
 
 	get filledInput(): boolean {
-		return this.layoutService.config.inputStyle === 'filled';
+		return this.layoutService.config().inputStyle === 'filled';
 	}
 
 }

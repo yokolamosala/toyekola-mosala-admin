@@ -39,16 +39,16 @@ export class AppTopBarComponent {
     }
 
     get layoutTheme(): string {
-        return this.layoutService.config.layoutTheme;
+        return this.layoutService.config().layoutTheme;
     }
 
     get colorScheme(): string {
-        return this.layoutService.config.colorScheme;
+        return this.layoutService.config().colorScheme;
     }
 
     get logo(): string {
         const path = 'assets/layout/images/logo-';
-        const logo = (this.layoutTheme === 'primaryColor'  && !(this.layoutService.config.theme  == "yellow")) ? 'light.png' : (this.colorScheme === 'light' ? 'dark.png' : 'light.png');
+        const logo = (this.layoutTheme === 'primaryColor'  && !(this.layoutService.config().theme  == "yellow")) ? 'light.png' : (this.colorScheme === 'light' ? 'dark.png' : 'light.png');
         return path + logo;
     }
 

@@ -10,6 +10,6 @@ export class AppFooterComponent {
     constructor(public layoutService: LayoutService) {}
 
     get colorScheme(): string {
-        return this.layoutService.config.colorScheme;
+        return this.layoutService.config().colorScheme;
     }
 }

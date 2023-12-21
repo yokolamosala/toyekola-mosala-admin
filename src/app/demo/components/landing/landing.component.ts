@@ -14,12 +14,12 @@ export class LandingComponent {
 
     get backgroundStyle(): object {
         let path = 'assets/demo/images/landing/';
-        let image = this.layoutService.config.colorScheme === 'dark' ? 'line-effect-dark.svg' : 'line-effect.svg'; 
+        let image = this.layoutService.config().colorScheme === 'dark' ? 'line-effect-dark.svg' : 'line-effect.svg'; 
 
         return {'background-image': 'url(' + path + image + ')'};
     }
 
     get colorScheme(): string {
-        return this.layoutService.config.colorScheme;
+        return this.layoutService.config().colorScheme;
     }
 }

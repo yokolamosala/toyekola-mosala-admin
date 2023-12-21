@@ -31,26 +31,15 @@ export class AppConfigComponent implements OnInit {
             {name: 'lime', lightColor: '#84BD20', darkColor : '#A3D44E'},
         ];
     }
-
     changeColorScheme(colorScheme: ColorScheme) {
-        const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
-        const themeLinkHref = themeLink.getAttribute('href');
-        const currentColorScheme = 'theme-' + this.layoutService.config.colorScheme;
-        const newColorScheme = 'theme-' + colorScheme;
-        const newHref = themeLinkHref!.replace(currentColorScheme, newColorScheme);
-        this.replaceThemeLink(newHref, () => {
-            this.layoutService.config.colorScheme = colorScheme;
-            this.layoutService.onConfigUpdate();
-        });
+        this.layoutService.config.update((config) => ({
+            ...config,
+            colorScheme,
+        }));
     }
-
+ 
     changeTheme(theme: string) {
-        const themeLink = <HTMLLinkElement>document.getElementById('theme-link');
-        const newHref = themeLink.getAttribute('href')!.replace(this.layoutService.config.theme, theme);
-        this.replaceThemeLink(newHref, () => {
-            this.layoutService.config.theme = theme;
-            this.layoutService.onConfigUpdate();
-        });
+        this.layoutService.config.update((config) => ({ ...config, theme }));
     }
 
     replaceThemeLink(href: string, onComplete: Function) {
@@ -79,16 +68,16 @@ export class AppConfigComponent implements OnInit {
     }
 
     get currentTheme(): string {
-        return this.layoutService.config.theme;
+        return this.layoutService.config().theme;
     }
 
     get colorScheme(): ColorScheme {
-        return this.layoutService.config.colorScheme;
+        return this.layoutService.config().colorScheme;
     }
 
     set colorScheme(_val: ColorScheme) {
         if(_val=='dark'){
-            this.layoutService.config.layoutTheme= 'colorScheme';
+            this.layoutService.config().layoutTheme= 'colorScheme';
         }
         this.changeColorScheme(_val);
     }
@@ -98,50 +87,68 @@ export class AppConfigComponent implements OnInit {
     }
 
     set visible(_val: boolean) {
-        this.layoutService.state.configSidebarVisible = _val;
+        this.layoutService.config.update((config) => ({
+            ...config,
+            configSidebarVisible: _val,
+        }));
     }
 
     get scale(): number {
-        return this.layoutService.config.scale;
+        return this.layoutService.config().scale;
     }
 
     set scale(_val: number) {
-        this.layoutService.config.scale = _val;
+        this.layoutService.config.update((config) => ({
+            ...config,
+            scale: _val,
+        }));
     }
     
     get menuTheme(): string {
-        return this.layoutService.config.layoutTheme;
+        return this.layoutService.config().layoutTheme;
     }
 
     set menuTheme(_val: string) {
-        this.layoutService.config.layoutTheme = _val;
+        this.layoutService.config.update((config) => ({
+            ...config,
+            layoutTheme: _val,
+        }));
     }
 
     get menuMode(): MenuMode {
-        return this.layoutService.config.menuMode;
+        return this.layoutService.config().menuMode;
     }
 
     set menuMode(_val: MenuMode) {
-        this.layoutService.config.menuMode = _val;
+        this.layoutService.config.update((config) => ({
+            ...config,
+            menuMode: _val,
+        }));
         if (this.layoutService.isSlimPlus() || this.layoutService.isSlim()) {
             this.menuService.reset();
         }
     }
 
     get inputStyle(): string {
-        return this.layoutService.config.inputStyle;
+        return this.layoutService.config().inputStyle;
     }
 
     set inputStyle(_val: string) {
-        this.layoutService.config.inputStyle = _val;
+        this.layoutService.config.update((config) => ({
+            ...config,
+            inputStyle: _val,
+        }));
     }
 
     get ripple(): boolean {
-        return this.layoutService.config.ripple;
+        return this.layoutService.config().ripple;
     }
 
     set ripple(_val: boolean) {
-        this.layoutService.config.ripple = _val;
+        this.layoutService.config.update((config) => ({
+            ...config,
+            menuTheme: _val,
+        }));
     }
 
     decrementScale(){
@@ -155,7 +162,10 @@ export class AppConfigComponent implements OnInit {
     }
 
     applyScale() {
-        document.documentElement.style.fontSize = this.scale + 'px';
+        this.layoutService.config.update((config) => ({
+            ...config,
+            scale: this.scale,
+        }));
     }
 
 }

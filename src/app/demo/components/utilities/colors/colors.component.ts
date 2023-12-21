@@ -13,6 +13,6 @@ export class ColorsComponent {
     constructor(private layoutService: LayoutService) { }
 
     get colorScheme() {
-        return this.layoutService.config.colorScheme === 'light' ? false : true;
+        return this.layoutService.config().colorScheme === 'light' ? false : true;
     }
 }

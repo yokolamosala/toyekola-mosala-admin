@@ -5,7 +5,7 @@ import { Metric } from 'src/app/demo/api/metric';
 import { FileAppService } from './service/file.app.service';
 import { MenuItem } from 'primeng/api';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime } from 'rxjs';
 
 @Component({
     templateUrl: './file.app.component.html',
@@ -30,7 +30,9 @@ export class FileAppComponent implements OnInit {
     subscription: Subscription;
 
     constructor(private fileService: FileAppService, private layoutService: LayoutService) { 
-        this.subscription = this.layoutService.configUpdate$.subscribe(config => {
+        this.subscription = this.layoutService.configUpdate$
+        .pipe(debounceTime(25))
+        .subscribe((config) => {
             this.initChart();
         });
     }

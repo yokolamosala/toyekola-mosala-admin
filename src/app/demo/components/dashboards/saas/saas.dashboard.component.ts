@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subscription, debounceTime } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
 
     overviewWeeks: any;
 
-    selectedOverviewWeek: any;
+    selectedOverviewWeek: any ;
 
     revenueChartData: any;
 
@@ -22,7 +22,9 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
     subscription: Subscription;
 
     constructor(public layoutService: LayoutService) { 
-        this.subscription = this.layoutService.configUpdate$.subscribe(config => {
+        this.subscription = this.layoutService.configUpdate$
+        .pipe(debounceTime(25))
+        .subscribe((config) => {
             this.initCharts();
         });
     }
@@ -34,6 +36,7 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
             {name: 'Last Week', code: '0'},
             {name: 'This Week', code: '1'}
         ];
+        this.selectedOverviewWeek = this.overviewWeeks[0]
     }
 
     initCharts() {
@@ -60,7 +63,7 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
                 {
                     label: 'Referral',
                     data: [4.88, 3, 6.2, 4.5, 2.1, 5.1, 4.1],
-                    backgroundColor: [this.layoutService.config.colorScheme === 'dark' ? '#879AAF' : '#E4E7EB'] ,
+                    backgroundColor: [this.layoutService.config().colorScheme === 'dark' ? '#879AAF' : '#E4E7EB'] ,
                     hoverBackgroundColor: [primaryColor300],
                     fill: true,
                     borderRadius: 10,
@@ -202,7 +205,7 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
     }
 
     get colorScheme(): string {
-        return this.layoutService.config.colorScheme;
+        return this.layoutService.config().colorScheme;
     }
 
     ngOnDestroy(): void {
