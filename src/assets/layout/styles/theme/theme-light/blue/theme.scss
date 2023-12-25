@@ -11,3 +11,5 @@ $highlightFocusBg: rgba($primaryColor, .24) !default;
 @import '../_variables';
 @import '../../theme-base/_components';
 @import '../_extensions';
+@import '../../extensions/fullcalendar';
+
