@@ -16,6 +16,7 @@ export class AppConfigComponent implements OnInit {
     componentThemes: any[] = [];
 
     scales: number[] = [12, 13, 14, 15, 16];
+
     get currentTheme(): string {
         return this.layoutService.config().theme;
     }
