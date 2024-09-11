@@ -1,13 +1,15 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppLayoutComponent } from './layout/app.layout.component';
+import { OktaCallbackComponent } from '@okta/okta-angular';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
     {
-        path: '', component: AppLayoutComponent,
+        path: '', component: AppLayoutComponent,canActivate: [AuthGuard],
         children: [
             { path: '', loadChildren: () => import('./modules/components/dashboards/dashboards.module').then(m => m.DashboardsModule) },
-            { path: 'uikit', data: { breadcrumb: 'UI Kit' }, loadChildren: () => import('./modules/components/uikit/uikit.module').then(m => m.UIkitModule) },
+            { path: 'info', loadChildren: () => import('./modules/components/uikit/uikit.module').then(m => m.UIkitModule) },
             { path: 'utilities', data: { breadcrumb: 'Utilities' }, loadChildren: () => import('./modules/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
             { path: 'pages', data: { breadcrumb: 'Pages' }, loadChildren: () => import('./modules/components/pages/pages.module').then(m => m.PagesModule) },
             { path: 'profile', data: { breadcrumb: 'User Management' }, loadChildren: () => import('./modules/components/profile/profile.module').then(m => m.ProfileModule) },
@@ -17,6 +19,7 @@ const routes: Routes = [
             { path: 'apps', data: { breadcrumb: 'Apps' }, loadChildren: () => import('./modules/components/apps/apps.module').then(m => m.AppsModule) }
         ]
     },
+    { path: 'login/callback', component: OktaCallbackComponent },
     { path: 'auth', data: { breadcrumb: 'Auth' }, loadChildren: () => import('./modules/components/auth/auth.module').then(m => m.AuthModule) },
     { path: 'landing', loadChildren: () => import('./modules/components/landing/landing.module').then(m => m.LandingModule) },
     { path: 'notfound', loadChildren: () => import('./modules/components/notfound/notfound.module').then(m => m.NotfoundModule) },

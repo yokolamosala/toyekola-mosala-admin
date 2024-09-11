@@ -20,3 +20,8 @@ export interface ApplicationCount {
     interest: string;
     personCount: number;
   }
+
+  export interface EducationLevel {
+    educationLevel: string;
+    personCount: number;
+  }

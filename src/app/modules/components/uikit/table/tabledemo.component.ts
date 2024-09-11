@@ -5,8 +5,11 @@ import { Product } from 'src/app/modules/api/product';
 import { ProductService } from 'src/app/modules/service/product.service';
 import { Table } from 'primeng/table';
 import { MessageService, ConfirmationService } from 'primeng/api';
-import { TraineeService } from 'src/app/modules/service/trainee.service';
-import { Trainee } from 'src/app/modules/api/trainee';
+import { TraineeResponse, TraineeService } from 'src/app/modules/service/trainee.service';
+import { PersonInterest, Trainee } from 'src/app/modules/api/trainee';
+import { Lookup_Center, Lookup_EducationLevel, Lookup_Gender, Lookup_Interest, Lookup_Municipality, Lookup_Province, Lookup_Town } from 'src/app/modules/api/lookups';
+import { LookupsService } from 'src/app/modules/service/lookups.service';
+import { CenterSelectionService } from 'src/app/center-selection.service';
 
 interface expandedRows {
     [key: string]: boolean;
@@ -18,123 +21,148 @@ interface expandedRows {
 })
 export class TableDemoComponent implements OnInit {
 
-    customers1: Customer[] = [];
-
-    customers2: Customer[] = [];
-
-    customers3: Customer[] = [];
-
-    selectedCustomers1: Customer[] = [];
-
-    selectedCustomer: Customer = {};
-
-    representatives: Representative[] = [];
-
-    statuses: any[] = [];
-
-    products: Product[] = [];
-
-    rowGroupMetadata: any;
-
-    expandedRows: expandedRows = {};
-
-    activityValues: number[] = [0, 100];
-
-    isExpanded: boolean = false;
-
-    idFrozen: boolean = false;
-
     loading: boolean = true;
-
     trainee: Trainee[] =[];
+
+    traineeDialog: boolean = false;
+    submitted: boolean = false;
+    selectedTrainee: Trainee = {
+        personAddress: {},
+        personInterest: {} 
+    };
+
+    towns: Lookup_Town[] = [];
+    provinces: Lookup_Province[] = [];
+    interests: Lookup_Interest[] = [];
+    genders: Lookup_Gender[] = [];
+    educationLevels: Lookup_EducationLevel[] = [];
+    municipalities: Lookup_Municipality[] = [];
+    centers: Lookup_Center[] = [];
+
+    selectedMunicipality: string | null = null;
+    selectedCenter: string | null = null; 
+    selectedInterest: PersonInterest | null = null;
 
     @ViewChild('filter') filter!: ElementRef;
 
-    constructor(private customerService: CustomerService, private productService: ProductService, private traineeService: TraineeService) { }
+    // Dropdown options
+    titles: { label: string, value: string }[] = [
+        { label: 'Mr.', value: 'Mr.' },
+        { label: 'Ms.', value: 'Ms.' },
+        { label: 'Dr.', value: 'Dr.' },
+        { label: 'Prof.', value: 'Prof.' }
+    ];
 
-    ngOnInit() {
+    constructor( private traineeService: TraineeService, private lookupService: LookupsService, 
+        private centerSelectionService: CenterSelectionService, private confirmationService: ConfirmationService,
+        private messageService: MessageService ) { }
 
-        this.traineeService.getTraineeList().subscribe((traineeData: Trainee[]) => {
-            this.trainee = traineeData;
-            console.log("trainee", traineeData);
-            this.loading = false;
-        });
-        this.customerService.getCustomersLarge().then(customers => {
-            this.customers1 = customers;
-            this.loading = false;
-
-            // @ts-ignore
-            this.customers1.forEach(customer => customer.date = new Date(customer.date));
-        });
-        this.customerService.getCustomersMedium().then(customers => this.customers2 = customers);
-        this.customerService.getCustomersLarge().then(customers => this.customers3 = customers);
-        this.productService.getProductsWithOrdersSmall().then(data => this.products = data);
-
-        this.representatives = [
-            { name: 'Amy Elsner', image: 'amyelsner.png' },
-            { name: 'Anna Fali', image: 'annafali.png' },
-            { name: 'Asiya Javayant', image: 'asiyajavayant.png' },
-            { name: 'Bernardo Dominic', image: 'bernardodominic.png' },
-            { name: 'Elwin Sharvill', image: 'elwinsharvill.png' },
-            { name: 'Ioni Bowcher', image: 'ionibowcher.png' },
-            { name: 'Ivan Magalhaes', image: 'ivanmagalhaes.png' },
-            { name: 'Onyama Limba', image: 'onyamalimba.png' },
-            { name: 'Stephen Shaw', image: 'stephenshaw.png' },
-            { name: 'XuXue Feng', image: 'xuxuefeng.png' }
-        ];
-
-        this.statuses = [
-            { label: 'Unqualified', value: 'unqualified' },
-            { label: 'Qualified', value: 'qualified' },
-            { label: 'New', value: 'new' },
-            { label: 'Negotiation', value: 'negotiation' },
-            { label: 'Renewal', value: 'renewal' },
-            { label: 'Proposal', value: 'proposal' }
-        ];
-    }
-
-    onSort() {
-        this.updateRowGroupMetaData();
-    }
-
-    updateRowGroupMetaData() {
-        this.rowGroupMetadata = {};
-
-        if (this.customers3) {
-            for (let i = 0; i < this.customers3.length; i++) {
-                const rowData = this.customers3[i];
-                const representativeName = rowData?.representative?.name || '';
-
-                if (i === 0) {
-                    this.rowGroupMetadata[representativeName] = { index: 0, size: 1 };
+        ngOnInit() {
+                    
+            // Subscribe to the selected center and fetch trainee list based on centerId
+            this.centerSelectionService.selectedCenter$.subscribe((centerId: string | null) => {
+                if (centerId) {
+                    // Set the selected center
+                    this.selectedCenter = centerId;
+        
+                    // Fetch the trainees using the initial page and size
+                    this.loadTraineeData(centerId, 0, 10, 'id', 'ASC');
+        
+                    // Fetch lookup data
+                    this.getLookupData(centerId);
                 }
-                else {
-                    const previousRowData = this.customers3[i - 1];
-                    const previousRowGroup = previousRowData?.representative?.name;
-                    if (representativeName === previousRowGroup) {
-                        this.rowGroupMetadata[representativeName].size++;
-                    }
-                    else {
-                        this.rowGroupMetadata[representativeName] = { index: i, size: 1 };
-                    }
-                }
-            }
+            });
+        
+            // Lazy load trainees on component initialization
+            this.loadTraineesLazy({ first: 0, rows: 10 });
         }
-    }
+      
+      // Method to load trainee data based on selected center and pagination
+      loadTraineeData(centerId: string, page: number = 0, size: number = 10, sort: string = 'id', direction: string = 'ASC'): void {
+        this.loading = true; // Set loading to true before the data is fetched
+        this.traineeService.getTraineeList(centerId, page, size, sort, direction).subscribe((response: TraineeResponse) => {
+          this.trainee = response.content;
+          console.log(this.trainee);
+          
+      
+          this.loading = false; // Turn off loading after data is fetched
+        });
+      }
+      
+      // Lazy load handler to pass pagination details
+      loadTraineesLazy(event: any): void {
+        const page = event.first / event.rows;
+        const size = event.rows;
+      
+        if (this.selectedCenter) {
+          this.loadTraineeData(this.selectedCenter, page, size, 'id', 'ASC');
+        }
+      }
 
-    expandAll() {
-        if (!this.isExpanded) {
-            this.products.forEach(product => product && product.name ? this.expandedRows[product.name] = true : '');
+      getLookupData(centerId: string): void {
+        this.lookupService.getLookupTown().subscribe((data: Lookup_Town[]) => {
+          this.towns = data;
+        });
+    
+        this.lookupService.getLookupProvince().subscribe((data: Lookup_Province[]) => {
+          this.provinces = data;
+          
+        });
+    
+        this.lookupService.getLookupInterest(centerId).subscribe((data: Lookup_Interest[]) => {
+            this.interests = data; 
+            
+        });
+    
+        this.lookupService.getLookupGender().subscribe((data: Lookup_Gender[]) => {
+          this.genders = data;
+        });
+    
+        this.lookupService.getLookupEducation().subscribe((data: Lookup_EducationLevel[]) => {
+          this.educationLevels = data;
+        });
 
+        this.lookupService.getLookupMunicipality().subscribe((data: Lookup_Municipality[]) => {
+            this.municipalities = data;
+        });
+
+        this.lookupService.getCenters().subscribe((data: Lookup_Center[]) => {
+            this.centers = data;
+            
+        });
+      }
+    
+      onCenterChange(selectedCenterId: string) {
+        console.log("Selected Center ID:", selectedCenterId);
+    
+        if (selectedCenterId) {
+            // Fetch interests based on the selected center
+            this.lookupService.getLookupInterest(selectedCenterId).subscribe((data: any[]) => {
+                // Map the incoming data to match Primeng's Dropdown expected format
+                console.log(data);
+                
+                this.interests = data.map(item => ({
+                    value: item.id,          // Map id to value
+                    label: item.description  // Map description to label
+                }));
+                console.log("Mapped Interests:", this.interests);
+            });
         } else {
-            this.expandedRows = {};
+            // Clear interests if no center is selected
+            this.interests = [];
         }
-        this.isExpanded = !this.isExpanded;
+    }
+    
+
+    onAddNew() {
+        this.selectedTrainee = {
+            personAddress: {},
+            personInterest: {}
+        };
+        this.submitted = false;
+        this.traineeDialog = true;
     }
 
-    formatCurrency(value: number) {
-        return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
-    }
 
     onGlobalFilter(table: Table, event: Event) {
         table.filterGlobal((event.target as HTMLInputElement).value, 'contains');
@@ -144,5 +172,150 @@ export class TableDemoComponent implements OnInit {
         table.clear();
         this.filter.nativeElement.value = '';
     }
+
+    viewTrainee(trainee: Trainee) {
+        
+    
+        this.selectedTrainee = { 
+            ...trainee, 
+        };
+    
+        this.traineeDialog = true;
+    }
+    
+    
+    
+    
+
+    editTrainee(trainee: Trainee) {
+        this.selectedTrainee = { ...trainee };
+        this.traineeDialog = true;
+    }
+
+    hideDialog() {
+        this.traineeDialog = false;
+        this.submitted = false;
+    }
+   
+    
+    
+
+    saveTrainee() {
+        this.submitted = true;
+    
+        if (this.selectedTrainee?.firstName && this.selectedTrainee.lastName) {
+            
+    
+            // Format the date of birth
+            const formattedDateOfBirth = this.selectedTrainee.dateOfBirth
+                ? this.formatDate(this.selectedTrainee.dateOfBirth)
+                : '';
+    
+            // Construct the payload for the trainee
+            const traineePayload: Trainee = {
+                ...this.selectedTrainee,
+                dateOfBirth: formattedDateOfBirth || this.selectedTrainee.dateOfBirth,
+            };
+
+            console.log(traineePayload);
+            
+    
+            // Check if it's an update or new save
+            if (this.selectedTrainee.personId && this.selectedTrainee.personId > 0) {
+                // Update the trainee
+                this.traineeService.updateTrainee(traineePayload).subscribe(
+                    (response) => {
+                        this.reloadTable();  // Reload the table data after update
+                        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Trainee updated successfully!' });
+                        this.hideDialog();  // Close dialog after successful update
+                    },
+                    (error) => {
+                        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error updating trainee.' });
+                    }
+                );
+            } else {
+                // Save new trainee
+                this.traineeService.SaveTrainee(traineePayload).subscribe(
+                    (response) => {
+                        this.reloadTable();  // Reload the table data after save
+                        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Trainee created successfully!' });
+                        this.hideDialog();  // Close dialog after successful save
+                    },
+                    (error) => {
+                        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error creating trainee.' });
+                    }
+                );
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    // Utility method to reload table data
+    reloadTable(): void {
+        if (this.selectedCenter) {
+            // Use the selectedCenter value to reload the data
+            this.loadTraineeData(this.selectedCenter, 0, 10, 'id', 'ASC');
+        } else {
+            // If selectedCenter is still null, fetch the latest center from the service
+            this.centerSelectionService.selectedCenter$.subscribe((centerId: string | null) => {
+                if (centerId) {
+                    this.loadTraineeData(centerId, 0, 10, 'id', 'ASC');
+                }
+            });
+        }
+    }    
+    
+      // Confirmation dialog for saving a trainee
+      confirmSave(event: Event) {
+        const action = this.selectedTrainee.personId && this.selectedTrainee.personId > 0 ? 'update' : 'save';
+    
+        this.confirmationService.confirm({
+            target: event.target as EventTarget,
+            message: `Are you sure you want to ${action} this trainee?`,
+            header: `${action.charAt(0).toUpperCase() + action.slice(1)} Confirmation`,  // Capitalize first letter
+            icon: 'pi pi-exclamation-triangle',
+            accept: () => {
+                this.saveTrainee();  // Call saveTrainee if confirmed
+            },
+            reject: () => {
+                this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: `${action.charAt(0).toUpperCase() + action.slice(1)} action cancelled` });
+            }
+        });
+    }
+    
+      // Confirmation dialog for deleting a trainee
+      confirmDelete(event: Event) {
+        this.confirmationService.confirm({
+          target: event.target as EventTarget,
+          message: 'Are you sure you want to delete this record?',
+          header: 'Delete Confirmation',
+          icon: 'pi pi-info-circle',
+          acceptButtonStyleClass: 'p-button-danger p-button-text',
+          rejectButtonStyleClass: 'p-button-text',
+          accept: () => {
+            this.messageService.add({ severity: 'success', summary: 'Confirmed', detail: 'Record deleted' });
+            // Call delete logic here
+          },
+          reject: () => {
+            this.messageService.add({ severity: 'info', summary: 'Cancelled', detail: 'Delete action cancelled' });
+          }
+        });
+      }
+    
+      // Utility method to format the date to YYYY-MM-DD
+      formatDate(dateString: string): string {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        return `${year}-${month}-${day}`;
+      }
+
+    
+    
+    
     
 }

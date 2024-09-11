@@ -1,250 +1,104 @@
 <div class="grid">
-    <div class="col-12 lg:col-6 xl:col-3">
+    <div class="col-12 lg:col-6 xl:col-6">
         <div class="card h-full p-0 overflow-hidden flex flex-column">
             <div class="flex align-items-center p-3">
                 <i class="pi pi-comments text-6xl text-purple-500"></i>
                 <div class="ml-3">
-                    <span class="text-purple-500 block white-space-nowrap">REGISTERED TODAY</span>
+                    <span class="text-purple-500 block white-space-nowrap">INSCRITS AUJOURD'HUI</span>
                     <span class="text-purple-500 block text-4xl font-bold">{{applicationCount.totalApplicationCountForDay}}</span>
                 </div>
             </div>
             <img [src]="'assets/demo/images/dashboard/interactions' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full mt-auto" alt="interactions">
         </div>
     </div>
-    <div class="col-12 lg:col-6 xl:col-3">
+    <div class="col-12 lg:col-6 xl:col-6">
         <div class="card p-0 overflow-hidden flex flex-column">
             <div class="flex align-items-center p-3">
                 <i class="pi pi-users text-6xl text-blue-500"></i>
                 <div class="ml-3">
-                    <span class="text-blue-500 block white-space-nowrap">TOTAL APPLICANTS REGISTERED</span>
+                    <span class="text-blue-500 block white-space-nowrap">TOTAL DES CANDIDATS INSCRITS</span>
                     <span class="text-blue-500 block text-4xl font-bold">{{applicationCount.totalApplicationCount}}</span>
                 </div>
             </div>
-            <img [src]="'assets/demo/images/dashboard/users' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="users">
-        </div>
-    </div>
-    <div class="col-12 lg:col-6 xl:col-3">
-        <div class="card p-0 overflow-hidden flex flex-column">
-            <div class="flex align-items-center p-3">
-                <i class="pi pi-map text-6xl text-orange-500"></i>
-                <div class="ml-3">
-                    <span class="text-orange-500 block white-space-nowrap">REACHED LOCATIONS</span>
-                    <span class="text-orange-500 block text-4xl font-bold">0</span>
-                </div>
-            </div>
-            <img [src]="'assets/demo/images/dashboard/locations' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="locations">
-        </div>
-    </div>
-    <div class="col-12 lg:col-6 xl:col-3">
-        <div class="card p-0 overflow-hidden flex flex-column">
-            <div class="flex align-items-center p-3">
-                <i class="pi pi-directions text-6xl text-green-500"></i>
-                <div class="ml-3">
-                    <span class="text-green-500 block white-space-nowrap">PROVINCES</span>
-                    <span class="text-green-500 block text-4xl font-bold">0</span>
-                </div>
-            </div>
-            <img [src]="'assets/demo/images/dashboard/rate' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="conversion">
+            <img [src]="'assets/demo/images/dashboard/users' + (colorScheme === 'light' ? '' : '-dark') + '.svg'" class="w-full" alt="utilisateurs">
         </div>
     </div>
     
+    <div class="col-12 xl:col-6">
+        <div class="card h-full">
+            <div class="flex justify-content-between align-items-center mb-3">
+                <h5>Aperçu des candidats par groupe d'âge</h5>
+            </div>
+            <div class="graph">
+                <p-chart #overviewchart type="bar" [data]="overviewChartDataByAge" [options]="overviewChartOptions" height="400px"></p-chart>
+            </div>
+        </div>
+    </div>
 
     <div class="col-12 xl:col-6">
         <div class="card h-full">
             <div class="flex justify-content-between align-items-center mb-3">
-                <h5>Overview of Users per age group</h5>
+                <h5>Aperçu des candidats par niveau d'éducation</h5>
             </div>
             <div class="graph">
-                <p-chart #overviewchart type="bar" [data]="overviewChartData" [options]="overviewChartOptions" height="400px"></p-chart>
+                <p-chart #overviewchart type="bar" [data]="overviewChartDataByEducation" [options]="overviewChartOptions" height="400px"></p-chart>
             </div>
         </div>
     </div>
-
-    <div class="col-12 xl:col-6">
+    
+    <div class="col-12 md:col-6 lg:col-6" *ngIf="interestPercentages.length > 0">
         <div class="card h-full">
-            <div class="flex justify-content-between align-items-center mb-3">
-                <h5>Overview of Users per Level of Education</h5>
+            <h5>Métier à Apprendre</h5>
+    
+            <div class="d-flex justify-content-between">
+                <!-- Première colonne -->
+                <div class="w-50">
+                    <ul class="list-none m-0 p-0">
+                        <li class="mb-4" *ngFor="let item of firstColumn">
+                            <div class="flex align-items-center justify-content-between mb-2">
+                                <span class="font-bold">{{ jobDescriptions[item.interest] || item.interest }}</span>
+                                <span>{{item.percentage | number:'1.0-2'}}%</span>
+                            </div>
+                            <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                                <div class="h-full {{item.color}}" [ngStyle]="{'width': item.percentage + '%'}"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+    
+                <!-- Séparateur -->
+                <div class="divider">
+                    <p-divider layout="vertical"></p-divider>
+                </div>
+    
+                <!-- Deuxième colonne -->
+                <div class="w-50">
+                    <ul class="list-none m-0 p-0">
+                        <li class="mb-4" *ngFor="let item of secondColumn">
+                            <div class="flex align-items-center justify-content-between mb-2">
+                                <span class="font-bold">{{ jobDescriptions[item.interest] || item.interest }}</span>
+                                <span>{{item.percentage | number:'1.0-2'}}%</span>
+                            </div>
+                            <div class="border-round overflow-hidden surface-200" style="height:.5rem">
+                                <div class="h-full {{item.color}}" [ngStyle]="{'width': item.percentage + '%'}"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="graph">
-                <p-chart #overviewchart type="bar" [data]="overviewChartData" [options]="overviewChartOptions" height="400px"></p-chart>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 md:col-6 lg:col-3">
-        <div class="card h-full">
-            <h5>Job to learn</h5>
-            
-            <ul class="list-none m-0 p-0">
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Construction professions</span>
-                        <span>%40</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-orange-500" style="width:40%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">hotel industry</span>
-                        <span>%60</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-indigo-500" style="width:60%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">welds</span>
-                        <span>%90</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-blue-500" style="width:90%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">professional drivers (trucks and heavy machinery)</span>
-                        <span>%50</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-green-500" style="width:50%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Aviation: Training of Flight Attendants and Stewards</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-purple-500" style="width:30%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">cutting and sewing</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-yellow-500" style="width:45%"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">computer science and new information and communication technologies</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-teal-500" style="width:70%"></div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="col-12 md:col-6 lg:col-3">
-        <div class="card h-full">
-            
-            <ul class="list-none m-0 p-0">
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Carpentry</span>
-                        <span>%40</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-orange-500" style="width:40%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">⁠Eco-guard</span>
-                        <span>%60</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-indigo-500" style="width:60%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">⁠Forestry</span>
-                        <span>%90</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-blue-500" style="width:90%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Administration (Executive Secretariat, logistics management, etc.)</span>
-                        <span>%50</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-green-500" style="width:50%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">⁠Agro-silvo-pastoral</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-purple-500" style="width:30%"></div>
-                    </div>
-                </li>
-                <li class="mb-4">
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Electricity and electronics</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-yellow-500" style="width:45%"></div>
-                    </div>
-                </li>
-                <li>
-                    <div class="flex align-items-center justify-content-between mb-2">
-                        <span class="font-bold">Cold and air conditioning</span>
-                        <span>%30</span>
-                    </div>
-                    <div class="border-round overflow-hidden surface-200" style="height:.5rem">
-                        <div class="h-full bg-teal-500" style="width:70%"></div>
-                    </div>
-                </li>
-            </ul>
         </div>
     </div>
 
     <div class="col-12 md:col-6 xl:col-6">
         <div class="card h-full">
             <div class="flex align-items-center justify-content-between mb-3">
-                <h5 class="m-0">Revenue Stream</h5>
-                <div class="flex align-items-center gap-2">
-                    <button pButton type="button" icon="pi pi-angle-left" class="p-button-outlined p-button-rounded p-button-plain h-2rem w-2rem p-0"></button>
-                    <button pButton type="button" icon="pi pi-angle-right" class="p-button-outlined p-button-rounded p-button-plain h-2rem w-2rem p-0"></button>
-                </div>
+                <h5 class="m-0">Aperçu Par Genre</h5>
             </div>
+            <br><br>
             <div class="flex flex-column align-items-center justify-content-center">
-                <p-chart type="doughnut" [data]="revenueChart" [options]="revenueOptions" width="180px" height="180px" class="mb-5"></p-chart>
-                <span class="font-bold mb-2">Total Revenue This Week</span>
-                <span class="font-bold text-6xl mb-2">88k</span>
-                <span class="font-bold mb-4 text-green-500">+21%<span class="text-color-secondary"> higher than last week</span></span>
-                <div class="flex align-items-center justify-content-center gap-3">
-                    <div class="flex align-items-center">
-                        <i class="pi pi-circle-on text-indigo-500"></i>
-                        <span class="text-color-secondary ml-2">Online</span>
-                    </div>
-                    <div class="flex align-items-center">
-                        <i class="pi pi-circle-on text-teal-500"></i>
-                        <span class="text-color-secondary ml-2">Retail</span>
-                    </div>
-                    <div class="flex align-items-center">
-                        <i class="pi pi-circle-on text-purple-500"></i>
-                        <span class="text-color-secondary ml-2">Partner</span>
-                    </div>
-                </div>
+                <p-chart type="doughnut" [data]="revenueChartData" [options]="revenueChartOptions" style="width: 100%; height: 100%;" class="mb-5"></p-chart>
             </div>
         </div>
     </div>
-    
 
-    
 </div>

@@ -6,4 +6,5 @@
 export const environment = {
   production: false,
   APIBase: 'http://localhost:8080/api/person/',
+  LookupBase: 'http://localhost:8080/lookup/',
 };

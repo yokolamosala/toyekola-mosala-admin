@@ -16,6 +16,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { PanelModule } from 'primeng/panel';
 import { TabViewModule } from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
     imports: [
@@ -35,6 +36,7 @@ import { TagModule } from 'primeng/tag';
         PanelModule,
         TabViewModule,
         TagModule,
+        DividerModule,
         SaaSDashboardRoutingModule
     ],
     declarations: [SaaSDashboardComponent]

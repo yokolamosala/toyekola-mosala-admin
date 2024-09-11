@@ -22,6 +22,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { TooltipModule } from 'primeng/tooltip';
 import { DropdownModule } from 'primeng/dropdown';
 import { MenuModule } from 'primeng/menu';
+import { DividerModule } from 'primeng/divider';
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import { MenuModule } from 'primeng/menu';
         RippleModule,
         RouterModule,
         TooltipModule,
+        DividerModule,
         AppConfigModule
     ],
     exports: [AppLayoutComponent]

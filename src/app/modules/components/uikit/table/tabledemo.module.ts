@@ -14,6 +14,9 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
 import { SliderModule } from 'primeng/slider';
 import { RatingModule } from 'primeng/rating';
+import { DialogModule } from 'primeng/dialog';
+import { CalendarModule } from 'primeng/calendar';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 @NgModule({
 	imports: [
@@ -30,7 +33,10 @@ import { RatingModule } from 'primeng/rating';
 		MultiSelectModule,
 		DropdownModule,
 		ProgressBarModule,
-		ToastModule
+		ToastModule,
+		DialogModule,
+		CalendarModule,
+		ConfirmDialogModule 
 	],
 	declarations: [TableDemoComponent]
 })
