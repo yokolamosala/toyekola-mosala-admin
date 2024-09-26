@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  APIBase: 'http://localhost:8080/api/person/',
-  LookupBase: 'http://localhost:8080/lookup/',
+  production: true,
+  APIBase: 'https://api.yekolamosala.com//api/person/',
+    LookupBase: 'https://api.yekolamosala.com//lookup/',
 };
