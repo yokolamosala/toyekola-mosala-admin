@@ -6,7 +6,7 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
     {
-        path: '', component: AppLayoutComponent,canActivate: [AuthGuard],
+        path: '', component: AppLayoutComponent,
         children: [
             { path: '', loadChildren: () => import('./modules/components/dashboards/dashboards.module').then(m => m.DashboardsModule) },
             { path: 'info', loadChildren: () => import('./modules/components/uikit/uikit.module').then(m => m.UIkitModule) },
