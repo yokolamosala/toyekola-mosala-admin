@@ -19,8 +19,8 @@ const routes: Routes = [
             { path: 'apps', data: { breadcrumb: 'Apps' }, loadChildren: () => import('./modules/components/apps/apps.module').then(m => m.AppsModule) }
         ]
     },
-    { path: 'login/callback', component: OktaCallbackComponent },
-    { path: 'auth', data: { breadcrumb: 'Auth' }, loadChildren: () => import('./modules/components/auth/auth.module').then(m => m.AuthModule) },
+    // { path: 'login/callback', component: OktaCallbackComponent },
+    //{ path: 'auth', data: { breadcrumb: 'Auth' }, loadChildren: () => import('./modules/components/auth/auth.module').then(m => m.AuthModule) },
     { path: 'landing', loadChildren: () => import('./modules/components/landing/landing.module').then(m => m.LandingModule) },
     { path: 'notfound', loadChildren: () => import('./modules/components/notfound/notfound.module').then(m => m.NotfoundModule) },
     { path: '**', redirectTo: '/notfound' }
