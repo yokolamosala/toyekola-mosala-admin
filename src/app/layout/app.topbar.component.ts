@@ -51,37 +51,44 @@ export class AppTopBarComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // Subscribe to authentication state changes
-        this.oktaAuthService.authState$.subscribe(
-          (result) => {
-            this.isAuthenticated = result.isAuthenticated!;
-            if (this.isAuthenticated) {
-              this.getUserDetails();
-            } else {
-              // Redirect to login if not authenticated
-              this.oktaAuth.signInWithRedirect();
-            }
-          },
-          (error) => {
-            console.error('Auth state subscription error:', error);
-            // Optionally redirect to login on error
+      // Subscribe to authentication state changes
+      this.oktaAuthService.authState$.subscribe(
+        (result) => {
+          this.isAuthenticated = result.isAuthenticated!;
+          if (this.isAuthenticated) {
+            this.getUserDetails();
+          } else {
+            // Redirect to login if not authenticated
             this.oktaAuth.signInWithRedirect();
           }
-        );
-
-        this.topNavService.getLookupCenter().subscribe(
-          (centers: Lookup_Center[]) => {
-            this.dropdownOptions = centers.map(center => ({
-              label: center.name, // Use the name of the center as the label
-              value: center.id // Use the id of the center as the value
-            }));
-          },
-          (error) => {
-            console.error('Error fetching centers:', error);
+        },
+        (error) => {
+          console.error('Auth state subscription error:', error);
+          // Optionally redirect to login on error
+          this.oktaAuth.signInWithRedirect();
+        }
+      );
+  
+      // Fetch centers and populate the dropdown options
+      this.topNavService.getLookupCenter().subscribe(
+        (centers: Lookup_Center[]) => {
+          this.dropdownOptions = centers.map(center => ({
+            label: center.name, // Use the name of the center as the label
+            value: center.id // Use the id of the center as the value
+          }));
+  
+          // Select the first option by default
+          if (this.dropdownOptions.length > 0) {
+            this.selectedOption = this.dropdownOptions[0].value;
+            this.onCenterChange({ value: this.selectedOption }); // Notify the change
           }
-        );
-        this.selectedOption = this.dropdownOptions[0]?.value;
-      }
+        },
+        (error) => {
+          console.error('Error fetching centers:', error);
+        }
+      );
+    }
+  
 
       onCenterChange(event: any) {
         const selectedCenterId = event.value; // Get the selected center ID
@@ -116,7 +123,7 @@ export class AppTopBarComponent implements OnInit {
 
       logout() {
         this.oktaAuth.signOut({
-          postLogoutRedirectUri: 'http://localhost:4200/auth/login'
+          postLogoutRedirectUri: 'https://admin.yekolamosala.com/auth/login'
         });
       }
 
