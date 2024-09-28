@@ -88,6 +88,11 @@ export class TableDemoComponent implements OnInit {
           this.loading = false; // Turn off loading after data is fetched
         });
       }
+
+      mapInterestLabel(interestCode: string): string {
+        const interest = this.interests.find(item => item.value === interestCode);
+        return interest ? interest.label : 'Unknown Interest';
+      }
       
       // Lazy load handler to pass pagination details
       loadTraineesLazy(event: any): void {

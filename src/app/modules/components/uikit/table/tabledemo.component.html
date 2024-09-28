@@ -69,7 +69,7 @@
                         <td>{{trainee.gender}}</td>
                         <td>{{trainee.dateOfBirth | date: 'MM/dd/yyyy'}}</td>
                         <td>{{trainee.educationLevel}}</td>
-                        <td>{{trainee.personInterest?.interest}}</td>
+                        <td>{{ mapInterestLabel(trainee.personInterest?.interest) }}</td>
                         <td class="text-center">
                             <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-info p-button-outlined mr-2" (click)="viewTrainee(trainee)"></button>
                         </td>
