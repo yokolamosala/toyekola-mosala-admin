@@ -16,3 +16,14 @@ export interface Lookup {
     name: string;
     municipalityId: string;
 }
+
+export interface Lookup_Town_by_Province {
+  id: string;
+  description: string;
+  province: string;
+}
+
+export interface Lookup_Center_by_Town {
+  id: string;
+  description: string;
+}

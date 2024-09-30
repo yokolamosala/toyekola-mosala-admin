@@ -96,156 +96,156 @@
         <div class="">
 
             <!-- Section Informations Personnelles -->
-             <div class="card field">
+            <div class="card field">
                 <h3>Informations Personnelles</h3>
                 <div class="p-fluid p-formgrid grid">
                     <!-- Titre -->
-            <div class="field col-12 md:col-6">
-                <label for="title">Titre</label>
-                <p-dropdown id="title" [options]="titles" [(ngModel)]="selectedTrainee.title" placeholder="Sélectionnez le Titre"></p-dropdown>
-            </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="title">Titre</label>
+                        <p-dropdown id="title" [options]="titles" [(ngModel)]="selectedTrainee.title" placeholder="Sélectionnez le Titre"></p-dropdown>
+                    </div>
 
-            <!-- nom -->
-            <div class="field col-12 md:col-6">
-                <label for="firstName">Nom</label>
-                <input pInputText id="firstName" [(ngModel)]="selectedTrainee.firstName" required>
-                <small class="p-error" *ngIf="submitted && !selectedTrainee.firstName">Le nom est obligatoire.</small>
-            </div>
+                    <!-- Nom -->
+                    <div class="field col-12 md:col-6">
+                        <label for="firstName">Nom</label>
+                        <input pInputText id="firstName" [(ngModel)]="selectedTrainee.firstName" required>
+                        <small class="p-error" *ngIf="submitted && !selectedTrainee.firstName">Le nom est obligatoire.</small>
+                    </div>
 
-            <!-- Deuxième prénom -->
-            <div class="field col-12 md:col-6">
-                <label for="middleName">prénom</label>
-                <input pInputText id="middleName" [(ngModel)]="selectedTrainee.middleName">
-            </div>
+                    <!-- Deuxième prénom -->
+                    <div class="field col-12 md:col-6">
+                        <label for="middleName">Prénom</label>
+                        <input pInputText id="middleName" [(ngModel)]="selectedTrainee.middleName">
+                    </div>
 
-            <!-- Nom de famille -->
-            <div class="field col-12 md:col-6">
-                <label for="lastName">Postnom</label>
-                <input pInputText id="lastName" [(ngModel)]="selectedTrainee.lastName" required>
-                <small class="p-error" *ngIf="submitted && !selectedTrainee.lastName">Le nom de famille est obligatoire.</small>
-            </div>
+                    <!-- Nom de famille -->
+                    <div class="field col-12 md:col-6">
+                        <label for="lastName">Postnom</label>
+                        <input pInputText id="lastName" [(ngModel)]="selectedTrainee.lastName" required>
+                        <small class="p-error" *ngIf="submitted && !selectedTrainee.lastName">Le nom de famille est obligatoire.</small>
+                    </div>
 
-            <!-- Genre -->
-            <div class="field col-12 md:col-6">
-                <label for="gender">Genre</label>
-                <p-dropdown id="gender" [options]="genders" [(ngModel)]="selectedTrainee.gender" placeholder="Sélectionnez le Genre"></p-dropdown>
-            </div>
+                    <!-- Genre -->
+                    <div class="field col-12 md:col-6">
+                        <label for="gender">Genre</label>
+                        <p-dropdown id="gender" [options]="genders" [(ngModel)]="selectedTrainee.gender" placeholder="Sélectionnez le Genre"></p-dropdown>
+                    </div>
 
-            <!-- Date de naissance -->
-            <div class="field col-12 md:col-6">
-                <label for="dateOfBirth">Date de naissance</label>
-                <p-calendar id="dateOfBirth" [(ngModel)]="selectedTrainee.dateOfBirth" dateFormat="mm/dd/yy"></p-calendar>
-            </div>
+                    <!-- Date de naissance -->
+                    <div class="field col-12 md:col-6">
+                        <label for="dateOfBirth">Date de naissance</label>
+                        <p-calendar id="dateOfBirth" [(ngModel)]="selectedTrainee.dateOfBirth" dateFormat="mm/dd/yy"></p-calendar>
+                    </div>
 
-            <!-- Numéro de passeport -->
-            <div class="field col-12 md:col-6">
-                <label for="passportNumber">Numéro de passeport</label>
-                <input pInputText id="passportNumber" [(ngModel)]="selectedTrainee.passportNumber">
-            </div>
+                    <!-- Numéro de passeport -->
+                    <div class="field col-12 md:col-6">
+                        <label for="passportNumber">Numéro de passeport</label>
+                        <input pInputText id="passportNumber" [(ngModel)]="selectedTrainee.passportNumber">
+                    </div>
 
-            <!-- Email -->
-            <div class="field col-12 md:col-6">
-                <label for="email">Email</label>
-                <input pInputText id="email" [(ngModel)]="selectedTrainee.email">
-            </div>
+                    <!-- Email -->
+                    <div class="field col-12 md:col-6">
+                        <label for="email">Email</label>
+                        <input pInputText id="email" [(ngModel)]="selectedTrainee.email">
+                    </div>
 
-            <!-- Numéro de téléphone portable -->
-            <div class="field col-12 md:col-6">
-                <label for="cellphoneNumber">Numéro de téléphone</label>
-                <input pInputText id="cellphoneNumber" [(ngModel)]="selectedTrainee.cellphoneNumber" required>
-            </div>
+                    <!-- Numéro de téléphone portable -->
+                    <div class="field col-12 md:col-6">
+                        <label for="cellphoneNumber">Numéro de téléphone</label>
+                        <input pInputText id="cellphoneNumber" [(ngModel)]="selectedTrainee.cellphoneNumber" required>
+                    </div>
 
-            <!-- Niveau d'éducation -->
-            <div class="field col-12 md:col-6">
-                <label for="educationLevel">Niveau d'éducation</label>
-                <p-dropdown id="educationLevel" appendTo="body" [options]="educationLevels" [(ngModel)]="selectedTrainee.educationLevel" placeholder="Sélectionnez le niveau d'éducation"></p-dropdown>
-            </div>
+                    <!-- Niveau d'éducation -->
+                    <div class="field col-12 md:col-6">
+                        <label for="educationLevel">Niveau d'éducation</label>
+                        <p-dropdown id="educationLevel" appendTo="body" [options]="educationLevels" [(ngModel)]="selectedTrainee.educationLevel" placeholder="Sélectionnez le niveau d'éducation"></p-dropdown>
+                    </div>
                 </div>
-             </div>
+            </div>
 
-             <div class="card">
+            <div class="card">
                 <h3>Adresse</h3>
-                
                 <div class="p-fluid p-formgrid grid">
 
                     <!-- Rue -->
-            <div class="field col-12 md:col-6">
-                <label for="street">Avenue</label>
-                <input pInputText id="street" [(ngModel)]="selectedTrainee.personAddress!.street">
-            </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="street">Avenue</label>
+                        <input pInputText id="street" [(ngModel)]="selectedTrainee.personAddress!.street">
+                    </div>
 
-            <!-- Municipalité -->
-            <div class="field col-12 md:col-6">
-                <label for="municipality">Commune</label>
-                <p-dropdown 
-                    id="municipality" 
-                    [options]="municipalities" 
-                    optionLabel="label" 
-                    optionValue="value"
-                    appendTo="body"
-                    [(ngModel)]="selectedTrainee.personAddress!.municipality" 
-                    placeholder="Sélectionnez la Municipalité">
-                </p-dropdown>
-            </div>
-                    <!-- Ville -->
-            <div class="field col-12 md:col-6">
-                <label for="city">Ville</label>
-                <p-dropdown id="city" [options]="towns" appendTo="body" optionLabel="label" optionValue="value" [(ngModel)]="selectedTrainee.personAddress!.city" placeholder="Sélectionnez la Ville"></p-dropdown>
-            </div>
+                    <!-- Municipalité -->
+                    <div class="field col-12 md:col-6">
+                        <label for="municipality">Commune</label>
+                        <input pInputText id="municipality" [(ngModel)]="selectedTrainee.personAddress!.municipality" placeholder="Entrez la Municipalité">
+                    </div>                    
 
-            <!-- Province -->
-            <div class="field col-12 md:col-6">
-                <label for="province">Province</label>
-                <p-dropdown id="province" [options]="provinces" appendTo="body" optionLabel="label" optionValue="value" [(ngModel)]="selectedTrainee.personAddress!.province" placeholder="Sélectionnez la Province"></p-dropdown>
-            </div>
+                    <!-- Province -->
+                    <div class="field col-12 md:col-6">
+                        <label for="province">Province</label>
+                        <p-dropdown 
+                            id="province" 
+                            [options]="provinces" 
+                            appendTo="body" 
+                            optionLabel="label" 
+                            optionValue="value" 
+                            [(ngModel)]="selectedTrainee.personAddress!.province" 
+                            placeholder="Sélectionnez la Province"
+                            (onChange)="onProvinceChange($event.value)">
+                        </p-dropdown>
+                    </div>
 
-            
+                    <!-- Ville (depends on the province selected) -->
+                    <div class="field col-12 md:col-6">
+                        <label for="city">Ville</label>
+                        <p-dropdown 
+                            id="city" 
+                            [options]="towns" 
+                            appendTo="body" 
+                            optionLabel="label" 
+                            optionValue="value" 
+                            [(ngModel)]="selectedTrainee.personAddress!.city" 
+                            placeholder="Sélectionnez la Ville"
+                            [disabled]="!selectedTrainee.personAddress!.province"
+                            (onChange)="onTownChange($event.value)">
+                        </p-dropdown>
+                    </div>
+
+                    <!-- Centre (depends on the town selected) -->
+                    <div class="field col-12 md:col-6">
+                        <label for="center">Centre</label>
+                        <p-dropdown 
+                            id="center" 
+                            [options]="centers" 
+                            optionLabel="name" 
+                            optionValue="id"
+                            [(ngModel)]="selectedTrainee.center" 
+                            placeholder="Sélectionnez le Centre"
+                            appendTo="body"
+                            [disabled]="!selectedTrainee.personAddress!.city"
+                            (ngModelChange)="onCenterChange($event)">
+                        </p-dropdown>
+                    </div>
+
+                    <!-- Métier à Apprendre (depends on the center selected) -->
+                    <div class="field col-12 md:col-6">
+                        <label for="interests">Métier à Apprendre</label>
+                        <p-dropdown 
+                            id="interests" 
+                            [options]="interests" 
+                            optionLabel="label" 
+                            optionValue="value" 
+                            appendTo="body"
+                            [(ngModel)]="selectedTrainee.personInterest!.interest" 
+                            placeholder="Sélectionnez un métier à apprendre" 
+                            [disabled]="!selectedTrainee.center">
+                        </p-dropdown>
+
+                        <small class="p-error" *ngIf="submitted && !selectedTrainee?.personInterest">
+                            Au moins un métier doit être sélectionné.
+                        </small>
+                    </div>
                 </div>
-             </div>
-
-             <div class="card">
-                <!-- Section Centre -->
-            <h3>Centre</h3>
-
-            <!-- Centre (dépend de la municipalité sélectionnée) -->
-            <div class="field col-12 md:col-6">
-                <label for="center">Centre</label>
-                <p-dropdown 
-                    id="center" 
-                    [options]="centers" 
-                    optionLabel="name" 
-                    optionValue="id"
-                    [(ngModel)]="selectedTrainee.center" 
-                    placeholder="Sélectionnez le Centre"
-                    appendTo="body"
-                    (ngModelChange)="onCenterChange($event)">
-                </p-dropdown>
             </div>
-
-            <!-- Métier à Apprendre (dépend du centre sélectionné) -->
-            <div class="field col-12 md:col-6">
-                <label for="interests">Métier à Apprendre</label>
-                <p-dropdown 
-                    id="interests" 
-                    [options]="interests" 
-                    optionLabel="label" 
-                    optionValue="value" 
-                    appendTo="body"
-                    [(ngModel)]="selectedTrainee.personInterest!.interest" 
-                    placeholder="Sélectionnez un métier à apprendre" 
-                    [disabled]="!selectedTrainee.center">
-                </p-dropdown>
-
-                <small class="p-error" *ngIf="submitted && !selectedTrainee?.personInterest">
-                    Au moins un métier doit être sélectionné.
-                </small>
-            </div>
-             </div>
-            
-
-            <!-- Section Adresse -->
-
-            
         </div>
     </ng-template>
 

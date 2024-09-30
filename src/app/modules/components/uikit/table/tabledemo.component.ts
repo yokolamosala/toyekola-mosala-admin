@@ -7,7 +7,7 @@ import { Table } from 'primeng/table';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { TraineeResponse, TraineeService } from 'src/app/modules/service/trainee.service';
 import { PersonInterest, Trainee } from 'src/app/modules/api/trainee';
-import { Lookup_Center, Lookup_EducationLevel, Lookup_Gender, Lookup_Interest, Lookup_Municipality, Lookup_Province, Lookup_Town } from 'src/app/modules/api/lookups';
+import { Lookup_Center, Lookup_Center_by_Town, Lookup_EducationLevel, Lookup_Gender, Lookup_Interest, Lookup_Municipality, Lookup_Province, Lookup_Town, Lookup_Town_by_Province } from 'src/app/modules/api/lookups';
 import { LookupsService } from 'src/app/modules/service/lookups.service';
 import { CenterSelectionService } from 'src/app/center-selection.service';
 
@@ -42,6 +42,8 @@ export class TableDemoComponent implements OnInit {
     selectedMunicipality: string | null = null;
     selectedCenter: string | null = null; 
     selectedInterest: PersonInterest | null = null;
+    selectedProvince: string | null = null;
+    selectedTown: string | null = null;
 
     @ViewChild('filter') filter!: ElementRef;
 
@@ -138,23 +140,48 @@ export class TableDemoComponent implements OnInit {
       }
     
       onCenterChange(selectedCenterId: string) {
-        console.log("Selected Center ID:", selectedCenterId);
-    
         if (selectedCenterId) {
-            // Fetch interests based on the selected center
             this.lookupService.getLookupInterest(selectedCenterId).subscribe((data: any[]) => {
-                // Map the incoming data to match Primeng's Dropdown expected format
-                console.log(data);
-                
                 this.interests = data.map(item => ({
-                    value: item.id,          // Map id to value
-                    label: item.description  // Map description to label
+                    value: item.id,
+                    label: item.description
                 }));
-                console.log("Mapped Interests:", this.interests);
             });
         } else {
-            // Clear interests if no center is selected
             this.interests = [];
+        }
+    }
+
+    // Handles province change and loads towns based on the selected province
+    onProvinceChange(selectedProvinceId: string) {
+        if (selectedProvinceId) {
+            this.lookupService.getLookupTownbyProvince(selectedProvinceId).subscribe((data: Lookup_Town_by_Province[]) => {
+                this.towns = data.map(item => ({
+                    value: item.id,
+                    label: item.description
+                }));
+            });
+        } else {
+            this.towns = [];
+        }
+        // Reset selected town and centers when province changes
+        this.selectedTown = null;
+        this.centers = [];
+    }
+
+    // Handles town change and loads centers based on the selected town
+    onTownChange(selectedTownId: string) {
+        if (selectedTownId) {
+            this.lookupService.getLookupCenterbyTown(selectedTownId).subscribe((data: Lookup_Center_by_Town[]) => {
+                // Assuming `Lookup_Center_by_Town` and `Lookup_Center` are similar in structure
+                this.centers = data.map(item => ({
+                    id: item.id,               // Assign id to id
+                    name: item.description,    // Use the description as the center's name
+                    municipalityId: selectedTownId // Assuming the townId relates to municipalityId
+                }));
+            });
+        } else {
+            this.centers = [];
         }
     }
     

@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Lookup_Center, Lookup_EducationLevel, Lookup_Gender, Lookup_Interest, Lookup_Municipality, Lookup_Province, Lookup_Town } from '../api/lookups';
+import { Lookup_Center, Lookup_Center_by_Town, Lookup_EducationLevel, Lookup_Gender, Lookup_Interest, Lookup_Municipality, Lookup_Province, Lookup_Town, Lookup_Town_by_Province } from '../api/lookups';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -23,6 +23,13 @@ export class LookupsService {
     return this.http.get<Lookup_Interest[]>(`${environment.LookupBase}${centerId}/interests`);
 }
 
+getLookupTownbyProvince(provinceId: string): Observable<Lookup_Town_by_Province[]> {
+  return this.http.get<Lookup_Town_by_Province[]>(`${environment.LookupBase}${provinceId}/town-by-province`);
+}
+
+getLookupCenterbyTown(townId: string): Observable<Lookup_Center_by_Town[]> {
+  return this.http.get<Lookup_Center_by_Town[]>(`${environment.LookupBase}${townId}/centers-by-town`);
+}
   getLookupGender(): Observable<Lookup_Gender[]> {
     return this.http.get<Lookup_Gender[]>(environment.LookupBase + 'gender');
   }
