@@ -27,6 +27,7 @@ export interface Trainee {
   passportNumber?: string;
   email?: string;
   street?: string;
+  attendFikin?: boolean;
   cellphoneNumber?: string;
   educationLevel?: string;
   center?: string;

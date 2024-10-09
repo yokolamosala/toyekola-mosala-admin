@@ -68,7 +68,7 @@
                         <td>{{trainee.lastName}}</td>
                         <td>{{trainee.gender}}</td>
                         <td>{{trainee.dateOfBirth | date: 'MM/dd/yyyy'}}</td>
-                        <td>{{trainee.educationLevel}}</td>
+                        <td>{{getEducationDescription(trainee.educationLevel)}}</td>
                         <td>{{ mapInterestLabel(trainee.personInterest?.interest) }}</td>
                         <td class="text-center">
                             <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-info p-button-outlined mr-2" (click)="viewTrainee(trainee)"></button>
@@ -160,6 +160,16 @@
                         <label for="educationLevel">Niveau d'éducation</label>
                         <p-dropdown id="educationLevel" appendTo="body" [options]="educationLevels" [(ngModel)]="selectedTrainee.educationLevel" placeholder="Sélectionnez le niveau d'éducation"></p-dropdown>
                     </div>
+
+                    <!-- Attend FIKIN -->
+                    <div class="field col-12 md:col-6">
+                         <label for="attendFikin">Participer à la Foire?</label>
+                         <p-checkbox id="attendFikin" [(ngModel)]="selectedTrainee.attendFikin" [binary]="true"></p-checkbox>
+                    </div>
+
+                    <div class="field col-12 md:col-6">
+                   </div>
+  
                 </div>
             </div>
 

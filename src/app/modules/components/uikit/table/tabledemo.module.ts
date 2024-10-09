@@ -17,6 +17,7 @@ import { RatingModule } from 'primeng/rating';
 import { DialogModule } from 'primeng/dialog';
 import { CalendarModule } from 'primeng/calendar';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
 	imports: [
@@ -36,7 +37,8 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 		ToastModule,
 		DialogModule,
 		CalendarModule,
-		ConfirmDialogModule 
+		ConfirmDialogModule, 
+		CheckboxModule
 	],
 	declarations: [TableDemoComponent]
 })

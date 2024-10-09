@@ -6,6 +6,10 @@ export interface ApplicationCount {
     totalApplicationCountForDay: number;
   }
 
+  export interface ParticipantCount {
+    totalParticipantCount: number;
+  }
+
   export interface PersonAgeGroup {
     ageGroup: string;
     personCount: number;

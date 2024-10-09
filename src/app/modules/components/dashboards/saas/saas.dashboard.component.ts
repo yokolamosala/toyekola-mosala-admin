@@ -2,8 +2,10 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Subscription, debounceTime } from 'rxjs';
 import { CenterSelectionService } from 'src/app/center-selection.service';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
-import { ApplicationCount, EducationLevel, GenderGroup, Interests, PersonAgeGroup } from 'src/app/modules/api/dashboard';
+import { ApplicationCount, EducationLevel, GenderGroup, Interests, ParticipantCount, PersonAgeGroup } from 'src/app/modules/api/dashboard';
+import { Lookup_EducationLevel } from 'src/app/modules/api/lookups';
 import { DashboardService } from 'src/app/modules/service/dashboard.service';
+import { LookupsService } from 'src/app/modules/service/lookups.service';
 
 @Component({
     templateUrl: './saas.dashboard.component.html',
@@ -86,6 +88,8 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
         totalApplicationCountForDay: 0
     };
 
+    participantCount: number = 0;
+
     ageGroup: PersonAgeGroup[] =[];
     labelsListAge: string[] = [];
     dataListAge: number[] = [];
@@ -98,6 +102,8 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
     labelsListGender: string[] = [];
     dataListGender: number[] = [];
 
+    educationList: Lookup_EducationLevel[] = [];
+
     interests: Interests[] = [];
     totalPersonCount: number = 0;
     interestPercentages: { interest: string, percentage: number, color: string }[] = [];
@@ -107,7 +113,7 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
     selectedCenter: string | null = null;
 
     constructor(public layoutService: LayoutService, private dashboardService: DashboardService,
-        private centerSelectionService: CenterSelectionService
+        private centerSelectionService: CenterSelectionService, private lookupService: LookupsService
     ) { 
         this.subscription = this.layoutService.configUpdate$
         .pipe(debounceTime(25))
@@ -118,6 +124,11 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
 
+        this.lookupService.getLookupEducation().subscribe((education : Lookup_EducationLevel[]) => {
+            this.educationList = education;
+            
+        });
+
         // Subscribe to the selected center observable
         this.centerSelectionService.selectedCenter$.subscribe(
             (centerId: string | null) => {
@@ -126,6 +137,19 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
                 }
             }
         );
+
+        // Fetch participant count
+        this.dashboardService.getRegisteredParticipantCount().subscribe((ParticipantCountData: number) => {
+            this.participantCount = ParticipantCountData;
+            
+        });
+
+        
+    }
+
+    getEducationDescription(code:string): string{
+        const education = this.educationList.find(item => item.value === code);
+        return education ? education.label : 'Unknown Education';
     }
     
     loadDataForCenter(centerId: string): void {
@@ -159,7 +183,7 @@ export class SaaSDashboardComponent implements OnInit, OnDestroy {
             this.labelsListEducation = [];
             this.dataListEducation = [];
             this.educationGroup.forEach(group => {
-                this.labelsListEducation.push(group.educationLevel);
+                this.labelsListEducation.push(this.getEducationDescription(group.educationLevel));
                 this.dataListEducation.push(group.personCount);
             });
     

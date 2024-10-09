@@ -10,6 +10,7 @@ import { PersonInterest, Trainee } from 'src/app/modules/api/trainee';
 import { Lookup_Center, Lookup_Center_by_Town, Lookup_EducationLevel, Lookup_Gender, Lookup_Interest, Lookup_Municipality, Lookup_Province, Lookup_Town, Lookup_Town_by_Province } from 'src/app/modules/api/lookups';
 import { LookupsService } from 'src/app/modules/service/lookups.service';
 import { CenterSelectionService } from 'src/app/center-selection.service';
+import { forkJoin, Observable, tap } from 'rxjs';
 
 interface expandedRows {
     [key: string]: boolean;
@@ -34,6 +35,7 @@ export class TableDemoComponent implements OnInit {
     towns: Lookup_Town[] = [];
     provinces: Lookup_Province[] = [];
     interests: Lookup_Interest[] = [];
+    interestswith: Lookup_Interest[] = [];
     genders: Lookup_Gender[] = [];
     educationLevels: Lookup_EducationLevel[] = [];
     municipalities: Lookup_Municipality[] = [];
@@ -44,6 +46,8 @@ export class TableDemoComponent implements OnInit {
     selectedInterest: PersonInterest | null = null;
     selectedProvince: string | null = null;
     selectedTown: string | null = null;
+
+    educationList: Lookup_EducationLevel[] = [];
 
     @ViewChild('filter') filter!: ElementRef;
 
@@ -57,34 +61,50 @@ export class TableDemoComponent implements OnInit {
 
     constructor( private traineeService: TraineeService, private lookupService: LookupsService, 
         private centerSelectionService: CenterSelectionService, private confirmationService: ConfirmationService,
-        private messageService: MessageService ) { }
+        private messageService: MessageService ) {
+            
+         }
 
-        ngOnInit() {
-                    
-            // Subscribe to the selected center and fetch trainee list based on centerId
-            this.centerSelectionService.selectedCenter$.subscribe((centerId: string | null) => {
-                if (centerId) {
-                    // Set the selected center
-                    this.selectedCenter = centerId;
-        
-                    // Fetch the trainees using the initial page and size
-                    this.loadTraineeData(centerId, 0, 10, 'id', 'ASC');
-        
-                    // Fetch lookup data
-                    this.getLookupData(centerId);
-                }
+         loadInterests(): void {
+            this.lookupService.getLookupInterestWithout().subscribe(interests => {
+              this.interestswith = interests;
+              
             });
-        
-            // Lazy load trainees on component initialization
-            this.loadTraineesLazy({ first: 0, rows: 10 });
+          }
+        ngOnInit() {
+
+            this.lookupService.getLookupEducation().subscribe((education : Lookup_EducationLevel[]) => {
+                this.educationList = education;
+                
+            });
+
+            this.loadInterests();
+            // Subscribe to selected center and ensure interests are loaded first
+            this.centerSelectionService.selectedCenter$.subscribe((centerId: string | null) => {
+              if (centerId) {
+                // Set the selected center
+                this.selectedCenter = centerId;
+          
+                // Fetch lookup data first
+                this.getLookupData(centerId).subscribe(() => {
+                  // Once lookup data is loaded, fetch trainee data
+                  this.loadTraineeData(centerId, 0, 10, 'id', 'ASC');
+                });
+              }
+            });
+          }
+          
+          getEducationDescription(code:string): string{
+            const education = this.educationList.find(item => item.value === code);
+            return education ? education.label : 'Unknown Education';
         }
+        
       
       // Method to load trainee data based on selected center and pagination
       loadTraineeData(centerId: string, page: number = 0, size: number = 10, sort: string = 'id', direction: string = 'ASC'): void {
         this.loading = true; // Set loading to true before the data is fetched
         this.traineeService.getTraineeList(centerId, page, size, sort, direction).subscribe((response: TraineeResponse) => {
           this.trainee = response.content;
-          console.log(this.trainee);
           
       
           this.loading = false; // Turn off loading after data is fetched
@@ -92,7 +112,7 @@ export class TableDemoComponent implements OnInit {
       }
 
       mapInterestLabel(interestCode: string): string {
-        const interest = this.interests.find(item => item.value === interestCode);
+        const interest = this.interestswith.find(item => item.value === interestCode);
         return interest ? interest.label : 'Unknown Interest';
       }
       
@@ -106,38 +126,28 @@ export class TableDemoComponent implements OnInit {
         }
       }
 
-      getLookupData(centerId: string): void {
-        this.lookupService.getLookupTown().subscribe((data: Lookup_Town[]) => {
-          this.towns = data;
-        });
+      getLookupData(centerId: string): Observable<any> {
+        return forkJoin({
+            towns: this.lookupService.getLookupTown(),
+            provinces: this.lookupService.getLookupProvince(),
+            interests: this.lookupService.getLookupInterest(centerId),
+            genders: this.lookupService.getLookupGender(),
+            educationLevels: this.lookupService.getLookupEducation(),
+            municipalities: this.lookupService.getLookupMunicipality(),
+            centers: this.lookupService.getCenters()
+        }).pipe(tap(result => {
+            // Once all observables have completed, assign the results to the appropriate properties
+            this.towns = result.towns;
+            this.provinces = result.provinces;
+            this.interests = result.interests;
+            this.genders = result.genders;
+            this.educationLevels = result.educationLevels;
+            this.municipalities = result.municipalities;
+            this.centers = result.centers;
+        }));
+    }
     
-        this.lookupService.getLookupProvince().subscribe((data: Lookup_Province[]) => {
-          this.provinces = data;
-          
-        });
-    
-        this.lookupService.getLookupInterest(centerId).subscribe((data: Lookup_Interest[]) => {
-            this.interests = data; 
-            
-        });
-    
-        this.lookupService.getLookupGender().subscribe((data: Lookup_Gender[]) => {
-          this.genders = data;
-        });
-    
-        this.lookupService.getLookupEducation().subscribe((data: Lookup_EducationLevel[]) => {
-          this.educationLevels = data;
-        });
-
-        this.lookupService.getLookupMunicipality().subscribe((data: Lookup_Municipality[]) => {
-            this.municipalities = data;
-        });
-
-        this.lookupService.getCenters().subscribe((data: Lookup_Center[]) => {
-            this.centers = data;
-            
-        });
-      }
+   
     
       onCenterChange(selectedCenterId: string) {
         if (selectedCenterId) {
@@ -248,8 +258,6 @@ export class TableDemoComponent implements OnInit {
                 ...this.selectedTrainee,
                 dateOfBirth: formattedDateOfBirth || this.selectedTrainee.dateOfBirth,
             };
-
-            console.log(traineePayload);
             
     
             // Check if it's an update or new save

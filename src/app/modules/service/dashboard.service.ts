@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ApplicationCount, EducationLevel, GenderGroup, Interests, PersonAgeGroup } from '../api/dashboard';
+import { ApplicationCount, EducationLevel, GenderGroup, Interests, ParticipantCount, PersonAgeGroup } from '../api/dashboard';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +14,10 @@ export class DashboardService {
   getRegisteredApplicantCount(centerId: string): Observable<ApplicationCount> {
     return this.http.get<ApplicationCount>(`${environment.APIBase}getStatisticCount?centerId=${centerId}`);
   }
+
+  getRegisteredParticipantCount(): Observable<number> {
+    return this.http.get<number>(`${environment.APIBase}fikinAttendanceCounts`);
+}
 
   getRegisteredByAgeGroupCount(centerId: string): Observable<PersonAgeGroup[]> {
     return this.http.get<PersonAgeGroup[]>(`${environment.APIBase}getPersonCountByAgeGroup?centerId=${centerId}`);

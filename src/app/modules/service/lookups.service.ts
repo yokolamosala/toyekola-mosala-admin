@@ -23,6 +23,10 @@ export class LookupsService {
     return this.http.get<Lookup_Interest[]>(`${environment.LookupBase}${centerId}/interests`);
 }
 
+getLookupInterestWithout(): Observable<Lookup_Interest[]> {
+  return this.http.get<Lookup_Interest[]>(`${environment.LookupBase}interest`);
+}
+
 getLookupTownbyProvince(provinceId: string): Observable<Lookup_Town_by_Province[]> {
   return this.http.get<Lookup_Town_by_Province[]>(`${environment.LookupBase}${provinceId}/town-by-province`);
 }
